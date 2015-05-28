@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04A1D8F61B1770160006674B /* wkb-ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 04A1D8F51B1770160006674B /* wkb-ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04A1D8FC1B1770160006674B /* wkb-ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A1D8F01B1770160006674B /* wkb-ios.framework */; };
 		04A1D9031B1770160006674B /* wkb_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A1D9021B1770160006674B /* wkb_iosTests.m */; };
+		04A1D9111B177B0D0006674B /* WKBGeometryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04A1D90F1B177B0D0006674B /* WKBGeometryTypes.h */; };
+		04A1D9121B177B0D0006674B /* WKBGeometryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A1D9101B177B0D0006674B /* WKBGeometryTypes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +25,11 @@
 
 /* Begin PBXFileReference section */
 		04A1D8F01B1770160006674B /* wkb-ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "wkb-ios.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04A1D8F41B1770160006674B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04A1D8F51B1770160006674B /* wkb-ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wkb-ios.h"; sourceTree = "<group>"; };
 		04A1D8FB1B1770160006674B /* wkb-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wkb-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A1D9011B1770160006674B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04A1D9021B1770160006674B /* wkb_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wkb_iosTests.m; sourceTree = "<group>"; };
+		04A1D90F1B177B0D0006674B /* WKBGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryTypes.h; sourceTree = "<group>"; };
+		04A1D9101B177B0D0006674B /* WKBGeometryTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryTypes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,18 +72,11 @@
 		04A1D8F21B1770160006674B /* wkb-ios */ = {
 			isa = PBXGroup;
 			children = (
-				04A1D8F51B1770160006674B /* wkb-ios.h */,
-				04A1D8F31B1770160006674B /* Supporting Files */,
+				04A1D90E1B177AE40006674B /* util */,
+				04A1D90D1B177ABE0006674B /* io */,
+				04A1D90C1B177A9E0006674B /* geom */,
 			);
 			path = "wkb-ios";
-			sourceTree = "<group>";
-		};
-		04A1D8F31B1770160006674B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				04A1D8F41B1770160006674B /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		04A1D8FF1B1770160006674B /* wkb-iosTests */ = {
@@ -102,6 +96,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		04A1D90C1B177A9E0006674B /* geom */ = {
+			isa = PBXGroup;
+			children = (
+				04A1D90F1B177B0D0006674B /* WKBGeometryTypes.h */,
+				04A1D9101B177B0D0006674B /* WKBGeometryTypes.m */,
+			);
+			path = geom;
+			sourceTree = "<group>";
+		};
+		04A1D90D1B177ABE0006674B /* io */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		04A1D90E1B177AE40006674B /* util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -109,7 +126,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04A1D8F61B1770160006674B /* wkb-ios.h in Headers */,
+				04A1D9111B177B0D0006674B /* WKBGeometryTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A1D9121B177B0D0006674B /* WKBGeometryTypes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +416,7 @@
 				04A1D9081B1770160006674B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04A1D9091B1770160006674B /* Build configuration list for PBXNativeTarget "wkb-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +425,7 @@
 				04A1D90B1B1770160006674B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
