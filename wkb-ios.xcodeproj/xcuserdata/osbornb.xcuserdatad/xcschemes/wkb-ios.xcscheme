@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "04A1D8EF1B1770160006674B"
-               BuildableName = "wkb-ios.framework"
+               BlueprintIdentifier = "04DA608B1B179CE500D9BCA2"
+               BuildableName = "libwkb-ios.a"
                BlueprintName = "wkb-ios"
                ReferencedContainer = "container:wkb-ios.xcodeproj">
             </BuildableReference>
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "04A1D8FA1B1770160006674B"
+               BlueprintIdentifier = "04DA60961B179CE500D9BCA2"
                BuildableName = "wkb-iosTests.xctest"
                BlueprintName = "wkb-iosTests"
                ReferencedContainer = "container:wkb-ios.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "04A1D8FA1B1770160006674B"
+               BlueprintIdentifier = "04DA60961B179CE500D9BCA2"
                BuildableName = "wkb-iosTests.xctest"
                BlueprintName = "wkb-iosTests"
                ReferencedContainer = "container:wkb-ios.xcodeproj">
@@ -56,8 +56,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "04A1D8EF1B1770160006674B"
-            BuildableName = "wkb-ios.framework"
+            BlueprintIdentifier = "04DA608B1B179CE500D9BCA2"
+            BuildableName = "libwkb-ios.a"
             BlueprintName = "wkb-ios"
             ReferencedContainer = "container:wkb-ios.xcodeproj">
          </BuildableReference>
@@ -75,8 +75,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "04A1D8EF1B1770160006674B"
-            BuildableName = "wkb-ios.framework"
+            BlueprintIdentifier = "04DA608B1B179CE500D9BCA2"
+            BuildableName = "libwkb-ios.a"
             BlueprintName = "wkb-ios"
             ReferencedContainer = "container:wkb-ios.xcodeproj">
          </BuildableReference>
@@ -93,8 +93,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "04A1D8EF1B1770160006674B"
-            BuildableName = "wkb-ios.framework"
+            BlueprintIdentifier = "04DA608B1B179CE500D9BCA2"
+            BuildableName = "libwkb-ios.a"
             BlueprintName = "wkb-ios"
             ReferencedContainer = "container:wkb-ios.xcodeproj">
          </BuildableReference>

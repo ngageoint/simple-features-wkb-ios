@@ -7,140 +7,151 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04A1D8FC1B1770160006674B /* wkb-ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A1D8F01B1770160006674B /* wkb-ios.framework */; };
-		04A1D9031B1770160006674B /* wkb_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A1D9021B1770160006674B /* wkb_iosTests.m */; };
-		04A1D9111B177B0D0006674B /* WKBGeometryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04A1D90F1B177B0D0006674B /* WKBGeometryTypes.h */; };
-		04A1D9121B177B0D0006674B /* WKBGeometryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A1D9101B177B0D0006674B /* WKBGeometryTypes.m */; };
+		04DA60981B179CE500D9BCA2 /* libwkb-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DA608C1B179CE500D9BCA2 /* libwkb-ios.a */; };
+		04DA60AB1B179E9200D9BCA2 /* WKBGeometryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DA60AA1B179E9200D9BCA2 /* WKBGeometryTypes.m */; };
+		04DA60AE1B179EC600D9BCA2 /* WKBByteOrderTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DA60AD1B179EC600D9BCA2 /* WKBByteOrderTypes.m */; };
+		04DA60B11B179EEA00D9BCA2 /* WKBByteReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DA60B01B179EEA00D9BCA2 /* WKBByteReader.m */; };
+		04DA60B41B179F0900D9BCA2 /* WKBByteWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DA60B31B179F0900D9BCA2 /* WKBByteWriter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		04A1D8FD1B1770160006674B /* PBXContainerItemProxy */ = {
+		04DA60991B179CE500D9BCA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 04A1D8E71B1770160006674B /* Project object */;
+			containerPortal = 04DA60841B179CE500D9BCA2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 04A1D8EF1B1770160006674B;
+			remoteGlobalIDString = 04DA608B1B179CE500D9BCA2;
 			remoteInfo = "wkb-ios";
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		04DA608A1B179CE500D9BCA2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		04A1D8F01B1770160006674B /* wkb-ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "wkb-ios.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04A1D8FB1B1770160006674B /* wkb-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wkb-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04A1D9011B1770160006674B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04A1D9021B1770160006674B /* wkb_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wkb_iosTests.m; sourceTree = "<group>"; };
-		04A1D90F1B177B0D0006674B /* WKBGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryTypes.h; sourceTree = "<group>"; };
-		04A1D9101B177B0D0006674B /* WKBGeometryTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryTypes.m; sourceTree = "<group>"; };
+		04DA608C1B179CE500D9BCA2 /* libwkb-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libwkb-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DA60971B179CE500D9BCA2 /* wkb-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wkb-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DA609D1B179CE500D9BCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DA60A91B179E9200D9BCA2 /* WKBGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryTypes.h; sourceTree = "<group>"; };
+		04DA60AA1B179E9200D9BCA2 /* WKBGeometryTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryTypes.m; sourceTree = "<group>"; };
+		04DA60AC1B179EC600D9BCA2 /* WKBByteOrderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBByteOrderTypes.h; sourceTree = "<group>"; };
+		04DA60AD1B179EC600D9BCA2 /* WKBByteOrderTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBByteOrderTypes.m; sourceTree = "<group>"; };
+		04DA60AF1B179EEA00D9BCA2 /* WKBByteReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBByteReader.h; sourceTree = "<group>"; };
+		04DA60B01B179EEA00D9BCA2 /* WKBByteReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBByteReader.m; sourceTree = "<group>"; };
+		04DA60B21B179F0900D9BCA2 /* WKBByteWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBByteWriter.h; sourceTree = "<group>"; };
+		04DA60B31B179F0900D9BCA2 /* WKBByteWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBByteWriter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		04A1D8EC1B1770160006674B /* Frameworks */ = {
+		04DA60891B179CE500D9BCA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04A1D8F81B1770160006674B /* Frameworks */ = {
+		04DA60941B179CE500D9BCA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04A1D8FC1B1770160006674B /* wkb-ios.framework in Frameworks */,
+				04DA60981B179CE500D9BCA2 /* libwkb-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04A1D8E61B1770160006674B = {
+		04DA60831B179CE500D9BCA2 = {
 			isa = PBXGroup;
 			children = (
-				04A1D8F21B1770160006674B /* wkb-ios */,
-				04A1D8FF1B1770160006674B /* wkb-iosTests */,
-				04A1D8F11B1770160006674B /* Products */,
+				04DA608E1B179CE500D9BCA2 /* wkb-ios */,
+				04DA609B1B179CE500D9BCA2 /* wkb-iosTests */,
+				04DA608D1B179CE500D9BCA2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		04A1D8F11B1770160006674B /* Products */ = {
+		04DA608D1B179CE500D9BCA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04A1D8F01B1770160006674B /* wkb-ios.framework */,
-				04A1D8FB1B1770160006674B /* wkb-iosTests.xctest */,
+				04DA608C1B179CE500D9BCA2 /* libwkb-ios.a */,
+				04DA60971B179CE500D9BCA2 /* wkb-iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		04A1D8F21B1770160006674B /* wkb-ios */ = {
+		04DA608E1B179CE500D9BCA2 /* wkb-ios */ = {
 			isa = PBXGroup;
 			children = (
-				04A1D90E1B177AE40006674B /* util */,
-				04A1D90D1B177ABE0006674B /* io */,
-				04A1D90C1B177A9E0006674B /* geom */,
+				04DA60A81B179E6B00D9BCA2 /* geom */,
+				04DA60A71B179E6500D9BCA2 /* io */,
+				04DA60A61B179E5D00D9BCA2 /* util */,
 			);
 			path = "wkb-ios";
 			sourceTree = "<group>";
 		};
-		04A1D8FF1B1770160006674B /* wkb-iosTests */ = {
+		04DA609B1B179CE500D9BCA2 /* wkb-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				04A1D9021B1770160006674B /* wkb_iosTests.m */,
-				04A1D9001B1770160006674B /* Supporting Files */,
+				04DA609C1B179CE500D9BCA2 /* Supporting Files */,
 			);
 			path = "wkb-iosTests";
 			sourceTree = "<group>";
 		};
-		04A1D9001B1770160006674B /* Supporting Files */ = {
+		04DA609C1B179CE500D9BCA2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				04A1D9011B1770160006674B /* Info.plist */,
+				04DA609D1B179CE500D9BCA2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04A1D90C1B177A9E0006674B /* geom */ = {
-			isa = PBXGroup;
-			children = (
-				04A1D90F1B177B0D0006674B /* WKBGeometryTypes.h */,
-				04A1D9101B177B0D0006674B /* WKBGeometryTypes.m */,
-			);
-			path = geom;
-			sourceTree = "<group>";
-		};
-		04A1D90D1B177ABE0006674B /* io */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = io;
-			sourceTree = "<group>";
-		};
-		04A1D90E1B177AE40006674B /* util */ = {
+		04DA60A61B179E5D00D9BCA2 /* util */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = util;
 			sourceTree = "<group>";
 		};
+		04DA60A71B179E6500D9BCA2 /* io */ = {
+			isa = PBXGroup;
+			children = (
+				04DA60AC1B179EC600D9BCA2 /* WKBByteOrderTypes.h */,
+				04DA60AD1B179EC600D9BCA2 /* WKBByteOrderTypes.m */,
+				04DA60AF1B179EEA00D9BCA2 /* WKBByteReader.h */,
+				04DA60B01B179EEA00D9BCA2 /* WKBByteReader.m */,
+				04DA60B21B179F0900D9BCA2 /* WKBByteWriter.h */,
+				04DA60B31B179F0900D9BCA2 /* WKBByteWriter.m */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		04DA60A81B179E6B00D9BCA2 /* geom */ = {
+			isa = PBXGroup;
+			children = (
+				04DA60A91B179E9200D9BCA2 /* WKBGeometryTypes.h */,
+				04DA60AA1B179E9200D9BCA2 /* WKBGeometryTypes.m */,
+			);
+			path = geom;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		04A1D8ED1B1770160006674B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04A1D9111B177B0D0006674B /* WKBGeometryTypes.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		04A1D8EF1B1770160006674B /* wkb-ios */ = {
+		04DA608B1B179CE500D9BCA2 /* wkb-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04A1D9061B1770160006674B /* Build configuration list for PBXNativeTarget "wkb-ios" */;
+			buildConfigurationList = 04DA60A01B179CE500D9BCA2 /* Build configuration list for PBXNativeTarget "wkb-ios" */;
 			buildPhases = (
-				04A1D8EB1B1770160006674B /* Sources */,
-				04A1D8EC1B1770160006674B /* Frameworks */,
-				04A1D8ED1B1770160006674B /* Headers */,
-				04A1D8EE1B1770160006674B /* Resources */,
+				04DA60881B179CE500D9BCA2 /* Sources */,
+				04DA60891B179CE500D9BCA2 /* Frameworks */,
+				04DA608A1B179CE500D9BCA2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -148,71 +159,64 @@
 			);
 			name = "wkb-ios";
 			productName = "wkb-ios";
-			productReference = 04A1D8F01B1770160006674B /* wkb-ios.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = 04DA608C1B179CE500D9BCA2 /* libwkb-ios.a */;
+			productType = "com.apple.product-type.library.static";
 		};
-		04A1D8FA1B1770160006674B /* wkb-iosTests */ = {
+		04DA60961B179CE500D9BCA2 /* wkb-iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04A1D9091B1770160006674B /* Build configuration list for PBXNativeTarget "wkb-iosTests" */;
+			buildConfigurationList = 04DA60A31B179CE500D9BCA2 /* Build configuration list for PBXNativeTarget "wkb-iosTests" */;
 			buildPhases = (
-				04A1D8F71B1770160006674B /* Sources */,
-				04A1D8F81B1770160006674B /* Frameworks */,
-				04A1D8F91B1770160006674B /* Resources */,
+				04DA60931B179CE500D9BCA2 /* Sources */,
+				04DA60941B179CE500D9BCA2 /* Frameworks */,
+				04DA60951B179CE500D9BCA2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				04A1D8FE1B1770160006674B /* PBXTargetDependency */,
+				04DA609A1B179CE500D9BCA2 /* PBXTargetDependency */,
 			);
 			name = "wkb-iosTests";
 			productName = "wkb-iosTests";
-			productReference = 04A1D8FB1B1770160006674B /* wkb-iosTests.xctest */;
+			productReference = 04DA60971B179CE500D9BCA2 /* wkb-iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		04A1D8E71B1770160006674B /* Project object */ = {
+		04DA60841B179CE500D9BCA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = NGA;
 				TargetAttributes = {
-					04A1D8EF1B1770160006674B = {
+					04DA608B1B179CE500D9BCA2 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
-					04A1D8FA1B1770160006674B = {
+					04DA60961B179CE500D9BCA2 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 04A1D8EA1B1770160006674B /* Build configuration list for PBXProject "wkb-ios" */;
+			buildConfigurationList = 04DA60871B179CE500D9BCA2 /* Build configuration list for PBXProject "wkb-ios" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 04A1D8E61B1770160006674B;
-			productRefGroup = 04A1D8F11B1770160006674B /* Products */;
+			mainGroup = 04DA60831B179CE500D9BCA2;
+			productRefGroup = 04DA608D1B179CE500D9BCA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04A1D8EF1B1770160006674B /* wkb-ios */,
-				04A1D8FA1B1770160006674B /* wkb-iosTests */,
+				04DA608B1B179CE500D9BCA2 /* wkb-ios */,
+				04DA60961B179CE500D9BCA2 /* wkb-iosTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		04A1D8EE1B1770160006674B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04A1D8F91B1770160006674B /* Resources */ = {
+		04DA60951B179CE500D9BCA2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -222,34 +226,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		04A1D8EB1B1770160006674B /* Sources */ = {
+		04DA60881B179CE500D9BCA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04A1D9121B177B0D0006674B /* WKBGeometryTypes.m in Sources */,
+				04DA60AB1B179E9200D9BCA2 /* WKBGeometryTypes.m in Sources */,
+				04DA60B11B179EEA00D9BCA2 /* WKBByteReader.m in Sources */,
+				04DA60AE1B179EC600D9BCA2 /* WKBByteOrderTypes.m in Sources */,
+				04DA60B41B179F0900D9BCA2 /* WKBByteWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04A1D8F71B1770160006674B /* Sources */ = {
+		04DA60931B179CE500D9BCA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04A1D9031B1770160006674B /* wkb_iosTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		04A1D8FE1B1770160006674B /* PBXTargetDependency */ = {
+		04DA609A1B179CE500D9BCA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 04A1D8EF1B1770160006674B /* wkb-ios */;
-			targetProxy = 04A1D8FD1B1770160006674B /* PBXContainerItemProxy */;
+			target = 04DA608B1B179CE500D9BCA2 /* wkb-ios */;
+			targetProxy = 04DA60991B179CE500D9BCA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04A1D9041B1770160006674B /* Debug */ = {
+		04DA609E1B179CE500D9BCA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -266,9 +272,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -290,13 +294,10 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		04A1D9051B1770160006674B /* Release */ = {
+		04DA609F1B179CE500D9BCA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -313,9 +314,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -330,46 +329,32 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		04A1D9071B1770160006674B /* Debug */ = {
+		04DA60A11B179CE500D9BCA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "wkb-ios/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		04A1D9081B1770160006674B /* Release */ = {
+		04DA60A21B179CE500D9BCA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "wkb-ios/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		04A1D90A1B1770160006674B /* Debug */ = {
+		04DA60A41B179CE500D9BCA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -384,9 +369,10 @@
 			};
 			name = Debug;
 		};
-		04A1D90B1B1770160006674B /* Release */ = {
+		04DA60A51B179CE500D9BCA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -400,34 +386,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04A1D8EA1B1770160006674B /* Build configuration list for PBXProject "wkb-ios" */ = {
+		04DA60871B179CE500D9BCA2 /* Build configuration list for PBXProject "wkb-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04A1D9041B1770160006674B /* Debug */,
-				04A1D9051B1770160006674B /* Release */,
+				04DA609E1B179CE500D9BCA2 /* Debug */,
+				04DA609F1B179CE500D9BCA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04A1D9061B1770160006674B /* Build configuration list for PBXNativeTarget "wkb-ios" */ = {
+		04DA60A01B179CE500D9BCA2 /* Build configuration list for PBXNativeTarget "wkb-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04A1D9071B1770160006674B /* Debug */,
-				04A1D9081B1770160006674B /* Release */,
+				04DA60A11B179CE500D9BCA2 /* Debug */,
+				04DA60A21B179CE500D9BCA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04A1D9091B1770160006674B /* Build configuration list for PBXNativeTarget "wkb-iosTests" */ = {
+		04DA60A31B179CE500D9BCA2 /* Build configuration list for PBXNativeTarget "wkb-iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04A1D90A1B1770160006674B /* Debug */,
-				04A1D90B1B1770160006674B /* Release */,
+				04DA60A41B179CE500D9BCA2 /* Debug */,
+				04DA60A51B179CE500D9BCA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 04A1D8E71B1770160006674B /* Project object */;
+	rootObject = 04DA60841B179CE500D9BCA2 /* Project object */;
 }
