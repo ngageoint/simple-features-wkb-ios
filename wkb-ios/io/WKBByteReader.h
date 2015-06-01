@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WKBByteOrderTypes.h"
 
 @interface WKBByteReader : NSObject
 
 @property (nonatomic) int nextByte;
 @property (nonatomic, strong) NSData *bytes;
-@property (nonatomic) enum WKBByteOrderType byteOrder;
+@property (nonatomic) CFByteOrder byteOrder;
 
 -(instancetype) initWithData: (NSData *) bytes;
 
