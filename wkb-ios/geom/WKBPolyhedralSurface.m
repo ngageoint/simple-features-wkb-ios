@@ -26,8 +26,8 @@
     [self.polygons addObject:polygon];
 }
 
--(NSUInteger) numPolygons{
-    return [self.polygons count];
+-(NSNumber *) numPolygons{
+    return [NSNumber numberWithInteger:[self.polygons count]];
 }
 
 @end

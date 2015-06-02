@@ -19,6 +19,6 @@
 
 -(void) addPoint: (WKBPoint *) point;
 
--(NSUInteger) numPoints;
+-(NSNumber *) numPoints;
 
 @end

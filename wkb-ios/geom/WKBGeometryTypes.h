@@ -58,4 +58,6 @@ extern NSString * const WKB_NONE_NAME;
 
 +(int) code: (enum WKBGeometryType) geometryType;
 
++(enum WKBGeometryType) fromCode: (int) code;
+
 @end

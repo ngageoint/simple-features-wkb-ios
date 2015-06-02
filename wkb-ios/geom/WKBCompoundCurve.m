@@ -22,8 +22,8 @@
     [self.lineStrings addObject:lineString];
 }
 
--(NSUInteger) numLineStrings{
-    return [self.lineStrings count];
+-(NSNumber *) numLineStrings{
+    return [NSNumber numberWithInteger:[self.lineStrings count]];
 }
 
 @end

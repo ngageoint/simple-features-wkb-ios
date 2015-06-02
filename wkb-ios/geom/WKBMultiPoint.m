@@ -27,7 +27,7 @@
     [self addGeometry:point];
 }
 
--(NSUInteger) numPoints{
+-(NSNumber *) numPoints{
     return [self numGeometries];
 }
 

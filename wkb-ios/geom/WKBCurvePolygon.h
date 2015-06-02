@@ -19,6 +19,6 @@
 
 -(void) addRing: (WKBCurve *) ring;
 
--(NSUInteger) numRings;
+-(NSNumber *) numRings;
 
 @end

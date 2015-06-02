@@ -26,8 +26,8 @@
     [self.rings addObject:ring];
 }
 
--(NSUInteger) numRings{
-    return [self.rings count];
+-(NSNumber *) numRings{
+    return [NSNumber numberWithInteger:[self.rings count]];
 }
 
 @end

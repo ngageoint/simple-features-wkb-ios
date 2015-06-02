@@ -26,8 +26,8 @@
     [self.geometries addObject:geometry];
 }
 
--(NSUInteger) numGeometries{
-    return [self.geometries count];
+-(NSNumber *) numGeometries{
+    return [NSNumber numberWithInteger:[self.geometries count]];
 }
 
 @end

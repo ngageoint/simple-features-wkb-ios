@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WKBGeometryEnvelope.h"
+#import "WKBGeometry.h"
 
 @interface WKBGeometryEnvelopeBuilder : NSObject
 
-// TODO
++(WKBGeometryEnvelope *) buildEnvelopeWithGeometry: (WKBGeometry *) geometry;
+
++(void) buildEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry;
 
 @end

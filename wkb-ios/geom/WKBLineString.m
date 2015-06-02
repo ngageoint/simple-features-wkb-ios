@@ -26,8 +26,8 @@
     [self.points addObject:point];
 }
 
--(NSUInteger) numPoints{
-    return [self.points count];
+-(NSNumber *) numPoints{
+    return [NSNumber numberWithInteger:[self.points count] ];
 }
 
 @end

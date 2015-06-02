@@ -28,7 +28,7 @@
 }
 
 -(int) size{
-    return [[self getData] length];
+    return (int)[[self getData] length];
 }
 
 -(void) writeString: (NSString *) value{
@@ -51,7 +51,7 @@
         v = CFSwapInt32HostToLittle(v);
     }
     
-    NSData *data = [NSData dataWithBytes:v length:4];
+    NSData *data = [NSData dataWithBytes:&v length:4];
     [self.os write:[data bytes]  maxLength:4];
 }
 
@@ -69,7 +69,7 @@
         result.sv = CFSwapInt64HostToLittle(result.sv);
     }
 
-    NSData *data = [NSData dataWithBytes:result.sv length:8];
+    NSData *data = [NSData dataWithBytes:&result.sv length:8];
     [self.os write:[data bytes]  maxLength:8];
 }
 

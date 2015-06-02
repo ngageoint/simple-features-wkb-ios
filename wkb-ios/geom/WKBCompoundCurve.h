@@ -17,6 +17,6 @@
 
 -(void) addLineString: (WKBLineString *) lineString;
 
--(NSUInteger) numLineStrings;
+-(NSNumber *) numLineStrings;
 
 @end

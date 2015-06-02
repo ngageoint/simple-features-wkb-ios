@@ -27,7 +27,7 @@
     [self addGeometry:polygon];
 }
 
--(NSUInteger) numPolygons{
+-(NSNumber *) numPolygons{
     return [self numGeometries];
 }
 

@@ -18,6 +18,6 @@
 
 -(void) addGeometry: (WKBGeometry *) geometry;
 
--(NSUInteger) numGeometries;
+-(NSNumber *) numGeometries;
 
 @end

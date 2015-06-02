@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WKBGeometry.h"
 
 @interface WKBGeometryPrinter : NSObject
 
-// TODO
++(NSString *) getGeometryString: (WKBGeometry *) geometry;
 
 @end

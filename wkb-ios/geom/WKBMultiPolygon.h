@@ -19,6 +19,6 @@
 
 -(void) addPolygon: (WKBPolygon *) polygon;
 
--(NSUInteger) numPolygons;
+-(NSNumber *) numPolygons;
 
 @end

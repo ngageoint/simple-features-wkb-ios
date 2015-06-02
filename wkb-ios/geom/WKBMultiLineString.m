@@ -27,7 +27,7 @@
     [self addGeometry:lineString];
 }
 
--(NSUInteger) numLineStrings{
+-(NSNumber *) numLineStrings{
     return [self numGeometries];
 }
 

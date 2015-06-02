@@ -133,4 +133,8 @@ NSString * const WKB_NONE_NAME = @"NONE";
     return (int) geometryType;
 }
 
++(enum WKBGeometryType) fromCode: (int) code{
+    return code;
+}
+
 @end
