@@ -19,7 +19,7 @@
     
     // Read the single byte order byte
     NSNumber * byteOrderValue = [reader readByte];
-    CFByteOrder byteOrder = byteOrderValue == 0 ? CFByteOrderBigEndian
+    CFByteOrder byteOrder = [byteOrderValue intValue] == 0 ? CFByteOrderBigEndian
 				: CFByteOrderLittleEndian;
     CFByteOrder originalByteOrder = [reader byteOrder];
     [reader setByteOrder:byteOrder];

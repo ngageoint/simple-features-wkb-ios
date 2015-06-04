@@ -37,7 +37,8 @@
 }
 
 -(void) writeByte: (NSNumber *) value{
-    NSData *data = [NSData dataWithBytes:&value length:1];
+    uint8_t byte = [value intValue];
+    NSData *data = [NSData dataWithBytes:&byte length:1];
     [self.os write:[data bytes]  maxLength:1];
 }
 
