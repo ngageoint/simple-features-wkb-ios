@@ -10,6 +10,7 @@
 
 @interface WKBByteWriter : NSObject
 
+@property int nextByte;
 @property (nonatomic, strong) NSOutputStream * os;
 @property (nonatomic) CFByteOrder byteOrder;
 

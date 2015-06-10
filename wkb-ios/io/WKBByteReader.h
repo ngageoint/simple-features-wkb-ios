@@ -10,7 +10,7 @@
 
 @interface WKBByteReader : NSObject
 
-@property (nonatomic) int nextByte;
+@property int nextByte;
 @property (nonatomic, strong) NSData *bytes;
 @property (nonatomic) CFByteOrder byteOrder;
 

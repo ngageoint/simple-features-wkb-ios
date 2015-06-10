@@ -13,6 +13,7 @@
 -(instancetype) init{
     self = [super init];
     if(self != nil){
+        self.nextByte = 0;
         self.os = [[NSOutputStream alloc] initToMemory];
         [self.os open];
     }
@@ -28,18 +29,20 @@
 }
 
 -(int) size{
-    return (int)[[self getData] length];
+    return self.nextByte;
 }
 
 -(void) writeString: (NSString *) value{
     NSData *data = [[NSData alloc] initWithData:[value dataUsingEncoding:NSUTF8StringEncoding]];
     [self.os write:[data bytes] maxLength:[value length]];
+    self.nextByte += [value length];
 }
 
 -(void) writeByte: (NSNumber *) value{
     uint8_t byte = [value intValue];
     NSData *data = [NSData dataWithBytes:&byte length:1];
     [self.os write:[data bytes]  maxLength:1];
+    self.nextByte++;
 }
 
 -(void) writeInt: (NSNumber *) value{
@@ -54,6 +57,7 @@
     
     NSData *data = [NSData dataWithBytes:&v length:4];
     [self.os write:[data bytes]  maxLength:4];
+    self.nextByte += 4;
 }
 
 -(void) writeDouble: (NSDecimalNumber *) value{
@@ -72,6 +76,7 @@
 
     NSData *data = [NSData dataWithBytes:&result.sv length:8];
     [self.os write:[data bytes]  maxLength:8];
+    self.nextByte += 8;
 }
 
 @end

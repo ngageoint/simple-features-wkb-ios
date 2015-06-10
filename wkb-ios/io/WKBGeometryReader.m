@@ -19,8 +19,15 @@
     
     // Read the single byte order byte
     NSNumber * byteOrderValue = [reader readByte];
-    CFByteOrder byteOrder = [byteOrderValue intValue] == 0 ? CFByteOrderBigEndian
-				: CFByteOrderLittleEndian;
+    int byteOrderIntValue = [byteOrderValue intValue];
+    CFByteOrder byteOrder = CFByteOrderUnknown;
+    if(byteOrderIntValue == 0){
+        byteOrder = CFByteOrderBigEndian;
+    }else if(byteOrderIntValue == 1){
+        byteOrder = CFByteOrderLittleEndian;
+    }else{
+        [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order value: %@", byteOrderValue];
+    }
     CFByteOrder originalByteOrder = [reader byteOrder];
     [reader setByteOrder:byteOrder];
     

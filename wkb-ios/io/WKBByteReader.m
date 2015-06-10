@@ -22,7 +22,8 @@
 
 -(NSString *) readString: (int) num{
     char *buffer = (char *)malloc(sizeof(char) * (num +1));
-    [self.bytes getBytes:buffer range:NSMakeRange(self.nextByte, num)];
+    int rangeStart = self.nextByte;
+    [self.bytes getBytes:buffer range:NSMakeRange(rangeStart, num)];
     buffer[num] = '\0';
     NSString * value = [NSString stringWithUTF8String:buffer];
     self.nextByte += num;
@@ -31,8 +32,9 @@
 
 -(NSNumber *) readByte{
     char *buffer = (char *)malloc(sizeof(char));
-    [self.bytes getBytes:buffer range:NSMakeRange(self.nextByte, 1)];
-    int value = *(int*)buffer;
+    int rangeStart = self.nextByte;
+    [self.bytes getBytes:buffer range:NSMakeRange(rangeStart, 1)];
+    uint8_t value = *(uint8_t*)buffer;
     self.nextByte++;
     free(buffer);
     return [NSNumber numberWithInt:value];
@@ -40,7 +42,8 @@
 
 -(NSNumber *) readInt{
     char *buffer = (char *)malloc(sizeof(char) * 4);
-    [self.bytes getBytes:buffer range:NSMakeRange(self.nextByte, 4)];
+    int rangeStart = self.nextByte;
+    [self.bytes getBytes:buffer range:NSMakeRange(rangeStart, 4)];
     
     uint32_t result = *(uint32_t*)buffer;
     
@@ -58,7 +61,8 @@
 
 -(NSDecimalNumber *) readDouble{
     char *buffer = (char *)malloc(sizeof(char) * 8);
-    [self.bytes getBytes:buffer range:NSMakeRange(self.nextByte, 8)];
+    int rangeStart = self.nextByte;
+    [self.bytes getBytes:buffer range:NSMakeRange(rangeStart, 8)];
     
     union DoubleSwap {
         double v;

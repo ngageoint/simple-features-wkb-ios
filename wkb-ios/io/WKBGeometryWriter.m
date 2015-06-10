@@ -13,7 +13,14 @@
 +(void) writeGeometry: (WKBGeometry *) geometry withWriter: (WKBByteWriter *) writer{
 
     // Write the single byte order byte
-    int byteOrderInt = writer.byteOrder == CFByteOrderBigEndian ?  0 : 1;
+    uint8_t byteOrderInt = -1;
+    if(writer.byteOrder == CFByteOrderBigEndian){
+        byteOrderInt = 0;
+    }else if(writer.byteOrder == CFByteOrderLittleEndian){
+        byteOrderInt = 1;
+    }else{
+        [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order: %@", writer.byteOrder];
+    }
     NSNumber * byteOrder = [NSNumber numberWithInt:byteOrderInt];
     [writer writeByte:byteOrder];
     
