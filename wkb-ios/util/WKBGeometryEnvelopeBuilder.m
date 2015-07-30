@@ -107,25 +107,25 @@
     
     NSDecimalNumber * x = point.x;
     NSDecimalNumber * y = point.y;
-    if(x < envelope.minX){
+    if([x compare:envelope.minX] == NSOrderedAscending){
         [envelope setMinX:x];
     }
-    if(x > envelope.maxX){
+    if([x compare:envelope.maxX] == NSOrderedDescending){
         [envelope setMaxX:x];
     }
-    if(y < envelope.minY){
+    if([y compare:envelope.minY] == NSOrderedAscending){
         [envelope setMinY:y];
     }
-    if(y > envelope.maxY){
+    if([y compare:envelope.maxY] == NSOrderedDescending){
         [envelope setMaxY:y];
     }
     if (point.hasZ) {
         NSDecimalNumber * z = point.z;
         if (z != nil) {
-            if (envelope.minZ == nil || z < envelope.minZ) {
+            if (envelope.minZ == nil || [z compare:envelope.minZ] == NSOrderedAscending) {
                 [envelope setMinZ:z];
             }
-            if (envelope.maxZ == nil || z > envelope.maxZ) {
+            if (envelope.maxZ == nil || [z compare:envelope.maxZ] == NSOrderedDescending) {
                 [envelope setMaxZ:z];
             }
         }
@@ -133,10 +133,10 @@
     if (point.hasM) {
         NSDecimalNumber * m = point.m;
         if (m != nil) {
-            if (envelope.minM == nil || m < envelope.minM) {
+            if (envelope.minM == nil || [m compare:envelope.minM] == NSOrderedAscending) {
                 [envelope setMinM:m];
             }
-            if (envelope.maxM == nil || m > envelope.maxM) {
+            if (envelope.maxM == nil || [m compare:envelope.maxM] == NSOrderedDescending) {
                 [envelope setMaxM:m];
             }
         }
