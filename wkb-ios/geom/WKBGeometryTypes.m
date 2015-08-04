@@ -100,6 +100,7 @@ NSString * const WKB_NONE_NAME = @"NONE";
     enum WKBGeometryType value = WKB_NONE;
     
     if(name != nil){
+        name = [name uppercaseString];
         NSDictionary *types = [NSDictionary dictionaryWithObjectsAndKeys:
                                [NSNumber numberWithInteger:WKB_GEOMETRY], WKB_GEOMETRY_NAME,
                                [NSNumber numberWithInteger:WKB_POINT], WKB_POINT_NAME,
