@@ -27,6 +27,7 @@
     buffer[num] = '\0';
     NSString * value = [NSString stringWithUTF8String:buffer];
     self.nextByte += num;
+    free(buffer);
     return value;
 }
 
