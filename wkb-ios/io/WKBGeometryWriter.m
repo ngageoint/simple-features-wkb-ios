@@ -19,7 +19,7 @@
     }else if(writer.byteOrder == CFByteOrderLittleEndian){
         byteOrderInt = 1;
     }else{
-        [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order: %@", writer.byteOrder];
+        [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order: %ld", writer.byteOrder];
     }
     NSNumber * byteOrder = [NSNumber numberWithInt:byteOrderInt];
     [writer writeByte:byteOrder];

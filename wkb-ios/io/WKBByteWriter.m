@@ -35,7 +35,7 @@
 -(void) writeString: (NSString *) value{
     NSData *data = [[NSData alloc] initWithData:[value dataUsingEncoding:NSUTF8StringEncoding]];
     [self.os write:[data bytes] maxLength:[value length]];
-    self.nextByte += [value length];
+    self.nextByte += (int)[value length];
 }
 
 -(void) writeByte: (NSNumber *) value{
