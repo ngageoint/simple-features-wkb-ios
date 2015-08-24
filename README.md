@@ -26,7 +26,7 @@ WKB is an iOS Objective-C library for writing and reading Well-Known Binary Geom
 
 #### Write ####
 
-    //Geometry geometry = ...
+    //WKBGeometry * geometry = ...
     
     WKBByteWriter * writer = [[WKBByteWriter alloc] init];
     [writer setByteOrder:CFByteOrderBigEndian];
