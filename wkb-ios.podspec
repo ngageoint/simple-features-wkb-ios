@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "wkb-ios"
-  s.version          = "0.0.1"
+  s.version          = "1.0.0"
   s.summary          = "iOS SDK for Well-Known Binary"
   s.description      = <<-DESC
                        iOS SDK for Well-Known Binary
