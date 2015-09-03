@@ -33,3 +33,17 @@ WKB is an iOS Objective-C library for writing and reading Well-Known Binary Geom
     [WKBGeometryWriter writeGeometry:geometry withWriter:writer];
     NSData * bytes = [writer getData];
     [writer close];
+
+### Build ###
+
+Build this repository using Xcode and/or CocoaPods:
+
+    pod install
+
+Use this repository by specifying it in a Podfile using a supported option:
+
+    pod 'wkb-ios', '~> 1.0' # Not yet supported, CocoaPod coming soon
+    pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :branch => 'master'
+    pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :tag => '1.0.0'
+    pod 'wkb-ios', :path => '../wkb-ios'
+
