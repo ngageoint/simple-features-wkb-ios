@@ -9,14 +9,42 @@
 #import <Foundation/Foundation.h>
 #import "WKBGeometryTypes.h"
 
+/**
+ *  The root of the geometry type hierarchy
+ */
 @interface WKBGeometry : NSObject
 
+/**
+ *  Geometry type
+ */
 @property (nonatomic) enum WKBGeometryType geometryType;
+
+/**
+ *  Has Z values
+ */
 @property (nonatomic) BOOL hasZ;
+
+/**
+ *  Has M values
+ */
 @property (nonatomic) BOOL hasM;
 
+/**
+ *  Initialize
+ *
+ *  @param geometryType geometry type
+ *  @param hasZ         has z values
+ *  @param hasM         has m values
+ *
+ *  @return new geometry
+ */
 -(instancetype) initWithType: (enum WKBGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
+/**
+ *  Get the Well-Known Binary code
+ *
+ *  @return wkb code
+ */
 -(int) getWkbCode;
 
 @end

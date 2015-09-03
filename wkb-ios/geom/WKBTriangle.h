@@ -8,8 +8,19 @@
 
 #import "WKBPolygon.h"
 
+/**
+ * Triangle
+ */
 @interface WKBTriangle : WKBPolygon
 
+/**
+ *  Initialize
+ *
+ *  @param hasZ has z values
+ *  @param hasM has m values
+ *
+ *  @return new triangle
+ */
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 @end
