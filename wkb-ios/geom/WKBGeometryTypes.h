@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ Geometry Type enumeration
+ */
 enum WKBGeometryType{
     WKB_GEOMETRY = 0,
     WKB_POINT,
@@ -30,6 +33,9 @@ enum WKBGeometryType{
     WKB_NONE
 };
 
+/**
+ *  Geometry type names
+ */
 extern NSString * const WKB_GEOMETRY_NAME;
 extern NSString * const WKB_POINT_NAME;
 extern NSString * const WKB_LINESTRING_NAME;
@@ -52,12 +58,40 @@ extern NSString * const WKB_NONE_NAME;
 
 @interface WKBGeometryTypes : NSObject
 
+/**
+ *  Get the name of the geometry type
+ *
+ *  @param geometryType geometry type enum
+ *
+ *  @return geometry type name
+ */
 +(NSString *) name: (enum WKBGeometryType) geometryType;
 
+/**
+ *  Get the geometry type of the name
+ *
+ *  @param name geometry type name
+ *
+ *  @return geometry type
+ */
 +(enum WKBGeometryType) fromName: (NSString *) name;
 
+/**
+ *  Get the geometry type code
+ *
+ *  @param geometryType geometry type
+ *
+ *  @return geometry type code
+ */
 +(int) code: (enum WKBGeometryType) geometryType;
 
+/**
+ *  Get the geometry type from the code
+ *
+ *  @param code geometry type code
+ *
+ *  @return geometry type
+ */
 +(enum WKBGeometryType) fromCode: (int) code;
 
 @end

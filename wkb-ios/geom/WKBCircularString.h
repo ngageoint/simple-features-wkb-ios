@@ -8,8 +8,19 @@
 
 #import "WKBLineString.h"
 
+/**
+ * Circular String, Curve sub type
+ */
 @interface WKBCircularString : WKBLineString
 
+/**
+ *  Initialize
+ *
+ *  @param hasZ has z values
+ *  @param hasM has m values
+ *
+ *  @return new circular string
+ */
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 @end

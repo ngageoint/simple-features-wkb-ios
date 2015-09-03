@@ -8,8 +8,20 @@
 
 #import "WKBPolyhedralSurface.h"
 
+/**
+ * A tetrahedron (4 triangular faces), corner at the origin and each unit
+ * coordinate digit.
+ */
 @interface WKBTIN : WKBPolyhedralSurface
 
+/**
+ *  Initialize
+ *
+ *  @param hasZ has z values
+ *  @param hasM has m values
+ *
+ *  @return new tin
+ */
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 @end
