@@ -42,6 +42,8 @@ Build this repository using Xcode and/or CocoaPods:
 
 Open wkb-ios.xcworkspace in Xcode
 
+### Include Library ###
+
 Use this repository by specifying it in a Podfile using a supported option:
 
     pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :branch => 'master'
