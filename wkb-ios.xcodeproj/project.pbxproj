@@ -7,261 +7,330 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0499A7611B1CAE4500C161DD /* WKBGeometryEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7601B1CAE4500C161DD /* WKBGeometryEnvelope.m */; };
-		0499A7641B1CD72C00C161DD /* WKBGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7631B1CD72C00C161DD /* WKBGeometry.m */; };
-		0499A76A1B1CE79800C161DD /* WKBGeometryEnvelopeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7691B1CE79800C161DD /* WKBGeometryEnvelopeBuilder.m */; };
-		0499A76D1B1CE82600C161DD /* WKBGeometryPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A76C1B1CE82600C161DD /* WKBGeometryPrinter.m */; };
-		0499A7701B1CE8CD00C161DD /* WKBGeometryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A76F1B1CE8CD00C161DD /* WKBGeometryReader.m */; };
-		0499A7731B1CE8DC00C161DD /* WKBGeometryWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7721B1CE8DC00C161DD /* WKBGeometryWriter.m */; };
-		0499A7761B1DE2A800C161DD /* WKBPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7751B1DE2A800C161DD /* WKBPoint.m */; };
-		0499A7791B1DE4C000C161DD /* WKBCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7781B1DE4C000C161DD /* WKBCurve.m */; };
-		0499A77C1B1DE54F00C161DD /* WKBCompoundCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A77B1B1DE54F00C161DD /* WKBCompoundCurve.m */; };
-		0499A77F1B1DE6D100C161DD /* WKBLineString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A77E1B1DE6D100C161DD /* WKBLineString.m */; };
-		0499A7821B1DE7CC00C161DD /* WKBCircularString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7811B1DE7CC00C161DD /* WKBCircularString.m */; };
-		0499A7851B1DE83E00C161DD /* WKBSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7841B1DE83E00C161DD /* WKBSurface.m */; };
-		0499A7881B1DE98B00C161DD /* WKBCurvePolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7871B1DE98B00C161DD /* WKBCurvePolygon.m */; };
-		0499A78B1B1DEA1C00C161DD /* WKBPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A78A1B1DEA1C00C161DD /* WKBPolygon.m */; };
-		0499A78E1B1DEA6400C161DD /* WKBTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A78D1B1DEA6400C161DD /* WKBTriangle.m */; };
-		0499A7911B1DEAE200C161DD /* WKBPolyhedralSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7901B1DEAE200C161DD /* WKBPolyhedralSurface.m */; };
-		0499A7941B1DEB9600C161DD /* WKBTIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7931B1DEB9600C161DD /* WKBTIN.m */; };
-		0499A7971B1DEBF000C161DD /* WKBGeometryCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7961B1DEBF000C161DD /* WKBGeometryCollection.m */; };
-		0499A79A1B1DEDAD00C161DD /* WKBMultiCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7991B1DEDAD00C161DD /* WKBMultiCurve.m */; };
-		0499A79D1B1DEE0200C161DD /* WKBMultiLineString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A79C1B1DEE0200C161DD /* WKBMultiLineString.m */; };
-		0499A7A01B1DEECA00C161DD /* WKBMultiPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A79F1B1DEECA00C161DD /* WKBMultiPoint.m */; };
-		0499A7A31B1DF2E400C161DD /* WKBMultiSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7A21B1DF2E400C161DD /* WKBMultiSurface.m */; };
-		0499A7A61B1DF33000C161DD /* WKBMultiPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499A7A51B1DF33000C161DD /* WKBMultiPolygon.m */; };
-		04DA60981B179CE500D9BCA2 /* libwkb-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DA608C1B179CE500D9BCA2 /* libwkb-ios.a */; };
-		04DA60AB1B179E9200D9BCA2 /* WKBGeometryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DA60AA1B179E9200D9BCA2 /* WKBGeometryTypes.m */; };
-		04DA60B11B179EEA00D9BCA2 /* WKBByteReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DA60B01B179EEA00D9BCA2 /* WKBByteReader.m */; };
-		04DA60B41B179F0900D9BCA2 /* WKBByteWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DA60B31B179F0900D9BCA2 /* WKBByteWriter.m */; };
+		042FC6571B963FE500549A4B /* wkb_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* wkb_ios.framework */; };
+		042FC69F1B96421E00549A4B /* WKBCircularString.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6681B96421E00549A4B /* WKBCircularString.h */; };
+		042FC6A01B96421E00549A4B /* WKBCircularString.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6691B96421E00549A4B /* WKBCircularString.m */; };
+		042FC6A11B96421E00549A4B /* WKBCompoundCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC66A1B96421E00549A4B /* WKBCompoundCurve.h */; };
+		042FC6A21B96421E00549A4B /* WKBCompoundCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC66B1B96421E00549A4B /* WKBCompoundCurve.m */; };
+		042FC6A31B96421E00549A4B /* WKBCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC66C1B96421E00549A4B /* WKBCurve.h */; };
+		042FC6A41B96421E00549A4B /* WKBCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC66D1B96421E00549A4B /* WKBCurve.m */; };
+		042FC6A51B96421E00549A4B /* WKBCurvePolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC66E1B96421E00549A4B /* WKBCurvePolygon.h */; };
+		042FC6A61B96421E00549A4B /* WKBCurvePolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC66F1B96421E00549A4B /* WKBCurvePolygon.m */; };
+		042FC6A71B96421E00549A4B /* WKBGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6701B96421E00549A4B /* WKBGeometry.h */; };
+		042FC6A81B96421E00549A4B /* WKBGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6711B96421E00549A4B /* WKBGeometry.m */; };
+		042FC6A91B96421E00549A4B /* WKBGeometryCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6721B96421E00549A4B /* WKBGeometryCollection.h */; };
+		042FC6AA1B96421E00549A4B /* WKBGeometryCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6731B96421E00549A4B /* WKBGeometryCollection.m */; };
+		042FC6AB1B96421E00549A4B /* WKBGeometryEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6741B96421E00549A4B /* WKBGeometryEnvelope.h */; };
+		042FC6AC1B96421E00549A4B /* WKBGeometryEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6751B96421E00549A4B /* WKBGeometryEnvelope.m */; };
+		042FC6AD1B96421E00549A4B /* WKBGeometryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6761B96421E00549A4B /* WKBGeometryTypes.h */; };
+		042FC6AE1B96421E00549A4B /* WKBGeometryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6771B96421E00549A4B /* WKBGeometryTypes.m */; };
+		042FC6AF1B96421E00549A4B /* WKBLineString.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6781B96421E00549A4B /* WKBLineString.h */; };
+		042FC6B01B96421E00549A4B /* WKBLineString.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6791B96421E00549A4B /* WKBLineString.m */; };
+		042FC6B11B96421E00549A4B /* WKBMultiCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC67A1B96421E00549A4B /* WKBMultiCurve.h */; };
+		042FC6B21B96421E00549A4B /* WKBMultiCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC67B1B96421E00549A4B /* WKBMultiCurve.m */; };
+		042FC6B31B96421E00549A4B /* WKBMultiLineString.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC67C1B96421E00549A4B /* WKBMultiLineString.h */; };
+		042FC6B41B96421E00549A4B /* WKBMultiLineString.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC67D1B96421E00549A4B /* WKBMultiLineString.m */; };
+		042FC6B51B96421E00549A4B /* WKBMultiPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC67E1B96421E00549A4B /* WKBMultiPoint.h */; };
+		042FC6B61B96421E00549A4B /* WKBMultiPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC67F1B96421E00549A4B /* WKBMultiPoint.m */; };
+		042FC6B71B96421E00549A4B /* WKBMultiPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6801B96421E00549A4B /* WKBMultiPolygon.h */; };
+		042FC6B81B96421E00549A4B /* WKBMultiPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6811B96421E00549A4B /* WKBMultiPolygon.m */; };
+		042FC6B91B96421E00549A4B /* WKBMultiSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6821B96421E00549A4B /* WKBMultiSurface.h */; };
+		042FC6BA1B96421E00549A4B /* WKBMultiSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6831B96421E00549A4B /* WKBMultiSurface.m */; };
+		042FC6BB1B96421E00549A4B /* WKBPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6841B96421E00549A4B /* WKBPoint.h */; };
+		042FC6BC1B96421E00549A4B /* WKBPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6851B96421E00549A4B /* WKBPoint.m */; };
+		042FC6BD1B96421E00549A4B /* WKBPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6861B96421E00549A4B /* WKBPolygon.h */; };
+		042FC6BE1B96421E00549A4B /* WKBPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6871B96421E00549A4B /* WKBPolygon.m */; };
+		042FC6BF1B96421E00549A4B /* WKBPolyhedralSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6881B96421E00549A4B /* WKBPolyhedralSurface.h */; };
+		042FC6C01B96421E00549A4B /* WKBPolyhedralSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6891B96421E00549A4B /* WKBPolyhedralSurface.m */; };
+		042FC6C11B96421E00549A4B /* WKBSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC68A1B96421E00549A4B /* WKBSurface.h */; };
+		042FC6C21B96421E00549A4B /* WKBSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC68B1B96421E00549A4B /* WKBSurface.m */; };
+		042FC6C31B96421E00549A4B /* WKBTIN.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC68C1B96421E00549A4B /* WKBTIN.h */; };
+		042FC6C41B96421E00549A4B /* WKBTIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC68D1B96421E00549A4B /* WKBTIN.m */; };
+		042FC6C51B96421E00549A4B /* WKBTriangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC68E1B96421E00549A4B /* WKBTriangle.h */; };
+		042FC6C61B96421E00549A4B /* WKBTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC68F1B96421E00549A4B /* WKBTriangle.m */; };
+		042FC6C71B96421E00549A4B /* WKBByteReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6911B96421E00549A4B /* WKBByteReader.h */; };
+		042FC6C81B96421E00549A4B /* WKBByteReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6921B96421E00549A4B /* WKBByteReader.m */; };
+		042FC6C91B96421E00549A4B /* WKBByteWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6931B96421E00549A4B /* WKBByteWriter.h */; };
+		042FC6CA1B96421E00549A4B /* WKBByteWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6941B96421E00549A4B /* WKBByteWriter.m */; };
+		042FC6CB1B96421E00549A4B /* WKBGeometryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6951B96421E00549A4B /* WKBGeometryReader.h */; };
+		042FC6CC1B96421E00549A4B /* WKBGeometryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6961B96421E00549A4B /* WKBGeometryReader.m */; };
+		042FC6CD1B96421E00549A4B /* WKBGeometryWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6971B96421E00549A4B /* WKBGeometryWriter.h */; };
+		042FC6CE1B96421E00549A4B /* WKBGeometryWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6981B96421E00549A4B /* WKBGeometryWriter.m */; };
+		042FC6CF1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69A1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.h */; };
+		042FC6D01B96421E00549A4B /* WKBGeometryEnvelopeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC69B1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.m */; };
+		042FC6D11B96421E00549A4B /* WKBGeometryPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69C1B96421E00549A4B /* WKBGeometryPrinter.h */; };
+		042FC6D21B96421E00549A4B /* WKBGeometryPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC69D1B96421E00549A4B /* WKBGeometryPrinter.m */; };
+		042FC6D31B96421E00549A4B /* wkb-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* wkb-ios-Prefix.pch */; };
+		042FC6D51B96453E00549A4B /* wkb_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* wkb_ios.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		04DA60991B179CE500D9BCA2 /* PBXContainerItemProxy */ = {
+		042FC6581B963FE500549A4B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 04DA60841B179CE500D9BCA2 /* Project object */;
+			containerPortal = 042FC6421B963FE500549A4B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 04DA608B1B179CE500D9BCA2;
+			remoteGlobalIDString = 042FC64A1B963FE500549A4B;
 			remoteInfo = "wkb-ios";
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		04DA608A1B179CE500D9BCA2 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		0499A75F1B1CAE4500C161DD /* WKBGeometryEnvelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryEnvelope.h; sourceTree = "<group>"; };
-		0499A7601B1CAE4500C161DD /* WKBGeometryEnvelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryEnvelope.m; sourceTree = "<group>"; };
-		0499A7621B1CD72C00C161DD /* WKBGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometry.h; sourceTree = "<group>"; };
-		0499A7631B1CD72C00C161DD /* WKBGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometry.m; sourceTree = "<group>"; };
-		0499A7681B1CE79800C161DD /* WKBGeometryEnvelopeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryEnvelopeBuilder.h; sourceTree = "<group>"; };
-		0499A7691B1CE79800C161DD /* WKBGeometryEnvelopeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryEnvelopeBuilder.m; sourceTree = "<group>"; };
-		0499A76B1B1CE82600C161DD /* WKBGeometryPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryPrinter.h; sourceTree = "<group>"; };
-		0499A76C1B1CE82600C161DD /* WKBGeometryPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryPrinter.m; sourceTree = "<group>"; };
-		0499A76E1B1CE8CD00C161DD /* WKBGeometryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryReader.h; sourceTree = "<group>"; };
-		0499A76F1B1CE8CD00C161DD /* WKBGeometryReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryReader.m; sourceTree = "<group>"; };
-		0499A7711B1CE8DC00C161DD /* WKBGeometryWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryWriter.h; sourceTree = "<group>"; };
-		0499A7721B1CE8DC00C161DD /* WKBGeometryWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryWriter.m; sourceTree = "<group>"; };
-		0499A7741B1DE2A800C161DD /* WKBPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBPoint.h; sourceTree = "<group>"; };
-		0499A7751B1DE2A800C161DD /* WKBPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBPoint.m; sourceTree = "<group>"; };
-		0499A7771B1DE4C000C161DD /* WKBCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCurve.h; sourceTree = "<group>"; };
-		0499A7781B1DE4C000C161DD /* WKBCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCurve.m; sourceTree = "<group>"; };
-		0499A77A1B1DE54F00C161DD /* WKBCompoundCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCompoundCurve.h; sourceTree = "<group>"; };
-		0499A77B1B1DE54F00C161DD /* WKBCompoundCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCompoundCurve.m; sourceTree = "<group>"; };
-		0499A77D1B1DE6D100C161DD /* WKBLineString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBLineString.h; sourceTree = "<group>"; };
-		0499A77E1B1DE6D100C161DD /* WKBLineString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBLineString.m; sourceTree = "<group>"; };
-		0499A7801B1DE7CC00C161DD /* WKBCircularString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCircularString.h; sourceTree = "<group>"; };
-		0499A7811B1DE7CC00C161DD /* WKBCircularString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCircularString.m; sourceTree = "<group>"; };
-		0499A7831B1DE83E00C161DD /* WKBSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBSurface.h; sourceTree = "<group>"; };
-		0499A7841B1DE83E00C161DD /* WKBSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBSurface.m; sourceTree = "<group>"; };
-		0499A7861B1DE98B00C161DD /* WKBCurvePolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCurvePolygon.h; sourceTree = "<group>"; };
-		0499A7871B1DE98B00C161DD /* WKBCurvePolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCurvePolygon.m; sourceTree = "<group>"; };
-		0499A7891B1DEA1C00C161DD /* WKBPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBPolygon.h; sourceTree = "<group>"; };
-		0499A78A1B1DEA1C00C161DD /* WKBPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBPolygon.m; sourceTree = "<group>"; };
-		0499A78C1B1DEA6400C161DD /* WKBTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBTriangle.h; sourceTree = "<group>"; };
-		0499A78D1B1DEA6400C161DD /* WKBTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBTriangle.m; sourceTree = "<group>"; };
-		0499A78F1B1DEAE200C161DD /* WKBPolyhedralSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBPolyhedralSurface.h; sourceTree = "<group>"; };
-		0499A7901B1DEAE200C161DD /* WKBPolyhedralSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBPolyhedralSurface.m; sourceTree = "<group>"; };
-		0499A7921B1DEB9600C161DD /* WKBTIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBTIN.h; sourceTree = "<group>"; };
-		0499A7931B1DEB9600C161DD /* WKBTIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBTIN.m; sourceTree = "<group>"; };
-		0499A7951B1DEBF000C161DD /* WKBGeometryCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryCollection.h; sourceTree = "<group>"; };
-		0499A7961B1DEBF000C161DD /* WKBGeometryCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryCollection.m; sourceTree = "<group>"; };
-		0499A7981B1DEDAD00C161DD /* WKBMultiCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiCurve.h; sourceTree = "<group>"; };
-		0499A7991B1DEDAD00C161DD /* WKBMultiCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiCurve.m; sourceTree = "<group>"; };
-		0499A79B1B1DEE0200C161DD /* WKBMultiLineString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiLineString.h; sourceTree = "<group>"; };
-		0499A79C1B1DEE0200C161DD /* WKBMultiLineString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiLineString.m; sourceTree = "<group>"; };
-		0499A79E1B1DEECA00C161DD /* WKBMultiPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiPoint.h; sourceTree = "<group>"; };
-		0499A79F1B1DEECA00C161DD /* WKBMultiPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiPoint.m; sourceTree = "<group>"; };
-		0499A7A11B1DF2E400C161DD /* WKBMultiSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiSurface.h; sourceTree = "<group>"; };
-		0499A7A21B1DF2E400C161DD /* WKBMultiSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiSurface.m; sourceTree = "<group>"; };
-		0499A7A41B1DF33000C161DD /* WKBMultiPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiPolygon.h; sourceTree = "<group>"; };
-		0499A7A51B1DF33000C161DD /* WKBMultiPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiPolygon.m; sourceTree = "<group>"; };
-		04DA608C1B179CE500D9BCA2 /* libwkb-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libwkb-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04DA60971B179CE500D9BCA2 /* wkb-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wkb-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04DA609D1B179CE500D9BCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04DA60A91B179E9200D9BCA2 /* WKBGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryTypes.h; sourceTree = "<group>"; };
-		04DA60AA1B179E9200D9BCA2 /* WKBGeometryTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryTypes.m; sourceTree = "<group>"; };
-		04DA60AF1B179EEA00D9BCA2 /* WKBByteReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBByteReader.h; sourceTree = "<group>"; };
-		04DA60B01B179EEA00D9BCA2 /* WKBByteReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBByteReader.m; sourceTree = "<group>"; };
-		04DA60B21B179F0900D9BCA2 /* WKBByteWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBByteWriter.h; sourceTree = "<group>"; };
-		04DA60B31B179F0900D9BCA2 /* WKBByteWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBByteWriter.m; sourceTree = "<group>"; };
+		042FC64B1B963FE500549A4B /* wkb_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = wkb_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		042FC64F1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		042FC6561B963FE500549A4B /* wkb_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wkb_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		042FC65C1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		042FC6681B96421E00549A4B /* WKBCircularString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCircularString.h; sourceTree = "<group>"; };
+		042FC6691B96421E00549A4B /* WKBCircularString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCircularString.m; sourceTree = "<group>"; };
+		042FC66A1B96421E00549A4B /* WKBCompoundCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCompoundCurve.h; sourceTree = "<group>"; };
+		042FC66B1B96421E00549A4B /* WKBCompoundCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCompoundCurve.m; sourceTree = "<group>"; };
+		042FC66C1B96421E00549A4B /* WKBCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCurve.h; sourceTree = "<group>"; };
+		042FC66D1B96421E00549A4B /* WKBCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCurve.m; sourceTree = "<group>"; };
+		042FC66E1B96421E00549A4B /* WKBCurvePolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCurvePolygon.h; sourceTree = "<group>"; };
+		042FC66F1B96421E00549A4B /* WKBCurvePolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCurvePolygon.m; sourceTree = "<group>"; };
+		042FC6701B96421E00549A4B /* WKBGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometry.h; sourceTree = "<group>"; };
+		042FC6711B96421E00549A4B /* WKBGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometry.m; sourceTree = "<group>"; };
+		042FC6721B96421E00549A4B /* WKBGeometryCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryCollection.h; sourceTree = "<group>"; };
+		042FC6731B96421E00549A4B /* WKBGeometryCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryCollection.m; sourceTree = "<group>"; };
+		042FC6741B96421E00549A4B /* WKBGeometryEnvelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryEnvelope.h; sourceTree = "<group>"; };
+		042FC6751B96421E00549A4B /* WKBGeometryEnvelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryEnvelope.m; sourceTree = "<group>"; };
+		042FC6761B96421E00549A4B /* WKBGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryTypes.h; sourceTree = "<group>"; };
+		042FC6771B96421E00549A4B /* WKBGeometryTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryTypes.m; sourceTree = "<group>"; };
+		042FC6781B96421E00549A4B /* WKBLineString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBLineString.h; sourceTree = "<group>"; };
+		042FC6791B96421E00549A4B /* WKBLineString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBLineString.m; sourceTree = "<group>"; };
+		042FC67A1B96421E00549A4B /* WKBMultiCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiCurve.h; sourceTree = "<group>"; };
+		042FC67B1B96421E00549A4B /* WKBMultiCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiCurve.m; sourceTree = "<group>"; };
+		042FC67C1B96421E00549A4B /* WKBMultiLineString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiLineString.h; sourceTree = "<group>"; };
+		042FC67D1B96421E00549A4B /* WKBMultiLineString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiLineString.m; sourceTree = "<group>"; };
+		042FC67E1B96421E00549A4B /* WKBMultiPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiPoint.h; sourceTree = "<group>"; };
+		042FC67F1B96421E00549A4B /* WKBMultiPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiPoint.m; sourceTree = "<group>"; };
+		042FC6801B96421E00549A4B /* WKBMultiPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiPolygon.h; sourceTree = "<group>"; };
+		042FC6811B96421E00549A4B /* WKBMultiPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiPolygon.m; sourceTree = "<group>"; };
+		042FC6821B96421E00549A4B /* WKBMultiSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBMultiSurface.h; sourceTree = "<group>"; };
+		042FC6831B96421E00549A4B /* WKBMultiSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBMultiSurface.m; sourceTree = "<group>"; };
+		042FC6841B96421E00549A4B /* WKBPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBPoint.h; sourceTree = "<group>"; };
+		042FC6851B96421E00549A4B /* WKBPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBPoint.m; sourceTree = "<group>"; };
+		042FC6861B96421E00549A4B /* WKBPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBPolygon.h; sourceTree = "<group>"; };
+		042FC6871B96421E00549A4B /* WKBPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBPolygon.m; sourceTree = "<group>"; };
+		042FC6881B96421E00549A4B /* WKBPolyhedralSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBPolyhedralSurface.h; sourceTree = "<group>"; };
+		042FC6891B96421E00549A4B /* WKBPolyhedralSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBPolyhedralSurface.m; sourceTree = "<group>"; };
+		042FC68A1B96421E00549A4B /* WKBSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBSurface.h; sourceTree = "<group>"; };
+		042FC68B1B96421E00549A4B /* WKBSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBSurface.m; sourceTree = "<group>"; };
+		042FC68C1B96421E00549A4B /* WKBTIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBTIN.h; sourceTree = "<group>"; };
+		042FC68D1B96421E00549A4B /* WKBTIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBTIN.m; sourceTree = "<group>"; };
+		042FC68E1B96421E00549A4B /* WKBTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBTriangle.h; sourceTree = "<group>"; };
+		042FC68F1B96421E00549A4B /* WKBTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBTriangle.m; sourceTree = "<group>"; };
+		042FC6911B96421E00549A4B /* WKBByteReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBByteReader.h; sourceTree = "<group>"; };
+		042FC6921B96421E00549A4B /* WKBByteReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBByteReader.m; sourceTree = "<group>"; };
+		042FC6931B96421E00549A4B /* WKBByteWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBByteWriter.h; sourceTree = "<group>"; };
+		042FC6941B96421E00549A4B /* WKBByteWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBByteWriter.m; sourceTree = "<group>"; };
+		042FC6951B96421E00549A4B /* WKBGeometryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryReader.h; sourceTree = "<group>"; };
+		042FC6961B96421E00549A4B /* WKBGeometryReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryReader.m; sourceTree = "<group>"; };
+		042FC6971B96421E00549A4B /* WKBGeometryWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryWriter.h; sourceTree = "<group>"; };
+		042FC6981B96421E00549A4B /* WKBGeometryWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryWriter.m; sourceTree = "<group>"; };
+		042FC69A1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryEnvelopeBuilder.h; sourceTree = "<group>"; };
+		042FC69B1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryEnvelopeBuilder.m; sourceTree = "<group>"; };
+		042FC69C1B96421E00549A4B /* WKBGeometryPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryPrinter.h; sourceTree = "<group>"; };
+		042FC69D1B96421E00549A4B /* WKBGeometryPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryPrinter.m; sourceTree = "<group>"; };
+		042FC69E1B96421E00549A4B /* wkb-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wkb-ios-Prefix.pch"; sourceTree = "<group>"; };
+		042FC6D41B96453E00549A4B /* wkb_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wkb_ios.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		04DA60891B179CE500D9BCA2 /* Frameworks */ = {
+		042FC6471B963FE500549A4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04DA60941B179CE500D9BCA2 /* Frameworks */ = {
+		042FC6531B963FE500549A4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DA60981B179CE500D9BCA2 /* libwkb-ios.a in Frameworks */,
+				042FC6571B963FE500549A4B /* wkb_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04DA60831B179CE500D9BCA2 = {
+		042FC6411B963FE500549A4B = {
 			isa = PBXGroup;
 			children = (
-				04DA608E1B179CE500D9BCA2 /* wkb-ios */,
-				04DA609B1B179CE500D9BCA2 /* wkb-iosTests */,
-				04DA608D1B179CE500D9BCA2 /* Products */,
+				042FC64D1B963FE500549A4B /* wkb-ios */,
+				042FC65A1B963FE500549A4B /* wkb-iosTests */,
+				042FC64C1B963FE500549A4B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		04DA608D1B179CE500D9BCA2 /* Products */ = {
+		042FC64C1B963FE500549A4B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04DA608C1B179CE500D9BCA2 /* libwkb-ios.a */,
-				04DA60971B179CE500D9BCA2 /* wkb-iosTests.xctest */,
+				042FC64B1B963FE500549A4B /* wkb_ios.framework */,
+				042FC6561B963FE500549A4B /* wkb_iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		04DA608E1B179CE500D9BCA2 /* wkb-ios */ = {
+		042FC64D1B963FE500549A4B /* wkb-ios */ = {
 			isa = PBXGroup;
 			children = (
-				04DA60A81B179E6B00D9BCA2 /* geom */,
-				04DA60A71B179E6500D9BCA2 /* io */,
-				04DA60A61B179E5D00D9BCA2 /* util */,
+				042FC6D41B96453E00549A4B /* wkb_ios.h */,
+				042FC6671B96421E00549A4B /* geom */,
+				042FC6901B96421E00549A4B /* io */,
+				042FC6991B96421E00549A4B /* util */,
+				042FC69E1B96421E00549A4B /* wkb-ios-Prefix.pch */,
+				042FC64E1B963FE500549A4B /* Supporting Files */,
 			);
 			path = "wkb-ios";
 			sourceTree = "<group>";
 		};
-		04DA609B1B179CE500D9BCA2 /* wkb-iosTests */ = {
+		042FC64E1B963FE500549A4B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				04DA609C1B179CE500D9BCA2 /* Supporting Files */,
-			);
-			path = "wkb-iosTests";
-			sourceTree = "<group>";
-		};
-		04DA609C1B179CE500D9BCA2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				04DA609D1B179CE500D9BCA2 /* Info.plist */,
+				042FC64F1B963FE500549A4B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04DA60A61B179E5D00D9BCA2 /* util */ = {
+		042FC65A1B963FE500549A4B /* wkb-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				0499A7681B1CE79800C161DD /* WKBGeometryEnvelopeBuilder.h */,
-				0499A7691B1CE79800C161DD /* WKBGeometryEnvelopeBuilder.m */,
-				0499A76B1B1CE82600C161DD /* WKBGeometryPrinter.h */,
-				0499A76C1B1CE82600C161DD /* WKBGeometryPrinter.m */,
+				042FC65B1B963FE500549A4B /* Supporting Files */,
 			);
-			path = util;
+			path = "wkb-iosTests";
 			sourceTree = "<group>";
 		};
-		04DA60A71B179E6500D9BCA2 /* io */ = {
+		042FC65B1B963FE500549A4B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				04DA60AF1B179EEA00D9BCA2 /* WKBByteReader.h */,
-				04DA60B01B179EEA00D9BCA2 /* WKBByteReader.m */,
-				04DA60B21B179F0900D9BCA2 /* WKBByteWriter.h */,
-				04DA60B31B179F0900D9BCA2 /* WKBByteWriter.m */,
-				0499A76E1B1CE8CD00C161DD /* WKBGeometryReader.h */,
-				0499A76F1B1CE8CD00C161DD /* WKBGeometryReader.m */,
-				0499A7711B1CE8DC00C161DD /* WKBGeometryWriter.h */,
-				0499A7721B1CE8DC00C161DD /* WKBGeometryWriter.m */,
+				042FC65C1B963FE500549A4B /* Info.plist */,
 			);
-			path = io;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04DA60A81B179E6B00D9BCA2 /* geom */ = {
+		042FC6671B96421E00549A4B /* geom */ = {
 			isa = PBXGroup;
 			children = (
-				04DA60A91B179E9200D9BCA2 /* WKBGeometryTypes.h */,
-				04DA60AA1B179E9200D9BCA2 /* WKBGeometryTypes.m */,
-				0499A75F1B1CAE4500C161DD /* WKBGeometryEnvelope.h */,
-				0499A7601B1CAE4500C161DD /* WKBGeometryEnvelope.m */,
-				0499A7621B1CD72C00C161DD /* WKBGeometry.h */,
-				0499A7631B1CD72C00C161DD /* WKBGeometry.m */,
-				0499A7741B1DE2A800C161DD /* WKBPoint.h */,
-				0499A7751B1DE2A800C161DD /* WKBPoint.m */,
-				0499A7771B1DE4C000C161DD /* WKBCurve.h */,
-				0499A7781B1DE4C000C161DD /* WKBCurve.m */,
-				0499A77A1B1DE54F00C161DD /* WKBCompoundCurve.h */,
-				0499A77B1B1DE54F00C161DD /* WKBCompoundCurve.m */,
-				0499A77D1B1DE6D100C161DD /* WKBLineString.h */,
-				0499A77E1B1DE6D100C161DD /* WKBLineString.m */,
-				0499A7801B1DE7CC00C161DD /* WKBCircularString.h */,
-				0499A7811B1DE7CC00C161DD /* WKBCircularString.m */,
-				0499A7831B1DE83E00C161DD /* WKBSurface.h */,
-				0499A7841B1DE83E00C161DD /* WKBSurface.m */,
-				0499A7861B1DE98B00C161DD /* WKBCurvePolygon.h */,
-				0499A7871B1DE98B00C161DD /* WKBCurvePolygon.m */,
-				0499A7891B1DEA1C00C161DD /* WKBPolygon.h */,
-				0499A78A1B1DEA1C00C161DD /* WKBPolygon.m */,
-				0499A78C1B1DEA6400C161DD /* WKBTriangle.h */,
-				0499A78D1B1DEA6400C161DD /* WKBTriangle.m */,
-				0499A78F1B1DEAE200C161DD /* WKBPolyhedralSurface.h */,
-				0499A7901B1DEAE200C161DD /* WKBPolyhedralSurface.m */,
-				0499A7921B1DEB9600C161DD /* WKBTIN.h */,
-				0499A7931B1DEB9600C161DD /* WKBTIN.m */,
-				0499A7951B1DEBF000C161DD /* WKBGeometryCollection.h */,
-				0499A7961B1DEBF000C161DD /* WKBGeometryCollection.m */,
-				0499A7981B1DEDAD00C161DD /* WKBMultiCurve.h */,
-				0499A7991B1DEDAD00C161DD /* WKBMultiCurve.m */,
-				0499A79B1B1DEE0200C161DD /* WKBMultiLineString.h */,
-				0499A79C1B1DEE0200C161DD /* WKBMultiLineString.m */,
-				0499A79E1B1DEECA00C161DD /* WKBMultiPoint.h */,
-				0499A79F1B1DEECA00C161DD /* WKBMultiPoint.m */,
-				0499A7A11B1DF2E400C161DD /* WKBMultiSurface.h */,
-				0499A7A21B1DF2E400C161DD /* WKBMultiSurface.m */,
-				0499A7A41B1DF33000C161DD /* WKBMultiPolygon.h */,
-				0499A7A51B1DF33000C161DD /* WKBMultiPolygon.m */,
+				042FC6681B96421E00549A4B /* WKBCircularString.h */,
+				042FC6691B96421E00549A4B /* WKBCircularString.m */,
+				042FC66A1B96421E00549A4B /* WKBCompoundCurve.h */,
+				042FC66B1B96421E00549A4B /* WKBCompoundCurve.m */,
+				042FC66C1B96421E00549A4B /* WKBCurve.h */,
+				042FC66D1B96421E00549A4B /* WKBCurve.m */,
+				042FC66E1B96421E00549A4B /* WKBCurvePolygon.h */,
+				042FC66F1B96421E00549A4B /* WKBCurvePolygon.m */,
+				042FC6701B96421E00549A4B /* WKBGeometry.h */,
+				042FC6711B96421E00549A4B /* WKBGeometry.m */,
+				042FC6721B96421E00549A4B /* WKBGeometryCollection.h */,
+				042FC6731B96421E00549A4B /* WKBGeometryCollection.m */,
+				042FC6741B96421E00549A4B /* WKBGeometryEnvelope.h */,
+				042FC6751B96421E00549A4B /* WKBGeometryEnvelope.m */,
+				042FC6761B96421E00549A4B /* WKBGeometryTypes.h */,
+				042FC6771B96421E00549A4B /* WKBGeometryTypes.m */,
+				042FC6781B96421E00549A4B /* WKBLineString.h */,
+				042FC6791B96421E00549A4B /* WKBLineString.m */,
+				042FC67A1B96421E00549A4B /* WKBMultiCurve.h */,
+				042FC67B1B96421E00549A4B /* WKBMultiCurve.m */,
+				042FC67C1B96421E00549A4B /* WKBMultiLineString.h */,
+				042FC67D1B96421E00549A4B /* WKBMultiLineString.m */,
+				042FC67E1B96421E00549A4B /* WKBMultiPoint.h */,
+				042FC67F1B96421E00549A4B /* WKBMultiPoint.m */,
+				042FC6801B96421E00549A4B /* WKBMultiPolygon.h */,
+				042FC6811B96421E00549A4B /* WKBMultiPolygon.m */,
+				042FC6821B96421E00549A4B /* WKBMultiSurface.h */,
+				042FC6831B96421E00549A4B /* WKBMultiSurface.m */,
+				042FC6841B96421E00549A4B /* WKBPoint.h */,
+				042FC6851B96421E00549A4B /* WKBPoint.m */,
+				042FC6861B96421E00549A4B /* WKBPolygon.h */,
+				042FC6871B96421E00549A4B /* WKBPolygon.m */,
+				042FC6881B96421E00549A4B /* WKBPolyhedralSurface.h */,
+				042FC6891B96421E00549A4B /* WKBPolyhedralSurface.m */,
+				042FC68A1B96421E00549A4B /* WKBSurface.h */,
+				042FC68B1B96421E00549A4B /* WKBSurface.m */,
+				042FC68C1B96421E00549A4B /* WKBTIN.h */,
+				042FC68D1B96421E00549A4B /* WKBTIN.m */,
+				042FC68E1B96421E00549A4B /* WKBTriangle.h */,
+				042FC68F1B96421E00549A4B /* WKBTriangle.m */,
 			);
 			path = geom;
 			sourceTree = "<group>";
 		};
+		042FC6901B96421E00549A4B /* io */ = {
+			isa = PBXGroup;
+			children = (
+				042FC6911B96421E00549A4B /* WKBByteReader.h */,
+				042FC6921B96421E00549A4B /* WKBByteReader.m */,
+				042FC6931B96421E00549A4B /* WKBByteWriter.h */,
+				042FC6941B96421E00549A4B /* WKBByteWriter.m */,
+				042FC6951B96421E00549A4B /* WKBGeometryReader.h */,
+				042FC6961B96421E00549A4B /* WKBGeometryReader.m */,
+				042FC6971B96421E00549A4B /* WKBGeometryWriter.h */,
+				042FC6981B96421E00549A4B /* WKBGeometryWriter.m */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		042FC6991B96421E00549A4B /* util */ = {
+			isa = PBXGroup;
+			children = (
+				042FC69A1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.h */,
+				042FC69B1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.m */,
+				042FC69C1B96421E00549A4B /* WKBGeometryPrinter.h */,
+				042FC69D1B96421E00549A4B /* WKBGeometryPrinter.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		042FC6481B963FE500549A4B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				042FC6AB1B96421E00549A4B /* WKBGeometryEnvelope.h in Headers */,
+				042FC6B91B96421E00549A4B /* WKBMultiSurface.h in Headers */,
+				042FC6CB1B96421E00549A4B /* WKBGeometryReader.h in Headers */,
+				042FC6A51B96421E00549A4B /* WKBCurvePolygon.h in Headers */,
+				042FC6AF1B96421E00549A4B /* WKBLineString.h in Headers */,
+				042FC6BF1B96421E00549A4B /* WKBPolyhedralSurface.h in Headers */,
+				042FC6C51B96421E00549A4B /* WKBTriangle.h in Headers */,
+				042FC6D51B96453E00549A4B /* wkb_ios.h in Headers */,
+				042FC6C31B96421E00549A4B /* WKBTIN.h in Headers */,
+				042FC6A11B96421E00549A4B /* WKBCompoundCurve.h in Headers */,
+				042FC6A71B96421E00549A4B /* WKBGeometry.h in Headers */,
+				042FC6B31B96421E00549A4B /* WKBMultiLineString.h in Headers */,
+				042FC6A91B96421E00549A4B /* WKBGeometryCollection.h in Headers */,
+				042FC6D31B96421E00549A4B /* wkb-ios-Prefix.pch in Headers */,
+				042FC6AD1B96421E00549A4B /* WKBGeometryTypes.h in Headers */,
+				042FC6B71B96421E00549A4B /* WKBMultiPolygon.h in Headers */,
+				042FC6C71B96421E00549A4B /* WKBByteReader.h in Headers */,
+				042FC6C91B96421E00549A4B /* WKBByteWriter.h in Headers */,
+				042FC6B11B96421E00549A4B /* WKBMultiCurve.h in Headers */,
+				042FC6A31B96421E00549A4B /* WKBCurve.h in Headers */,
+				042FC6CF1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.h in Headers */,
+				042FC6B51B96421E00549A4B /* WKBMultiPoint.h in Headers */,
+				042FC6D11B96421E00549A4B /* WKBGeometryPrinter.h in Headers */,
+				042FC69F1B96421E00549A4B /* WKBCircularString.h in Headers */,
+				042FC6C11B96421E00549A4B /* WKBSurface.h in Headers */,
+				042FC6BD1B96421E00549A4B /* WKBPolygon.h in Headers */,
+				042FC6CD1B96421E00549A4B /* WKBGeometryWriter.h in Headers */,
+				042FC6BB1B96421E00549A4B /* WKBPoint.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		04DA608B1B179CE500D9BCA2 /* wkb-ios */ = {
+		042FC64A1B963FE500549A4B /* wkb-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04DA60A01B179CE500D9BCA2 /* Build configuration list for PBXNativeTarget "wkb-ios" */;
+			buildConfigurationList = 042FC6611B963FE500549A4B /* Build configuration list for PBXNativeTarget "wkb-ios" */;
 			buildPhases = (
-				04DA60881B179CE500D9BCA2 /* Sources */,
-				04DA60891B179CE500D9BCA2 /* Frameworks */,
-				04DA608A1B179CE500D9BCA2 /* CopyFiles */,
+				042FC6461B963FE500549A4B /* Sources */,
+				042FC6471B963FE500549A4B /* Frameworks */,
+				042FC6481B963FE500549A4B /* Headers */,
+				042FC6491B963FE500549A4B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -269,64 +338,71 @@
 			);
 			name = "wkb-ios";
 			productName = "wkb-ios";
-			productReference = 04DA608C1B179CE500D9BCA2 /* libwkb-ios.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = 042FC64B1B963FE500549A4B /* wkb_ios.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		04DA60961B179CE500D9BCA2 /* wkb-iosTests */ = {
+		042FC6551B963FE500549A4B /* wkb-iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04DA60A31B179CE500D9BCA2 /* Build configuration list for PBXNativeTarget "wkb-iosTests" */;
+			buildConfigurationList = 042FC6641B963FE500549A4B /* Build configuration list for PBXNativeTarget "wkb-iosTests" */;
 			buildPhases = (
-				04DA60931B179CE500D9BCA2 /* Sources */,
-				04DA60941B179CE500D9BCA2 /* Frameworks */,
-				04DA60951B179CE500D9BCA2 /* Resources */,
+				042FC6521B963FE500549A4B /* Sources */,
+				042FC6531B963FE500549A4B /* Frameworks */,
+				042FC6541B963FE500549A4B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				04DA609A1B179CE500D9BCA2 /* PBXTargetDependency */,
+				042FC6591B963FE500549A4B /* PBXTargetDependency */,
 			);
 			name = "wkb-iosTests";
 			productName = "wkb-iosTests";
-			productReference = 04DA60971B179CE500D9BCA2 /* wkb-iosTests.xctest */;
+			productReference = 042FC6561B963FE500549A4B /* wkb_iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		04DA60841B179CE500D9BCA2 /* Project object */ = {
+		042FC6421B963FE500549A4B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = NGA;
 				TargetAttributes = {
-					04DA608B1B179CE500D9BCA2 = {
-						CreatedOnToolsVersion = 6.3.1;
+					042FC64A1B963FE500549A4B = {
+						CreatedOnToolsVersion = 6.4;
 					};
-					04DA60961B179CE500D9BCA2 = {
-						CreatedOnToolsVersion = 6.3.1;
+					042FC6551B963FE500549A4B = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
-			buildConfigurationList = 04DA60871B179CE500D9BCA2 /* Build configuration list for PBXProject "wkb-ios" */;
+			buildConfigurationList = 042FC6451B963FE500549A4B /* Build configuration list for PBXProject "wkb-ios" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 04DA60831B179CE500D9BCA2;
-			productRefGroup = 04DA608D1B179CE500D9BCA2 /* Products */;
+			mainGroup = 042FC6411B963FE500549A4B;
+			productRefGroup = 042FC64C1B963FE500549A4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04DA608B1B179CE500D9BCA2 /* wkb-ios */,
-				04DA60961B179CE500D9BCA2 /* wkb-iosTests */,
+				042FC64A1B963FE500549A4B /* wkb-ios */,
+				042FC6551B963FE500549A4B /* wkb-iosTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		04DA60951B179CE500D9BCA2 /* Resources */ = {
+		042FC6491B963FE500549A4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		042FC6541B963FE500549A4B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,40 +412,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		04DA60881B179CE500D9BCA2 /* Sources */ = {
+		042FC6461B963FE500549A4B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0499A76A1B1CE79800C161DD /* WKBGeometryEnvelopeBuilder.m in Sources */,
-				0499A7701B1CE8CD00C161DD /* WKBGeometryReader.m in Sources */,
-				04DA60AB1B179E9200D9BCA2 /* WKBGeometryTypes.m in Sources */,
-				0499A77F1B1DE6D100C161DD /* WKBLineString.m in Sources */,
-				0499A7911B1DEAE200C161DD /* WKBPolyhedralSurface.m in Sources */,
-				0499A78E1B1DEA6400C161DD /* WKBTriangle.m in Sources */,
-				0499A79A1B1DEDAD00C161DD /* WKBMultiCurve.m in Sources */,
-				0499A7821B1DE7CC00C161DD /* WKBCircularString.m in Sources */,
-				04DA60B11B179EEA00D9BCA2 /* WKBByteReader.m in Sources */,
-				0499A7641B1CD72C00C161DD /* WKBGeometry.m in Sources */,
-				0499A7971B1DEBF000C161DD /* WKBGeometryCollection.m in Sources */,
-				0499A7611B1CAE4500C161DD /* WKBGeometryEnvelope.m in Sources */,
-				0499A7A31B1DF2E400C161DD /* WKBMultiSurface.m in Sources */,
-				0499A78B1B1DEA1C00C161DD /* WKBPolygon.m in Sources */,
-				04DA60B41B179F0900D9BCA2 /* WKBByteWriter.m in Sources */,
-				0499A77C1B1DE54F00C161DD /* WKBCompoundCurve.m in Sources */,
-				0499A7851B1DE83E00C161DD /* WKBSurface.m in Sources */,
-				0499A7A61B1DF33000C161DD /* WKBMultiPolygon.m in Sources */,
-				0499A7731B1CE8DC00C161DD /* WKBGeometryWriter.m in Sources */,
-				0499A79D1B1DEE0200C161DD /* WKBMultiLineString.m in Sources */,
-				0499A76D1B1CE82600C161DD /* WKBGeometryPrinter.m in Sources */,
-				0499A7A01B1DEECA00C161DD /* WKBMultiPoint.m in Sources */,
-				0499A7881B1DE98B00C161DD /* WKBCurvePolygon.m in Sources */,
-				0499A7761B1DE2A800C161DD /* WKBPoint.m in Sources */,
-				0499A7941B1DEB9600C161DD /* WKBTIN.m in Sources */,
-				0499A7791B1DE4C000C161DD /* WKBCurve.m in Sources */,
+				042FC6AA1B96421E00549A4B /* WKBGeometryCollection.m in Sources */,
+				042FC6A01B96421E00549A4B /* WKBCircularString.m in Sources */,
+				042FC6B21B96421E00549A4B /* WKBMultiCurve.m in Sources */,
+				042FC6D01B96421E00549A4B /* WKBGeometryEnvelopeBuilder.m in Sources */,
+				042FC6CA1B96421E00549A4B /* WKBByteWriter.m in Sources */,
+				042FC6D21B96421E00549A4B /* WKBGeometryPrinter.m in Sources */,
+				042FC6BE1B96421E00549A4B /* WKBPolygon.m in Sources */,
+				042FC6B01B96421E00549A4B /* WKBLineString.m in Sources */,
+				042FC6B81B96421E00549A4B /* WKBMultiPolygon.m in Sources */,
+				042FC6C01B96421E00549A4B /* WKBPolyhedralSurface.m in Sources */,
+				042FC6B41B96421E00549A4B /* WKBMultiLineString.m in Sources */,
+				042FC6AE1B96421E00549A4B /* WKBGeometryTypes.m in Sources */,
+				042FC6A61B96421E00549A4B /* WKBCurvePolygon.m in Sources */,
+				042FC6C61B96421E00549A4B /* WKBTriangle.m in Sources */,
+				042FC6B61B96421E00549A4B /* WKBMultiPoint.m in Sources */,
+				042FC6BC1B96421E00549A4B /* WKBPoint.m in Sources */,
+				042FC6AC1B96421E00549A4B /* WKBGeometryEnvelope.m in Sources */,
+				042FC6A81B96421E00549A4B /* WKBGeometry.m in Sources */,
+				042FC6A21B96421E00549A4B /* WKBCompoundCurve.m in Sources */,
+				042FC6C81B96421E00549A4B /* WKBByteReader.m in Sources */,
+				042FC6BA1B96421E00549A4B /* WKBMultiSurface.m in Sources */,
+				042FC6CE1B96421E00549A4B /* WKBGeometryWriter.m in Sources */,
+				042FC6C21B96421E00549A4B /* WKBSurface.m in Sources */,
+				042FC6C41B96421E00549A4B /* WKBTIN.m in Sources */,
+				042FC6A41B96421E00549A4B /* WKBCurve.m in Sources */,
+				042FC6CC1B96421E00549A4B /* WKBGeometryReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04DA60931B179CE500D9BCA2 /* Sources */ = {
+		042FC6521B963FE500549A4B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -379,15 +455,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		04DA609A1B179CE500D9BCA2 /* PBXTargetDependency */ = {
+		042FC6591B963FE500549A4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 04DA608B1B179CE500D9BCA2 /* wkb-ios */;
-			targetProxy = 04DA60991B179CE500D9BCA2 /* PBXContainerItemProxy */;
+			target = 042FC64A1B963FE500549A4B /* wkb-ios */;
+			targetProxy = 042FC6581B963FE500549A4B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04DA609E1B179CE500D9BCA2 /* Debug */ = {
+		042FC65F1B963FE500549A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -404,7 +480,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -422,14 +500,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		04DA609F1B179CE500D9BCA2 /* Release */ = {
+		042FC6601B963FE500549A4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -446,7 +528,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -458,35 +542,50 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		04DA60A11B179CE500D9BCA2 /* Debug */ = {
+		042FC6621B963FE500549A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "wkb-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = wkb_ios;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		04DA60A21B179CE500D9BCA2 /* Release */ = {
+		042FC6631B963FE500549A4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "wkb-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = wkb_ios;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		04DA60A41B179CE500D9BCA2 /* Debug */ = {
+		042FC6651B963FE500549A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -497,55 +596,54 @@
 				);
 				INFOPLIST_FILE = "wkb-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = wkb_iosTests;
 			};
 			name = Debug;
 		};
-		04DA60A51B179CE500D9BCA2 /* Release */ = {
+		042FC6661B963FE500549A4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "wkb-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = wkb_iosTests;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04DA60871B179CE500D9BCA2 /* Build configuration list for PBXProject "wkb-ios" */ = {
+		042FC6451B963FE500549A4B /* Build configuration list for PBXProject "wkb-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04DA609E1B179CE500D9BCA2 /* Debug */,
-				04DA609F1B179CE500D9BCA2 /* Release */,
+				042FC65F1B963FE500549A4B /* Debug */,
+				042FC6601B963FE500549A4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04DA60A01B179CE500D9BCA2 /* Build configuration list for PBXNativeTarget "wkb-ios" */ = {
+		042FC6611B963FE500549A4B /* Build configuration list for PBXNativeTarget "wkb-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04DA60A11B179CE500D9BCA2 /* Debug */,
-				04DA60A21B179CE500D9BCA2 /* Release */,
+				042FC6621B963FE500549A4B /* Debug */,
+				042FC6631B963FE500549A4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04DA60A31B179CE500D9BCA2 /* Build configuration list for PBXNativeTarget "wkb-iosTests" */ = {
+		042FC6641B963FE500549A4B /* Build configuration list for PBXNativeTarget "wkb-iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04DA60A41B179CE500D9BCA2 /* Debug */,
-				04DA60A51B179CE500D9BCA2 /* Release */,
+				042FC6651B963FE500549A4B /* Debug */,
+				042FC6661B963FE500549A4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 04DA60841B179CE500D9BCA2 /* Project object */;
+	rootObject = 042FC6421B963FE500549A4B /* Project object */;
 }
