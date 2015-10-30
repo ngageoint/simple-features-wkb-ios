@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name             = "wkb-ios"
+  s.name             = "geopackage-wkb-ios"
   s.version          = "1.0.0"
-  s.summary          = "iOS SDK for Well-Known Binary"
+  s.summary          = "GeoPackage iOS SDK for Well-Known Binary"
   s.description      = <<-DESC
                        iOS SDK for Well-Known Binary
                        DESC
