@@ -4,6 +4,6 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.0 (TBD)
+## 1.0.0 (10-27-2015)
 
 * Initial Release
