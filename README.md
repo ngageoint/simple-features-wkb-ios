@@ -48,6 +48,6 @@ Use this repository by specifying it in a Podfile using a supported option:
 
     pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :branch => 'master'
     pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :tag => '1.0.0'
-    pod 'wkb-ios', :path => '../wkb-ios'
+    pod 'wkb-ios', :path => '../geopackage-wkb-ios'
     pod 'wkb-ios', '~> 1.0' # Not yet supported, CocoaPod coming soon
 
