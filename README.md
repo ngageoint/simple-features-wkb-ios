@@ -15,6 +15,8 @@ Software source code previously released under an open source license and then m
 
 ### Usage ###
 
+View the latest [Appledoc on CocoaDocs](http://cocoadocs.org/docsets/wkb-ios)
+
 #### Read ####
 
     //NSData * bytes = ...    
@@ -44,10 +46,18 @@ Open wkb-ios.xcworkspace in Xcode
 
 ### Include Library ###
 
-Use this repository by specifying it in a Podfile using a supported option:
+Include this repository by specifying it in a Podfile using a supported option.
+
+Pull from [CocoaPods](https://cocoapods.org/pods/wkb-ios):
+
+    pod 'wkb-ios', '~> 1.0'
+
+Pull from GitHub:
 
     pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :branch => 'master'
-    pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :tag => '1.0.0'
+    pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :tag => '1.0.1'
+
+Include as local project:
+
     pod 'wkb-ios', :path => '../geopackage-wkb-ios'
-    pod 'wkb-ios', '~> 1.0' # Not yet supported, CocoaPod coming soon
 
