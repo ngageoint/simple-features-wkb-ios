@@ -62,6 +62,9 @@
 		042FC6D21B96421E00549A4B /* WKBGeometryPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC69D1B96421E00549A4B /* WKBGeometryPrinter.m */; };
 		042FC6D31B96421E00549A4B /* wkb-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* wkb-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* wkb_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* wkb_ios.h */; };
+		04AB919B1BF29ECD00894999 /* WKBTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919A1BF29ECD00894999 /* WKBTestCase.m */; settings = {ASSET_TAGS = (); }; };
+		04AB919E1BF29F9A00894999 /* WKBTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919D1BF29F9A00894999 /* WKBTestUtils.m */; settings = {ASSET_TAGS = (); }; };
+		04AB91A11BF2A05200894999 /* WKBGeometryTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB91A01BF2A05200894999 /* WKBGeometryTestUtils.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +136,11 @@
 		042FC69D1B96421E00549A4B /* WKBGeometryPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryPrinter.m; sourceTree = "<group>"; };
 		042FC69E1B96421E00549A4B /* wkb-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wkb-ios-Prefix.pch"; sourceTree = "<group>"; };
 		042FC6D41B96453E00549A4B /* wkb_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wkb_ios.h; sourceTree = "<group>"; };
+		04AB919A1BF29ECD00894999 /* WKBTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBTestCase.m; sourceTree = "<group>"; };
+		04AB919C1BF29F9A00894999 /* WKBTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBTestUtils.h; sourceTree = "<group>"; };
+		04AB919D1BF29F9A00894999 /* WKBTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBTestUtils.m; sourceTree = "<group>"; };
+		04AB919F1BF2A05200894999 /* WKBGeometryTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryTestUtils.h; sourceTree = "<group>"; };
+		04AB91A01BF2A05200894999 /* WKBGeometryTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryTestUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +205,11 @@
 			isa = PBXGroup;
 			children = (
 				042FC65B1B963FE500549A4B /* Supporting Files */,
+				04AB919A1BF29ECD00894999 /* WKBTestCase.m */,
+				04AB919C1BF29F9A00894999 /* WKBTestUtils.h */,
+				04AB919D1BF29F9A00894999 /* WKBTestUtils.m */,
+				04AB919F1BF2A05200894999 /* WKBGeometryTestUtils.h */,
+				04AB91A01BF2A05200894999 /* WKBGeometryTestUtils.m */,
 			);
 			path = "wkb-iosTests";
 			sourceTree = "<group>";
@@ -449,6 +462,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AB919E1BF29F9A00894999 /* WKBTestUtils.m in Sources */,
+				04AB919B1BF29ECD00894999 /* WKBTestCase.m in Sources */,
+				04AB91A11BF2A05200894999 /* WKBGeometryTestUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
