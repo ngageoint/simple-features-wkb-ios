@@ -4,10 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.2 (TBD)
+## [1.0.2](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.2)  (11-12-2015)
 
 * Added tests
-* TBD
+* Minor podspec updates
 
 ## [1.0.1](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.1)  (11-04-2015)
 
