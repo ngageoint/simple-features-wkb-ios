@@ -44,11 +44,11 @@ Build this repository using Xcode and/or CocoaPods:
 
 Open wkb-ios.xcworkspace in Xcode or build from command line:
 
-    xcodebuild -scheme wkb-ios build
+    xcodebuild -workspace 'wkb-ios.xcworkspace' -scheme wkb-ios build
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -scheme wkb-ios -destination 'platform=iOS Simulator,name=iPhone 6s'
+    xcodebuild test -workspace 'wkb-ios.xcworkspace' -scheme wkb-ios -destination 'platform=iOS Simulator,name=iPhone 6s'
 
 ### Include Library ###
 
