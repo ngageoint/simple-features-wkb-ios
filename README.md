@@ -67,3 +67,8 @@ Include as local project:
 
     pod 'wkb-ios', :path => '../geopackage-wkb-ios'
 
+### Swift ###
+
+To use from Swift, import the wkb-ios bridging header from the Swift project's bridging header
+
+    #import "wkb-ios-Bridging-Header.h"
