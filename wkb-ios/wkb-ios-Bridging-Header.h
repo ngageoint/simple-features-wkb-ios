@@ -9,6 +9,7 @@
 #ifndef wkb_ios_Bridging_Header_h
 #define wkb_ios_Bridging_Header_h
 
+#import "wkb_ios.h"
 #import "WKBCircularString.h"
 #import "WKBCompoundCurve.h"
 #import "WKBCurve.h"
