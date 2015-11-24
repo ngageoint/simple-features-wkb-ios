@@ -72,3 +72,22 @@ Include as local project:
 To use from Swift, import the wkb-ios bridging header from the Swift project's bridging header
 
     #import "wkb-ios-Bridging-Header.h"
+
+#### Read ####
+
+    // let bytes: NSData = ...
+    
+    let reader: WKBByteReader = WKBByteReader(data: bytes);
+    reader.byteOrder = Int(CFByteOrderBigEndian.rawValue);
+    let geometry: WKBGeometry = WKBGeometryReader.readGeometryWithReader(reader);
+    let geometryType: WKBGeometryType = geometry.geometryType;
+
+#### Write ####
+
+    //let geometry: WKBGeometry = ...
+    
+    let writer: WKBByteWriter = WKBByteWriter();
+    writer.byteOrder = Int(CFByteOrderBigEndian.rawValue);
+    WKBGeometryWriter.writeGeometry(geometry, withWriter: writer);
+    let bytes: NSData = writer.getData();
+    writer.close();
