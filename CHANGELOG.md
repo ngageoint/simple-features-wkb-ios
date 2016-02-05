@@ -6,11 +6,11 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.0.4 (TBD)
 
-* TBD
+* Removed CFBundleExecutable key from bundle
 
 ## [1.0.3](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.3)  (11-23-2015)
 
-* Bridging Header for Swift 
+* Bridging Header for Swift
 
 ## [1.0.2](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.2)  (11-12-2015)
 
