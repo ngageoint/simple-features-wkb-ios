@@ -6,7 +6,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.0.6 (TBD)
 
-* TBD
+* Adding Geometry JSON Compatible utility to the bridging header
 
 ## [1.0.5](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.5)  (03-17-2016)
 

@@ -36,5 +36,6 @@
 #import "WKBGeometryWriter.h"
 #import "WKBGeometryEnvelopeBuilder.h"
 #import "WKBGeometryPrinter.h"
+#import "WKBGeometryJSONCompatible.h"
 
 #endif /* wkb_ios_Bridging_Header_h */
