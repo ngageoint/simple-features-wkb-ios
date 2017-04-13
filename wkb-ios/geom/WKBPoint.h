@@ -37,6 +37,13 @@
 /**
  *  Initialize
  *
+ *  @return new point
+ */
+-(instancetype) init;
+
+/**
+ *  Initialize
+ *
  *  @param x x coordinate
  *  @param y y coordinate
  *

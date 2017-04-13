@@ -10,6 +10,11 @@
 
 @implementation WKBPolyhedralSurface
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     return [self initWithType:WKB_POLYHEDRALSURFACE andHasZ:hasZ andHasM:hasM];
 }

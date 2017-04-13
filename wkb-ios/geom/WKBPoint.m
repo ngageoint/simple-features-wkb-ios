@@ -10,6 +10,11 @@
 
 @implementation WKBPoint
 
+-(instancetype) init{
+    self = [self initWithX:[[NSDecimalNumber alloc] initWithDouble:0.0] andY:[[NSDecimalNumber alloc] initWithDouble:0.0]];
+    return self;
+}
+
 -(instancetype) initWithX: (NSDecimalNumber *) x andY: (NSDecimalNumber *) y{
     return [self initWithHasZ:false andHasM:false andX:x andY:y];
 }

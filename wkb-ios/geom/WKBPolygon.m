@@ -10,6 +10,11 @@
 
 @implementation WKBPolygon
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     return [self initWithType:WKB_POLYGON andHasZ:hasZ andHasM:hasM];
 }

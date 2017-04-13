@@ -10,6 +10,11 @@
 
 @implementation WKBCompoundCurve
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     self = [super initWithType:WKB_COMPOUNDCURVE andHasZ:hasZ andHasM:hasM];
     if(self != nil){

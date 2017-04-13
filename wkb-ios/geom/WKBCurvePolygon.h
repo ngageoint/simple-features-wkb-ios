@@ -23,6 +23,13 @@
 /**
  *  Initialize
  *
+ *  @return new curve polygon
+ */
+-(instancetype) init;
+
+/**
+ *  Initialize
+ *
  *  @param hasZ has z values
  *  @param hasM has m values
  *

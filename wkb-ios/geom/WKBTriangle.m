@@ -10,6 +10,11 @@
 
 @implementation WKBTriangle
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     self = [super initWithType:WKB_TRIANGLE andHasZ:hasZ andHasM:hasM];
     return self;

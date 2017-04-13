@@ -10,6 +10,11 @@
 
 @implementation WKBLineString
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     return [self initWithType:WKB_LINESTRING andHasZ:hasZ andHasM:hasM];
 }
