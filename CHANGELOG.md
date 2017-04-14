@@ -7,6 +7,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.7 (TBD)
 
 * Shortcut default initializers for Geometry objects without z or m values
+* GeometryEnvelopeBuilder option to wrap longitude ranges across boundary values (near the International Date Line)
 * TBD
 
 ## [1.0.6](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.6)  (03-18-2016)
