@@ -49,6 +49,16 @@
  *
  *  @return new point
  */
+-(instancetype) initWithXValue: (double) x andYValue: (double) y;
+
+/**
+ *  Initialize
+ *
+ *  @param x x coordinate
+ *  @param y y coordinate
+ *
+ *  @return new point
+ */
 -(instancetype) initWithX: (NSDecimalNumber *) x andY: (NSDecimalNumber *) y;
 
 /**

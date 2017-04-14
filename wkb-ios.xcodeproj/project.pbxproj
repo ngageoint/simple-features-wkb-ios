@@ -62,6 +62,14 @@
 		042FC6D21B96421E00549A4B /* WKBGeometryPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC69D1B96421E00549A4B /* WKBGeometryPrinter.m */; };
 		042FC6D31B96421E00549A4B /* wkb-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* wkb-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* wkb_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* wkb_ios.h */; };
+		0445CB271EA1335B008DC0D7 /* WKBGeometryUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0445CB251EA1335B008DC0D7 /* WKBGeometryUtils.h */; };
+		0445CB281EA1335B008DC0D7 /* WKBGeometryUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0445CB261EA1335B008DC0D7 /* WKBGeometryUtils.m */; };
+		0445CB2B1EA1448C008DC0D7 /* WKBCentroidPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 0445CB291EA1448C008DC0D7 /* WKBCentroidPoint.h */; };
+		0445CB2C1EA1448C008DC0D7 /* WKBCentroidPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0445CB2A1EA1448C008DC0D7 /* WKBCentroidPoint.m */; };
+		0445CB2F1EA150D1008DC0D7 /* WKBCentroidCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 0445CB2D1EA150D1008DC0D7 /* WKBCentroidCurve.h */; };
+		0445CB301EA150D1008DC0D7 /* WKBCentroidCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 0445CB2E1EA150D1008DC0D7 /* WKBCentroidCurve.m */; };
+		0445CB331EA150E3008DC0D7 /* WKBCentroidSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0445CB311EA150E3008DC0D7 /* WKBCentroidSurface.h */; };
+		0445CB341EA150E3008DC0D7 /* WKBCentroidSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0445CB321EA150E3008DC0D7 /* WKBCentroidSurface.m */; };
 		0472B51B1C03590500496B87 /* wkb-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* wkb-ios-Bridging-Header.h */; };
 		048A7BAE1C999C52007BCA5D /* WKBGeometryJSONCompatible.h in Headers */ = {isa = PBXBuildFile; fileRef = 048A7BAC1C999C52007BCA5D /* WKBGeometryJSONCompatible.h */; };
 		048A7BAF1C999C52007BCA5D /* WKBGeometryJSONCompatible.m in Sources */ = {isa = PBXBuildFile; fileRef = 048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */; };
@@ -140,6 +148,14 @@
 		042FC69D1B96421E00549A4B /* WKBGeometryPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryPrinter.m; sourceTree = "<group>"; };
 		042FC69E1B96421E00549A4B /* wkb-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wkb-ios-Prefix.pch"; sourceTree = "<group>"; };
 		042FC6D41B96453E00549A4B /* wkb_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wkb_ios.h; sourceTree = "<group>"; };
+		0445CB251EA1335B008DC0D7 /* WKBGeometryUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryUtils.h; sourceTree = "<group>"; };
+		0445CB261EA1335B008DC0D7 /* WKBGeometryUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryUtils.m; sourceTree = "<group>"; };
+		0445CB291EA1448C008DC0D7 /* WKBCentroidPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCentroidPoint.h; sourceTree = "<group>"; };
+		0445CB2A1EA1448C008DC0D7 /* WKBCentroidPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCentroidPoint.m; sourceTree = "<group>"; };
+		0445CB2D1EA150D1008DC0D7 /* WKBCentroidCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCentroidCurve.h; sourceTree = "<group>"; };
+		0445CB2E1EA150D1008DC0D7 /* WKBCentroidCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCentroidCurve.m; sourceTree = "<group>"; };
+		0445CB311EA150E3008DC0D7 /* WKBCentroidSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCentroidSurface.h; sourceTree = "<group>"; };
+		0445CB321EA150E3008DC0D7 /* WKBCentroidSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCentroidSurface.m; sourceTree = "<group>"; };
 		0472B51A1C03590500496B87 /* wkb-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wkb-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		048A7BAC1C999C52007BCA5D /* WKBGeometryJSONCompatible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryJSONCompatible.h; sourceTree = "<group>"; };
 		048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryJSONCompatible.m; sourceTree = "<group>"; };
@@ -307,6 +323,14 @@
 				042FC69D1B96421E00549A4B /* WKBGeometryPrinter.m */,
 				048A7BAC1C999C52007BCA5D /* WKBGeometryJSONCompatible.h */,
 				048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */,
+				0445CB251EA1335B008DC0D7 /* WKBGeometryUtils.h */,
+				0445CB261EA1335B008DC0D7 /* WKBGeometryUtils.m */,
+				0445CB291EA1448C008DC0D7 /* WKBCentroidPoint.h */,
+				0445CB2A1EA1448C008DC0D7 /* WKBCentroidPoint.m */,
+				0445CB2D1EA150D1008DC0D7 /* WKBCentroidCurve.h */,
+				0445CB2E1EA150D1008DC0D7 /* WKBCentroidCurve.m */,
+				0445CB311EA150E3008DC0D7 /* WKBCentroidSurface.h */,
+				0445CB321EA150E3008DC0D7 /* WKBCentroidSurface.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -338,16 +362,20 @@
 				042FC6AB1B96421E00549A4B /* WKBGeometryEnvelope.h in Headers */,
 				0472B51B1C03590500496B87 /* wkb-ios-Bridging-Header.h in Headers */,
 				042FC6B91B96421E00549A4B /* WKBMultiSurface.h in Headers */,
+				0445CB331EA150E3008DC0D7 /* WKBCentroidSurface.h in Headers */,
 				042FC6CB1B96421E00549A4B /* WKBGeometryReader.h in Headers */,
 				042FC6A51B96421E00549A4B /* WKBCurvePolygon.h in Headers */,
 				042FC6AF1B96421E00549A4B /* WKBLineString.h in Headers */,
 				042FC6BF1B96421E00549A4B /* WKBPolyhedralSurface.h in Headers */,
 				042FC6C51B96421E00549A4B /* WKBTriangle.h in Headers */,
 				042FC6D51B96453E00549A4B /* wkb_ios.h in Headers */,
+				0445CB271EA1335B008DC0D7 /* WKBGeometryUtils.h in Headers */,
+				0445CB2F1EA150D1008DC0D7 /* WKBCentroidCurve.h in Headers */,
 				042FC6C31B96421E00549A4B /* WKBTIN.h in Headers */,
 				042FC6A11B96421E00549A4B /* WKBCompoundCurve.h in Headers */,
 				048A7BAE1C999C52007BCA5D /* WKBGeometryJSONCompatible.h in Headers */,
 				042FC6A71B96421E00549A4B /* WKBGeometry.h in Headers */,
+				0445CB2B1EA1448C008DC0D7 /* WKBCentroidPoint.h in Headers */,
 				042FC6B31B96421E00549A4B /* WKBMultiLineString.h in Headers */,
 				042FC6A91B96421E00549A4B /* WKBGeometryCollection.h in Headers */,
 				042FC6D31B96421E00549A4B /* wkb-ios-Prefix.pch in Headers */,
@@ -517,10 +545,13 @@
 			files = (
 				042FC6AA1B96421E00549A4B /* WKBGeometryCollection.m in Sources */,
 				042FC6A01B96421E00549A4B /* WKBCircularString.m in Sources */,
+				0445CB281EA1335B008DC0D7 /* WKBGeometryUtils.m in Sources */,
 				042FC6B21B96421E00549A4B /* WKBMultiCurve.m in Sources */,
 				042FC6D01B96421E00549A4B /* WKBGeometryEnvelopeBuilder.m in Sources */,
 				042FC6CA1B96421E00549A4B /* WKBByteWriter.m in Sources */,
 				042FC6D21B96421E00549A4B /* WKBGeometryPrinter.m in Sources */,
+				0445CB2C1EA1448C008DC0D7 /* WKBCentroidPoint.m in Sources */,
+				0445CB301EA150D1008DC0D7 /* WKBCentroidCurve.m in Sources */,
 				042FC6BE1B96421E00549A4B /* WKBPolygon.m in Sources */,
 				042FC6B01B96421E00549A4B /* WKBLineString.m in Sources */,
 				042FC6B81B96421E00549A4B /* WKBMultiPolygon.m in Sources */,
@@ -541,6 +572,7 @@
 				042FC6C21B96421E00549A4B /* WKBSurface.m in Sources */,
 				042FC6C41B96421E00549A4B /* WKBTIN.m in Sources */,
 				042FC6A41B96421E00549A4B /* WKBCurve.m in Sources */,
+				0445CB341EA150E3008DC0D7 /* WKBCentroidSurface.m in Sources */,
 				042FC6CC1B96421E00549A4B /* WKBGeometryReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
