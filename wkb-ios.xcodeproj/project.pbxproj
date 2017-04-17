@@ -70,6 +70,7 @@
 		0445CB301EA150D1008DC0D7 /* WKBCentroidCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 0445CB2E1EA150D1008DC0D7 /* WKBCentroidCurve.m */; };
 		0445CB331EA150E3008DC0D7 /* WKBCentroidSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0445CB311EA150E3008DC0D7 /* WKBCentroidSurface.h */; };
 		0445CB341EA150E3008DC0D7 /* WKBCentroidSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0445CB321EA150E3008DC0D7 /* WKBCentroidSurface.m */; };
+		0445CB361EA4FE5C008DC0D7 /* WKBGeometryUtilsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0445CB351EA4FE5C008DC0D7 /* WKBGeometryUtilsTestCase.m */; };
 		0472B51B1C03590500496B87 /* wkb-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* wkb-ios-Bridging-Header.h */; };
 		048A7BAE1C999C52007BCA5D /* WKBGeometryJSONCompatible.h in Headers */ = {isa = PBXBuildFile; fileRef = 048A7BAC1C999C52007BCA5D /* WKBGeometryJSONCompatible.h */; };
 		048A7BAF1C999C52007BCA5D /* WKBGeometryJSONCompatible.m in Sources */ = {isa = PBXBuildFile; fileRef = 048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */; };
@@ -156,6 +157,7 @@
 		0445CB2E1EA150D1008DC0D7 /* WKBCentroidCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCentroidCurve.m; sourceTree = "<group>"; };
 		0445CB311EA150E3008DC0D7 /* WKBCentroidSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBCentroidSurface.h; sourceTree = "<group>"; };
 		0445CB321EA150E3008DC0D7 /* WKBCentroidSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBCentroidSurface.m; sourceTree = "<group>"; };
+		0445CB351EA4FE5C008DC0D7 /* WKBGeometryUtilsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryUtilsTestCase.m; sourceTree = "<group>"; };
 		0472B51A1C03590500496B87 /* wkb-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wkb-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		048A7BAC1C999C52007BCA5D /* WKBGeometryJSONCompatible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryJSONCompatible.h; sourceTree = "<group>"; };
 		048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryJSONCompatible.m; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				04AB919D1BF29F9A00894999 /* WKBTestUtils.m */,
 				04AB919F1BF2A05200894999 /* WKBGeometryTestUtils.h */,
 				04AB91A01BF2A05200894999 /* WKBGeometryTestUtils.m */,
+				0445CB351EA4FE5C008DC0D7 /* WKBGeometryUtilsTestCase.m */,
 			);
 			path = "wkb-iosTests";
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 			files = (
 				04AB919E1BF29F9A00894999 /* WKBTestUtils.m in Sources */,
 				04AB919B1BF29ECD00894999 /* WKBTestCase.m in Sources */,
+				0445CB361EA4FE5C008DC0D7 /* WKBGeometryUtilsTestCase.m in Sources */,
 				04AB91A11BF2A05200894999 /* WKBGeometryTestUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
