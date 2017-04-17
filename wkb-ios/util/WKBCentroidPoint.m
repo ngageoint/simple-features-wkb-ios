@@ -17,7 +17,7 @@
 @property (nonatomic) int count;
 
 /**
- * Point count
+ * Sum of point locations
  */
 @property (nonatomic, strong) WKBPoint * sum;
 
@@ -68,6 +68,12 @@
     }
 }
 
+/**
+ * Add a point to the centroid total
+ *
+ * @param point
+ *            point
+ */
 -(void) addPoint: (WKBPoint *) point{
     self.count++;
     [self.sum setX:[self.sum.x decimalNumberByAdding:point.x]];

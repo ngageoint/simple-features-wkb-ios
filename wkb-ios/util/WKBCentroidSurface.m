@@ -85,12 +85,24 @@
     }
 }
 
+/**
+ * Add polygons to the centroid total
+ *
+ * @param polygons
+ *            polygons
+ */
 -(void) addPolygons: (NSArray *) polygons{
     for(WKBPolygon * polygon in polygons){
         [self addPolygon:polygon];
     }
 }
 
+/**
+ * Add a polygon to the centroid total
+ *
+ * @param polygon
+ *            polygon
+ */
 -(void) addPolygon: (WKBPolygon *) polygon{
     NSArray * rings = polygon.rings;
     [self addWithLineString:[rings objectAtIndex:0]];
@@ -99,14 +111,34 @@
     }
 }
 
+/**
+ * Add a line string to the centroid total
+ *
+ * @param lineString
+ *            line string
+ */
 -(void) addWithLineString: (WKBLineString *) lineString{
     [self addWithPositive:true andLineString:lineString];
 }
 
+/**
+ * Add a line string hole to subtract from the centroid total
+ *
+ * @param lineString
+ *            line string
+ */
 -(void) addHoleWithLineString: (WKBLineString *) lineString{
     [self addWithPositive:false andLineString:lineString];
 }
 
+/**
+ * Add or subtract a line string to or from the centroid total
+ *
+ * @param positive
+ *            true if an addition, false if a subtraction
+ * @param lineString
+ *            line string
+ */
 -(void) addWithPositive: (BOOL) positive andLineString: (WKBLineString *) lineString{
     NSArray * points = lineString.points;
     WKBPoint * firstPoint = [points objectAtIndex:0];
@@ -124,6 +156,18 @@
     }
 }
 
+/**
+ * Add or subtract a triangle of points to or from the centroid total
+ *
+ * @param positive
+ *            true if an addition, false if a subtraction
+ * @param point1
+ *            point 1
+ * @param point2
+ *            point 2
+ * @param point3
+ *            point 3
+ */
 -(void) addTriangleWithPositive: (BOOL) positive andPoint1: (WKBPoint *) point1 andPoint2: (WKBPoint *) point2 andPoint3: (WKBPoint *) point3{
     double sign = (positive) ? 1.0 : -1.0;
     WKBPoint * triangleCenter3 = [self centroid3WithPoint1:point1 andPoint2:point2 andPoint3:point3];
@@ -133,6 +177,17 @@
     self.area += sign * area2;
 }
 
+/**
+ * Calculate three times the centroid of the point triangle
+ *
+ * @param point1
+ *            point 1
+ * @param point2
+ *            point 2
+ * @param point3
+ *            point 3
+ * @return 3 times centroid point
+ */
 -(WKBPoint *) centroid3WithPoint1: (WKBPoint *) point1 andPoint2: (WKBPoint *) point2 andPoint3: (WKBPoint *) point3{
     double x = [point1.x doubleValue] + [point2.x doubleValue] + [point3.x doubleValue];
     double y = [point1.y doubleValue] + [point2.y doubleValue] + [point3.y doubleValue];
@@ -140,6 +195,17 @@
     return point;
 }
 
+/**
+ * Calculate twice the area of the point triangle
+ *
+ * @param point1
+ *            point 1
+ * @param point2
+ *            point 2
+ * @param point3
+ *            point 3
+ * @return 2 times triangle area
+ */
 -(double) area2WithPoint1: (WKBPoint *) point1 andPoint2: (WKBPoint *) point2 andPoint3: (WKBPoint *) point3{
     return ([point2.x doubleValue] - [point1.x doubleValue])
 				* ([point3.y doubleValue] - [point1.y doubleValue])

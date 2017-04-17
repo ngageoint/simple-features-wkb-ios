@@ -74,16 +74,34 @@
     }
 }
 
+/**
+ * Add line strings to the centroid total
+ *
+ * @param lineStrings
+ *            line strings
+ */
 -(void) addLineStrings: (NSArray *) lineStrings{
     for(WKBLineString * lineString in lineStrings){
         [self addLineString:lineString];
     }
 }
 
+/**
+ * Add a line string to the centroid total
+ *
+ * @param lineString
+ *            line string
+ */
 -(void) addLineString: (WKBLineString *) lineString{
     [self addPoints:lineString.points];
 }
 
+/**
+ * Add points to the centroid total
+ *
+ * @param points
+ *            points
+ */
 -(void) addPoints: (NSArray *) points{
     for(int i = 0; i < points.count - 1; i++){
         WKBPoint * point = [points objectAtIndex:i];
