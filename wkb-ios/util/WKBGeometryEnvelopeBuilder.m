@@ -69,11 +69,6 @@
     
     WKBGeometryEnvelope * envelope = [[WKBGeometryEnvelope alloc] init];
     
-    [envelope setMinX:[[NSDecimalNumber alloc] initWithDouble:DBL_MAX]];
-    [envelope setMaxX:[[NSDecimalNumber alloc] initWithDouble:-DBL_MAX]];
-    [envelope setMinY:[[NSDecimalNumber alloc] initWithDouble:DBL_MAX]];
-    [envelope setMaxY:[[NSDecimalNumber alloc] initWithDouble:-DBL_MAX]];
-    
     [self buildWithEnvelope:envelope andGeometry:geometry];
     
     return envelope;
@@ -150,7 +145,7 @@
     NSDecimalNumber * x = point.x;
     NSDecimalNumber * y = point.y;
     
-    if(self.worldWidth != nil && [envelope.minX doubleValue] != DBL_MAX && [envelope.maxX doubleValue] != DBL_MIN){
+    if(self.worldWidth != nil && envelope.minX != nil && envelope.maxX != nil){
         if([x doubleValue] < [envelope.minX doubleValue]){
             if([envelope.minX doubleValue] - [x doubleValue] > ([x doubleValue] + [self.worldWidth doubleValue]) - [envelope.maxX doubleValue]){
                 x = [x decimalNumberByAdding:self.worldWidth];
@@ -162,16 +157,16 @@
         }
     }
     
-    if([x compare:envelope.minX] == NSOrderedAscending){
+    if(envelope.minX == nil || [x compare:envelope.minX] == NSOrderedAscending){
         [envelope setMinX:x];
     }
-    if([x compare:envelope.maxX] == NSOrderedDescending){
+    if(envelope.maxX == nil || [x compare:envelope.maxX] == NSOrderedDescending){
         [envelope setMaxX:x];
     }
-    if([y compare:envelope.minY] == NSOrderedAscending){
+    if(envelope.minY == nil || [y compare:envelope.minY] == NSOrderedAscending){
         [envelope setMinY:y];
     }
-    if([y compare:envelope.maxY] == NSOrderedDescending){
+    if(envelope.maxY == nil || [y compare:envelope.maxY] == NSOrderedDescending){
         [envelope setMaxY:y];
     }
     if (point.hasZ) {
