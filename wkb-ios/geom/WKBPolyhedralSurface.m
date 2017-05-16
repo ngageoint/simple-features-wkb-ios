@@ -35,4 +35,12 @@
     return [NSNumber numberWithInteger:[self.polygons count]];
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBPolyhedralSurface *polyhedralSurface = [[WKBPolyhedralSurface alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPolygon *polygon in self.polygons){
+        [polyhedralSurface addPolygon:[polygon mutableCopy]];
+    }
+    return polyhedralSurface;
+}
+
 @end

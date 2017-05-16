@@ -35,4 +35,12 @@
     return [NSNumber numberWithInteger:[self.geometries count]];
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBGeometryCollection *geometryCollection = [[WKBGeometryCollection alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBGeometry *geometry in self.geometries){
+        [geometryCollection addGeometry:[geometry mutableCopy]];
+    }
+    return geometryCollection;
+}
+
 @end

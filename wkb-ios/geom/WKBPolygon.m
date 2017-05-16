@@ -7,6 +7,7 @@
 //
 
 #import "WKBPolygon.h"
+#import "WKBLineString.h"
 
 @implementation WKBPolygon
 
@@ -22,6 +23,14 @@
 -(instancetype) initWithType: (enum WKBGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     self = [super initWithType:geometryType andHasZ:hasZ andHasM:hasM];
     return self;
+}
+
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBPolygon *polygon = [[WKBPolygon alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBLineString *ring in self.rings){
+        [polygon addRing:[ring mutableCopy]];
+    }
+    return polygon;
 }
 
 @end

@@ -31,4 +31,12 @@
     return [NSNumber numberWithInteger:[self.lineStrings count]];
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBCompoundCurve *compoundCurve = [[WKBCompoundCurve alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBLineString *lineString in self.lineStrings){
+        [compoundCurve addLineString:[lineString mutableCopy]];
+    }
+    return compoundCurve;
+}
+
 @end

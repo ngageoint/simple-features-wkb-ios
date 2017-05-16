@@ -36,4 +36,12 @@
     return [self numGeometries];
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBMultiPoint *multiPoint = [[WKBMultiPoint alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPoint *point in self.geometries){
+        [multiPoint addPoint:[point mutableCopy]];
+    }
+    return multiPoint;
+}
+
 @end

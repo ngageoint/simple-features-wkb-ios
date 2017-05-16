@@ -20,4 +20,12 @@
     return self;
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBCircularString *circularString = [[WKBCircularString alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPoint *point in self.points){
+        [circularString addPoint:[point mutableCopy]];
+    }
+    return circularString;
+}
+
 @end

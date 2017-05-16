@@ -31,4 +31,9 @@
     return code;
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    [NSException raise:@"Abstract" format:@"Can not copy abstract geometry"];
+    return nil;
+}
+
 @end

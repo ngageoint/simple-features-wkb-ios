@@ -36,4 +36,12 @@
     return [self numGeometries];
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBMultiPolygon *multiPolygon = [[WKBMultiPolygon alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPolygon *polygon in self.geometries){
+        [multiPolygon addPolygon:[polygon mutableCopy]];
+    }
+    return multiPolygon;
+}
+
 @end

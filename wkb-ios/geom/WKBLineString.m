@@ -35,4 +35,12 @@
     return [NSNumber numberWithInteger:[self.points count] ];
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBLineString *lineString = [[WKBLineString alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPoint *point in self.points){
+        [lineString addPoint:[point mutableCopy]];
+    }
+    return lineString;
+}
+
 @end

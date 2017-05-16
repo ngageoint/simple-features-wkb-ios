@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "WKBGeometry.h"
 #import "WKBPoint.h"
-#import "GPKGBoundingBox.h"
 
 /**
  * Utilities for Geometry objects

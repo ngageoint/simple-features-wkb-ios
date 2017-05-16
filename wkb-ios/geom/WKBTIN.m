@@ -20,4 +20,12 @@
     return self;
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBTIN *tin = [[WKBTIN alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPolygon *polygon in self.polygons){
+        [tin addPolygon:[polygon mutableCopy]];
+    }
+    return tin;
+}
+
 @end

@@ -36,4 +36,12 @@
     return [self numGeometries];
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBMultiLineString *multiLineString = [[WKBMultiLineString alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBLineString *lineString in self.geometries){
+        [multiLineString addLineString:[lineString mutableCopy]];
+    }
+    return multiLineString;
+}
+
 @end

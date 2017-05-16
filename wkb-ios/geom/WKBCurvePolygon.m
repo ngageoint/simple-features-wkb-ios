@@ -35,4 +35,12 @@
     return [NSNumber numberWithInteger:[self.rings count]];
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBCurvePolygon *curevePolygon = [[WKBCurvePolygon alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBCurve *ring in self.rings){
+        [curevePolygon addRing:[ring mutableCopy]];
+    }
+    return curevePolygon;
+}
+
 @end

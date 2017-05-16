@@ -31,4 +31,11 @@
     return self;
 }
 
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBPoint *point = [[WKBPoint alloc] initWithHasZ:self.hasZ andHasM:self.hasM andX:self.x andY:self.y];
+    [point setZ:self.z];
+    [point setM:self.m];
+    return point;
+}
+
 @end
