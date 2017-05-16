@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "WKBGeometry.h"
 #import "WKBPoint.h"
+#import "GPKGBoundingBox.h"
 
 /**
  * Utilities for Geometry objects
@@ -46,5 +47,43 @@
  * @return centroid point
  */
 +(WKBPoint *) centroidOfGeometry: (WKBGeometry *) geometry;
+
+/**
+ * Minimize the geometry using the shortest x distance between each connected set of points.
+ * The resulting geometry point x values will be in the range: 
+ *    (min value - world width) <= x <= (max value + world width)
+ *
+ * Example: For WGS84 with x values >= -180.0 and <= 180.0, provide
+ * a world width of 360.0. Resulting x values will be in the range >=
+ * -540.0 and <= 540.0.
+ *
+ * Example: For web mercator with x values >= -20037508.342789244
+ * and <= 20037508.342789244, provide a world width of 40075016.685578488.
+ * Resulting x values will be in the range >= -60112525.028367732 and
+ * <= 60112525.028367732.
+ *
+ * @param geometry
+ *            geometry
+ * @param worldWidth
+ *            world x width in geometry projection
+ */
++(void) minimizeGeometry: (WKBGeometry *) geometry withWorldWidth: (double) worldWidth;
+
+/**
+ * Normalize the geometry so all points outside of the min and max value range are
+ * adjusted by the world width to fall within the range.
+ *
+ * Example: For WGS84 provide a world width of 360.0.
+ * Resulting x values will be in the range >= -180.0 and <= 180.0.
+ *
+ * Example: For web mercator provide a world width of 40075016.685578488.
+ * Resulting x values will be in the range >= -60112525.028367732 and <= 60112525.028367732.
+ *
+ * @param geometry
+ *            geometry
+ * @param worldWidth
+ *            world x width in geometry projection
+ */
++(void) normalizeGeometry: (WKBGeometry *) geometry withWorldWidth: (double) worldWidth;
 
 @end

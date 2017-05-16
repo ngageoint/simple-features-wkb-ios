@@ -22,60 +22,18 @@
 #import "WKBTIN.h"
 #import "WKBTriangle.h"
 
-@interface WKBGeometryEnvelopeBuilder()
-
-/**
- *  World longitude width in geometry projection
- */
-@property (nonatomic, strong) NSDecimalNumber * worldWidth;
-
-@end
-
 @implementation WKBGeometryEnvelopeBuilder
 
 +(WKBGeometryEnvelope *) buildEnvelopeWithGeometry: (WKBGeometry *) geometry{
-    return [[[WKBGeometryEnvelopeBuilder alloc] init] buildWithGeometry:geometry];
-}
-
-+(void) buildEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry{
-    [[[WKBGeometryEnvelopeBuilder alloc] init] buildWithEnvelope:envelope andGeometry:geometry];
-}
-
-+(WKBGeometryEnvelope *) buildEnvelopeWithGeometry: (WKBGeometry *) geometry withWorldWidth: (double) worldWidth{
-    return [[[WKBGeometryEnvelopeBuilder alloc] initWithWorldWidth:[[NSDecimalNumber alloc] initWithDouble:worldWidth]] buildWithGeometry:geometry];
-}
-
-+(void) buildEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry withWorldWidth: (double) worldWidth{
-    [[[WKBGeometryEnvelopeBuilder alloc] initWithWorldWidth:[[NSDecimalNumber alloc] initWithDouble:worldWidth]] buildWithEnvelope:envelope andGeometry:geometry];
-}
-
--(instancetype) init{
-    return [self initWithWorldWidth:nil];
-}
-
--(instancetype) initWithWorldWidth: (NSDecimalNumber *) worldWidth{
-    self = [super init];
-    if(self != nil){
-        self.worldWidth = worldWidth;
-    }
-    return self;
-}
-
--(NSDecimalNumber *) worldWidth{
-    return _worldWidth;
-}
-
--(WKBGeometryEnvelope *) buildWithGeometry: (WKBGeometry *) geometry{
     
     WKBGeometryEnvelope * envelope = [[WKBGeometryEnvelope alloc] init];
     
-    [self buildWithEnvelope:envelope andGeometry:geometry];
+    [self buildEnvelope:envelope andGeometry:geometry];
     
     return envelope;
-    
 }
 
--(void) buildWithEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry{
++(void) buildEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry{
     
     enum WKBGeometryType geometryType = geometry.geometryType;
     switch (geometryType) {
@@ -118,18 +76,18 @@
                 WKBGeometryCollection * geomCollection = (WKBGeometryCollection *) geometry;
                 NSArray * geometries = geomCollection.geometries;
                 for (WKBGeometry * subGeometry in geometries) {
-                    [self buildWithEnvelope:envelope andGeometry:subGeometry];
+                    [self buildEnvelope:envelope andGeometry:subGeometry];
                 }
             }
             break;
         default:
             break;
-        
+            
     }
     
 }
 
--(void) updateHasZandMWithEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry{
++(void) updateHasZandMWithEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry{
     if(!envelope.hasZ && geometry.hasZ){
         [envelope setHasZ:true];
     }
@@ -138,25 +96,12 @@
     }
 }
 
--(void) addPoint: (WKBPoint *) point andEnvelope: (WKBGeometryEnvelope *) envelope{
++(void) addPoint: (WKBPoint *) point andEnvelope: (WKBGeometryEnvelope *) envelope{
     
     [self updateHasZandMWithEnvelope:envelope andGeometry:point];
     
     NSDecimalNumber * x = point.x;
     NSDecimalNumber * y = point.y;
-    
-    if(self.worldWidth != nil && envelope.minX != nil && envelope.maxX != nil){
-        if([x doubleValue] < [envelope.minX doubleValue]){
-            if([envelope.minX doubleValue] - [x doubleValue] > ([x doubleValue] + [self.worldWidth doubleValue]) - [envelope.maxX doubleValue]){
-                x = [x decimalNumberByAdding:self.worldWidth];
-            }
-        }else if([x doubleValue] > [envelope.maxX doubleValue]){
-            if([x doubleValue] - [envelope.maxX doubleValue] > [envelope.minX doubleValue] - ([x doubleValue] - [self.worldWidth doubleValue])){
-                x = [x decimalNumberBySubtracting:self.worldWidth];
-            }
-        }
-    }
-    
     if(envelope.minX == nil || [x compare:envelope.minX] == NSOrderedAscending){
         [envelope setMinX:x];
     }
@@ -193,7 +138,7 @@
     }
 }
 
--(void) addMultiPoint: (WKBMultiPoint *) multiPoint andEnvelope: (WKBGeometryEnvelope *) envelope{
++(void) addMultiPoint: (WKBMultiPoint *) multiPoint andEnvelope: (WKBGeometryEnvelope *) envelope{
     
     [self updateHasZandMWithEnvelope:envelope andGeometry:multiPoint];
     
@@ -203,7 +148,7 @@
     }
 }
 
--(void) addLineString: (WKBLineString *) lineString andEnvelope: (WKBGeometryEnvelope *) envelope{
++(void) addLineString: (WKBLineString *) lineString andEnvelope: (WKBGeometryEnvelope *) envelope{
     
     [self updateHasZandMWithEnvelope:envelope andGeometry:lineString];
     
@@ -212,7 +157,7 @@
     }
 }
 
--(void) addMultiLineString: (WKBMultiLineString *) multiLineString andEnvelope: (WKBGeometryEnvelope *) envelope{
++(void) addMultiLineString: (WKBMultiLineString *) multiLineString andEnvelope: (WKBGeometryEnvelope *) envelope{
     
     [self updateHasZandMWithEnvelope:envelope andGeometry:multiLineString];
     
@@ -222,7 +167,7 @@
     }
 }
 
--(void) addPolygon: (WKBPolygon *) polygon andEnvelope: (WKBGeometryEnvelope *) envelope{
++(void) addPolygon: (WKBPolygon *) polygon andEnvelope: (WKBGeometryEnvelope *) envelope{
     
     [self updateHasZandMWithEnvelope:envelope andGeometry:polygon];
     
@@ -231,7 +176,7 @@
     }
 }
 
--(void) addMultiPolygon: (WKBMultiPolygon *) multiPolygon andEnvelope: (WKBGeometryEnvelope *) envelope{
++(void) addMultiPolygon: (WKBMultiPolygon *) multiPolygon andEnvelope: (WKBGeometryEnvelope *) envelope{
     
     [self updateHasZandMWithEnvelope:envelope andGeometry:multiPolygon];
     
@@ -241,7 +186,7 @@
     }
 }
 
--(void) addCompoundCurve: (WKBCompoundCurve *) compoundCurve andEnvelope: (WKBGeometryEnvelope *) envelope{
++(void) addCompoundCurve: (WKBCompoundCurve *) compoundCurve andEnvelope: (WKBGeometryEnvelope *) envelope{
     
     [self updateHasZandMWithEnvelope:envelope andGeometry:compoundCurve];
     
@@ -250,7 +195,7 @@
     }
 }
 
--(void) addPolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface andEnvelope: (WKBGeometryEnvelope *) envelope{
++(void) addPolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface andEnvelope: (WKBGeometryEnvelope *) envelope{
     
     [self updateHasZandMWithEnvelope:envelope andGeometry:polyhedralSurface];
     
