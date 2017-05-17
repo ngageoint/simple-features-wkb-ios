@@ -26,6 +26,8 @@
 
 +(void)assertEqualDoubleWithValue:(double) value andValue2: (double) value2;
 
++(void)assertEqualDoubleWithValue:(double) value andValue2: (double) value2 andDelta: (double) delta;
+
 +(NSDecimalNumber *) roundDouble: (double) value;
 
 +(NSDecimalNumber *) roundDouble: (double) value withScale: (int) scale;

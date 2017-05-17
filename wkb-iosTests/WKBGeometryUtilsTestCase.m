@@ -236,4 +236,58 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     return geometryCollection;
 }
 
+-(void) testCopyMinimizeAndNormalize{
+    
+    WKBPolygon * polygon = [[WKBPolygon alloc] init];
+    WKBLineString * ring = [[WKBLineString alloc] init];
+    double random = [WKBTestUtils randomDouble];
+    if(random < .5){
+        [ring addPoint:[self createPointWithMinX:90.0 andMinY:0.0 andXRange:90.0 andYRange:90.0]];
+        [ring addPoint:[self createPointWithMinX:90.0 andMinY:-90.0 andXRange:90.0 andYRange:90.0]];
+        [ring addPoint:[self createPointWithMinX:-180.0 andMinY:-90.0 andXRange:89.0 andYRange:90.0]];
+        [ring addPoint:[self createPointWithMinX:-180.0 andMinY:0.0 andXRange:89.0 andYRange:90.0]];
+    }else{
+        [ring addPoint:[self createPointWithMinX:-180.0 andMinY:0.0 andXRange:89.0 andYRange:90.0]];
+        [ring addPoint:[self createPointWithMinX:-180.0 andMinY:-90.0 andXRange:89.0 andYRange:90.0]];
+        [ring addPoint:[self createPointWithMinX:90.0 andMinY:-90.0 andXRange:90.0 andYRange:90.0]];
+        [ring addPoint:[self createPointWithMinX:90.0 andMinY:0.0 andXRange:90.0 andYRange:90.0]];
+    }
+    [polygon addRing:ring];
+    
+    WKBPolygon * polygon2 = [polygon mutableCopy];
+    [WKBGeometryUtils minimizeGeometry:polygon2 withMaxX:180.0];
+    
+    WKBPolygon * polygon3 = [polygon2 mutableCopy];
+    [WKBGeometryUtils normalizeGeometry:polygon3 withMaxX:180.0];
+    
+    NSArray *points = ring.points;
+    WKBLineString *ring2 = [polygon2.rings objectAtIndex:0];
+    NSArray *points2 = ring2.points;
+    WKBLineString *ring3 = [polygon3.rings objectAtIndex:0];
+    NSArray *points3 = ring3.points;
+    
+    for(int i = 0; i < points.count; i++){
+        
+        WKBPoint *point = [points objectAtIndex:i];
+        WKBPoint *point2 = [points2 objectAtIndex:i];
+        WKBPoint *point3 = [points3 objectAtIndex:i];
+        
+        [WKBTestUtils assertEqualDoubleWithValue:[point.y doubleValue] andValue2:[point2.y doubleValue]];
+        [WKBTestUtils assertEqualDoubleWithValue:[point.y doubleValue] andValue2:[point3.y doubleValue]];
+        [WKBTestUtils assertEqualDoubleWithValue:[point.x doubleValue] andValue2:[point3.x doubleValue]];
+        if(i < 2){
+            [WKBTestUtils assertEqualDoubleWithValue:[point.x doubleValue] andValue2:[point2.x doubleValue]];
+        }else{
+            double point2Value = [point2.x doubleValue];
+            if(random < .5){
+                point2Value -= 360.0;
+            }else{
+                point2Value += 360.0;
+            }
+            [WKBTestUtils assertEqualDoubleWithValue:[point.x doubleValue] andValue2:point2Value andDelta:.0000000001];
+        }
+    }
+    
+}
+
 @end
