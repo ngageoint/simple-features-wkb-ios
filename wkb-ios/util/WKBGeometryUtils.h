@@ -50,39 +50,36 @@
 /**
  * Minimize the geometry using the shortest x distance between each connected set of points.
  * The resulting geometry point x values will be in the range: 
- *    (min value - world width) <= x <= (max value + world width)
+ *   (3 * min value <= x <= 3 * max value
  *
- * Example: For WGS84 with x values >= -180.0 and <= 180.0, provide
- * a world width of 360.0. Resulting x values will be in the range >=
- * -540.0 and <= 540.0.
+ * Example: For WGS84 provide a max x of 180.0.
+ * Resulting x values will be in the range: -540.0 <= x <= 540.0
  *
- * Example: For web mercator with x values >= -20037508.342789244
- * and <= 20037508.342789244, provide a world width of 40075016.685578488.
- * Resulting x values will be in the range >= -60112525.028367732 and
- * <= 60112525.028367732.
+ * Example: For web mercator provide a world width of 20037508.342789244.
+ * Resulting x values will be in the range: -60112525.028367732 <= x <= 60112525.028367732
  *
  * @param geometry
  *            geometry
- * @param worldWidth
- *            world x width in geometry projection
+ * @param maxX
+ *            max positive x value in the geometry projection
  */
-+(void) minimizeGeometry: (WKBGeometry *) geometry withWorldWidth: (double) worldWidth;
++(void) minimizeGeometry: (WKBGeometry *) geometry withMaxX: (double) maxX;
 
 /**
  * Normalize the geometry so all points outside of the min and max value range are
- * adjusted by the world width to fall within the range.
+ * adjusted to fall within the range.
  *
- * Example: For WGS84 provide a world width of 360.0.
- * Resulting x values will be in the range >= -180.0 and <= 180.0.
+ * Example: For WGS84 provide a max x of 180.0.
+ * Resulting x values will be in the range: -180.0 <= x <= 180.0.
  *
- * Example: For web mercator provide a world width of 40075016.685578488.
- * Resulting x values will be in the range >= -60112525.028367732 and <= 60112525.028367732.
+ * Example: For web mercator provide a world width of 20037508.342789244.
+ * Resulting x values will be in the range: -20037508.342789244 <= x <= 20037508.342789244.
  *
  * @param geometry
  *            geometry
- * @param worldWidth
- *            world x width in geometry projection
+ * @param maxX
+ *            max positive x value in the geometry projection
  */
-+(void) normalizeGeometry: (WKBGeometry *) geometry withWorldWidth: (double) worldWidth;
++(void) normalizeGeometry: (WKBGeometry *) geometry withMaxX: (double) maxX;
 
 @end

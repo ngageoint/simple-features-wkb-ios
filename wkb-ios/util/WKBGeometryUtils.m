@@ -99,43 +99,43 @@
     return centroid;
 }
 
-+(void) minimizeGeometry: (WKBGeometry *) geometry withWorldWidth: (double) worldWidth{
++(void) minimizeGeometry: (WKBGeometry *) geometry withMaxX: (double) maxX{
     
     enum WKBGeometryType geometryType = geometry.geometryType;
     switch (geometryType) {
         case WKB_LINESTRING:
-            [self minimizeLineString:(WKBLineString *)geometry withWorldWidth:worldWidth];
+            [self minimizeLineString:(WKBLineString *)geometry withMaxX:maxX];
             break;
         case WKB_POLYGON:
-            [self minimizePolygon:(WKBPolygon *)geometry withWorldWidth:worldWidth];
+            [self minimizePolygon:(WKBPolygon *)geometry withMaxX:maxX];
             break;
         case WKB_MULTILINESTRING:
-            [self minimizeMultiLineString:(WKBMultiLineString *)geometry withWorldWidth:worldWidth];
+            [self minimizeMultiLineString:(WKBMultiLineString *)geometry withMaxX:maxX];
             break;
         case WKB_MULTIPOLYGON:
-            [self minimizeMultiPolygon:(WKBMultiPolygon *)geometry withWorldWidth:worldWidth];
+            [self minimizeMultiPolygon:(WKBMultiPolygon *)geometry withMaxX:maxX];
             break;
         case WKB_CIRCULARSTRING:
-            [self minimizeLineString:(WKBCircularString *)geometry withWorldWidth:worldWidth];
+            [self minimizeLineString:(WKBCircularString *)geometry withMaxX:maxX];
             break;
         case WKB_COMPOUNDCURVE:
-            [self minimizeCompoundCurve:(WKBCompoundCurve *)geometry withWorldWidth:worldWidth];
+            [self minimizeCompoundCurve:(WKBCompoundCurve *)geometry withMaxX:maxX];
             break;
         case WKB_POLYHEDRALSURFACE:
-            [self minimizePolyhedralSurface:(WKBPolyhedralSurface *)geometry withWorldWidth:worldWidth];
+            [self minimizePolyhedralSurface:(WKBPolyhedralSurface *)geometry withMaxX:maxX];
             break;
         case WKB_TIN:
-            [self minimizePolyhedralSurface:(WKBTIN *)geometry withWorldWidth:worldWidth];
+            [self minimizePolyhedralSurface:(WKBTIN *)geometry withMaxX:maxX];
             break;
         case WKB_TRIANGLE:
-            [self minimizePolygon:(WKBTriangle *)geometry withWorldWidth:worldWidth];
+            [self minimizePolygon:(WKBTriangle *)geometry withMaxX:maxX];
             break;
         case WKB_GEOMETRYCOLLECTION:
         {
             WKBGeometryCollection * geomCollection = (WKBGeometryCollection *) geometry;
             NSArray * geometries = geomCollection.geometries;
             for (WKBGeometry * subGeometry in geometries) {
-                [self minimizeGeometry:subGeometry withWorldWidth:worldWidth];
+                [self minimizeGeometry:subGeometry withMaxX:maxX];
             }
         }
             break;
@@ -146,7 +146,7 @@
     
 }
 
-+(void) minimizeLineString: (WKBLineString *) lineString withWorldWidth: (double) worldWidth{
++(void) minimizeLineString: (WKBLineString *) lineString withMaxX: (double) maxX{
     
     NSMutableArray * points = lineString.points;
     if(points.count > 1){
@@ -154,98 +154,98 @@
         for(int i = 1; i < points.count; i++){
             WKBPoint *nextPoint = [points objectAtIndex:i];
             if([point.x doubleValue] < [nextPoint.x doubleValue]){
-                if([nextPoint.x doubleValue] - [point.x doubleValue] > [point.x doubleValue] - [nextPoint.x doubleValue] + worldWidth){
-                    [nextPoint setX:[nextPoint.x decimalNumberBySubtracting:[[NSDecimalNumber alloc] initWithDouble: worldWidth]]];
+                if([nextPoint.x doubleValue] - [point.x doubleValue] > [point.x doubleValue] - [nextPoint.x doubleValue] + (maxX * 2.0)){
+                    [nextPoint setX:[nextPoint.x decimalNumberBySubtracting:[[NSDecimalNumber alloc] initWithDouble: maxX * 2.0]]];
                 }
             }else if([point.x doubleValue] > [nextPoint.x doubleValue]){
-                if([point.x doubleValue] - [nextPoint.x doubleValue] > [nextPoint.x doubleValue] - [point.x doubleValue] + worldWidth){
-                    [nextPoint setX:[nextPoint.x decimalNumberByAdding:[[NSDecimalNumber alloc] initWithDouble: worldWidth]]];
+                if([point.x doubleValue] - [nextPoint.x doubleValue] > [nextPoint.x doubleValue] - [point.x doubleValue] + (maxX * 2.0)){
+                    [nextPoint setX:[nextPoint.x decimalNumberByAdding:[[NSDecimalNumber alloc] initWithDouble: maxX * 2.0]]];
                 }
             }
         }
     }
 }
 
-+(void) minimizeMultiLineString: (WKBMultiLineString *) multiLineString withWorldWidth: (double) worldWidth{
++(void) minimizeMultiLineString: (WKBMultiLineString *) multiLineString withMaxX: (double) maxX{
     
     NSArray * lineStrings = [multiLineString getLineStrings];
     for(WKBLineString * lineString in lineStrings){
-        [self minimizeLineString:lineString withWorldWidth:worldWidth];
+        [self minimizeLineString:lineString withMaxX:maxX];
     }
 }
 
-+(void) minimizePolygon: (WKBPolygon *) polygon withWorldWidth: (double) worldWidth{
++(void) minimizePolygon: (WKBPolygon *) polygon withMaxX: (double) maxX{
     
     for(WKBLineString * ring in polygon.rings){
-        [self minimizeLineString:ring withWorldWidth:worldWidth];
+        [self minimizeLineString:ring withMaxX:maxX];
     }
 }
 
-+(void) minimizeMultiPolygon: (WKBMultiPolygon *) multiPolygon withWorldWidth: (double) worldWidth{
++(void) minimizeMultiPolygon: (WKBMultiPolygon *) multiPolygon withMaxX: (double) maxX{
     
     NSArray * polygons = [multiPolygon getPolygons];
     for(WKBPolygon * polygon in polygons){
-        [self minimizePolygon:polygon withWorldWidth:worldWidth];
+        [self minimizePolygon:polygon withMaxX:maxX];
     }
 }
 
-+(void) minimizeCompoundCurve: (WKBCompoundCurve *) compoundCurve withWorldWidth: (double) worldWidth{
++(void) minimizeCompoundCurve: (WKBCompoundCurve *) compoundCurve withMaxX: (double) maxX{
     
     for(WKBLineString * lineString in compoundCurve.lineStrings){
-        [self minimizeLineString:lineString withWorldWidth:worldWidth];
+        [self minimizeLineString:lineString withMaxX:maxX];
     }
 }
 
-+(void) minimizePolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface withWorldWidth: (double) worldWidth{
++(void) minimizePolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface withMaxX: (double) maxX{
     
     for(WKBPolygon * polygon in polyhedralSurface.polygons){
-        [self minimizePolygon:polygon withWorldWidth:worldWidth];
+        [self minimizePolygon:polygon withMaxX:maxX];
     }
 }
 
-+(void) normalizeGeometry: (WKBGeometry *) geometry withWorldWidth: (double) worldWidth{
++(void) normalizeGeometry: (WKBGeometry *) geometry withMaxX: (double) maxX{
     
     enum WKBGeometryType geometryType = geometry.geometryType;
     switch (geometryType) {
         case WKB_POINT:
-            [self normalizePoint:(WKBPoint *)geometry withWorldWidth:worldWidth];
+            [self normalizePoint:(WKBPoint *)geometry withMaxX:maxX];
             break;
         case WKB_LINESTRING:
-            [self normalizeLineString:(WKBLineString *)geometry withWorldWidth:worldWidth];
+            [self normalizeLineString:(WKBLineString *)geometry withMaxX:maxX];
             break;
         case WKB_POLYGON:
-            [self normalizePolygon:(WKBPolygon *)geometry withWorldWidth:worldWidth];
+            [self normalizePolygon:(WKBPolygon *)geometry withMaxX:maxX];
             break;
         case WKB_MULTIPOINT:
-            [self normalizeMultiPoint:(WKBMultiPoint *)geometry withWorldWidth:worldWidth];
+            [self normalizeMultiPoint:(WKBMultiPoint *)geometry withMaxX:maxX];
             break;
         case WKB_MULTILINESTRING:
-            [self normalizeMultiLineString:(WKBMultiLineString *)geometry withWorldWidth:worldWidth];
+            [self normalizeMultiLineString:(WKBMultiLineString *)geometry withMaxX:maxX];
             break;
         case WKB_MULTIPOLYGON:
-            [self normalizeMultiPolygon:(WKBMultiPolygon *)geometry withWorldWidth:worldWidth];
+            [self normalizeMultiPolygon:(WKBMultiPolygon *)geometry withMaxX:maxX];
             break;
         case WKB_CIRCULARSTRING:
-            [self normalizeLineString:(WKBCircularString *)geometry withWorldWidth:worldWidth];
+            [self normalizeLineString:(WKBCircularString *)geometry withMaxX:maxX];
             break;
         case WKB_COMPOUNDCURVE:
-            [self normalizeCompoundCurve:(WKBCompoundCurve *)geometry withWorldWidth:worldWidth];
+            [self normalizeCompoundCurve:(WKBCompoundCurve *)geometry withMaxX:maxX];
             break;
         case WKB_POLYHEDRALSURFACE:
-            [self normalizePolyhedralSurface:(WKBPolyhedralSurface *)geometry withWorldWidth:worldWidth];
+            [self normalizePolyhedralSurface:(WKBPolyhedralSurface *)geometry withMaxX:maxX];
             break;
         case WKB_TIN:
-            [self normalizePolyhedralSurface:(WKBTIN *)geometry withWorldWidth:worldWidth];
+            [self normalizePolyhedralSurface:(WKBTIN *)geometry withMaxX:maxX];
             break;
         case WKB_TRIANGLE:
-            [self normalizePolygon:(WKBTriangle *)geometry withWorldWidth:worldWidth];
+            [self normalizePolygon:(WKBTriangle *)geometry withMaxX:maxX];
             break;
         case WKB_GEOMETRYCOLLECTION:
         {
             WKBGeometryCollection * geomCollection = (WKBGeometryCollection *) geometry;
             NSArray * geometries = geomCollection.geometries;
             for (WKBGeometry * subGeometry in geometries) {
-                [self normalizeGeometry:subGeometry withWorldWidth:worldWidth];
+                [self normalizeGeometry:subGeometry withMaxX:maxX];
             }
         }
             break;
@@ -256,65 +256,64 @@
     
 }
 
-+(void) normalizePoint: (WKBPoint *) point withWorldWidth: (double) worldWidth{
++(void) normalizePoint: (WKBPoint *) point withMaxX: (double) maxX{
     
-    double halfWorldWith = worldWidth / 2.0;
-    if([point.x doubleValue] < -halfWorldWith){
-        [point setX:[point.x decimalNumberByAdding:[[NSDecimalNumber alloc] initWithDouble: worldWidth]]];
-    }else if([point.x doubleValue] > halfWorldWith){
-        [point setX:[point.x decimalNumberBySubtracting:[[NSDecimalNumber alloc] initWithDouble: worldWidth]]];
+    if([point.x doubleValue] < -maxX){
+        [point setX:[point.x decimalNumberByAdding:[[NSDecimalNumber alloc] initWithDouble: maxX * 2.0]]];
+    }else if([point.x doubleValue] > maxX){
+        [point setX:[point.x decimalNumberBySubtracting:[[NSDecimalNumber alloc] initWithDouble: maxX * 2.0]]];
     }
 }
 
-+(void) normalizeMultiPoint: (WKBMultiPoint *) multiPoint withWorldWidth: (double) worldWidth{
++(void) normalizeMultiPoint: (WKBMultiPoint *) multiPoint withMaxX: (double) maxX{
     
     NSArray * points = [multiPoint getPoints];
     for(WKBPoint * point in points){
-        [self normalizePoint:point withWorldWidth:worldWidth];
+        [self normalizePoint:point withMaxX:maxX];
     }
 }
 
-+(void) normalizeLineString: (WKBLineString *) lineString withWorldWidth: (double) worldWidth{
++(void) normalizeLineString: (WKBLineString *) lineString withMaxX: (double) maxX{
     
     for(WKBPoint * point in lineString.points){
-        [self normalizePoint:point withWorldWidth:worldWidth];
+        [self normalizePoint:point withMaxX:maxX];
     }
 }
 
-+(void) normalizeMultiLineString: (WKBMultiLineString *) multiLineString withWorldWidth: (double) worldWidth{
++(void) normalizeMultiLineString: (WKBMultiLineString *) multiLineString withMaxX: (double) maxX{
     
     NSArray * lineStrings = [multiLineString getLineStrings];
     for(WKBLineString * lineString in lineStrings){
-        [self normalizeLineString:lineString withWorldWidth:worldWidth];
+        [self normalizeLineString:lineString withMaxX:maxX];
     }
 }
 
-+(void) normalizePolygon: (WKBPolygon *) polygon withWorldWidth: (double) worldWidth{
++(void) normalizePolygon: (WKBPolygon *) polygon withMaxX: (double) maxX{
     
     for(WKBLineString * ring in polygon.rings){
-        [self normalizeLineString:ring withWorldWidth:worldWidth];
+        [self normalizeLineString:ring withMaxX:maxX];
     }
 }
 
-+(void) normalizeMultiPolygon: (WKBMultiPolygon *) multiPolygon withWorldWidth: (double) worldWidth{
++(void) normalizeMultiPolygon: (WKBMultiPolygon *) multiPolygon withMaxX: (double) maxX{
     
     NSArray * polygons = [multiPolygon getPolygons];
     for(WKBPolygon * polygon in polygons){
-        [self normalizePolygon:polygon withWorldWidth:worldWidth];
+        [self normalizePolygon:polygon withMaxX:maxX];
     }
 }
 
-+(void) normalizeCompoundCurve: (WKBCompoundCurve *) compoundCurve withWorldWidth: (double) worldWidth{
++(void) normalizeCompoundCurve: (WKBCompoundCurve *) compoundCurve withMaxX: (double) maxX{
     
     for(WKBLineString * lineString in compoundCurve.lineStrings){
-        [self normalizeLineString:lineString withWorldWidth:worldWidth];
+        [self normalizeLineString:lineString withMaxX:maxX];
     }
 }
 
-+(void) normalizePolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface withWorldWidth: (double) worldWidth{
++(void) normalizePolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface withMaxX: (double) maxX{
     
     for(WKBPolygon * polygon in polyhedralSurface.polygons){
-        [self normalizePolygon:polygon withWorldWidth:worldWidth];
+        [self normalizePolygon:polygon withMaxX:maxX];
     }
 }
 
