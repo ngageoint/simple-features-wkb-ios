@@ -12,7 +12,7 @@
 /**
  *  The root of the geometry type hierarchy
  */
-@interface WKBGeometry : NSObject <NSMutableCopying>
+@interface WKBGeometry : NSObject <NSMutableCopying, NSCoding>
 
 /**
  *  Geometry type
