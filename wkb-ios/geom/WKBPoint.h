@@ -73,4 +73,32 @@
  */
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM andX: (NSDecimalNumber *) x andY: (NSDecimalNumber *) y;
 
+/**
+ *  Set the x value
+ *
+ *  @param x   x coordinate
+ */
+-(void) setXValue: (double) x;
+
+/**
+ *  Set the Y value
+ *
+ *  @param Y   Y coordinate
+ */
+-(void) setYValue: (double) y;
+
+/**
+ *  Set the z value
+ *
+ *  @param z   z coordinate
+ */
+-(void) setZValue: (double) z;
+
+/**
+ *  Set the m value
+ *
+ *  @param m   m coordinate
+ */
+-(void) setMValue: (double) m;
+
 @end

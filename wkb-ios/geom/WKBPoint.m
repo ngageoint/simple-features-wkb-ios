@@ -38,4 +38,20 @@
     return point;
 }
 
+-(void) setXValue: (double) x{
+    self.x = [[NSDecimalNumber alloc] initWithDouble:x];
+}
+
+-(void) setYValue: (double) y{
+    self.y = [[NSDecimalNumber alloc] initWithDouble:y];
+}
+
+-(void) setZValue: (double) z{
+    self.z = [[NSDecimalNumber alloc] initWithDouble:z];
+}
+
+-(void) setMValue: (double) m{
+    self.m = [[NSDecimalNumber alloc] initWithDouble:m];
+}
+
 @end
