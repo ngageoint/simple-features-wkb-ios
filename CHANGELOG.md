@@ -6,7 +6,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.0.7 (TBD)
 
-* TBD
+* Shortcut default initializers for Geometry objects without z or m values
+* Geometry utilities including centroid, minimize for antimeridian support, and normalize
+* Geometry mutable copying support (NSMutableCopying)
+* Geometry encoding & decoding support (NSCoding)
 
 ## [1.0.6](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.6)  (03-18-2016)
 

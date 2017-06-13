@@ -21,6 +21,13 @@
 /**
  *  Initialize
  *
+ *  @return new geometry collection
+ */
+-(instancetype) init;
+
+/**
+ *  Initialize
+ *
  *  @param hasZ has z values
  *  @param hasM has m values
  *

@@ -10,6 +10,11 @@
 
 @implementation WKBPolyhedralSurface
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     return [self initWithType:WKB_POLYHEDRALSURFACE andHasZ:hasZ andHasM:hasM];
 }
@@ -28,6 +33,14 @@
 
 -(NSNumber *) numPolygons{
     return [NSNumber numberWithInteger:[self.polygons count]];
+}
+
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBPolyhedralSurface *polyhedralSurface = [[WKBPolyhedralSurface alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPolygon *polygon in self.polygons){
+        [polyhedralSurface addPolygon:[polygon mutableCopy]];
+    }
+    return polyhedralSurface;
 }
 
 @end

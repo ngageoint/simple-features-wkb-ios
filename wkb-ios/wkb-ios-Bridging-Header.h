@@ -37,5 +37,9 @@
 #import "WKBGeometryEnvelopeBuilder.h"
 #import "WKBGeometryPrinter.h"
 #import "WKBGeometryJSONCompatible.h"
+#import "WKBGeometryUtils.h"
+#import "WKBCentroidPoint.h"
+#import "WKBCentroidCurve.h"
+#import "WKBCentroidSurface.h"
 
 #endif /* wkb_ios_Bridging_Header_h */

@@ -10,6 +10,11 @@
 
 @implementation WKBMultiPoint
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     self = [super initWithType:WKB_MULTIPOINT andHasZ:hasZ andHasM:hasM];
     return self;
@@ -29,6 +34,14 @@
 
 -(NSNumber *) numPoints{
     return [self numGeometries];
+}
+
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBMultiPoint *multiPoint = [[WKBMultiPoint alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPoint *point in self.geometries){
+        [multiPoint addPoint:[point mutableCopy]];
+    }
+    return multiPoint;
 }
 
 @end

@@ -10,6 +10,11 @@
 
 @implementation WKBCurvePolygon
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     return [self initWithType:WKB_CURVEPOLYGON andHasZ:hasZ andHasM:hasM];
 }
@@ -28,6 +33,14 @@
 
 -(NSNumber *) numRings{
     return [NSNumber numberWithInteger:[self.rings count]];
+}
+
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBCurvePolygon *curevePolygon = [[WKBCurvePolygon alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBCurve *ring in self.rings){
+        [curevePolygon addRing:[ring mutableCopy]];
+    }
+    return curevePolygon;
 }
 
 @end

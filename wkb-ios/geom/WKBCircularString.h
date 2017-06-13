@@ -16,6 +16,13 @@
 /**
  *  Initialize
  *
+ *  @return new circular string
+ */
+-(instancetype) init;
+
+/**
+ *  Initialize
+ *
  *  @param hasZ has z values
  *  @param hasM has m values
  *

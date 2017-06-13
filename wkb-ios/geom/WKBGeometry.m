@@ -7,6 +7,10 @@
 //
 
 #import "WKBGeometry.h"
+#import "WKBByteWriter.h"
+#import "WKBGeometryWriter.h"
+#import "WKBByteReader.h"
+#import "WKBGeometryReader.h"
 
 @implementation WKBGeometry
 
@@ -29,6 +33,33 @@
         code += 2000;
     }
     return code;
+}
+
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    [NSException raise:@"Abstract" format:@"Can not copy abstract geometry"];
+    return nil;
+}
+
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    NSData *data = nil;
+    WKBByteWriter *writer = [[WKBByteWriter alloc] init];
+    @try {
+        writer.byteOrder = CFByteOrderBigEndian;
+        [WKBGeometryWriter writeGeometry:self withWriter:writer];
+        data = [writer getData];
+    } @catch (NSException *e) {
+        [NSException raise:@"Encode failure" format:@"Failed to encode geometry: %d, Exception Name: %@, Reason: %@", self.geometryType, e.name, e.reason];
+    } @finally {
+        [writer close];
+    }
+    [encoder encodeDataObject:data];
+}
+
+- (id) initWithCoder:(NSCoder *)decoder {
+    WKBByteReader *reader = [[WKBByteReader alloc] initWithData: [decoder decodeDataObject]];
+    reader.byteOrder = CFByteOrderBigEndian;
+    WKBGeometry *geometry = [WKBGeometryReader readGeometryWithReader: reader];
+    return geometry;
 }
 
 @end

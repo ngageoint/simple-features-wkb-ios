@@ -10,6 +10,11 @@
 
 @implementation WKBLineString
 
+-(instancetype) init{
+    self = [self initWithHasZ:false andHasM:false];
+    return self;
+}
+
 -(instancetype) initWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     return [self initWithType:WKB_LINESTRING andHasZ:hasZ andHasM:hasM];
 }
@@ -28,6 +33,14 @@
 
 -(NSNumber *) numPoints{
     return [NSNumber numberWithInteger:[self.points count] ];
+}
+
+-(id) mutableCopyWithZone: (NSZone *) zone{
+    WKBLineString *lineString = [[WKBLineString alloc] initWithHasZ:self.hasZ andHasM:self.hasM];
+    for(WKBPoint *point in self.points){
+        [lineString addPoint:[point mutableCopy]];
+    }
+    return lineString;
 }
 
 @end

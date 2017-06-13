@@ -18,7 +18,7 @@
 /**
  *  Build geometry envelope with geometry
  *
- *  @param geometry geometry
+ *  @param geometry geometry to build envelope from
  *
  *  @return geometry envelope
  */
@@ -27,8 +27,8 @@
 /**
  *  Expand existing geometry envelope with a geometry
  *
- *  @param envelope geometry envelope
- *  @param geometry geometry
+ *  @param envelope envelope to expand
+ *  @param geometry geometry to build envelope from
  */
 +(void) buildEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry;
 
