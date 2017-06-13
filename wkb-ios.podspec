@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'wkb-ios'
-  s.version          = '1.0.7'
+  s.version          = '1.0.8'
   s.license          =  {:type => 'MIT', :file => 'LICENSE' }
   s.summary          = 'iOS SDK for Well-Known Binary'
   s.homepage         = 'https://github.com/ngageoint/geopackage-wkb-ios'
