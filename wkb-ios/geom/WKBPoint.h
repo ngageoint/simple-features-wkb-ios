@@ -81,9 +81,9 @@
 -(void) setXValue: (double) x;
 
 /**
- *  Set the Y value
+ *  Set the y value
  *
- *  @param Y   Y coordinate
+ *  @param y   y coordinate
  */
 -(void) setYValue: (double) y;
 
