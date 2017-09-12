@@ -317,4 +317,79 @@
     }
 }
 
++ (NSArray<WKBPoint *> *) simplifyPoints: (NSArray<WKBPoint *> *) points withTolerance : (double) tolerance{
+    return [self simplifyPoints:points withTolerance:tolerance andStartIndex:0 andEndIndex:(int)[points count]-1];
+}
+
++(NSArray<WKBPoint *> *) simplifyPoints: (NSArray<WKBPoint *> *) points withTolerance: (double) tolerance andStartIndex: (int) startIndex andEndIndex: (int) endIndex {
+    
+    NSArray *result = nil;
+    
+    double dmax = 0.0;
+    int index = 0;
+    
+    WKBPoint *startPoint = [points objectAtIndex:startIndex];
+    WKBPoint *endPoint = [points objectAtIndex:endIndex];
+    
+    for (int i = startIndex + 1; i < endIndex; i++) {
+        WKBPoint *point = [points objectAtIndex:i];
+        
+        double d = [WKBGeometryUtils perpendicularDistanceBetweenPoint:point lineStart:startPoint lineEnd:endPoint];
+        
+        if (d > dmax) {
+            index = i;
+            dmax = d;
+        }
+    }
+    
+    if (dmax > tolerance) {
+        
+        NSArray * recResults1 = [self simplifyPoints:points withTolerance:tolerance andStartIndex:startIndex andEndIndex:index];
+        NSArray * recResults2 = [self simplifyPoints:points withTolerance:tolerance andStartIndex:index andEndIndex:endIndex];
+        
+        result = [recResults1 subarrayWithRange:NSMakeRange(0, recResults1.count - 1)];
+        result = [result arrayByAddingObjectsFromArray:recResults2];
+        
+    }else{
+        result = [[NSArray alloc] initWithObjects:startPoint, endPoint, nil];
+    }
+    
+    return result;
+}
+
++ (double) perpendicularDistanceBetweenPoint: (WKBPoint *) point lineStart: (WKBPoint *) lineStart lineEnd: (WKBPoint *) lineEnd {
+    
+    double x = [point.x doubleValue];
+    double y = [point.y doubleValue];
+    double startX = [lineStart.x doubleValue];
+    double startY = [lineStart.y doubleValue];
+    double endX = [lineEnd.x doubleValue];
+    double endY = [lineEnd.y doubleValue];
+    
+    double vX = endX - startX;
+    double vY = endY - startY;
+    double wX = x - startX;
+    double wY = y - startY;
+    double c1 = wX * vX + wY * vY;
+    double c2 = vX * vX + vY * vY;
+    
+    double x2;
+    double y2;
+    if(c1 <=0){
+        x2 = startX;
+        y2 = startY;
+    }else if(c2 <= c1){
+        x2 = endX;
+        y2 = endY;
+    }else{
+        double b = c1 / c2;
+        x2 = startX + b * vX;
+        y2 = startY + b * vY;
+    }
+    
+    double distance = sqrt(pow(x2 - x, 2) + pow(y2 - y, 2));
+    
+    return distance;
+}
+
 @end

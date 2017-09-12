@@ -82,4 +82,31 @@
  */
 +(void) normalizeGeometry: (WKBGeometry *) geometry withMaxX: (double) maxX;
 
+/**
+ * Simplify the ordered points (representing a line, polygon, etc) using the Douglas Peucker algorithm
+ * to create a similar curve with fewer points. Points should be in a meters unit type projection.
+ * The tolerance is the minimum tolerated distance between consecutive points.
+ *
+ * @param points
+ *            geometry points
+ * @param tolerance
+ *            minimum tolerance in meters for consecutive points
+ * @return simplified points
+ */
++ (NSArray<WKBPoint *> *) simplifyPoints: (NSArray<WKBPoint *> *) points withTolerance : (double) tolerance;
+
+/**
+ * Calculate the perpendicular distance between the point and the line represented by the start and end points.
+ * Points should be in a meters unit type projection.
+ *
+ * @param point
+ *            point
+ * @param lineStart
+ *            point representing the line start
+ * @param lineEnd
+ *            point representing the line end
+ * @return distance in meters
+ */
++ (double) perpendicularDistanceBetweenPoint: (WKBPoint *) point lineStart: (WKBPoint *) lineStart lineEnd: (WKBPoint *) lineEnd;
+
 @end
