@@ -290,4 +290,70 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
 }
 
+-(void) testSimplifyPoints{
+    
+    double halfWorldWidth = 20037508.342789244;
+    
+    NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<NSDecimalNumber *> *distances = [[NSMutableArray alloc] init];
+    
+    double x = ([WKBTestUtils randomDouble] * halfWorldWidth * 2) - halfWorldWidth;
+    double y = ([WKBTestUtils randomDouble] * halfWorldWidth * 2) - halfWorldWidth;
+    WKBPoint *point = [[WKBPoint alloc] initWithXValue:x andYValue:y];
+    [points addObject:point];
+    
+    for (int i = 1; i < 100; i++) {
+        
+        double xChange = 100000.0 * [WKBTestUtils randomDouble] * ([WKBTestUtils randomDouble] < .5 ? 1 : -1);
+        x += xChange;
+        
+        double yChange = 100000.0 * [WKBTestUtils randomDouble] * ([WKBTestUtils randomDouble] < .5 ? 1 : -1);
+        y += yChange;
+        if (y > halfWorldWidth || y < -halfWorldWidth) {
+            y -= 2 * yChange;
+        }
+        
+        WKBPoint *previousPoint = point;
+        point = [[WKBPoint alloc] initWithXValue:x andYValue:y];
+        [points addObject:point];
+        
+        double distance = [WKBGeometryUtils distanceBetweenPoint1:previousPoint andPoint2:point];
+        [distances addObject:[[NSDecimalNumber alloc] initWithDouble:distance]];
+        
+    }
+    
+    NSArray<NSDecimalNumber *> *sortedDistances = [distances sortedArrayUsingSelector:@selector(compare:)];
+    double tolerance = [[sortedDistances objectAtIndex:sortedDistances.count / 2] doubleValue];
+    
+    NSArray<WKBPoint *> *simplifiedPoints = [WKBGeometryUtils simplifyPoints:points withTolerance:tolerance];
+    [WKBTestUtils assertTrue:simplifiedPoints.count <= points.count];
+    
+    WKBPoint *firstPoint = [points objectAtIndex:0];
+    WKBPoint *lastPoint = [points objectAtIndex:points.count - 1];
+    WKBPoint *firstSimplifiedPoint = [simplifiedPoints objectAtIndex:0];
+    WKBPoint *lastSimplifiedPoint = [simplifiedPoints objectAtIndex:simplifiedPoints.count - 1];
+    
+    [WKBTestUtils assertEqualDoubleWithValue:[firstPoint.x doubleValue] andValue2:[firstSimplifiedPoint.x doubleValue]];
+    [WKBTestUtils assertEqualDoubleWithValue:[firstPoint.y doubleValue] andValue2:[firstSimplifiedPoint.y doubleValue]];
+    [WKBTestUtils assertEqualDoubleWithValue:[lastPoint.x doubleValue] andValue2:[lastSimplifiedPoint.x doubleValue]];
+    [WKBTestUtils assertEqualDoubleWithValue:[lastPoint.y doubleValue] andValue2:[lastSimplifiedPoint.y doubleValue]];
+    
+    int pointIndex = 0;
+    for (int i = 1; i < simplifiedPoints.count; i++) {
+        WKBPoint *simplifiedPoint = [simplifiedPoints objectAtIndex:i];
+        double simplifiedDistance = [WKBGeometryUtils distanceBetweenPoint1:[simplifiedPoints objectAtIndex:i-1] andPoint2:simplifiedPoint];
+        [WKBTestUtils assertTrue:simplifiedDistance >= tolerance];
+        
+        for (pointIndex++; pointIndex < points.count; pointIndex++) {
+            WKBPoint *newPoint = [points objectAtIndex:pointIndex];
+            if ([newPoint.x doubleValue] == [simplifiedPoint.x doubleValue]
+                && [newPoint.y doubleValue] == [simplifiedPoint.y doubleValue]) {
+                break;
+            }
+        }
+        [WKBTestUtils assertTrue:pointIndex < points.count];
+    }
+    
+}
+
 @end
