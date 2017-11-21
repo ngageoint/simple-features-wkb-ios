@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.8 (TBD)
+## [1.0.8](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.8) (11-21-2017)
 
 * Douglas Peucker algorithm for geometry simplification
 
