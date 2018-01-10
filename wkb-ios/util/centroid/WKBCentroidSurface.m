@@ -58,6 +58,9 @@
         case WKB_MULTIPOLYGON:
             [self addPolygons:[((WKBMultiPolygon *)geometry) getPolygons]];
             break;
+        case WKB_CURVEPOLYGON:
+            [self addCurvePolygon:(WKBCurvePolygon *) geometry];
+            break;
         case WKB_POLYHEDRALSURFACE:
         case WKB_TIN:
             [self addPolygons:((WKBPolyhedralSurface *)geometry).polygons];
@@ -109,6 +112,16 @@
     for(int i = 1; i < rings.count; i++){
         [self addHoleWithLineString: [rings objectAtIndex: i]];
     }
+}
+
+/**
+ * Add a curve polygon to the centroid total
+ *
+ * @param curvePolygon
+ *            curve polygon
+ */
+-(void) addCurvePolygon: (WKBCurvePolygon *) curvePolygon{
+    // TODO
 }
 
 /**

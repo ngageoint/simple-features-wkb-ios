@@ -28,6 +28,17 @@
     
     NSMutableDictionary * jsonObject = [[NSMutableDictionary alloc] init];
     
+    NSObject * geometryObject = [self getJSONCompatibleGeometryObject:geometry];
+    
+    if(geometryObject != nil){
+        [jsonObject setObject:geometryObject forKey:[WKBGeometryTypes name:geometry.geometryType]];
+    }
+    
+    return jsonObject;
+}
+
++(NSObject *) getJSONCompatibleGeometryObject: (WKBGeometry *) geometry{
+    
     NSObject * geometryObject = nil;
     
     enum WKBGeometryType geometryType = geometry.geometryType;
@@ -56,6 +67,9 @@
         case WKB_COMPOUNDCURVE:
             geometryObject = [self getCompoundCurve:(WKBCompoundCurve *)geometry];
             break;
+        case WKB_CURVEPOLYGON:
+            geometryObject = [self getCurvePolygon:(WKBCurvePolygon *)geometry];
+            break;
         case WKB_POLYHEDRALSURFACE:
             geometryObject = [self getPolyhedralSurface:(WKBPolyhedralSurface *)geometry];
             break;
@@ -81,11 +95,7 @@
             break;
     }
     
-    if(geometryObject != nil){
-        [jsonObject setObject:geometryObject forKey:[WKBGeometryTypes name:geometryType]];
-    }
-    
-    return jsonObject;
+    return geometryObject;
 }
 
 +(NSObject *) getPoint: (WKBPoint *) point{
@@ -153,6 +163,15 @@
     for(int i = 0; i < compoundCurve.lineStrings.count; i++){
         WKBLineString * lineString = [compoundCurve.lineStrings objectAtIndex:i];
         [jsonObject addObject:[self getLineString:lineString]];
+    }
+    return jsonObject;
+}
+
++(NSObject *) getCurvePolygon: (WKBCurvePolygon *) curvePolygon{
+    NSMutableArray * jsonObject = [[NSMutableArray alloc] init];
+    for(int i = 0; i < curvePolygon.rings.count; i++){
+        WKBCurve * ring = [curvePolygon.rings objectAtIndex:i];
+        [jsonObject addObject:[self getJSONCompatibleGeometryObject:ring]];
     }
     return jsonObject;
 }

@@ -54,6 +54,9 @@
         case WKB_COMPOUNDCURVE:
             [self addCompoundCurve:(WKBCompoundCurve *)geometry toMessage:message];
             break;
+        case WKB_CURVEPOLYGON:
+            [self addCurvePolygon:(WKBCurvePolygon *)geometry toMessage:message];
+            break;
         case WKB_POLYHEDRALSURFACE:
             [self addPolyhedralSurface:(WKBPolyhedralSurface *)geometry toMessage:message];
             break;
@@ -157,6 +160,19 @@
         [message appendFormat:@"LineString %d", (i+1)];
         [message appendString:@"\n"];
         [self addLineString:lineString toMessage:message];
+    }
+}
+
++(void) addCurvePolygon: (WKBCurvePolygon *) curvePolygon toMessage: (NSMutableString *) message{
+    [message appendFormat:@"Rings: %@", [curvePolygon numRings]];
+    for(int i = 0; i < curvePolygon.rings.count; i++){
+        WKBCurve * ring = [curvePolygon.rings objectAtIndex:i];
+        [message appendString:@"\n\n"];
+        if(i > 0){
+            [message appendFormat:@"Hole %d", i];
+            [message appendString:@"\n"];
+        }
+        [message appendString:[self getGeometryString:ring]];
     }
 }
 

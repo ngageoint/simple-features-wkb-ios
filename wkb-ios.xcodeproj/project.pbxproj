@@ -320,6 +320,8 @@
 		042FC6991B96421E00549A4B /* util */ = {
 			isa = PBXGroup;
 			children = (
+				0496DB172006AEAE0068A2CE /* centroid */,
+				0496DB182006B3680068A2CE /* sweep */,
 				042FC69A1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.h */,
 				042FC69B1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.m */,
 				042FC69C1B96421E00549A4B /* WKBGeometryPrinter.h */,
@@ -328,6 +330,13 @@
 				048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */,
 				0445CB251EA1335B008DC0D7 /* WKBGeometryUtils.h */,
 				0445CB261EA1335B008DC0D7 /* WKBGeometryUtils.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		0496DB172006AEAE0068A2CE /* centroid */ = {
+			isa = PBXGroup;
+			children = (
 				0445CB291EA1448C008DC0D7 /* WKBCentroidPoint.h */,
 				0445CB2A1EA1448C008DC0D7 /* WKBCentroidPoint.m */,
 				0445CB2D1EA150D1008DC0D7 /* WKBCentroidCurve.h */,
@@ -335,7 +344,14 @@
 				0445CB311EA150E3008DC0D7 /* WKBCentroidSurface.h */,
 				0445CB321EA150E3008DC0D7 /* WKBCentroidSurface.m */,
 			);
-			path = util;
+			path = centroid;
+			sourceTree = "<group>";
+		};
+		0496DB182006B3680068A2CE /* sweep */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = sweep;
 			sourceTree = "<group>";
 		};
 		63206AE083C9F99B2058A9EE /* Frameworks */ = {
@@ -500,13 +516,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wkb-iosTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A1A1F0360FE293A59BAB18FB /* [CP] Copy Pods Resources */ = {
