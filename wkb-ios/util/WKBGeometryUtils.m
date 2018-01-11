@@ -11,9 +11,7 @@
 #import "WKBCentroidPoint.h"
 #import "WKBCentroidCurve.h"
 #import "WKBCentroidSurface.h"
-#import "WKBLineString.h"
 #import "WKBMultiLineString.h"
-#import "WKBPolygon.h"
 #import "WKBMultiPolygon.h"
 #import "WKBCompoundCurve.h"
 #import "WKBPolyhedralSurface.h"
@@ -23,6 +21,11 @@
 #import "WKBMultiPoint.h"
 
 @implementation WKBGeometryUtils
+
+/**
+ * Default epsilon for line tolerance
+ */
+static float DEFAULT_EPSILON = 0.000000000000001;
 
 +(int) dimensionOfGeometry: (WKBGeometry *) geometry{
     
@@ -121,6 +124,9 @@
         case WKB_COMPOUNDCURVE:
             [self minimizeCompoundCurve:(WKBCompoundCurve *)geometry withMaxX:maxX];
             break;
+        case WKB_CURVEPOLYGON:
+            [self minimizeCurvePolygon:(WKBCurvePolygon *)geometry withMaxX:maxX];
+            break;
         case WKB_POLYHEDRALSURFACE:
             [self minimizePolyhedralSurface:(WKBPolyhedralSurface *)geometry withMaxX:maxX];
             break;
@@ -196,6 +202,13 @@
     }
 }
 
++(void) minimizeCurvePolygon: (WKBCurvePolygon *) curvePolygon withMaxX: (double) maxX{
+    
+    for(WKBCurve * ring in curvePolygon.rings){
+        [self minimizeGeometry:ring withMaxX:maxX];
+    }
+}
+
 +(void) minimizePolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface withMaxX: (double) maxX{
     
     for(WKBPolygon * polygon in polyhedralSurface.polygons){
@@ -230,6 +243,9 @@
             break;
         case WKB_COMPOUNDCURVE:
             [self normalizeCompoundCurve:(WKBCompoundCurve *)geometry withMaxX:maxX];
+            break;
+        case WKB_CURVEPOLYGON:
+            [self normalizeCurvePolygon:(WKBCurvePolygon *)geometry withMaxX:maxX];
             break;
         case WKB_POLYHEDRALSURFACE:
             [self normalizePolyhedralSurface:(WKBPolyhedralSurface *)geometry withMaxX:maxX];
@@ -310,6 +326,13 @@
     }
 }
 
++(void) normalizeCurvePolygon: (WKBCurvePolygon *) curvePolygon withMaxX: (double) maxX{
+    
+    for(WKBCurve * ring in curvePolygon.rings){
+        [self normalizeGeometry:ring withMaxX:maxX];
+    }
+}
+
 +(void) normalizePolyhedralSurface: (WKBPolyhedralSurface *) polyhedralSurface withMaxX: (double) maxX{
     
     for(WKBPolygon * polygon in polyhedralSurface.polygons){
@@ -357,7 +380,7 @@
     return result;
 }
 
-+ (double) perpendicularDistanceBetweenPoint: (WKBPoint *) point lineStart: (WKBPoint *) lineStart lineEnd: (WKBPoint *) lineEnd {
++(double) perpendicularDistanceBetweenPoint: (WKBPoint *) point lineStart: (WKBPoint *) lineStart lineEnd: (WKBPoint *) lineEnd {
     
     double x = [point.x doubleValue];
     double y = [point.y doubleValue];
@@ -390,6 +413,199 @@
     double distance = sqrt(pow(x2 - x, 2) + pow(y2 - y, 2));
     
     return distance;
+}
+
++(BOOL) point: (WKBPoint *) point inPolygon: (WKBPolygon *) polygon{
+    return [self point:point inPolygon:polygon withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point inPolygon: (WKBPolygon *) polygon withEpsilon: (double) epsilon{
+    
+    BOOL contains = NO;
+    NSArray *rings = polygon.rings;
+    if(rings.count > 0){
+        contains = [self point:point inPolygonRing:[rings objectAtIndex:0] withEpsilon:epsilon];
+        if(contains){
+            // Check the holes
+            for(int i = 1; i < rings.count; i++){
+                if([self point:point inPolygonRing:[rings objectAtIndex:i] withEpsilon:epsilon]){
+                    contains = NO;
+                    break;
+                }
+            }
+        }
+    }
+    
+    return contains;
+}
+
++(BOOL) point: (WKBPoint *) point inPolygonRing: (WKBLineString *) ring{
+    return [self point:point inPolygonRing:ring withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point inPolygonRing: (WKBLineString *) ring withEpsilon: (double) epsilon{
+    return [self point:point inPolygonPoints:ring.points withEpsilon:epsilon];
+}
+
++(BOOL) point: (WKBPoint *) point inPolygonPoints: (NSArray<WKBPoint *> *) points{
+    return [self point:point inPolygonPoints:points withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point inPolygonPoints: (NSArray<WKBPoint *> *) points withEpsilon: (double) epsilon{
+    
+    BOOL contains = NO;
+    
+    int i = 0;
+    int j = (int)points.count - 1;
+    if([self closedPolygonPoints:points]){
+        j = i++;
+    }
+    
+    for(; i < points.count; j = i++){
+        WKBPoint *point1 = [points objectAtIndex:i];
+        WKBPoint *point2 = [points objectAtIndex:j];
+        
+        double px = [point.x doubleValue];
+        double py = [point.y doubleValue];
+        
+        double p1x = [point1.x doubleValue];
+        double p1y = [point1.y doubleValue];
+        
+        // Shortcut check if polygon contains the point within tolerance
+        if(ABS(p1x - px) <= epsilon && ABS(p1y - py) <= epsilon){
+            contains = YES;
+            break;
+        }
+        
+        double p2x = [point2.x doubleValue];
+        double p2y = [point2.y doubleValue];
+        
+        if(((p1y > py) != (p2y > py))
+           && (px < (p2x - p1x) * (py - p1y) / (p2y - p1y) + p1x)){
+            contains = !contains;
+        }
+    }
+    
+    if(!contains){
+        // Check the polygon edges
+        contains = [self point:point onPolygonPointsEdge:points];
+    }
+    
+    return contains;
+}
+
++(BOOL) point: (WKBPoint *) point onPolygonEdge: (WKBPolygon *) polygon{
+    return [self point:point onPolygonEdge:polygon withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point onPolygonEdge: (WKBPolygon *) polygon withEpsilon: (double) epsilon{
+    return [polygon numRings] > 0 && [self point:point onPolygonRingEdge:[polygon.rings objectAtIndex:0] withEpsilon:epsilon];
+}
+
++(BOOL) point: (WKBPoint *) point onPolygonRingEdge: (WKBLineString *) ring{
+    return [self point:point onPolygonRingEdge:ring withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point onPolygonRingEdge: (WKBLineString *) ring withEpsilon: (double) epsilon{
+    return [self point:point onPolygonPointsEdge:ring.points withEpsilon:epsilon];
+}
+
++(BOOL) point: (WKBPoint *) point onPolygonPointsEdge: (NSArray<WKBPoint *> *) points{
+    return [self point:point onPolygonPointsEdge:points withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point onPolygonPointsEdge: (NSArray<WKBPoint *> *) points withEpsilon: (double) epsilon{
+    return [self point:point onPath:points withEpsilon:epsilon andCircular:![self closedPolygonPoints:points]];
+}
+
++(BOOL) closedPolygon: (WKBPolygon *) polygon{
+    return [polygon numRings] > 0 && [self closedPolygonRing:[polygon.rings objectAtIndex:0]];
+}
+
++(BOOL) closedPolygonRing: (WKBLineString *) ring{
+    return [self closedPolygonPoints:ring.points];
+}
+
++(BOOL) closedPolygonPoints: (NSArray<WKBPoint *> *) points{
+    BOOL closed = NO;
+    if(points.count > 0){
+        WKBPoint *first = [points objectAtIndex:0];
+        WKBPoint *last = [points objectAtIndex:points.count - 1];
+        closed = [first.x compare:last.x] == NSOrderedSame && [first.y compare:last.y] == NSOrderedSame;
+    }
+    return closed;
+}
+
++(BOOL) point: (WKBPoint *) point onLine: (WKBLineString *) line{
+    return [self point:point onLine:line withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point onLine: (WKBLineString *) line withEpsilon: (double) epsilon{
+    return [self point:point onLinePoints:line.points withEpsilon:epsilon];
+}
+
++(BOOL) point: (WKBPoint *) point onLinePoints: (NSArray<WKBPoint *> *) points{
+    return [self point:point onLinePoints:points withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point onLinePoints: (NSArray<WKBPoint *> *) points withEpsilon: (double) epsilon{
+    return [self point:point onPath:points withEpsilon:epsilon andCircular:NO];
+}
+
++(BOOL) point: (WKBPoint *) point onPathPoint1: (WKBPoint *) point1 andPoint2: (WKBPoint *) point2{
+    return [self point:point onPathPoint1:point1 andPoint2:point2 withEpsilon:DEFAULT_EPSILON];
+}
+
++(BOOL) point: (WKBPoint *) point onPathPoint1: (WKBPoint *) point1 andPoint2: (WKBPoint *) point2 withEpsilon: (double) epsilon{
+    
+    BOOL contains = NO;
+    
+    double px = [point.x doubleValue];
+    double py = [point.y doubleValue];
+    double p1x = [point1.x doubleValue];
+    double p1y = [point1.y doubleValue];
+    double p2x = [point2.x doubleValue];
+    double p2y = [point2.y doubleValue];
+    
+    double x21 = p2x - p1x;
+    double y21 = p2y - p1y;
+    double xP1 = px - p1x;
+    double yP1 = py - p1y;
+    
+    double dp = xP1 * x21 + yP1 * y21;
+    if(dp >= 0.0){
+        
+        double lengthP1 = xP1 * xP1 + yP1 * yP1;
+        double length21 = x21 * x21 + y21 * y21;
+        
+        if(lengthP1 <= length21){
+            contains = ABS(dp * dp - lengthP1 * length21) <= epsilon;
+        }
+    }
+    
+    return contains;
+}
+
++(BOOL) point: (WKBPoint *) point onPath: (NSArray<WKBPoint *> *) points withEpsilon: (double) epsilon andCircular: (BOOL) circular{
+    
+    BOOL onPath = NO;
+    
+    int i = 0;
+    int j = (int)points.count - 1;
+    if(!circular){
+        j = i++;
+    }
+    
+    for(; i < points.count; j= i++){
+        WKBPoint *point1 = [points objectAtIndex:i];
+        WKBPoint *point2 = [points objectAtIndex:j];
+        if([self point:point onPathPoint1:point1 andPoint2:point2 withEpsilon:epsilon]){
+            onPath = YES;
+            break;
+        }
+    }
+    
+    return onPath;
 }
 
 @end
