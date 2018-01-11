@@ -41,5 +41,6 @@
 #import "WKBCentroidPoint.h"
 #import "WKBCentroidCurve.h"
 #import "WKBCentroidSurface.h"
+//TODO sweep classes
 
 #endif /* wkb_ios_Bridging_Header_h */
