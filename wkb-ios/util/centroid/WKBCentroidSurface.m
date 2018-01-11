@@ -12,6 +12,7 @@
 #import "WKBMultiPolygon.h"
 #import "WKBPolyhedralSurface.h"
 #import "WKBGeometryUtils.h"
+#import "WKBCompoundCurve.h"
 
 @interface WKBCentroidSurface()
 
@@ -108,9 +109,9 @@
  */
 -(void) addPolygon: (WKBPolygon *) polygon{
     NSArray * rings = polygon.rings;
-    [self addWithLineString:[rings objectAtIndex:0]];
+    [self addLineString:[rings objectAtIndex:0]];
     for(int i = 1; i < rings.count; i++){
-        [self addHoleWithLineString: [rings objectAtIndex: i]];
+        [self addHoleLineString: [rings objectAtIndex: i]];
     }
 }
 
@@ -121,7 +122,48 @@
  *            curve polygon
  */
 -(void) addCurvePolygon: (WKBCurvePolygon *) curvePolygon{
-    // TODO
+    
+    NSArray * rings = curvePolygon.rings;
+    
+    WKBCurve * curve = [rings objectAtIndex:0];
+    enum WKBGeometryType curveGeometryType = curve.geometryType;
+    switch(curveGeometryType){
+        case WKB_COMPOUNDCURVE:
+            {
+                WKBCompoundCurve * compoundCurve = (WKBCompoundCurve *) curve;
+                for(WKBLineString * lineString in compoundCurve.lineStrings){
+                    [self addLineString:lineString];
+                }
+                break;
+            }
+        case WKB_LINESTRING:
+        case WKB_CIRCULARSTRING:
+            [self addLineString:(WKBLineString *)curve];
+            break;
+        default:
+            [NSException raise:@"Curve Type" format:@"Unexpected Curve Type: %d", curveGeometryType];
+    }
+    
+    for(int i = 1; i < rings.count; i++){
+        WKBCurve * curveHole = [rings objectAtIndex:i];
+        enum WKBGeometryType curveHoleGeometryType = curveHole.geometryType;
+        switch(curveHoleGeometryType){
+            case WKB_COMPOUNDCURVE:
+                {
+                    WKBCompoundCurve * compoundCurveHole = (WKBCompoundCurve *) curveHole;
+                    for(WKBLineString * lineStringHole in compoundCurveHole.lineStrings){
+                        [self addHoleLineString:lineStringHole];
+                    }
+                    break;
+                }
+            case WKB_LINESTRING:
+            case WKB_CIRCULARSTRING:
+                [self addHoleLineString:(WKBLineString *)curveHole];
+                break;
+            default:
+                [NSException raise:@"Curve Type" format:@"Unexpected Curve Type: %d", curveHoleGeometryType];
+        }
+    }
 }
 
 /**
@@ -130,7 +172,7 @@
  * @param lineString
  *            line string
  */
--(void) addWithLineString: (WKBLineString *) lineString{
+-(void) addLineString: (WKBLineString *) lineString{
     [self addWithPositive:true andLineString:lineString];
 }
 
@@ -140,7 +182,7 @@
  * @param lineString
  *            line string
  */
--(void) addHoleWithLineString: (WKBLineString *) lineString{
+-(void) addHoleLineString: (WKBLineString *) lineString{
     [self addWithPositive:false andLineString:lineString];
 }
 
