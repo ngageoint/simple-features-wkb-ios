@@ -89,6 +89,7 @@
 		04C503052008FC4C00862DA9 /* WKBSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C503032008FC4C00862DA9 /* WKBSegment.m */; };
 		04C503082008FC6700862DA9 /* WKBShamosHoey.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C503062008FC6700862DA9 /* WKBShamosHoey.h */; };
 		04C503092008FC6700862DA9 /* WKBShamosHoey.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C503072008FC6700862DA9 /* WKBShamosHoey.m */; };
+		04C5030C20095E7300862DA9 /* ShamosHoeyTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5030B20095E7300862DA9 /* ShamosHoeyTestCase.m */; };
 		B5D94958E350F092F31540ED /* libPods-wkb-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-wkb-iosTests.a */; };
 /* End PBXBuildFile section */
 
@@ -190,6 +191,7 @@
 		04C503032008FC4C00862DA9 /* WKBSegment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBSegment.m; sourceTree = "<group>"; };
 		04C503062008FC6700862DA9 /* WKBShamosHoey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBShamosHoey.h; sourceTree = "<group>"; };
 		04C503072008FC6700862DA9 /* WKBShamosHoey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBShamosHoey.m; sourceTree = "<group>"; };
+		04C5030B20095E7300862DA9 /* ShamosHoeyTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShamosHoeyTestCase.m; sourceTree = "<group>"; };
 		499642A447440D35F38311C9 /* libPods-wkb-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wkb-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6179C77188B4A0E8D4DEDBEB /* Pods-wkb-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wkb-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wkb-iosTests/Pods-wkb-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B17E59AE80997CC09DD740D6 /* Pods-wkb-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wkb-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wkb-iosTests/Pods-wkb-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 		042FC65A1B963FE500549A4B /* wkb-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				04C5030A20095DE500862DA9 /* sweep */,
 				042FC65B1B963FE500549A4B /* Supporting Files */,
 				04AB919A1BF29ECD00894999 /* WKBTestCase.m */,
 				04AB919C1BF29F9A00894999 /* WKBTestUtils.h */,
@@ -386,6 +389,14 @@
 				04C503072008FC6700862DA9 /* WKBShamosHoey.m */,
 				0496DB252008F5FD0068A2CE /* WKBSweepLine.h */,
 				0496DB262008F5FD0068A2CE /* WKBSweepLine.m */,
+			);
+			path = sweep;
+			sourceTree = "<group>";
+		};
+		04C5030A20095DE500862DA9 /* sweep */ = {
+			isa = PBXGroup;
+			children = (
+				04C5030B20095E7300862DA9 /* ShamosHoeyTestCase.m */,
 			);
 			path = sweep;
 			sourceTree = "<group>";
@@ -651,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C5030C20095E7300862DA9 /* ShamosHoeyTestCase.m in Sources */,
 				04AB919E1BF29F9A00894999 /* WKBTestUtils.m in Sources */,
 				04AB919B1BF29ECD00894999 /* WKBTestCase.m in Sources */,
 				0445CB361EA4FE5C008DC0D7 /* WKBGeometryUtilsTestCase.m in Sources */,
