@@ -7,6 +7,7 @@
 //
 
 #import "WKBEvent.h"
+#import "WKBSweepLine.h"
 
 @interface WKBEvent()
 
@@ -65,9 +66,7 @@
 }
 
 - (NSComparisonResult) compare: (WKBEvent *) event{
-    // TODO
-    return NSOrderedSame;
-    //return [WKBSweepLine xyOrderWithPoint:point andPoint:event.point];
+    return [WKBSweepLine xyOrderWithPoint:self.point andPoint:event.point];
 }
 
 +(NSArray<WKBEvent *> *) sort: (NSArray<WKBEvent *> *) events{
