@@ -190,7 +190,7 @@
         if (consecutive) {
             int edge1 = segment1.edge;
             int edge2 = segment2.edge;
-            int ringPoints = (int)[[self.rings objectAtIndex:ring1] numPoints];
+            int ringPoints = [[[self.rings objectAtIndex:ring1] numPoints] intValue];
             consecutive = (edge1 + 1) % ringPoints == edge2
                 || edge1 == (edge2 + 1) % ringPoints;
         }
@@ -251,10 +251,12 @@
     BOOL removed = NO;
     
     int location = [self locationOfSegment:segment atX:x];
-    WKBSegment *treeSegment = [self.tree objectAtIndex:location];
-    if([treeSegment isEqual:segment]){
-        [self.tree removeObjectAtIndex:location];
-        removed = YES;
+    if(location < self.tree.count){
+        WKBSegment *treeSegment = [self.tree objectAtIndex:location];
+        if([treeSegment isEqual:segment]){
+            [self.tree removeObjectAtIndex:location];
+            removed = YES;
+        }
     }
     
     return removed;

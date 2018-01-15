@@ -102,13 +102,13 @@
                 WKBSegment *segment = [sweepLine addEvent:event];
                 if([sweepLine intersectWithSegment:segment andSegment:segment.above]
                    || [sweepLine intersectWithSegment:segment andSegment:segment.below]){
-                    simple = false;
+                    simple = NO;
                     break;
                 }
             } else {
                 WKBSegment *segment = [sweepLine findEvent:event];
                 if([sweepLine intersectWithSegment:segment.above andSegment:segment.below]){
-                    simple = false;
+                    simple = NO;
                     break;
                 }
                 [sweepLine removeSegment:segment];
