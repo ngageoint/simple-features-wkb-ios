@@ -28,48 +28,48 @@
 
     NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:1 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:.5 andYValue:1]];
+    [self addPoint:points withX:0 andY:0];
+    [self addPoint:points withX:1 andY:0];
+    [self addPoint:points withX:.5 andY:1];
     
     [WKBTestUtils assertTrue:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:3 andValue2:(int)points.count];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
+    [self addPoint:points withX:0 andY:0];
     
     [WKBTestUtils assertTrue:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:4 andValue2:(int)points.count];
     
     [points removeAllObjects];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:100]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:100 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:200 andYValue:100]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:100 andYValue:200]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:100]];
+    [self addPoint:points withX:0 andY:100];
+    [self addPoint:points withX:100 andY:0];
+    [self addPoint:points withX:200 andY:100];
+    [self addPoint:points withX:100 andY:200];
+    [self addPoint:points withX:0 andY:100];
     
     [WKBTestUtils assertTrue:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:5 andValue2:(int)points.count];
     
     [points removeAllObjects];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8384094 andYValue:39.753657]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8377228 andYValue:39.7354422]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.7930908 andYValue:39.7364983]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8233891 andYValue:39.7440222]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.7930908 andYValue:39.7369603]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.808197 andYValue:39.7541849]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8383236 andYValue:39.753723]];
+    [self addPoint:points withX:-104.8384094 andY:39.753657];
+    [self addPoint:points withX:-104.8377228 andY:39.7354422];
+    [self addPoint:points withX:-104.7930908 andY:39.7364983];
+    [self addPoint:points withX:-104.8233891 andY:39.7440222];
+    [self addPoint:points withX:-104.7930908 andY:39.7369603];
+    [self addPoint:points withX:-104.808197 andY:39.7541849];
+    [self addPoint:points withX:-104.8383236 andY:39.753723];
     
     [WKBTestUtils assertTrue:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:7 andValue2:(int)points.count];
 
     [points removeAllObjects];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:-106.3256836 andYValue:40.2962865]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-105.6445313 andYValue:38.5911138]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-105.0842285 andYValue:40.3046654]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-105.6445313 andYValue:38.5911139]];
+    [self addPoint:points withX:-106.3256836 andY:40.2962865];
+    [self addPoint:points withX:-105.6445313 andY:38.5911138];
+    [self addPoint:points withX:-105.0842285 andY:40.3046654];
+    [self addPoint:points withX:-105.6445313 andY:38.5911139];
     
     [WKBTestUtils assertTrue:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:4 andValue2:(int)points.count];
@@ -79,53 +79,53 @@
     
     NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
+    [self addPoint:points withX:0 andY:0];
     
     [WKBTestUtils assertFalse:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:1 andValue2:(int)points.count];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:1 andYValue:0]];
+    [self addPoint:points withX:1 andY:0];
     
     [WKBTestUtils assertFalse:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:2 andValue2:(int)points.count];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
+    [self addPoint:points withX:0 andY:0];
     
     [WKBTestUtils assertFalse:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:3 andValue2:(int)points.count];
     
     [points removeAllObjects];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:100]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:100 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:200 andYValue:100]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:100 andYValue:200]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:100.01 andYValue:200]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:100]];
+    [self addPoint:points withX:0 andY:100];
+    [self addPoint:points withX:100 andY:0];
+    [self addPoint:points withX:200 andY:100];
+    [self addPoint:points withX:100 andY:200];
+    [self addPoint:points withX:100.01 andY:200];
+    [self addPoint:points withX:0 andY:100];
     
     [WKBTestUtils assertFalse:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:6 andValue2:(int)points.count];
     
     [points removeAllObjects];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8384094 andYValue:39.753657]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8377228 andYValue:39.7354422]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.7930908 andYValue:39.7364983]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8233891 andYValue:39.7440222]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8034763 andYValue:39.7387424]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.7930908 andYValue:39.7369603]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.808197 andYValue:39.7541849]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-104.8383236 andYValue:39.753723]];
+    [self addPoint:points withX:-104.8384094 andY:39.753657];
+    [self addPoint:points withX:-104.8377228 andY:39.7354422];
+    [self addPoint:points withX:-104.7930908 andY:39.7364983];
+    [self addPoint:points withX:-104.8233891 andY:39.7440222];
+    [self addPoint:points withX:-104.8034763 andY:39.7387424];
+    [self addPoint:points withX:-104.7930908 andY:39.7369603];
+    [self addPoint:points withX:-104.808197 andY:39.7541849];
+    [self addPoint:points withX:-104.8383236 andY:39.753723];
 
     [WKBTestUtils assertFalse:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:8 andValue2:(int)points.count];
     
     [points removeAllObjects];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:-106.3256836 andYValue:40.2962865]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-105.6445313 andYValue:38.5911138]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-105.0842285 andYValue:40.3046654]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:-105.6445313 andYValue:38.5911138]];
+    [self addPoint:points withX:-106.3256836 andY:40.2962865];
+    [self addPoint:points withX:-105.6445313 andY:38.5911138];
+    [self addPoint:points withX:-105.0842285 andY:40.3046654];
+    [self addPoint:points withX:-105.6445313 andY:38.5911138];
 
     [WKBTestUtils assertFalse:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:4 andValue2:(int)points.count];
@@ -138,9 +138,9 @@
     
     NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:10 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:10]];
+    [self addPoint:points withX:0 andY:0];
+    [self addPoint:points withX:10 andY:0];
+    [self addPoint:points withX:5 andY:10];
     
     WKBLineString *ring = [[WKBLineString alloc] init];
     ring.points = points;
@@ -153,9 +153,9 @@
     
     NSMutableArray<WKBPoint *> *holePoints = [[NSMutableArray alloc] init];
     
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:1 andYValue:1]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:9 andYValue:1]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:9]];
+    [self addPoint:holePoints withX:1 andY:1];
+    [self addPoint:holePoints withX:9 andY:1];
+    [self addPoint:holePoints withX:5 andY:9];
     
     WKBLineString *hole = [[WKBLineString alloc] init];
     hole.points = holePoints;
@@ -175,9 +175,9 @@
     
     NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:10 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:10]];
+    [self addPoint:points withX:0 andY:0];
+    [self addPoint:points withX:10 andY:0];
+    [self addPoint:points withX:5 andY:10];
     
     WKBLineString *ring = [[WKBLineString alloc] init];
     ring.points = points;
@@ -190,10 +190,10 @@
     
     NSMutableArray<WKBPoint *> *holePoints = [[NSMutableArray alloc] init];
     
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:1 andYValue:1]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:9 andYValue:1]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:9]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:5.000001 andYValue:9]];
+    [self addPoint:holePoints withX:1 andY:1];
+    [self addPoint:holePoints withX:9 andY:1];
+    [self addPoint:holePoints withX:5 andY:9];
+    [self addPoint:holePoints withX:5.000001 andY:9];
     
     WKBLineString *hole = [[WKBLineString alloc] init];
     hole.points = holePoints;
@@ -213,9 +213,9 @@
     
     NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:10 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:10]];
+    [self addPoint:points withX:0 andY:0];
+    [self addPoint:points withX:10 andY:0];
+    [self addPoint:points withX:5 andY:10];
     
     WKBLineString *ring = [[WKBLineString alloc] init];
     ring.points = points;
@@ -228,9 +228,9 @@
     
     NSMutableArray<WKBPoint *> *holePoints = [[NSMutableArray alloc] init];
     
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:1 andYValue:1]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:9 andYValue:1]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:10]];
+    [self addPoint:holePoints withX:1 andY:1];
+    [self addPoint:holePoints withX:9 andY:1];
+    [self addPoint:holePoints withX:5 andY:10];
     
     WKBLineString *hole = [[WKBLineString alloc] init];
     hole.points = holePoints;
@@ -250,9 +250,9 @@
     
     NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:10 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:10]];
+    [self addPoint:points withX:0 andY:0];
+    [self addPoint:points withX:10 andY:0];
+    [self addPoint:points withX:5 andY:10];
     
     WKBLineString *ring = [[WKBLineString alloc] init];
     ring.points = points;
@@ -265,9 +265,9 @@
     
     NSMutableArray<WKBPoint *> *holePoints1 = [[NSMutableArray alloc] init];
     
-    [holePoints1 addObject:[[WKBPoint alloc] initWithXValue:1 andYValue:1]];
-    [holePoints1 addObject:[[WKBPoint alloc] initWithXValue:9 andYValue:1]];
-    [holePoints1 addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:9]];
+    [self addPoint:holePoints1 withX:1 andY:1];
+    [self addPoint:holePoints1 withX:9 andY:1];
+    [self addPoint:holePoints1 withX:5 andY:9];
     
     WKBLineString *hole1 = [[WKBLineString alloc] init];
     hole1.points = holePoints1;
@@ -281,9 +281,9 @@
     
     NSMutableArray<WKBPoint *> *holePoints2 = [[NSMutableArray alloc] init];
     
-    [holePoints2 addObject:[[WKBPoint alloc] initWithXValue:5.0 andYValue:0.1]];
-    [holePoints2 addObject:[[WKBPoint alloc] initWithXValue:6.0 andYValue:0.1]];
-    [holePoints2 addObject:[[WKBPoint alloc] initWithXValue:5.5 andYValue:1.00001]];
+    [self addPoint:holePoints2 withX:5.0 andY:0.1];
+    [self addPoint:holePoints2 withX:6.0 andY:0.1];
+    [self addPoint:holePoints2 withX:5.5 andY:1.00001];
     
     WKBLineString *hole2 = [[WKBLineString alloc] init];
     hole2.points = holePoints2;
@@ -304,9 +304,9 @@
     
     NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:10 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:10]];
+    [self addPoint:points withX:0 andY:0];
+    [self addPoint:points withX:10 andY:0];
+    [self addPoint:points withX:5 andY:10];
     
     WKBLineString *ring = [[WKBLineString alloc] init];
     ring.points = points;
@@ -319,9 +319,9 @@
     
     NSMutableArray<WKBPoint *> *holePoints1 = [[NSMutableArray alloc] init];
     
-    [holePoints1 addObject:[[WKBPoint alloc] initWithXValue:1 andYValue:1]];
-    [holePoints1 addObject:[[WKBPoint alloc] initWithXValue:9 andYValue:1]];
-    [holePoints1 addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:9]];
+    [self addPoint:holePoints1 withX:1 andY:1];
+    [self addPoint:holePoints1 withX:9 andY:1];
+    [self addPoint:holePoints1 withX:5 andY:9];
     
     WKBLineString *hole1 = [[WKBLineString alloc] init];
     hole1.points = holePoints1;
@@ -335,9 +335,9 @@
 
     NSMutableArray<WKBPoint *> *holePoints2 = [[NSMutableArray alloc] init];
     
-    [holePoints2 addObject:[[WKBPoint alloc] initWithXValue:2 andYValue:2]];
-    [holePoints2 addObject:[[WKBPoint alloc] initWithXValue:8 andYValue:2]];
-    [holePoints2 addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:8]];
+    [self addPoint:holePoints2 withX:2 andY:2];
+    [self addPoint:holePoints2 withX:8 andY:2];
+    [self addPoint:holePoints2 withX:5 andY:8];
     
     WKBLineString *hole2 = [[WKBLineString alloc] init];
     hole2.points = holePoints2;
@@ -358,9 +358,9 @@
     
     NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
     
-    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:10 andYValue:0]];
-    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:10]];
+    [self addPoint:points withX:0 andY:0];
+    [self addPoint:points withX:10 andY:0];
+    [self addPoint:points withX:5 andY:10];
     
     WKBLineString *ring = [[WKBLineString alloc] init];
     ring.points = points;
@@ -373,9 +373,9 @@
     
     NSMutableArray<WKBPoint *> *holePoints = [[NSMutableArray alloc] init];
     
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:-1 andYValue:1]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:-1 andYValue:3]];
-    [holePoints addObject:[[WKBPoint alloc] initWithXValue:-2 andYValue:1]];
+    [self addPoint:holePoints withX:-1 andY:1];
+    [self addPoint:holePoints withX:-1 andY:3];
+    [self addPoint:holePoints withX:-2 andY:1];
     
     WKBLineString *hole = [[WKBLineString alloc] init];
     hole.points = holePoints;
@@ -391,7 +391,7 @@
 
 - (void)testLargeSimple {
     
-    double increment = .001;
+    double increment = .01;
     double radius = 1250;
     double x = -radius + increment;
     double y = 0;
@@ -404,7 +404,7 @@
         } else {
             y += increment;
         }
-        [points addObject:[[WKBPoint alloc] initWithXValue:x andYValue:y]];
+        [self addPoint:points withX:x andY:y];
         x += increment;
     }
     
@@ -415,15 +415,63 @@
         } else {
             y -= increment;
         }
-        [points addObject:[[WKBPoint alloc] initWithXValue:x andYValue:y]];
+        [self addPoint:points withX:x andY:y];
         x -= increment;
     }
     
-    [self measureBlock:^{
-        [WKBTestUtils assertTrue:[WKBShamosHoey simplePolygonPoints:points]];
-    }];
+    [WKBTestUtils assertTrue:[WKBShamosHoey simplePolygonPoints:points]];
     [WKBTestUtils assertEqualIntWithValue:(int) (radius / increment * 4) andValue2:(int)points.count];
     
+}
+
+- (void)testLargeNonSimple {
+    
+    double increment = .01;
+    double radius = 1250;
+    double x = -radius + increment;
+    double y = 0;
+    
+    NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
+    
+    while (x <= radius) {
+        if (x <= 0) {
+            y -= increment;
+        } else {
+            y += increment;
+        }
+        [self addPoint:points withX:x andY:y];
+        x += increment;
+    }
+    
+    WKBPoint *previousPoint = [points objectAtIndex:points.count - 2];
+    int invalidIndex = (int)points.count;
+    [self addPoint:points withX:[previousPoint.x doubleValue] andY:[previousPoint.y doubleValue] - .000001];
+    
+    x = radius - increment;
+    while (x >= -radius) {
+        if (x >= 0) {
+            y += increment;
+        } else {
+            y -= increment;
+        }
+        [self addPoint:points withX:x andY:y];
+        x -= increment;
+    }
+    
+    [WKBTestUtils assertFalse:[WKBShamosHoey simplePolygonPoints:points]];
+    [WKBTestUtils assertEqualIntWithValue:1 + (int) (radius / increment * 4) andValue2:(int)points.count];
+
+    [points removeObjectAtIndex:invalidIndex];
+    previousPoint = [points objectAtIndex:points.count - 3];
+    [self addPoint:points withX:[previousPoint.x doubleValue] andY:[previousPoint.y doubleValue] + .000000000000001];
+    
+    [WKBTestUtils assertFalse:[WKBShamosHoey simplePolygonPoints:points]];
+    [WKBTestUtils assertEqualIntWithValue:1 + (int) (radius / increment * 4) andValue2:(int)points.count];
+
+}
+
+-(void) addPoint: (NSMutableArray<WKBPoint *> *) points withX: (double) x andY: (double) y{
+    [points addObject:[[WKBPoint alloc] initWithXValue:x andYValue:y]];
 }
 
 @end
