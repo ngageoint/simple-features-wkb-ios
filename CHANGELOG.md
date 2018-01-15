@@ -8,7 +8,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 * Additional Curve Polygon support
 * Geometry utilities: pointInPolygon, pointOnPolygonEdge, closedPolygon, pointOnLine, and pointOnPath
-* TODO Shamos-Hoey simple polygon detection
+* Shamos-Hoey simple polygon detection
 
 ## [1.0.8](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.8) (11-21-2017)
 
