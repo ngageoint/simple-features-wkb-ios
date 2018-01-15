@@ -17,6 +17,7 @@
 
 /**
  * Tree of segments sorted by above-below order
+ * TODO performance could be improved with a Red-Black or AVL tree
  */
 @property NSMutableOrderedSet<WKBSegment *> *tree;
 
