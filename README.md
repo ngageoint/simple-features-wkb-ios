@@ -69,7 +69,7 @@ Pull from [CocoaPods](https://cocoapods.org/pods/wkb-ios):
 Pull from GitHub:
 
     pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :branch => 'master'
-    pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :tag => '1.0.8'
+    pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :tag => '1.0.9'
 
 Include as local project:
 

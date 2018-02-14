@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.9 (TBD)
+## [1.0.9](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.9) (02-14-2018)
 
 * Additional Curve Polygon support
 * Geometry utilities: pointInPolygon, pointOnPolygonEdge, closedPolygon, pointOnLine, and pointOnPath
