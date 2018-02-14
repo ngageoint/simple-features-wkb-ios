@@ -27,7 +27,7 @@
 /**
  *  Expand existing geometry envelope with a geometry
  *
- *  @param envelope envelope to expand
+ *  @param envelope geometry envelope to expand
  *  @param geometry geometry to build envelope from
  */
 +(void) buildEnvelope: (WKBGeometryEnvelope *) envelope andGeometry: (WKBGeometry *) geometry;

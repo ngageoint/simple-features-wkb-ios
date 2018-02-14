@@ -4,9 +4,11 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.9 (TBD)
+## [1.0.9](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.9) (02-14-2018)
 
-* TBD
+* Additional Curve Polygon support
+* Geometry utilities: pointInPolygon, pointOnPolygonEdge, closedPolygon, pointOnLine, and pointOnPath
+* Shamos-Hoey simple polygon detection
 
 ## [1.0.8](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.8) (11-21-2017)
 

@@ -41,5 +41,11 @@
 #import "WKBCentroidPoint.h"
 #import "WKBCentroidCurve.h"
 #import "WKBCentroidSurface.h"
+#import "WKBEvent.h"
+#import "WKBEventQueue.h"
+#import "WKBEventTypes.h"
+#import "WKBSegment.h"
+#import "WKBShamosHoey.h"
+#import "WKBSweepLine.h"
 
 #endif /* wkb_ios_Bridging_Header_h */

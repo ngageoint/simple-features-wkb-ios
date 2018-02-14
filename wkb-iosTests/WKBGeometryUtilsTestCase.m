@@ -356,4 +356,102 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
 }
 
+-(void) testPointInPolygon{
+    
+    NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
+    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:5]];
+    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:0]];
+    [points addObject:[[WKBPoint alloc] initWithXValue:10 andYValue:5]];
+    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:10]];
+    
+    [WKBTestUtils assertFalse:[WKBGeometryUtils closedPolygonPoints:points]];
+    
+    double deviation = 0.000000000000001;
+    
+    for(WKBPoint *point in points){
+        [WKBTestUtils assertTrue:[WKBGeometryUtils point:point inPolygonPoints:points]];
+    }
+    
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:0 + deviation andYValue:5] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:0 + deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:10 - deviation andYValue:5] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:10 - deviation] inPolygonPoints:points]];
+    
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:5] inPolygonPoints:points]];
+    
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 + deviation andYValue:7.5 - deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 + deviation andYValue:2.5 + deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:7.5 - deviation andYValue:2.5 + deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:7.5 - deviation andYValue:7.5 - deviation] inPolygonPoints:points]];
+    
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 andYValue:7.5] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 andYValue:2.5] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:7.5 andYValue:2.5] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:7.5 andYValue:7.5] inPolygonPoints:points]];
+    
+    deviation = .0000001;
+    
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:0 andYValue:0] inPolygonPoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:0 - deviation andYValue:5] inPolygonPoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:0 - deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:10 + deviation andYValue:5] inPolygonPoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:10 + deviation] inPolygonPoints:points]];
+    
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 - deviation andYValue:7.5 + deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 - deviation andYValue:2.5 - deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:7.5 + deviation andYValue:2.5 - deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:7.5 + deviation andYValue:7.5 + deviation] inPolygonPoints:points]];
+    
+    WKBPoint *firstPoint = [points objectAtIndex:0];
+    [points addObject:[[WKBPoint alloc] initWithX:firstPoint.x andY:firstPoint.y]];
+    
+    [WKBTestUtils assertTrue:[WKBGeometryUtils closedPolygonPoints:points]];
+    
+    for(WKBPoint *point in points){
+        [WKBTestUtils assertTrue:[WKBGeometryUtils point:point inPolygonPoints:points]];
+    }
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 + deviation andYValue:7.5 - deviation] inPolygonPoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 andYValue:7.5] inPolygonPoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 - deviation andYValue:7.5 + deviation] inPolygonPoints:points]];
+    
+}
+
+-(void) testClosePolygon{
+    
+    NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
+    [points addObject:[[WKBPoint alloc] initWithXValue:0.1 andYValue:0.2]];
+    [points addObject:[[WKBPoint alloc] initWithXValue:5.3 andYValue:0.4]];
+    [points addObject:[[WKBPoint alloc] initWithXValue:5.5 andYValue:5.6]];
+    
+    [WKBTestUtils assertFalse:[WKBGeometryUtils closedPolygonPoints:points]];
+    
+    WKBPoint *firstPoint = [points objectAtIndex:0];
+    [points addObject:[[WKBPoint alloc] initWithX:firstPoint.x andY:firstPoint.y]];
+    
+    [WKBTestUtils assertTrue:[WKBGeometryUtils closedPolygonPoints:points]];
+}
+
+-(void) testPointOnLine{
+    
+    NSMutableArray<WKBPoint *> *points = [[NSMutableArray alloc] init];
+    [points addObject:[[WKBPoint alloc] initWithXValue:0 andYValue:0]];
+    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:0]];
+    [points addObject:[[WKBPoint alloc] initWithXValue:5 andYValue:5]];
+    
+    for(WKBPoint *point in points){
+        [WKBTestUtils assertTrue:[WKBGeometryUtils point:point onLinePoints:points]];
+    }
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 andYValue:0] onLinePoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:2.5] onLinePoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 andYValue:0.00000001] onLinePoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:2.5 andYValue:0.0000001] onLinePoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:2.5000000001] onLinePoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:2.500000001] onLinePoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:-0.0000000000000001 andYValue:0] onLinePoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:-0.000000000000001 andYValue:0] onLinePoints:points]];
+    [WKBTestUtils assertTrue:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:5.0000000000000001] onLinePoints:points]];
+    [WKBTestUtils assertFalse:[WKBGeometryUtils point:[[WKBPoint alloc] initWithXValue:5 andYValue:5.000000000000001] onLinePoints:points]];
+    
+}
+
 @end

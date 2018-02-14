@@ -61,6 +61,9 @@
         case WKB_COMPOUNDCURVE:
             [self addCompoundCurve:(WKBCompoundCurve *)geometry andEnvelope:envelope];
             break;
+        case WKB_CURVEPOLYGON:
+            [self addCurvePolygon:(WKBCurvePolygon *)geometry andEnvelope:envelope];
+            break;
         case WKB_POLYHEDRALSURFACE:
             [self addPolyhedralSurface:(WKBPolyhedralSurface *)geometry andEnvelope:envelope];
             break;
@@ -192,6 +195,15 @@
     
     for(WKBLineString * lineString in compoundCurve.lineStrings){
         [self addLineString:lineString andEnvelope:envelope];
+    }
+}
+
++(void) addCurvePolygon: (WKBCurvePolygon *) curvePolygon andEnvelope: (WKBGeometryEnvelope *) envelope{
+ 
+    [self updateHasZandMWithEnvelope:envelope andGeometry:curvePolygon];
+    
+    for(WKBCurve * ring in curvePolygon.rings){
+        [self buildEnvelope:envelope andGeometry:ring];
     }
 }
 

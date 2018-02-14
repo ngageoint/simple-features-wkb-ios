@@ -74,9 +74,22 @@
 		0472B51B1C03590500496B87 /* wkb-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* wkb-ios-Bridging-Header.h */; };
 		048A7BAE1C999C52007BCA5D /* WKBGeometryJSONCompatible.h in Headers */ = {isa = PBXBuildFile; fileRef = 048A7BAC1C999C52007BCA5D /* WKBGeometryJSONCompatible.h */; };
 		048A7BAF1C999C52007BCA5D /* WKBGeometryJSONCompatible.m in Sources */ = {isa = PBXBuildFile; fileRef = 048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */; };
+		0496DB1B200813020068A2CE /* WKBEventTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0496DB19200813020068A2CE /* WKBEventTypes.h */; };
+		0496DB1C200813020068A2CE /* WKBEventTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496DB1A200813020068A2CE /* WKBEventTypes.m */; };
+		0496DB1F200819110068A2CE /* WKBEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 0496DB1D200819110068A2CE /* WKBEvent.h */; };
+		0496DB20200819110068A2CE /* WKBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496DB1E200819110068A2CE /* WKBEvent.m */; };
+		0496DB232008EC740068A2CE /* WKBEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 0496DB212008EC740068A2CE /* WKBEventQueue.h */; };
+		0496DB242008EC740068A2CE /* WKBEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496DB222008EC740068A2CE /* WKBEventQueue.m */; };
+		0496DB272008F5FD0068A2CE /* WKBSweepLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 0496DB252008F5FD0068A2CE /* WKBSweepLine.h */; };
+		0496DB282008F5FD0068A2CE /* WKBSweepLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496DB262008F5FD0068A2CE /* WKBSweepLine.m */; };
 		04AB919B1BF29ECD00894999 /* WKBTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919A1BF29ECD00894999 /* WKBTestCase.m */; };
 		04AB919E1BF29F9A00894999 /* WKBTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919D1BF29F9A00894999 /* WKBTestUtils.m */; };
 		04AB91A11BF2A05200894999 /* WKBGeometryTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB91A01BF2A05200894999 /* WKBGeometryTestUtils.m */; };
+		04C503042008FC4C00862DA9 /* WKBSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C503022008FC4C00862DA9 /* WKBSegment.h */; };
+		04C503052008FC4C00862DA9 /* WKBSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C503032008FC4C00862DA9 /* WKBSegment.m */; };
+		04C503082008FC6700862DA9 /* WKBShamosHoey.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C503062008FC6700862DA9 /* WKBShamosHoey.h */; };
+		04C503092008FC6700862DA9 /* WKBShamosHoey.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C503072008FC6700862DA9 /* WKBShamosHoey.m */; };
+		04C5030C20095E7300862DA9 /* ShamosHoeyTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5030B20095E7300862DA9 /* ShamosHoeyTestCase.m */; };
 		B5D94958E350F092F31540ED /* libPods-wkb-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-wkb-iosTests.a */; };
 /* End PBXBuildFile section */
 
@@ -161,11 +174,24 @@
 		0472B51A1C03590500496B87 /* wkb-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wkb-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		048A7BAC1C999C52007BCA5D /* WKBGeometryJSONCompatible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryJSONCompatible.h; sourceTree = "<group>"; };
 		048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryJSONCompatible.m; sourceTree = "<group>"; };
+		0496DB19200813020068A2CE /* WKBEventTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBEventTypes.h; sourceTree = "<group>"; };
+		0496DB1A200813020068A2CE /* WKBEventTypes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBEventTypes.m; sourceTree = "<group>"; };
+		0496DB1D200819110068A2CE /* WKBEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBEvent.h; sourceTree = "<group>"; };
+		0496DB1E200819110068A2CE /* WKBEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBEvent.m; sourceTree = "<group>"; };
+		0496DB212008EC740068A2CE /* WKBEventQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBEventQueue.h; sourceTree = "<group>"; };
+		0496DB222008EC740068A2CE /* WKBEventQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBEventQueue.m; sourceTree = "<group>"; };
+		0496DB252008F5FD0068A2CE /* WKBSweepLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBSweepLine.h; sourceTree = "<group>"; };
+		0496DB262008F5FD0068A2CE /* WKBSweepLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBSweepLine.m; sourceTree = "<group>"; };
 		04AB919A1BF29ECD00894999 /* WKBTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBTestCase.m; sourceTree = "<group>"; };
 		04AB919C1BF29F9A00894999 /* WKBTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBTestUtils.h; sourceTree = "<group>"; };
 		04AB919D1BF29F9A00894999 /* WKBTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBTestUtils.m; sourceTree = "<group>"; };
 		04AB919F1BF2A05200894999 /* WKBGeometryTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBGeometryTestUtils.h; sourceTree = "<group>"; };
 		04AB91A01BF2A05200894999 /* WKBGeometryTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBGeometryTestUtils.m; sourceTree = "<group>"; };
+		04C503022008FC4C00862DA9 /* WKBSegment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBSegment.h; sourceTree = "<group>"; };
+		04C503032008FC4C00862DA9 /* WKBSegment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBSegment.m; sourceTree = "<group>"; };
+		04C503062008FC6700862DA9 /* WKBShamosHoey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBShamosHoey.h; sourceTree = "<group>"; };
+		04C503072008FC6700862DA9 /* WKBShamosHoey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBShamosHoey.m; sourceTree = "<group>"; };
+		04C5030B20095E7300862DA9 /* ShamosHoeyTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShamosHoeyTestCase.m; sourceTree = "<group>"; };
 		499642A447440D35F38311C9 /* libPods-wkb-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wkb-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6179C77188B4A0E8D4DEDBEB /* Pods-wkb-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wkb-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wkb-iosTests/Pods-wkb-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B17E59AE80997CC09DD740D6 /* Pods-wkb-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wkb-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wkb-iosTests/Pods-wkb-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +262,7 @@
 		042FC65A1B963FE500549A4B /* wkb-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				04C5030A20095DE500862DA9 /* sweep */,
 				042FC65B1B963FE500549A4B /* Supporting Files */,
 				04AB919A1BF29ECD00894999 /* WKBTestCase.m */,
 				04AB919C1BF29F9A00894999 /* WKBTestUtils.h */,
@@ -320,6 +347,8 @@
 		042FC6991B96421E00549A4B /* util */ = {
 			isa = PBXGroup;
 			children = (
+				0496DB172006AEAE0068A2CE /* centroid */,
+				0496DB182006B3680068A2CE /* sweep */,
 				042FC69A1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.h */,
 				042FC69B1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.m */,
 				042FC69C1B96421E00549A4B /* WKBGeometryPrinter.h */,
@@ -328,6 +357,13 @@
 				048A7BAD1C999C52007BCA5D /* WKBGeometryJSONCompatible.m */,
 				0445CB251EA1335B008DC0D7 /* WKBGeometryUtils.h */,
 				0445CB261EA1335B008DC0D7 /* WKBGeometryUtils.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		0496DB172006AEAE0068A2CE /* centroid */ = {
+			isa = PBXGroup;
+			children = (
 				0445CB291EA1448C008DC0D7 /* WKBCentroidPoint.h */,
 				0445CB2A1EA1448C008DC0D7 /* WKBCentroidPoint.m */,
 				0445CB2D1EA150D1008DC0D7 /* WKBCentroidCurve.h */,
@@ -335,7 +371,34 @@
 				0445CB311EA150E3008DC0D7 /* WKBCentroidSurface.h */,
 				0445CB321EA150E3008DC0D7 /* WKBCentroidSurface.m */,
 			);
-			path = util;
+			path = centroid;
+			sourceTree = "<group>";
+		};
+		0496DB182006B3680068A2CE /* sweep */ = {
+			isa = PBXGroup;
+			children = (
+				0496DB1D200819110068A2CE /* WKBEvent.h */,
+				0496DB1E200819110068A2CE /* WKBEvent.m */,
+				0496DB212008EC740068A2CE /* WKBEventQueue.h */,
+				0496DB222008EC740068A2CE /* WKBEventQueue.m */,
+				0496DB19200813020068A2CE /* WKBEventTypes.h */,
+				0496DB1A200813020068A2CE /* WKBEventTypes.m */,
+				04C503022008FC4C00862DA9 /* WKBSegment.h */,
+				04C503032008FC4C00862DA9 /* WKBSegment.m */,
+				04C503062008FC6700862DA9 /* WKBShamosHoey.h */,
+				04C503072008FC6700862DA9 /* WKBShamosHoey.m */,
+				0496DB252008F5FD0068A2CE /* WKBSweepLine.h */,
+				0496DB262008F5FD0068A2CE /* WKBSweepLine.m */,
+			);
+			path = sweep;
+			sourceTree = "<group>";
+		};
+		04C5030A20095DE500862DA9 /* sweep */ = {
+			isa = PBXGroup;
+			children = (
+				04C5030B20095E7300862DA9 /* ShamosHoeyTestCase.m */,
+			);
+			path = sweep;
 			sourceTree = "<group>";
 		};
 		63206AE083C9F99B2058A9EE /* Frameworks */ = {
@@ -363,10 +426,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				042FC6AB1B96421E00549A4B /* WKBGeometryEnvelope.h in Headers */,
+				04C503082008FC6700862DA9 /* WKBShamosHoey.h in Headers */,
 				0472B51B1C03590500496B87 /* wkb-ios-Bridging-Header.h in Headers */,
 				042FC6B91B96421E00549A4B /* WKBMultiSurface.h in Headers */,
 				0445CB331EA150E3008DC0D7 /* WKBCentroidSurface.h in Headers */,
+				0496DB232008EC740068A2CE /* WKBEventQueue.h in Headers */,
 				042FC6CB1B96421E00549A4B /* WKBGeometryReader.h in Headers */,
+				04C503042008FC4C00862DA9 /* WKBSegment.h in Headers */,
 				042FC6A51B96421E00549A4B /* WKBCurvePolygon.h in Headers */,
 				042FC6AF1B96421E00549A4B /* WKBLineString.h in Headers */,
 				042FC6BF1B96421E00549A4B /* WKBPolyhedralSurface.h in Headers */,
@@ -376,6 +442,7 @@
 				0445CB2F1EA150D1008DC0D7 /* WKBCentroidCurve.h in Headers */,
 				042FC6C31B96421E00549A4B /* WKBTIN.h in Headers */,
 				042FC6A11B96421E00549A4B /* WKBCompoundCurve.h in Headers */,
+				0496DB1B200813020068A2CE /* WKBEventTypes.h in Headers */,
 				048A7BAE1C999C52007BCA5D /* WKBGeometryJSONCompatible.h in Headers */,
 				042FC6A71B96421E00549A4B /* WKBGeometry.h in Headers */,
 				0445CB2B1EA1448C008DC0D7 /* WKBCentroidPoint.h in Headers */,
@@ -388,6 +455,7 @@
 				042FC6C91B96421E00549A4B /* WKBByteWriter.h in Headers */,
 				042FC6B11B96421E00549A4B /* WKBMultiCurve.h in Headers */,
 				042FC6A31B96421E00549A4B /* WKBCurve.h in Headers */,
+				0496DB272008F5FD0068A2CE /* WKBSweepLine.h in Headers */,
 				042FC6CF1B96421E00549A4B /* WKBGeometryEnvelopeBuilder.h in Headers */,
 				042FC6B51B96421E00549A4B /* WKBMultiPoint.h in Headers */,
 				042FC6D11B96421E00549A4B /* WKBGeometryPrinter.h in Headers */,
@@ -395,6 +463,7 @@
 				042FC6C11B96421E00549A4B /* WKBSurface.h in Headers */,
 				042FC6BD1B96421E00549A4B /* WKBPolygon.h in Headers */,
 				042FC6CD1B96421E00549A4B /* WKBGeometryWriter.h in Headers */,
+				0496DB1F200819110068A2CE /* WKBEvent.h in Headers */,
 				042FC6BB1B96421E00549A4B /* WKBPoint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,13 +569,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wkb-iosTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A1A1F0360FE293A59BAB18FB /* [CP] Copy Pods Resources */ = {
@@ -554,6 +626,7 @@
 				042FC6CA1B96421E00549A4B /* WKBByteWriter.m in Sources */,
 				042FC6D21B96421E00549A4B /* WKBGeometryPrinter.m in Sources */,
 				0445CB2C1EA1448C008DC0D7 /* WKBCentroidPoint.m in Sources */,
+				0496DB20200819110068A2CE /* WKBEvent.m in Sources */,
 				0445CB301EA150D1008DC0D7 /* WKBCentroidCurve.m in Sources */,
 				042FC6BE1B96421E00549A4B /* WKBPolygon.m in Sources */,
 				042FC6B01B96421E00549A4B /* WKBLineString.m in Sources */,
@@ -563,6 +636,8 @@
 				042FC6AE1B96421E00549A4B /* WKBGeometryTypes.m in Sources */,
 				042FC6A61B96421E00549A4B /* WKBCurvePolygon.m in Sources */,
 				042FC6C61B96421E00549A4B /* WKBTriangle.m in Sources */,
+				04C503092008FC6700862DA9 /* WKBShamosHoey.m in Sources */,
+				0496DB1C200813020068A2CE /* WKBEventTypes.m in Sources */,
 				042FC6B61B96421E00549A4B /* WKBMultiPoint.m in Sources */,
 				042FC6BC1B96421E00549A4B /* WKBPoint.m in Sources */,
 				042FC6AC1B96421E00549A4B /* WKBGeometryEnvelope.m in Sources */,
@@ -575,7 +650,10 @@
 				042FC6C21B96421E00549A4B /* WKBSurface.m in Sources */,
 				042FC6C41B96421E00549A4B /* WKBTIN.m in Sources */,
 				042FC6A41B96421E00549A4B /* WKBCurve.m in Sources */,
+				0496DB242008EC740068A2CE /* WKBEventQueue.m in Sources */,
 				0445CB341EA150E3008DC0D7 /* WKBCentroidSurface.m in Sources */,
+				0496DB282008F5FD0068A2CE /* WKBSweepLine.m in Sources */,
+				04C503052008FC4C00862DA9 /* WKBSegment.m in Sources */,
 				042FC6CC1B96421E00549A4B /* WKBGeometryReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C5030C20095E7300862DA9 /* ShamosHoeyTestCase.m in Sources */,
 				04AB919E1BF29F9A00894999 /* WKBTestUtils.m in Sources */,
 				04AB919B1BF29ECD00894999 /* WKBTestCase.m in Sources */,
 				0445CB361EA4FE5C008DC0D7 /* WKBGeometryUtilsTestCase.m in Sources */,
