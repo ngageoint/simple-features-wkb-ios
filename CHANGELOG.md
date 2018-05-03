@@ -4,9 +4,13 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.10 (TBD)
+## 2.0.0 (TBD)
 
-* TBD
+* TBD for simple features
+* MultiCurve and MultiSurface read support
+* MultiCurve and MultiSurface write support as Extended Geometry Collections
+* Geometry Collection utility methods for collection type checks and conversions
+* Handle reading 2.5D geometry type codes
 
 ## [1.0.9](https://github.com/ngageoint/geopackage-wkb-ios/releases/tag/1.0.9) (02-14-2018)
 

@@ -2,13 +2,13 @@ Please fill out as much known and relevant information as possible.
 
 #### Version Information:
 
-  * WKB iOS Version: 
-  * WKB iOS Source: (e.g. CocoaPods, Source Code Build)
+  * SF WKB iOS Version:
+  * SF WKB iOS Source: (e.g. CocoaPods, Source Code Build)
   * CocoaPods Version: 
-  * Xcode Version: 
-  * Device or Emulator: 
-  * iOS Version: 
-  * Other Relevant Libraries: 
+  * Xcode Version:
+  * Device or Emulator:
+  * iOS Version:
+  * Other Relevant Libraries:
 
 #### Expected Results:
 
