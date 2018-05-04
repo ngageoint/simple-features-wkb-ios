@@ -23,7 +23,7 @@
 #import "SFTriangle.h"
 
 
-@interface SFGeometryTestUtils : NSObject
+@interface SFWGeometryTestUtils : NSObject
 
 +(void) compareEnvelopesWithExpected: (SFGeometryEnvelope *) expected andActual: (SFGeometryEnvelope *) actual;
 
@@ -92,5 +92,15 @@
 +(SFMultiPolygon *) createMultiPolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 +(SFGeometryCollection *) createGeometryCollectionWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
+
++(SFCompoundCurve *) createCompoundCurveWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
+
++(SFCompoundCurve *) createCompoundCurveWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM andRing: (BOOL) ring;
+
++(SFCurvePolygon *) createCurvePolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
+
++(SFGeometryCollection *) createMultiCurve;
+
++(SFGeometryCollection *) createMultiSurface;
 
 @end

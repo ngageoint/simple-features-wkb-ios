@@ -14,7 +14,7 @@
 #import "SFWGeometryReader.h"
 #import "SFWGeometryCodes.h"
 
-@implementation SFGeometryTestUtils
+@implementation SFWGeometryTestUtils
 
 +(void) compareEnvelopesWithExpected: (SFGeometryEnvelope *) expected andActual: (SFGeometryEnvelope *) actual{
     
@@ -413,6 +413,74 @@
     }
     
     return geometryCollection;
+}
+
++(SFCompoundCurve *) createCompoundCurveWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self createCompoundCurveWithHasZ:hasZ andHasM:hasM andRing:NO];
+}
+
++(SFCompoundCurve *) createCompoundCurveWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM andRing: (BOOL) ring{
+    
+    SFCompoundCurve *compoundCurve = [[SFCompoundCurve alloc] initWithHasZ:hasZ andHasM:hasM];
+    
+    int num = 2 + [SFWTestUtils randomIntLessThan:9];
+    
+    for (int i = 0; i < num; i++) {
+        [compoundCurve addLineString:[self createLineStringWithHasZ:hasZ andHasM:hasM]];
+    }
+    
+    if (ring) {
+        [[compoundCurve lineStringAtIndex:num-1] addPoint:[[compoundCurve lineStringAtIndex:0] startPoint]];
+    }
+    
+    return compoundCurve;
+}
+
++(SFCurvePolygon *) createCurvePolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    
+    SFCurvePolygon *curvePolygon = [[SFCurvePolygon alloc] initWithHasZ:hasZ andHasM:hasM];
+    
+    int num = 1 + [SFWTestUtils randomIntLessThan:5];
+    
+    for (int i = 0; i < num; i++) {
+        [curvePolygon addRing:[self createCompoundCurveWithHasZ:hasZ andHasM:hasM andRing:YES]];
+    }
+    
+    return curvePolygon;
+}
+
++(SFGeometryCollection *) createMultiCurve{
+    
+    SFGeometryCollection *multiCurve = [[SFGeometryCollection alloc] init];
+    
+    int num = 1 + [SFWTestUtils randomIntLessThan:5];
+    
+    for (int i = 0; i < num; i++) {
+        if (i % 2 == 0) {
+            [multiCurve addGeometry:[self createCompoundCurveWithHasZ:[SFWTestUtils coinFlip] andHasM:[SFWTestUtils coinFlip]]];
+        } else {
+            [multiCurve addGeometry:[self createLineStringWithHasZ:[SFWTestUtils coinFlip] andHasM:[SFWTestUtils coinFlip]]];
+        }
+    }
+    
+    return multiCurve;
+}
+
++(SFGeometryCollection *) createMultiSurface{
+    
+    SFGeometryCollection *multiSurface = [[SFGeometryCollection alloc] init];
+    
+    int num = 1 + [SFWTestUtils randomIntLessThan:5];
+    
+    for (int i = 0; i < num; i++) {
+        if (i % 2 == 0) {
+            [multiSurface addGeometry:[self createCurvePolygonWithHasZ:[SFWTestUtils coinFlip] andHasM:[SFWTestUtils coinFlip]]];
+        } else {
+            [multiSurface addGeometry:[self createPolygonWithHasZ:[SFWTestUtils coinFlip] andHasM:[SFWTestUtils coinFlip]]];
+        }
+    }
+    
+    return multiSurface;
 }
 
 @end
