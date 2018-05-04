@@ -22,6 +22,7 @@
 #import "SFPolyhedralSurface.h"
 #import "SFTIN.h"
 #import "SFTriangle.h"
+#import "SFWGeometryTypeInfo.h"
 
 /**
  *  Well Known Binary Geometry Reader
@@ -46,6 +47,15 @@
  *  @return geometry
  */
 +(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andExpectedType: (Class) expectedType;
+
+/**
+ * Read the geometry type info
+ *
+ * @param reader
+ *            byte reader
+ * @return geometry type info
+ */
++(SFWGeometryTypeInfo *) readGeometryTypeWithReader: (SFByteReader *) reader;
 
 /**
  *  Read a point

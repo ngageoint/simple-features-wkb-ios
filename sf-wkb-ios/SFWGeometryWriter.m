@@ -53,6 +53,8 @@
             [self writeMultiPolygon:(SFMultiPolygon *)geometry withWriter:writer];
             break;
         case SF_GEOMETRYCOLLECTION:
+        case SF_MULTICURVE:
+        case SF_MULTISURFACE:
             [self writeGeometryCollection:(SFGeometryCollection *)geometry withWriter:writer];
             break;
         case SF_CIRCULARSTRING:
@@ -64,10 +66,6 @@
         case SF_CURVEPOLYGON:
             [self writeCurvePolygon:(SFCurvePolygon *)geometry withWriter:writer];
             break;
-        case SF_MULTICURVE:
-            [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
-        case SF_MULTISURFACE:
-            [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_CURVE:
             [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_SURFACE:

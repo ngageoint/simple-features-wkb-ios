@@ -102,6 +102,8 @@
                 [NSException raise:@"Geometry Type Not Supported" format:@"Geometry Type not supported: %d", geometryType];
         }
     }
+    
+    [SFWTestUtils assertEqualWithValue:expected andValue2:actual];
 }
 
 +(void) compareBaseGeometryAttributesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual{

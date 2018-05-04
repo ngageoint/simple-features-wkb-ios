@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "SFGeometry.h"
 
+/**
+ * Geometry Code utilities to convert between geometry attributes and geometry
+ * codes
+ */
 @interface SFWGeometryCodes : NSObject
 
 /**

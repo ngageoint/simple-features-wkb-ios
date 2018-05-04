@@ -7,8 +7,14 @@
 //
 
 #import "SFWGeometryReader.h"
+#import "SFWGeometryCodes.h"
 
 @implementation SFWGeometryReader
+
+/**
+ * 2.5D bit
+ */
+static NSString *WKB25D = @"0x80000000";
 
 +(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader{
     SFGeometry * geometry = [self readGeometryWithReader:reader andExpectedType:nil];
@@ -17,53 +23,14 @@
 
 +(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andExpectedType: (Class) expectedType{
     
-    // Read the single byte order byte
-    NSNumber * byteOrderValue = [reader readByte];
-    int byteOrderIntValue = [byteOrderValue intValue];
-    CFByteOrder byteOrder = CFByteOrderUnknown;
-    if(byteOrderIntValue == 0){
-        byteOrder = CFByteOrderBigEndian;
-    }else if(byteOrderIntValue == 1){
-        byteOrder = CFByteOrderLittleEndian;
-    }else{
-        [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order value: %@", byteOrderValue];
-    }
     CFByteOrder originalByteOrder = [reader byteOrder];
-    [reader setByteOrder:byteOrder];
     
-    // Read the geometry type integer
-    int geometryTypeWkbCode = [[reader readInt] intValue];
+    // Read the byte order and geometry type
+    SFWGeometryTypeInfo *geometryTypeInfo = [self readGeometryTypeWithReader:reader];
     
-    // Look at the last 2 digits to find the geometry type code (1 - 14)
-    int geometryTypeCode = geometryTypeWkbCode % 1000;
-    
-    // Look at the first digit to find the options (z when 1 or 3, m when 2
-    // or 3)
-    int geometryTypeMode = geometryTypeWkbCode / 1000;
-    
-    // Determine if the geometry has a z (3d) or m (linear referencing
-    // system) value
-    BOOL hasZ = false;
-    BOOL hasM = false;
-    switch (geometryTypeMode) {
-        case 0:
-            break;
-            
-        case 1:
-            hasZ = true;
-            break;
-            
-        case 2:
-            hasM = true;
-            break;
-            
-        case 3:
-            hasZ = true;
-            hasM = true;
-            break;
-    }
-    
-    enum SFGeometryType geometryType = [SFGeometryTypes fromCode:geometryTypeCode];
+    enum SFGeometryType geometryType = [geometryTypeInfo geometryType];
+    BOOL hasZ = [geometryTypeInfo hasZ];
+    BOOL hasM = [geometryTypeInfo hasM];
     
     SFGeometry * geometry = nil;
     
@@ -90,6 +57,8 @@
             geometry = [self readMultiPolygonWithReader:reader andHasZ:hasZ andHasM:hasM];
             break;
         case SF_GEOMETRYCOLLECTION:
+        case SF_MULTICURVE:
+        case SF_MULTISURFACE:
             geometry = [self readGeometryCollectionWithReader:reader andHasZ:hasZ andHasM:hasM];
             break;
         case SF_CIRCULARSTRING:
@@ -101,10 +70,6 @@
         case SF_CURVEPOLYGON:
             geometry = [self readCurvePolygonWithReader:reader andHasZ:hasZ andHasM:hasM];
             break;
-        case SF_MULTICURVE:
-            [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
-        case SF_MULTISURFACE:
-            [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_CURVE:
             [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_SURFACE:
@@ -131,6 +96,49 @@
     [reader setByteOrder:originalByteOrder];
     
     return geometry;
+}
+
++(SFWGeometryTypeInfo *) readGeometryTypeWithReader: (SFByteReader *) reader{
+    
+    // Read the single byte order byte
+    NSNumber * byteOrderValue = [reader readByte];
+    int byteOrderIntValue = [byteOrderValue intValue];
+    CFByteOrder byteOrder = CFByteOrderUnknown;
+    if(byteOrderIntValue == 0){
+        byteOrder = CFByteOrderBigEndian;
+    }else if(byteOrderIntValue == 1){
+        byteOrder = CFByteOrderLittleEndian;
+    }else{
+        [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order value: %@", byteOrderValue];
+    }
+    [reader setByteOrder:byteOrder];
+    
+    // Read the geometry type integer
+    int geometryTypeCode = [[reader readInt] intValue];
+    
+    // Check for 2.5D geometry types
+    BOOL hasZ = NO;
+    unsigned int wkb25d;
+    NSScanner* scanner = [NSScanner scannerWithString:WKB25D];
+    [scanner scanHexInt:&wkb25d];
+    if (geometryTypeCode > wkb25d) {
+        hasZ = YES;
+        geometryTypeCode -= wkb25d;
+    }
+    
+    // Determine the geometry type
+    enum SFGeometryType geometryType = [SFWGeometryCodes geometryTypeFromCode:geometryTypeCode];
+    
+    // Determine if the geometry has a z (3d) or m (linear referencing
+    // system) value
+    if (!hasZ) {
+        hasZ = [SFWGeometryCodes hasZFromCode:geometryTypeCode];
+    }
+    BOOL hasM = [SFWGeometryCodes hasMFromCode:geometryTypeCode];
+    
+    SFWGeometryTypeInfo *geometryInfo = [[SFWGeometryTypeInfo alloc] initWithCode:geometryTypeCode andType:geometryType andHasZ:hasZ andHasM:hasM];
+    
+    return geometryInfo;
 }
 
 +(SFPoint *) readPointWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
