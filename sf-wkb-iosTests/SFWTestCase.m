@@ -119,12 +119,12 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     SFExtendedGeometryCollection *extendedMultiCurve = [[SFExtendedGeometryCollection alloc] initWithGeometryCollection:multiCurve];
     [SFWTestUtils assertEqualIntWithValue:SF_MULTICURVE andValue2:extendedMultiCurve.geometryType];
     
-// TODO   [self geometryTester:extendedMultiCurve withCompare:multiCurve];
+    [self geometryTester:extendedMultiCurve withCompare:multiCurve andDoubleCompare:YES];
     
     NSData *data2 = [SFWGeometryTestUtils writeDataWithGeometry:extendedMultiCurve];
     const char *bytes2 = [data2 bytes];
     [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometryType:SF_MULTICURVE] andValue2:(int)bytes2[4]];
- // TODO  [SFWGeometryTestUtils compareDataWithExpected:data andActual:data2];
+    [SFWGeometryTestUtils compareDataDoubleComparisonsWithExpected:data andActual:data2];
     
 }
 
@@ -174,7 +174,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     NSData *data2 = [SFWGeometryTestUtils writeDataWithGeometry:extendedMultiCurve];
     const char *bytes2 = [data2 bytes];
     [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometryType:SF_MULTICURVE] andValue2:(int)bytes2[4]];
-    // TODO [SFWGeometryTestUtils compareDataWithExpected:data andActual:data2];
+    [SFWGeometryTestUtils compareDataDoubleComparisonsWithExpected:data andActual:data2];
 }
 
 -(void) testMultiCurve{
@@ -318,6 +318,8 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
         }
     }
     // TODO [SFWTestUtils assertEqualIntWithValue:(int)data.length - 6 andValue2:equalBytes];
+    
+    
 }
 
 -(void) geometryTester: (SFGeometry *) geometry{
@@ -325,6 +327,12 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 }
 
 -(void) geometryTester: (SFGeometry *) geometry withCompare: (SFGeometry *) compareGeometry{
+    [self geometryTester:geometry withCompare:compareGeometry andDoubleCompare:NO];
+}
+
+-(void) geometryTester: (SFGeometry *) geometry withCompare: (SFGeometry *) compareGeometry andDoubleCompare: (BOOL) doubleCompare{
+    
+    double delta = 0.0000000000001;
     
     // Write the geometries to bytes
     NSData * data1 = [SFWGeometryTestUtils writeDataWithGeometry:geometry andByteOrder:CFByteOrderBigEndian];
@@ -336,24 +344,30 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     // the specified
     SFGeometry * geometry1opposite = [SFWGeometryTestUtils readGeometryWithData:data1 andByteOrder:CFByteOrderLittleEndian];
     SFGeometry * geometry2opposite = [SFWGeometryTestUtils readGeometryWithData:data2 andByteOrder:CFByteOrderBigEndian];
-    [SFWGeometryTestUtils compareDataWithExpected:[SFWGeometryTestUtils writeDataWithGeometry:compareGeometry]
-                                        andActual:[SFWGeometryTestUtils writeDataWithGeometry:geometry1opposite]];
-    [SFWGeometryTestUtils compareDataWithExpected:[SFWGeometryTestUtils writeDataWithGeometry:compareGeometry]
-                                        andActual:[SFWGeometryTestUtils writeDataWithGeometry:geometry2opposite]];
+    NSData *compareGeometryData = [SFWGeometryTestUtils writeDataWithGeometry:compareGeometry];
+    NSData *geometry1oppositeData = [SFWGeometryTestUtils writeDataWithGeometry:geometry1opposite];
+    NSData *geometry2oppositeData = [SFWGeometryTestUtils writeDataWithGeometry:geometry2opposite];
+    if(doubleCompare){
+        [SFWGeometryTestUtils compareDataDoubleComparisonsWithExpected:compareGeometryData andActual:geometry1oppositeData];
+        [SFWGeometryTestUtils compareDataDoubleComparisonsWithExpected:compareGeometryData andActual:geometry2oppositeData];
+    }else{
+        [SFWGeometryTestUtils compareDataWithExpected:compareGeometryData andActual:geometry1oppositeData];
+        [SFWGeometryTestUtils compareDataWithExpected:compareGeometryData andActual:geometry2oppositeData];
+    }
     
     SFGeometry * geometry1 = [SFWGeometryTestUtils readGeometryWithData:data1 andByteOrder:CFByteOrderBigEndian];
     SFGeometry * geometry2 = [SFWGeometryTestUtils readGeometryWithData:data2 andByteOrder:CFByteOrderLittleEndian];
     
-    [SFWGeometryTestUtils compareGeometriesWithExpected:compareGeometry andActual:geometry1];
-    [SFWGeometryTestUtils compareGeometriesWithExpected:compareGeometry andActual:geometry2];
-    [SFWGeometryTestUtils compareGeometriesWithExpected:geometry1 andActual:geometry2];
+    [SFWGeometryTestUtils compareGeometriesWithExpected:compareGeometry andActual:geometry1 andDelta:delta];
+    [SFWGeometryTestUtils compareGeometriesWithExpected:compareGeometry andActual:geometry2 andDelta:delta];
+    [SFWGeometryTestUtils compareGeometriesWithExpected:geometry1 andActual:geometry2 andDelta:delta];
 
     SFGeometryEnvelope *envelope = [SFGeometryEnvelopeBuilder buildEnvelopeWithGeometry:compareGeometry];
     SFGeometryEnvelope *envelope1 = [SFGeometryEnvelopeBuilder buildEnvelopeWithGeometry:geometry1];
     SFGeometryEnvelope *envelope2 = [SFGeometryEnvelopeBuilder buildEnvelopeWithGeometry:geometry2];
     
-    [SFWGeometryTestUtils compareEnvelopesWithExpected:envelope andActual:envelope1];
-    [SFWGeometryTestUtils compareEnvelopesWithExpected:envelope1 andActual:envelope2];
+    [SFWGeometryTestUtils compareEnvelopesWithExpected:envelope andActual:envelope1 andDelta:delta];
+    [SFWGeometryTestUtils compareEnvelopesWithExpected:envelope1 andActual:envelope2 andDelta:delta];
 }
 
 + (NSData *)hexStringToData: (NSString *) hex {

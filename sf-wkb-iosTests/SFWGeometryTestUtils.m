@@ -17,27 +17,49 @@
 @implementation SFWGeometryTestUtils
 
 +(void) compareEnvelopesWithExpected: (SFGeometryEnvelope *) expected andActual: (SFGeometryEnvelope *) actual{
+    [self compareEnvelopesWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareEnvelopesWithExpected: (SFGeometryEnvelope *) expected andActual: (SFGeometryEnvelope *) actual andDelta: (double) delta{
     
     if(expected == nil){
         [SFWTestUtils assertNil:actual];
     }else{
         [SFWTestUtils assertNotNil:actual];
         
-        [SFWTestUtils assertEqualWithValue:expected.minX andValue2:actual.minX];
-        [SFWTestUtils assertEqualWithValue:expected.maxX andValue2:actual.maxX];
-        [SFWTestUtils assertEqualWithValue:expected.minY andValue2:actual.minY];
-        [SFWTestUtils assertEqualWithValue:expected.maxY andValue2:actual.maxY];
+        [SFWTestUtils assertEqualDoubleWithValue:[expected.minX doubleValue] andValue2:[actual.minX doubleValue] andDelta:delta];
+        [SFWTestUtils assertEqualDoubleWithValue:[expected.maxX doubleValue] andValue2:[actual.maxX doubleValue] andDelta:delta];
+        [SFWTestUtils assertEqualDoubleWithValue:[expected.minY doubleValue] andValue2:[actual.minY doubleValue] andDelta:delta];
+        [SFWTestUtils assertEqualDoubleWithValue:[expected.maxY doubleValue] andValue2:[actual.maxY doubleValue] andDelta:delta];
         [SFWTestUtils assertEqualBoolWithValue:expected.hasZ andValue2:actual.hasZ];
-        [SFWTestUtils assertEqualWithValue:expected.minZ andValue2:actual.minZ];
-        [SFWTestUtils assertEqualWithValue:expected.maxZ andValue2:actual.maxZ];
+        if(expected.hasZ){
+            [SFWTestUtils assertEqualDoubleWithValue:[expected.minZ doubleValue] andValue2:[actual.minZ doubleValue] andDelta:delta];
+            [SFWTestUtils assertEqualDoubleWithValue:[expected.maxZ doubleValue] andValue2:[actual.maxZ doubleValue] andDelta:delta];
+        }else{
+            [SFWTestUtils assertNil:expected.minZ];
+            [SFWTestUtils assertNil:expected.maxZ];
+            [SFWTestUtils assertNil:actual.minZ];
+            [SFWTestUtils assertNil:actual.maxZ];
+        }
         [SFWTestUtils assertEqualBoolWithValue:expected.hasM andValue2:actual.hasM];
-        [SFWTestUtils assertEqualWithValue:expected.minM andValue2:actual.minM];
-        [SFWTestUtils assertEqualWithValue:expected.maxM andValue2:actual.maxM];
+        if(expected.hasM){
+            [SFWTestUtils assertEqualDoubleWithValue:[expected.minM doubleValue] andValue2:[actual.minM doubleValue] andDelta:delta];
+            [SFWTestUtils assertEqualDoubleWithValue:[expected.maxM doubleValue] andValue2:[actual.maxM doubleValue] andDelta:delta];
+        }else{
+            [SFWTestUtils assertNil:expected.minM];
+            [SFWTestUtils assertNil:expected.maxM];
+            [SFWTestUtils assertNil:actual.minM];
+            [SFWTestUtils assertNil:actual.maxM];
+        }
     }
     
 }
 
 +(void) compareGeometriesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual{
+    [self compareGeometriesWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareGeometriesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual andDelta: (double) delta{
     if(expected == nil){
         [SFWTestUtils assertNil:actual];
     }else{
@@ -48,34 +70,34 @@
             case SF_GEOMETRY:
                 [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
             case SF_POINT:
-                [self comparePointWithExpected:(SFPoint *)expected andActual:(SFPoint *)actual];
+                [self comparePointWithExpected:(SFPoint *)expected andActual:(SFPoint *)actual andDelta:delta];
                 break;
             case SF_LINESTRING:
-                [self compareLineStringWithExpected:(SFLineString *)expected andActual:(SFLineString *)actual];
+                [self compareLineStringWithExpected:(SFLineString *)expected andActual:(SFLineString *)actual andDelta:delta];
                 break;
             case SF_POLYGON:
-                [self comparePolygonWithExpected:(SFPolygon *)expected andActual:(SFPolygon *)actual];
+                [self comparePolygonWithExpected:(SFPolygon *)expected andActual:(SFPolygon *)actual andDelta:delta];
                 break;
             case SF_MULTIPOINT:
-                [self compareMultiPointWithExpected:(SFMultiPoint *)expected andActual:(SFMultiPoint *)actual];
+                [self compareMultiPointWithExpected:(SFMultiPoint *)expected andActual:(SFMultiPoint *)actual andDelta:delta];
                 break;
             case SF_MULTILINESTRING:
-                [self compareMultiLineStringWithExpected:(SFMultiLineString *)expected andActual:(SFMultiLineString *)actual];
+                [self compareMultiLineStringWithExpected:(SFMultiLineString *)expected andActual:(SFMultiLineString *)actual andDelta:delta];
                 break;
             case SF_MULTIPOLYGON:
-                [self compareMultiPolygonWithExpected:(SFMultiPolygon *)expected andActual:(SFMultiPolygon *)actual];
+                [self compareMultiPolygonWithExpected:(SFMultiPolygon *)expected andActual:(SFMultiPolygon *)actual andDelta:delta];
                 break;
             case SF_GEOMETRYCOLLECTION:
-                [self compareGeometryCollectionWithExpected:(SFGeometryCollection *)expected andActual:(SFGeometryCollection *)actual];
+                [self compareGeometryCollectionWithExpected:(SFGeometryCollection *)expected andActual:(SFGeometryCollection *)actual andDelta:delta];
                 break;
             case SF_CIRCULARSTRING:
-                [self compareCircularStringWithExpected:(SFCircularString *)expected andActual:(SFCircularString *)actual];
+                [self compareCircularStringWithExpected:(SFCircularString *)expected andActual:(SFCircularString *)actual andDelta:delta];
                 break;
             case SF_COMPOUNDCURVE:
-                [self compareCompoundCurveWithExpected:(SFCompoundCurve *)expected andActual:(SFCompoundCurve *)actual];
+                [self compareCompoundCurveWithExpected:(SFCompoundCurve *)expected andActual:(SFCompoundCurve *)actual andDelta:delta];
                 break;
             case SF_CURVEPOLYGON:
-                [self compareCurvePolygonWithExpected:(SFCurvePolygon *)expected andActual:(SFCurvePolygon *)actual];
+                [self compareCurvePolygonWithExpected:(SFCurvePolygon *)expected andActual:(SFCurvePolygon *)actual andDelta:delta];
                 break;
             case SF_MULTICURVE:
                 [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
@@ -90,20 +112,20 @@
                 [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
                 break;
             case SF_POLYHEDRALSURFACE:
-                [self comparePolyhedralSurfaceWithExpected:(SFPolyhedralSurface *)expected andActual:(SFPolyhedralSurface *)actual];
+                [self comparePolyhedralSurfaceWithExpected:(SFPolyhedralSurface *)expected andActual:(SFPolyhedralSurface *)actual andDelta:delta];
                 break;
             case SF_TIN:
-                [self compareTINWithExpected:(SFTIN *)expected andActual:(SFTIN *)actual];
+                [self compareTINWithExpected:(SFTIN *)expected andActual:(SFTIN *)actual andDelta:delta];
                 break;
             case SF_TRIANGLE:
-                [self compareTriangleWithExpected:(SFTriangle *)expected andActual:(SFTriangle *)actual];
+                [self compareTriangleWithExpected:(SFTriangle *)expected andActual:(SFTriangle *)actual andDelta:delta];
                 break;
             default:
                 [NSException raise:@"Geometry Type Not Supported" format:@"Geometry Type not supported: %d", geometryType];
         }
     }
     
-    [SFWTestUtils assertEqualWithValue:expected andValue2:actual];
+    //[SFWTestUtils assertEqualWithValue:expected andValue2:actual];
 }
 
 +(void) compareBaseGeometryAttributesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual{
@@ -114,106 +136,158 @@
 }
 
 +(void) comparePointWithExpected: (SFPoint *) expected andActual: (SFPoint *) actual{
+    [self comparePointWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) comparePointWithExpected: (SFPoint *) expected andActual: (SFPoint *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
-    [SFWTestUtils assertEqualWithValue:expected.x andValue2:actual.x];
-    [SFWTestUtils assertEqualWithValue:expected.y andValue2:actual.y];
-    [SFWTestUtils assertEqualWithValue:expected.z andValue2:actual.z];
-    [SFWTestUtils assertEqualWithValue:expected.m andValue2:actual.m];
+    [SFWTestUtils assertEqualDoubleWithValue:[expected.x doubleValue] andValue2:[actual.x doubleValue] andDelta:delta];
+    [SFWTestUtils assertEqualDoubleWithValue:[expected.y doubleValue] andValue2:[actual.y doubleValue] andDelta:delta];
+    [SFWTestUtils assertEqualDoubleWithValue:[expected.z doubleValue] andValue2:[actual.z doubleValue] andDelta:delta];
+    [SFWTestUtils assertEqualDoubleWithValue:[expected.m doubleValue] andValue2:[actual.m doubleValue] andDelta:delta];
 }
 
 +(void) compareLineStringWithExpected: (SFLineString *) expected andActual: (SFLineString *) actual{
+    [self compareLineStringWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareLineStringWithExpected: (SFLineString *) expected andActual: (SFLineString *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numPoints] andValue2:[actual numPoints]];
     for(int i = 0; i < [expected numPoints]; i++){
-        [self comparePointWithExpected:[expected.points objectAtIndex:i] andActual:[actual.points objectAtIndex:i]];
+        [self comparePointWithExpected:[expected.points objectAtIndex:i] andActual:[actual.points objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) comparePolygonWithExpected: (SFPolygon *) expected andActual: (SFPolygon *) actual{
+    [self comparePolygonWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) comparePolygonWithExpected: (SFPolygon *) expected andActual: (SFPolygon *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numRings] andValue2:[actual numRings]];
     for(int i = 0; i < [expected numRings]; i++){
-        [self compareLineStringWithExpected:[expected.lineStrings objectAtIndex:i] andActual:[actual.lineStrings objectAtIndex:i]];
+        [self compareLineStringWithExpected:[expected.lineStrings objectAtIndex:i] andActual:[actual.lineStrings objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareMultiPointWithExpected: (SFMultiPoint *) expected andActual: (SFMultiPoint *) actual{
+    [self compareMultiPointWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareMultiPointWithExpected: (SFMultiPoint *) expected andActual: (SFMultiPoint *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numPoints] andValue2:[actual numPoints]];
     for(int i = 0; i < [expected numPoints]; i++){
-        [self comparePointWithExpected:[[expected points] objectAtIndex:i] andActual:[[actual points] objectAtIndex:i]];
+        [self comparePointWithExpected:[[expected points] objectAtIndex:i] andActual:[[actual points] objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareMultiLineStringWithExpected: (SFMultiLineString *) expected andActual: (SFMultiLineString *) actual{
+    [self compareMultiLineStringWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareMultiLineStringWithExpected: (SFMultiLineString *) expected andActual: (SFMultiLineString *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numLineStrings] andValue2:[actual numLineStrings]];
     for(int i = 0; i < [expected numLineStrings]; i++){
-        [self compareLineStringWithExpected:[[expected lineStrings] objectAtIndex:i] andActual:[[actual lineStrings] objectAtIndex:i]];
+        [self compareLineStringWithExpected:[[expected lineStrings] objectAtIndex:i] andActual:[[actual lineStrings] objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareMultiPolygonWithExpected: (SFMultiPolygon *) expected andActual: (SFMultiPolygon *) actual{
+    [self compareMultiPolygonWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareMultiPolygonWithExpected: (SFMultiPolygon *) expected andActual: (SFMultiPolygon *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numPolygons] andValue2:[actual numPolygons]];
     for(int i = 0; i < [expected numPolygons]; i++){
-        [self comparePolygonWithExpected:[[expected polygons] objectAtIndex:i] andActual:[[actual polygons] objectAtIndex:i]];
+        [self comparePolygonWithExpected:[[expected polygons] objectAtIndex:i] andActual:[[actual polygons] objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareGeometryCollectionWithExpected: (SFGeometryCollection *) expected andActual: (SFGeometryCollection *) actual{
+    [self compareGeometryCollectionWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareGeometryCollectionWithExpected: (SFGeometryCollection *) expected andActual: (SFGeometryCollection *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numGeometries] andValue2:[actual numGeometries]];
     for(int i = 0; i < [expected numGeometries]; i++){
-        [self compareGeometriesWithExpected:[expected.geometries objectAtIndex:i] andActual:[actual.geometries objectAtIndex:i]];
+        [self compareGeometriesWithExpected:[expected.geometries objectAtIndex:i] andActual:[actual.geometries objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareCircularStringWithExpected: (SFCircularString *) expected andActual: (SFCircularString *) actual{
+    [self compareCircularStringWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareCircularStringWithExpected: (SFCircularString *) expected andActual: (SFCircularString *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numPoints] andValue2:[actual numPoints]];
     for(int i = 0; i < [expected numPoints]; i++){
-        [self comparePointWithExpected:[expected.points objectAtIndex:i] andActual:[actual.points objectAtIndex:i]];
+        [self comparePointWithExpected:[expected.points objectAtIndex:i] andActual:[actual.points objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareCompoundCurveWithExpected: (SFCompoundCurve *) expected andActual: (SFCompoundCurve *) actual{
+    [self compareCompoundCurveWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareCompoundCurveWithExpected: (SFCompoundCurve *) expected andActual: (SFCompoundCurve *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numLineStrings] andValue2:[actual numLineStrings]];
     for(int i = 0; i < [expected numLineStrings]; i++){
-        [self compareLineStringWithExpected:[expected.lineStrings objectAtIndex:i] andActual:[actual.lineStrings objectAtIndex:i]];
+        [self compareLineStringWithExpected:[expected.lineStrings objectAtIndex:i] andActual:[actual.lineStrings objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareCurvePolygonWithExpected: (SFCurvePolygon *) expected andActual: (SFCurvePolygon *) actual{
+    [self compareCurvePolygonWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareCurvePolygonWithExpected: (SFCurvePolygon *) expected andActual: (SFCurvePolygon *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numRings] andValue2:[actual numRings]];
     for(int i = 0; i < [expected numRings]; i++){
-        [self compareGeometriesWithExpected:[expected.rings objectAtIndex:i] andActual:[actual.rings objectAtIndex:i]];
+        [self compareGeometriesWithExpected:[expected.rings objectAtIndex:i] andActual:[actual.rings objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) comparePolyhedralSurfaceWithExpected: (SFPolyhedralSurface *) expected andActual: (SFPolyhedralSurface *) actual{
+    [self comparePolyhedralSurfaceWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) comparePolyhedralSurfaceWithExpected: (SFPolyhedralSurface *) expected andActual: (SFPolyhedralSurface *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numPolygons] andValue2:[actual numPolygons]];
     for(int i = 0; i < [expected numPolygons]; i++){
-        [self compareGeometriesWithExpected:[expected.polygons objectAtIndex:i] andActual:[actual.polygons objectAtIndex:i]];
+        [self compareGeometriesWithExpected:[expected.polygons objectAtIndex:i] andActual:[actual.polygons objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareTINWithExpected: (SFTIN *) expected andActual: (SFTIN *) actual{
+    [self compareTINWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareTINWithExpected: (SFTIN *) expected andActual: (SFTIN *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numPolygons] andValue2:[actual numPolygons]];
     for(int i = 0; i < [expected numPolygons]; i++){
-        [self compareGeometriesWithExpected:[expected.polygons objectAtIndex:i] andActual:[actual.polygons objectAtIndex:i]];
+        [self compareGeometriesWithExpected:[expected.polygons objectAtIndex:i] andActual:[actual.polygons objectAtIndex:i] andDelta:delta];
     }
 }
 
 +(void) compareTriangleWithExpected: (SFTriangle *) expected andActual: (SFTriangle *) actual{
+    [self compareTriangleWithExpected:expected andActual:actual andDelta:0];
+}
+
++(void) compareTriangleWithExpected: (SFTriangle *) expected andActual: (SFTriangle *) actual andDelta: (double) delta{
     [self compareBaseGeometryAttributesWithExpected:expected andActual:actual];
     [SFWTestUtils assertEqualIntWithValue:[expected numRings] andValue2:[actual numRings]];
     for(int i = 0; i < [expected numRings]; i++){
-        [self compareLineStringWithExpected:[expected.lineStrings objectAtIndex:i] andActual:[actual.lineStrings objectAtIndex:i]];
+        [self compareLineStringWithExpected:[expected.lineStrings objectAtIndex:i] andActual:[actual.lineStrings objectAtIndex:i] andDelta:delta];
     }
 }
 
@@ -277,6 +351,44 @@
     
     return [expected length] == [actual length] && [expected isEqualToData:actual];
 
+}
+
++(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual{
+    [self compareDataDoubleComparisonsWithExpected:expected andActual:actual andByteOrder:CFByteOrderBigEndian];
+}
+
++(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andByteOrder: (CFByteOrder) byteOrder{
+    
+    [SFWTestUtils assertTrue:([expected length] == [actual length])];
+    
+    const char *expectedBytes = [expected bytes];
+    const char *actualBytes = [actual bytes];
+    
+    for(int i = 0; i < [expected length]; i++){
+        
+        int expectedByte = (int) expectedBytes[i];
+        int actualByte = (int) actualBytes[i];
+        
+        if(expectedByte != actualByte){
+            NSRange range;
+            if(byteOrder == CFByteOrderBigEndian){
+                range = NSMakeRange(i-7, 8);
+            }else{
+                range = NSMakeRange(i, 8);
+            }
+            SFByteReader *byteReader1 = [[SFByteReader alloc] initWithData:[expected subdataWithRange:range]];
+            SFByteReader *byteReader2 = [[SFByteReader alloc] initWithData:[expected subdataWithRange:range]];
+            [byteReader1 setByteOrder:byteOrder];
+            [byteReader2 setByteOrder:byteOrder];
+            NSDecimalNumber *decimalNumber1 = [byteReader1 readDouble];
+            NSDecimalNumber *decimalNumber2 = [byteReader2 readDouble];
+            double double1 = [decimalNumber1 doubleValue];
+            double double2 = [decimalNumber2 doubleValue];
+            [SFWTestUtils assertEqualDoubleWithValue:double1 andValue2:double2];
+        }
+        
+    }
+    
 }
 
 +(SFPoint *) createPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{

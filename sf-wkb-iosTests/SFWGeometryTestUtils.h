@@ -27,35 +27,65 @@
 
 +(void) compareEnvelopesWithExpected: (SFGeometryEnvelope *) expected andActual: (SFGeometryEnvelope *) actual;
 
++(void) compareEnvelopesWithExpected: (SFGeometryEnvelope *) expected andActual: (SFGeometryEnvelope *) actual andDelta: (double) delta;
+
 +(void) compareGeometriesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual;
+
++(void) compareGeometriesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual andDelta: (double) delta;
 
 +(void) compareBaseGeometryAttributesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual;
 
 +(void) comparePointWithExpected: (SFPoint *) expected andActual: (SFPoint *) actual;
 
++(void) comparePointWithExpected: (SFPoint *) expected andActual: (SFPoint *) actual andDelta: (double) delta;
+
 +(void) compareLineStringWithExpected: (SFLineString *) expected andActual: (SFLineString *) actual;
+
++(void) compareLineStringWithExpected: (SFLineString *) expected andActual: (SFLineString *) actual andDelta: (double) delta;
 
 +(void) comparePolygonWithExpected: (SFPolygon *) expected andActual: (SFPolygon *) actual;
 
++(void) comparePolygonWithExpected: (SFPolygon *) expected andActual: (SFPolygon *) actual andDelta: (double) delta;
+
 +(void) compareMultiPointWithExpected: (SFMultiPoint *) expected andActual: (SFMultiPoint *) actual;
+
++(void) compareMultiPointWithExpected: (SFMultiPoint *) expected andActual: (SFMultiPoint *) actual andDelta: (double) delta;
 
 +(void) compareMultiLineStringWithExpected: (SFMultiLineString *) expected andActual: (SFMultiLineString *) actual;
 
++(void) compareMultiLineStringWithExpected: (SFMultiLineString *) expected andActual: (SFMultiLineString *) actual andDelta: (double) delta;
+
 +(void) compareMultiPolygonWithExpected: (SFMultiPolygon *) expected andActual: (SFMultiPolygon *) actual;
+
++(void) compareMultiPolygonWithExpected: (SFMultiPolygon *) expected andActual: (SFMultiPolygon *) actual andDelta: (double) delta;
 
 +(void) compareGeometryCollectionWithExpected: (SFGeometryCollection *) expected andActual: (SFGeometryCollection *) actual;
 
++(void) compareGeometryCollectionWithExpected: (SFGeometryCollection *) expected andActual: (SFGeometryCollection *) actual andDelta: (double) delta;
+
 +(void) compareCircularStringWithExpected: (SFCircularString *) expected andActual: (SFCircularString *) actual;
+
++(void) compareCircularStringWithExpected: (SFCircularString *) expected andActual: (SFCircularString *) actual andDelta: (double) delta;
 
 +(void) compareCompoundCurveWithExpected: (SFCompoundCurve *) expected andActual: (SFCompoundCurve *) actual;
 
++(void) compareCompoundCurveWithExpected: (SFCompoundCurve *) expected andActual: (SFCompoundCurve *) actual andDelta: (double) delta;
+
 +(void) compareCurvePolygonWithExpected: (SFCurvePolygon *) expected andActual: (SFCurvePolygon *) actual;
+
++(void) compareCurvePolygonWithExpected: (SFCurvePolygon *) expected andActual: (SFCurvePolygon *) actual andDelta: (double) delta;
 
 +(void) comparePolyhedralSurfaceWithExpected: (SFPolyhedralSurface *) expected andActual: (SFPolyhedralSurface *) actual;
 
++(void) comparePolyhedralSurfaceWithExpected: (SFPolyhedralSurface *) expected andActual: (SFPolyhedralSurface *) actual andDelta: (double) delta;
+
 +(void) compareTINWithExpected: (SFTIN *) expected andActual: (SFTIN *) actual;
 
++(void) compareTINWithExpected: (SFTIN *) expected andActual: (SFTIN *) actual andDelta: (double) delta;
+
 +(void) compareTriangleWithExpected: (SFTriangle *) expected andActual: (SFTriangle *) actual;
+
++(void) compareTriangleWithExpected: (SFTriangle *) expected andActual: (SFTriangle *) actual andDelta: (double) delta;
 
 +(void) compareGeometryDataWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual;
 
@@ -76,6 +106,10 @@
 +(void) compareDataWithExpected: (NSData *) expected andActual: (NSData *) actual;
 
 +(BOOL) equalDataWithExpected: (NSData *) expected andActual: (NSData *) actual;
+
++(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual;
+
++(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andByteOrder: (CFByteOrder) byteOrder;
 
 +(SFPoint *) createPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
