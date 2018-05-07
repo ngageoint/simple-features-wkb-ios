@@ -107,9 +107,19 @@
 
 +(BOOL) equalDataWithExpected: (NSData *) expected andActual: (NSData *) actual;
 
-+(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual;
++(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andDelta: (double) delta;
 
-+(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andByteOrder: (CFByteOrder) byteOrder;
++(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andDelta: (double) delta andByteOrder: (CFByteOrder) byteOrder;
+
++(int) countNonEqualDataWithExpected: (NSData *) expected andActual: (NSData *) actual;
+
++(int) countNonEqualBytesWithExpected: (const char *) expected andActual: (const char *) actual andLength: (NSUInteger) length;
+
++(int) countNonEqualDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andDelta: (double) delta;
+
++(int) countNonEqualDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andDelta: (double) delta andByteOrder: (CFByteOrder) byteOrder;
+
++(int) countNonEqualBytesDoubleComparisonsWithExpected: (const char *) expected andActual: (const char *) actual andLength: (NSUInteger) length andDelta: (double) delta andByteOrder: (CFByteOrder) byteOrder;
 
 +(SFPoint *) createPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 

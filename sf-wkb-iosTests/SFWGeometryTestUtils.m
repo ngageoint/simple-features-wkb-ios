@@ -348,47 +348,84 @@
 }
 
 +(BOOL) equalDataWithExpected: (NSData *) expected andActual: (NSData *) actual{
-    
     return [expected length] == [actual length] && [expected isEqualToData:actual];
-
 }
 
-+(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual{
-    [self compareDataDoubleComparisonsWithExpected:expected andActual:actual andByteOrder:CFByteOrderBigEndian];
++(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andDelta: (double) delta{
+    [self compareDataDoubleComparisonsWithExpected:expected andActual:actual andDelta:delta andByteOrder:CFByteOrderBigEndian];
 }
 
-+(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andByteOrder: (CFByteOrder) byteOrder{
++(void) compareDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andDelta: (double) delta andByteOrder: (CFByteOrder) byteOrder{
     
     [SFWTestUtils assertTrue:([expected length] == [actual length])];
     
+    int nonEqualBytes = [self countNonEqualDataDoubleComparisonsWithExpected:expected andActual:actual andDelta:delta andByteOrder:byteOrder];
+    
+    [SFWTestUtils assertEqualIntWithValue:0 andValue2:nonEqualBytes];
+}
+
++(int) countNonEqualDataWithExpected: (NSData *) expected andActual: (NSData *) actual{
+    [SFWTestUtils assertEqualIntWithValue:(int)expected.length andValue2:(int)actual.length];
     const char *expectedBytes = [expected bytes];
     const char *actualBytes = [actual bytes];
+    return [self countNonEqualBytesWithExpected:expectedBytes andActual:actualBytes andLength:expected.length];
+}
+
++(int) countNonEqualBytesWithExpected: (const char *) expected andActual: (const char *) actual andLength: (NSUInteger) length{
+    int nonEqualBytes = 0;
+    for (int i = 0; i < length; i++) {
+        if (expected[i] != actual[i]) {
+            nonEqualBytes++;
+        }
+    }
+    return nonEqualBytes;
+}
+
++(int) countNonEqualDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andDelta: (double) delta{
+    return [self countNonEqualDataDoubleComparisonsWithExpected:expected andActual:actual andDelta:delta andByteOrder:CFByteOrderBigEndian];
+}
+
++(int) countNonEqualDataDoubleComparisonsWithExpected: (NSData *) expected andActual: (NSData *) actual andDelta: (double) delta andByteOrder: (CFByteOrder) byteOrder{
+    [SFWTestUtils assertEqualIntWithValue:(int)expected.length andValue2:(int)actual.length];
+    const char *expectedBytes = [expected bytes];
+    const char *actualBytes = [actual bytes];
+    return [self countNonEqualBytesDoubleComparisonsWithExpected:expectedBytes andActual:actualBytes andLength:expected.length andDelta:delta andByteOrder:byteOrder];
+}
+
++(int) countNonEqualBytesDoubleComparisonsWithExpected: (const char *) expected andActual: (const char *) actual andLength: (NSUInteger) length andDelta: (double) delta andByteOrder: (CFByteOrder) byteOrder{
     
-    for(int i = 0; i < [expected length]; i++){
+    int nonEqualBytes = 0;
+
+    for(int i = 0; i < length; i++){
         
-        int expectedByte = (int) expectedBytes[i];
-        int actualByte = (int) actualBytes[i];
+        int expectedByte = (int) expected[i];
+        int actualByte = (int) actual[i];
         
         if(expectedByte != actualByte){
-            NSRange range;
+            int startIndex;
             if(byteOrder == CFByteOrderBigEndian){
-                range = NSMakeRange(i-7, 8);
+                startIndex = i-7;
             }else{
-                range = NSMakeRange(i, 8);
+                startIndex = i;
             }
-            SFByteReader *byteReader1 = [[SFByteReader alloc] initWithData:[expected subdataWithRange:range]];
-            SFByteReader *byteReader2 = [[SFByteReader alloc] initWithData:[expected subdataWithRange:range]];
+            NSData *data1 = [[NSData alloc] initWithBytes:&expected[startIndex] length:8];
+            NSData *data2 = [[NSData alloc] initWithBytes:&actual[startIndex] length:8];
+            SFByteReader *byteReader1 = [[SFByteReader alloc] initWithData:data1];
+            SFByteReader *byteReader2 = [[SFByteReader alloc] initWithData:data2];
             [byteReader1 setByteOrder:byteOrder];
             [byteReader2 setByteOrder:byteOrder];
             NSDecimalNumber *decimalNumber1 = [byteReader1 readDouble];
             NSDecimalNumber *decimalNumber2 = [byteReader2 readDouble];
             double double1 = [decimalNumber1 doubleValue];
             double double2 = [decimalNumber2 doubleValue];
-            [SFWTestUtils assertEqualDoubleWithValue:double1 andValue2:double2];
+            if(fabsl(double1 - double2) > delta){
+                nonEqualBytes++;
+            }
         }
         
     }
     
+    return nonEqualBytes;
 }
 
 +(SFPoint *) createPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
