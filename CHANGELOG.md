@@ -6,7 +6,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 2.0.0 (TBD)
 
-* TBD for simple features
+* Simple Features refactor, geopackage-wkb-ios refactored to be simple-features-wkb-ios
+* Class prefixes changed from "WKB" to "SFW"
+* Common simple features code moved to new dependency, [simple-features-ios](https://github.com/ngageoint/simple-features-ios). Requires class prefix changes from "WKB" to "SF".
+* Geometry Codes WKB utility class
 * MultiCurve and MultiSurface read support
 * MultiCurve and MultiSurface write support as Extended Geometry Collections
 * Geometry Collection utility methods for collection type checks and conversions

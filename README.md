@@ -1,8 +1,8 @@
-# GeoPackage WKB iOS
+# Simple Features WKB iOS
 
 #### GeoPackage Well Known Binary Lib ####
 
-The [GeoPackage Libraries](http://ngageoint.github.io/GeoPackage/) were developed at the [National Geospatial-Intelligence Agency (NGA)](http://www.nga.mil/) in collaboration with [BIT Systems](http://www.bit-sys.com/). The government has "unlimited rights" and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the [MIT license](http://choosealicense.com/licenses/mit/).
+The Simple Features Libraries were developed at the [National Geospatial-Intelligence Agency (NGA)](http://www.nga.mil/) in collaboration with [BIT Systems](http://www.bit-sys.com/). The government has "unlimited rights" and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the [MIT license](http://choosealicense.com/licenses/mit/).
 
 ### Pull Requests ###
 If you'd like to contribute to this project, please make a pull request. We'll review the pull request and discuss the changes. All pull request contributions to this project will be released under the MIT license.
@@ -11,22 +11,22 @@ Software source code previously released under an open source license and then m
 
 ### About ###
 
-[WKB](http://ngageoint.github.io/geopackage-wkb-ios/) is an iOS Objective-C library for writing and reading Well-Known Binary Geometries to and from bytes. The library includes a hierarchy of Geometry objects. Although developed as part of the [GeoPackage Libraries](http://ngageoint.github.io/GeoPackage/), this library does not contain GeoPackage functionality and can be used separately.
+[Simple Features WKB](http://ngageoint.github.io/simple-features-wkb-ios/) is an iOS Objective-C library for writing and reading [Simple Feature](https://github.com/ngageoint/simple-features-ios) Geometries to and from Well-Known Binary.
 
 ### Usage ###
 
-View the latest [Appledoc on CocoaDocs](http://cocoadocs.org/docsets/wkb-ios)
+View the latest [Appledoc on CocoaDocs](http://cocoadocs.org/docsets/sf-wkb-ios)
 
 #### Read ####
 
 ```objectivec
 
-//NSData * bytes = ...    
+//NSData *bytes = ...    
 
-WKBByteReader * reader = [[WKBByteReader alloc] initWithData:bytes];
+SFByteReader *reader = [[SFByteReader alloc] initWithData:bytes];
 [reader setByteOrder:CFByteOrderBigEndian];
-WKBGeometry * geometry = [WKBGeometryReader readGeometryWithReader:reader];
-WKBGeometryType geometryType = geometry.geometryType;
+SFGeometry *geometry = [SFWGeometryReader readGeometryWithReader:reader];
+enum SFGeometryType geometryType = geometry.geometryType;
 
 ```
 
@@ -34,12 +34,12 @@ WKBGeometryType geometryType = geometry.geometryType;
 
 ```objectivec
 
-//WKBGeometry * geometry = ...
+//SFGeometry *geometry = ...
 
-WKBByteWriter * writer = [[WKBByteWriter alloc] init];
+SFByteWriter *writer = [[SFByteWriter alloc] init];
 [writer setByteOrder:CFByteOrderBigEndian];
-[WKBGeometryWriter writeGeometry:geometry withWriter:writer];
-NSData * bytes = [writer getData];
+[SFWGeometryWriter writeGeometry:geometry withWriter:writer];
+NSData *bytes = [writer getData];
 [writer close];
 
 ```
@@ -50,47 +50,47 @@ Build this repository using Xcode and/or CocoaPods:
 
     pod install
 
-Open wkb-ios.xcworkspace in Xcode or build from command line:
+Open sf-wkb-ios.xcworkspace in Xcode or build from command line:
 
-    xcodebuild -workspace 'wkb-ios.xcworkspace' -scheme wkb-ios build
+    xcodebuild -workspace 'sf-wkb-ios.xcworkspace' -scheme sf-wkb-ios build
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'wkb-ios.xcworkspace' -scheme wkb-ios -destination 'platform=iOS Simulator,name=iPhone 6s'
+    xcodebuild test -workspace 'sf-wkb-ios.xcworkspace' -scheme sf-wkb-ios -destination 'platform=iOS Simulator,name=iPhone 8'
 
 ### Include Library ###
 
 Include this repository by specifying it in a Podfile using a supported option.
 
-Pull from [CocoaPods](https://cocoapods.org/pods/wkb-ios):
+Pull from [CocoaPods](https://cocoapods.org/pods/sf-wkb-ios):
 
-    pod 'wkb-ios', '~> 1.0'
+    pod 'sf-wkb-ios', '~> 2.0'
 
 Pull from GitHub:
 
-    pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :branch => 'master'
-    pod 'wkb-ios', :git => 'https://github.com/ngageoint/geopackage-wkb-iOS.git', :tag => '1.0.9'
+    pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :branch => 'master'
+    pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :tag => '2.0.0'
 
 Include as local project:
 
-    pod 'wkb-ios', :path => '../geopackage-wkb-ios'
+    pod 'sf-wkb-ios', :path => '../simple-features-wkb-ios'
 
 ### Swift ###
 
-To use from Swift, import the wkb-ios bridging header from the Swift project's bridging header
+To use from Swift, import the sf-wkb-ios bridging header from the Swift project's bridging header
 
-    #import "wkb-ios-Bridging-Header.h"
+    #import "sf-wkb-ios-Bridging-Header.h"
 
 #### Read ####
 
 ```swift
 
 // var data: Data = ...
-            
-let reader: WKBByteReader = WKBByteReader(data: data);
+
+let reader: SFByteReader = SFByteReader(data: data);
 reader.byteOrder = Int(CFByteOrderBigEndian.rawValue);
-let geometry: WKBGeometry = WKBGeometryReader.readGeometry(with:reader);
-let geometryType: WKBGeometryType = geometry.geometryType;
+let geometry: SFGeometry = SFWGeometryReader.readGeometry(with:reader);
+let geometryType: SFGeometryType = geometry.geometryType;
 
 ```
 
@@ -98,11 +98,11 @@ let geometryType: WKBGeometryType = geometry.geometryType;
 
 ```swift
 
-//let geometry: WKBGeometry = ...
+//let geometry: SFGeometry = ...
 
-let writer: WKBByteWriter = WKBByteWriter();
+let writer: SFByteWriter = SFByteWriter();
 writer.byteOrder = Int(CFByteOrderBigEndian.rawValue);
-WKBGeometryWriter.write(geometry, with: writer);
+SFWGeometryWriter.write(geometry, with: writer);
 let data: Data = writer.getData();
 writer.close();
 
