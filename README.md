@@ -107,3 +107,7 @@ let data: Data = writer.getData();
 writer.close();
 
 ```
+
+### Remote Dependencies ###
+
+* [Simple Features](https://github.com/ngageoint/simple-features-ios) (The MIT License (MIT)) - Simple Features Lib
