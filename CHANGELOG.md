@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.0 (TBD)
+## [2.0.0](https://github.com/ngageoint/simple-features-wkb-ios/releases/tag/2.0.0) (05-18-2018)
 
 * Simple Features refactor, geopackage-wkb-ios refactored to be simple-features-wkb-ios
 * Class prefixes changed from "WKB" to "SFW"
