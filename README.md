@@ -1,6 +1,6 @@
 # Simple Features WKB iOS
 
-#### GeoPackage Well Known Binary Lib ####
+#### Simple Features Well Known Binary Lib ####
 
 The Simple Features Libraries were developed at the [National Geospatial-Intelligence Agency (NGA)](http://www.nga.mil/) in collaboration with [BIT Systems](http://www.bit-sys.com/). The government has "unlimited rights" and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the [MIT license](http://choosealicense.com/licenses/mit/).
 
