@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SFWGeometryWriter Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/SFWGeometryWriter" class="dashAnchor"></a>
+    <a title="SFWGeometryWriter Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">sf-wkb-ios Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SFWGeometryWriter Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/SFByteReader.html">SFByteReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFByteWriter.html">SFByteWriter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFCentroidCurve.html">SFCentroidCurve</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFCentroidPoint.html">SFCentroidPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFCentroidSurface.html">SFCentroidSurface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFCircularString.html">SFCircularString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFCompoundCurve.html">SFCompoundCurve</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFCurve.html">SFCurve</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFCurvePolygon.html">SFCurvePolygon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFEvent.html">SFEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFEventQueue.html">SFEventQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SFEventTypes">SFEventTypes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFGeometry.html">SFGeometry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFGeometryCollection.html">SFGeometryCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFGeometryEnvelope.html">SFGeometryEnvelope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFGeometryEnvelopeBuilder.html">SFGeometryEnvelopeBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFGeometryPrinter.html">SFGeometryPrinter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFGeometryTypes.html">SFGeometryTypes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFGeometryUtils.html">SFGeometryUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFLine.html">SFLine</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFLineString.html">SFLineString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFLinearRing.html">SFLinearRing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFMultiCurve.html">SFMultiCurve</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFMultiLineString.html">SFMultiLineString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFMultiPoint.html">SFMultiPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFMultiPolygon.html">SFMultiPolygon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFMultiSurface.html">SFMultiSurface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFPoint.html">SFPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFPolygon.html">SFPolygon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFPolyhedralSurface.html">SFPolyhedralSurface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFSegment.html">SFSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFShamosHoey.html">SFShamosHoey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFSurface.html">SFSurface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFSweepLine.html">SFSweepLine</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFTIN.html">SFTIN</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFTriangle.html">SFTriangle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_CIRCULARSTRING_NAME">SF_CIRCULARSTRING_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_COMPOUNDCURVE_NAME">SF_COMPOUNDCURVE_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_CURVEPOLYGON_NAME">SF_CURVEPOLYGON_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_CURVE_NAME">SF_CURVE_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_GEOMETRYCOLLECTION_NAME">SF_GEOMETRYCOLLECTION_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_GEOMETRY_NAME">SF_GEOMETRY_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_LINESTRING_NAME">SF_LINESTRING_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_MULTICURVE_NAME">SF_MULTICURVE_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_MULTILINESTRING_NAME">SF_MULTILINESTRING_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_MULTIPOINT_NAME">SF_MULTIPOINT_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_MULTIPOLYGON_NAME">SF_MULTIPOLYGON_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_MULTISURFACE_NAME">SF_MULTISURFACE_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_NONE_NAME">SF_NONE_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_POINT_NAME">SF_POINT_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_POLYGON_NAME">SF_POLYGON_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_POLYHEDRALSURFACE_NAME">SF_POLYHEDRALSURFACE_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_SURFACE_NAME">SF_SURFACE_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_TIN_NAME">SF_TIN_NAME</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@SF_TRIANGLE_NAME">SF_TRIANGLE_NAME</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/SFEventType.html">SFEventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SFGeometryType.html">SFGeometryType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SFWGeometryWriter</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWGeometryWriter</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Well Known Binary Geometry Writer</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeGeometry:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeGeometry:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeGeometry:withWriter:">+writeGeometry:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a geometry</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeGeometry</span><span class="p">:(</span><span class="n"><a href="../Classes/SFGeometry.html">SFGeometry</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">geometry</span> <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometry.html">SFGeometry</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>geometry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>geometry</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L37">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writePoint:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writePoint:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writePoint:withWriter:">+writePoint:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writePoint</span><span class="p">:(</span><span class="n"><a href="../Classes/SFPoint.html">SFPoint</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">point</span> <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">point</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFPoint.html">SFPoint</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>point</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>point</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L45">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeLineString:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeLineString:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeLineString:withWriter:">+writeLineString:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a line string</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeLineString</span><span class="p">:(</span><span class="n"><a href="../Classes/SFLineString.html">SFLineString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">lineString</span>
+             <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">lineString</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFLineString.html">SFLineString</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lineString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>line string</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L53">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writePolygon:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writePolygon:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writePolygon:withWriter:">+writePolygon:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a polygon</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writePolygon</span><span class="p">:(</span><span class="n"><a href="../Classes/SFPolygon.html">SFPolygon</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">polygon</span> <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">polygon</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFPolygon.html">SFPolygon</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>polygon</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>polygon</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L61">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeMultiPoint:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeMultiPoint:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeMultiPoint:withWriter:">+writeMultiPoint:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a multi point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeMultiPoint</span><span class="p">:(</span><span class="n"><a href="../Classes/SFMultiPoint.html">SFMultiPoint</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">multiPoint</span>
+             <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">multiPoint</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFMultiPoint.html">SFMultiPoint</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>multiPoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>multi poing</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L69">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeMultiLineString:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeMultiLineString:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeMultiLineString:withWriter:">+writeMultiLineString:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a multi line string</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeMultiLineString</span><span class="p">:(</span><span class="n"><a href="../Classes/SFMultiLineString.html">SFMultiLineString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">multiLineString</span>
+                  <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">multiLineString</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFMultiLineString.html">SFMultiLineString</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>multiLineString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>multi line string</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L77">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeMultiPolygon:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeMultiPolygon:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeMultiPolygon:withWriter:">+writeMultiPolygon:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a multi polygon</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeMultiPolygon</span><span class="p">:(</span><span class="n"><a href="../Classes/SFMultiPolygon.html">SFMultiPolygon</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">multiPolygon</span>
+               <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">multiPolygon</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFMultiPolygon.html">SFMultiPolygon</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>multiPolygon</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>multi polygon</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L85">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeGeometryCollection:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeGeometryCollection:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeGeometryCollection:withWriter:">+writeGeometryCollection:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a geometry collection</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeGeometryCollection</span><span class="p">:(</span><span class="n"><a href="../Classes/SFGeometryCollection.html">SFGeometryCollection</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">geometryCollection</span>
+                     <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">geometryCollection</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometryCollection.html">SFGeometryCollection</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>geometryCollection</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>geometry collection</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L93">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeCircularString:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeCircularString:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeCircularString:withWriter:">+writeCircularString:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a circular string</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeCircularString</span><span class="p">:(</span><span class="n"><a href="../Classes/SFCircularString.html">SFCircularString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">circularString</span>
+                 <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">circularString</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFCircularString.html">SFCircularString</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>circularString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>circular string</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L101">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeCompoundCurve:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeCompoundCurve:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeCompoundCurve:withWriter:">+writeCompoundCurve:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a compound curve</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeCompoundCurve</span><span class="p">:(</span><span class="n"><a href="../Classes/SFCompoundCurve.html">SFCompoundCurve</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">compoundCurve</span>
+                <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">compoundCurve</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFCompoundCurve.html">SFCompoundCurve</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>compoundCurve</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>compound curve</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L109">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeCurvePolygon:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeCurvePolygon:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeCurvePolygon:withWriter:">+writeCurvePolygon:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a curve polygon</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeCurvePolygon</span><span class="p">:(</span><span class="n"><a href="../Classes/SFCurvePolygon.html">SFCurvePolygon</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">curvePolygon</span>
+               <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">curvePolygon</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFCurvePolygon.html">SFCurvePolygon</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>curvePolygon</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>curve polygon</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L117">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writePolyhedralSurface:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writePolyhedralSurface:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writePolyhedralSurface:withWriter:">+writePolyhedralSurface:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a polyhedral surface</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writePolyhedralSurface</span><span class="p">:(</span><span class="n"><a href="../Classes/SFPolyhedralSurface.html">SFPolyhedralSurface</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">polyhedralSurface</span>
+                    <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">polyhedralSurface</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFPolyhedralSurface.html">SFPolyhedralSurface</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>polyhedralSurface</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>polyhedral surface</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L125">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeTIN:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeTIN:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeTIN:withWriter:">+writeTIN:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a TIN</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeTIN</span><span class="p">:(</span><span class="n"><a href="../Classes/SFTIN.html">SFTIN</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">tin</span> <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">tin</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFTIN.html">SFTIN</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>TIN</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L133">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeTriangle:withWriter:"></a>
+                    <a name="//apple_ref/objc/Method/+writeTriangle:withWriter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeTriangle:withWriter:">+writeTriangle:withWriter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a triangle</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">writeTriangle</span><span class="p">:(</span><span class="n"><a href="../Classes/SFTriangle.html">SFTriangle</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">triangle</span> <span class="nf">withWriter</span><span class="p">:(</span><span class="n"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">writer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">triangle</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFTriangle.html">SFTriangle</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFByteWriter.html">SFByteWriter</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>triangle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>triangle</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>writer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>writer</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.0/sf-wkb-ios/SFWGeometryWriter.h#L141">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2018-05-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -15,7 +15,7 @@ Software source code previously released under an open source license and then m
 
 ### Usage ###
 
-View the latest [Appledoc on CocoaDocs](http://cocoadocs.org/docsets/sf-wkb-ios)
+View the latest [Appledoc](http://ngageoint.github.io/simple-features-wkb-ios/docs/api/)
 
 #### Read ####
 
