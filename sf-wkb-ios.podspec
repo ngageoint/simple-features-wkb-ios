@@ -14,8 +14,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'sf-wkb-ios/**/*.{h,m}'
 
-  s.resource_bundle = { 'sf-wkb-ios' => ['sf-wkb-ios/**/*.plist'] }
   s.frameworks = 'Foundation'
 
-  s.dependency 'sf-ios', '~> 2.0.0'
+  s.dependency 'sf-ios', '~> 2.0.1'
 end
