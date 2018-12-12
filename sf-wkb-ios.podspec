@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation'
 
-  s.dependency 'sf-ios', '~> 2.0.1'
+  s.dependency 'sf-ios', '~> 2.0.2'
 end
