@@ -1,10 +1,19 @@
+---
+name: Bug report
+about: Report an issue
+title: ''
+labels: bug
+assignees: ''
+
+---
+
 Please fill out as much known and relevant information as possible.
 
 #### Version Information:
 
   * SF WKB iOS Version:
   * SF WKB iOS Source: (e.g. CocoaPods, Source Code Build)
-  * CocoaPods Version: 
+  * CocoaPods Version:
   * Xcode Version:
   * Device or Emulator:
   * iOS Version:
