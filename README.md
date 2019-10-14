@@ -65,12 +65,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/sf-wkb-ios):
 
-    pod 'sf-wkb-ios', '~> 2.0.2'
+    pod 'sf-wkb-ios', '~> 2.0.3'
 
 Pull from GitHub:
 
     pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :branch => 'master'
-    pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :tag => '2.0.2'
+    pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :tag => '2.0.3'
 
 Include as local project:
 
