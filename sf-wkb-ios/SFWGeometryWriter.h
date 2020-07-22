@@ -29,6 +29,23 @@
 @interface SFWGeometryWriter : NSObject
 
 /**
+ *  Write a geometry to well-known bytes
+ *
+ *  @param geometry geometry
+ *  @return well-known bytes
+ */
++(NSData *) writeGeometry: (SFGeometry *) geometry;
+
+/**
+ *  Write a geometry to well-known bytes
+ *
+ *  @param geometry geometry
+ *  @param byteOrder byte order
+ *  @return well-known bytes
+ */
++(NSData *) writeGeometry: (SFGeometry *) geometry inByteOrder: (CFByteOrder) byteOrder;
+
+/**
  *  Write a geometry
  *
  *  @param geometry geometry

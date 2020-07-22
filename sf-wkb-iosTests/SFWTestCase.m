@@ -12,6 +12,8 @@
 #import "SFGeometryEnvelopeBuilder.h"
 #import "SFWGeometryCodes.h"
 #import "SFExtendedGeometryCollection.h"
+#import "SFByteReader.h"
+#import "SFPointFiniteFilter.h"
 
 @interface SFWTestCase : XCTestCase
 
@@ -190,10 +192,13 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     NSData *extendedData = [SFWGeometryTestUtils writeDataWithGeometry:extendedMultiCurve];
     
-    const char *bytes = [data bytes];
-    [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometryType:SF_GEOMETRYCOLLECTION] andValue2:(int)bytes[4]];
-    const char *extendedBytes = [extendedData bytes];
-    [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometryType:SF_MULTICURVE] andValue2:(int)extendedBytes[4]];
+    SFByteReader *byteReader = [[SFByteReader alloc] initWithData:[data subdataWithRange:NSMakeRange(1, 4)]];
+    int code = [[byteReader readInt] intValue];
+    byteReader = [[SFByteReader alloc] initWithData:[extendedData subdataWithRange:NSMakeRange(1, 4)]];
+    int extendedCode = [[byteReader readInt] intValue];
+    
+    [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometry:multiCurve] andValue2:code];
+    [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometryType:SF_MULTICURVE andHasZ:extendedMultiCurve.hasZ andHasM:extendedMultiCurve.hasM] andValue2:extendedCode];
     
     SFGeometry *geometry1 = [SFWGeometryTestUtils readGeometryWithData:data];
     SFGeometry *geometry2 = [SFWGeometryTestUtils readGeometryWithData:extendedData];
@@ -228,10 +233,13 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     NSData *extendedData = [SFWGeometryTestUtils writeDataWithGeometry:extendedMultiSurface];
     
-    const char *bytes = [data bytes];
-    [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometryType:SF_GEOMETRYCOLLECTION] andValue2:(int)bytes[4]];
-    const char *extendedBytes = [extendedData bytes];
-    [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometryType:SF_MULTISURFACE] andValue2:(int)extendedBytes[4]];
+    SFByteReader *byteReader = [[SFByteReader alloc] initWithData:[data subdataWithRange:NSMakeRange(1, 4)]];
+    int code = [[byteReader readInt] intValue];
+    byteReader = [[SFByteReader alloc] initWithData:[extendedData subdataWithRange:NSMakeRange(1, 4)]];
+    int extendedCode = [[byteReader readInt] intValue];
+    
+    [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometry:multiSurface] andValue2:code];
+    [SFWTestUtils assertEqualIntWithValue:[SFWGeometryCodes codeFromGeometryType:SF_MULTISURFACE andHasZ:extendedMultiSurface.hasZ andHasM:extendedMultiSurface.hasM] andValue2:extendedCode];
     
     SFGeometry *geometry1 = [SFWGeometryTestUtils readGeometryWithData:data];
     SFGeometry *geometry2 = [SFWGeometryTestUtils readGeometryWithData:extendedData];
@@ -323,6 +331,11 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 
 }
 
+-(void) testFiniteFilter{
+    // TODO
+    [SFWTestUtils assertTrue:NO];
+}
+
 -(void) geometryTester: (SFGeometry *) geometry{
     [self geometryTester:geometry withCompare:geometry];
 }
@@ -386,6 +399,14 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     }
     
     return data;
+}
+
++(void) finiteFilterTester: (SFGeometry *) geometry{
+    // TODO
+}
+
++(void) finiteFilterTester: (NSData *) data andFilter: (SFPointFiniteFilter *) filter{
+    // TODO
 }
 
 @end

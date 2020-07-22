@@ -320,12 +320,7 @@
 }
 
 +(NSData *) writeDataWithGeometry: (SFGeometry *) geometry andByteOrder: (CFByteOrder) byteOrder{
-    SFByteWriter * writer = [[SFByteWriter alloc] init];
-    [writer setByteOrder:byteOrder];
-    [SFWGeometryWriter writeGeometry:geometry withWriter:writer];
-    NSData * data = [writer getData];
-    [writer close];
-    return data;
+    return [SFWGeometryWriter writeGeometry:geometry inByteOrder:byteOrder];
 }
 
 +(SFGeometry *) readGeometryWithData: (NSData *) data{
@@ -333,8 +328,7 @@
 }
 
 +(SFGeometry *) readGeometryWithData: (NSData *) data andByteOrder: (CFByteOrder) byteOrder{
-    SFByteReader * reader = [[SFByteReader alloc] initWithData:data];
-    [reader setByteOrder:byteOrder];
+    SFByteReader * reader = [[SFByteReader alloc] initWithData:data andByteOrder:byteOrder];
     SFGeometry * geometry = [SFWGeometryReader readGeometryWithReader:reader];
     return geometry;
 }
@@ -410,10 +404,8 @@
             }
             NSData *data1 = [[NSData alloc] initWithBytes:&expected[startIndex] length:8];
             NSData *data2 = [[NSData alloc] initWithBytes:&actual[startIndex] length:8];
-            SFByteReader *byteReader1 = [[SFByteReader alloc] initWithData:data1];
-            SFByteReader *byteReader2 = [[SFByteReader alloc] initWithData:data2];
-            [byteReader1 setByteOrder:byteOrder];
-            [byteReader2 setByteOrder:byteOrder];
+            SFByteReader *byteReader1 = [[SFByteReader alloc] initWithData:data1 andByteOrder:byteOrder];
+            SFByteReader *byteReader2 = [[SFByteReader alloc] initWithData:data2 andByteOrder:byteOrder];
             NSDecimalNumber *decimalNumber1 = [byteReader1 readDouble];
             NSDecimalNumber *decimalNumber2 = [byteReader2 readDouble];
             double double1 = [decimalNumber1 doubleValue];

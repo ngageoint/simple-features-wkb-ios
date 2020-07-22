@@ -11,11 +11,15 @@
 @implementation SFWGeometryCodes
 
 +(int) codeFromGeometry: (SFGeometry *) geometry{
-    int code = [self codeFromGeometryType:geometry.geometryType];
-    if (geometry.hasZ) {
+    return [self codeFromGeometryType:geometry.geometryType andHasZ:geometry.hasZ andHasM:geometry.hasM];
+}
+
++(int) codeFromGeometryType: (enum SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    int code = [self codeFromGeometryType:geometryType];
+    if (hasZ) {
         code += 1000;
     }
-    if (geometry.hasM) {
+    if (hasM) {
         code += 2000;
     }
     return code;

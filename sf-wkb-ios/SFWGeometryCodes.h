@@ -34,6 +34,19 @@
 +(int) codeFromGeometryType: (enum SFGeometryType) geometryType;
 
 /**
+ * Get the geometry code from the geometry type
+ *
+ * @param geometryType
+ *            geometry type
+ * @param hasZ
+ *            has z
+ * @param hasM
+ *            mas m
+ * @return geometry code
+ */
++(int) codeFromGeometryType: (enum SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
+
+/**
  * Get the Geometry Type from the code
  *
  * @param code

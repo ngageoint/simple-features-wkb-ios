@@ -11,6 +11,22 @@
 
 @implementation SFWGeometryWriter
 
++(NSData *) writeGeometry: (SFGeometry *) geometry{
+    return [self writeGeometry:geometry inByteOrder:DEFAULT_WRITE_BYTE_ORDER];
+}
+
++(NSData *) writeGeometry: (SFGeometry *) geometry inByteOrder: (CFByteOrder) byteOrder{
+    NSData *data = nil;
+    SFByteWriter *writer = [[SFByteWriter alloc] initWithByteOrder:byteOrder];
+    @try {
+        [self writeGeometry:geometry withWriter:writer];
+        data = [writer data];
+    } @finally {
+        [writer close];
+    }
+    return data;
+}
+
 +(void) writeGeometry: (SFGeometry *) geometry withWriter: (SFByteWriter *) writer{
 
     // Write the single byte order byte
