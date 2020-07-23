@@ -14,6 +14,7 @@
 #import "SFExtendedGeometryCollection.h"
 #import "SFByteReader.h"
 #import "SFPointFiniteFilter.h"
+#import "SFWGeometryReader.h"
 
 @interface SFWTestCase : XCTestCase
 
@@ -332,8 +333,99 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 }
 
 -(void) testFiniteFilter{
-    // TODO
-    [SFWTestUtils assertTrue:NO];
+
+    SFPoint *point = [SFWGeometryTestUtils createPointWithHasZ:NO andHasM:NO];
+
+    SFPoint *nan = [[SFPoint alloc] initWithXValue:NAN andYValue:NAN];
+    SFPoint *nanZ = [SFWGeometryTestUtils createPointWithHasZ:YES andHasM:NO];
+    [nanZ setZValue:NAN];
+    SFPoint *nanM = [SFWGeometryTestUtils createPointWithHasZ:NO andHasM:YES];
+    [nanM setMValue:NAN];
+    SFPoint *nanZM = [SFWGeometryTestUtils createPointWithHasZ:YES andHasM:YES];
+    [nanZ setZValue:NAN];
+    [nanM setMValue:NAN];
+    
+    SFPoint *infinite = [[SFPoint alloc] initWithXValue:INFINITY andYValue:INFINITY];
+    SFPoint *infiniteZ = [SFWGeometryTestUtils createPointWithHasZ:YES andHasM:NO];
+    [infiniteZ setZValue:INFINITY];
+    SFPoint *infiniteM = [SFWGeometryTestUtils createPointWithHasZ:NO andHasM:YES];
+    [infiniteM setMValue:INFINITY];
+    SFPoint *infiniteZM = [SFWGeometryTestUtils createPointWithHasZ:YES andHasM:YES];
+    [infiniteZM setZValue:INFINITY];
+    [infiniteZM setMValue:INFINITY];
+
+    SFPoint *nanInfinite = [[SFPoint alloc] initWithXValue:NAN andYValue:INFINITY];
+    SFPoint *nanInfiniteZM = [SFWGeometryTestUtils createPointWithHasZ:YES andHasM:YES];
+    [nanInfiniteZM setZValue:NAN];
+    [nanInfiniteZM setMValue:-INFINITY];
+
+    SFPoint *infiniteNan = [[SFPoint alloc] initWithXValue:INFINITY andYValue:NAN];
+    SFPoint *infiniteNanZM = [SFWGeometryTestUtils createPointWithHasZ:YES andHasM:YES];
+    [infiniteNanZM setZValue:-INFINITY];
+    [infiniteNanZM setMValue:NAN];
+
+    SFLineString *lineString1 = [[SFLineString alloc] init];
+    [lineString1 addPoint:point];
+    [lineString1 addPoint:nan];
+    [lineString1 addPoint:[SFWGeometryTestUtils createPointWithHasZ:NO andHasM:NO]];
+    [lineString1 addPoint:infinite];
+    [lineString1 addPoint:[SFWGeometryTestUtils createPointWithHasZ:NO andHasM:NO]];
+    [lineString1 addPoint:nanInfinite];
+    [lineString1 addPoint:[SFWGeometryTestUtils createPointWithHasZ:NO andHasM:NO]];
+    [lineString1 addPoint:infiniteNan];
+
+    SFLineString *lineString2 = [[SFLineString alloc] initWithHasZ:YES andHasM:NO];
+    [lineString2 addPoint:[SFWGeometryTestUtils createPointWithHasZ:YES andHasM:NO]];
+    [lineString2 addPoint:nanZ];
+    [lineString2 addPoint:[SFWGeometryTestUtils createPointWithHasZ:YES andHasM:NO]];
+    [lineString2 addPoint:infiniteZ];
+
+    SFLineString *lineString3 = [[SFLineString alloc] initWithHasZ:NO andHasM:YES];
+    [lineString3 addPoint:[SFWGeometryTestUtils createPointWithHasZ:NO andHasM:YES]];
+    [lineString3 addPoint:nanM];
+    [lineString3 addPoint:[SFWGeometryTestUtils createPointWithHasZ:NO andHasM:YES]];
+    [lineString3 addPoint:infiniteM];
+
+    SFLineString *lineString4 = [[SFLineString alloc] initWithHasZ:YES andHasM:YES];
+    [lineString4 addPoint:[SFWGeometryTestUtils createPointWithHasZ:YES andHasM:YES]];
+    [lineString4 addPoint:nanZM];
+    [lineString4 addPoint:[SFWGeometryTestUtils createPointWithHasZ:YES andHasM:YES]];
+    [lineString4 addPoint:infiniteZM];
+    [lineString4 addPoint:[SFWGeometryTestUtils createPointWithHasZ:YES andHasM:YES]];
+    [lineString4 addPoint:nanInfiniteZM];
+    [lineString4 addPoint:[SFWGeometryTestUtils createPointWithHasZ:YES andHasM:YES]];
+    [lineString4 addPoint:infiniteNanZM];
+
+    SFPolygon *polygon1 = [[SFPolygon alloc] initWithRing:lineString1];
+    SFPolygon *polygon2 = [[SFPolygon alloc] initWithRing:lineString2];
+    SFPolygon *polygon3 = [[SFPolygon alloc] initWithRing:lineString3];
+    SFPolygon *polygon4 = [[SFPolygon alloc] initWithRing:lineString4];
+
+    for(SFPoint *pnt in lineString1.points){
+        [SFWTestCase finiteFilterTester:pnt];
+    }
+
+    for(SFPoint *pnt in lineString2.points){
+        [SFWTestCase finiteFilterTester:pnt];
+    }
+
+    for(SFPoint *pnt in lineString3.points){
+        [SFWTestCase finiteFilterTester:pnt];
+    }
+
+    for(SFPoint *pnt in lineString4.points){
+        [SFWTestCase finiteFilterTester:pnt];
+    }
+    
+    [SFWTestCase finiteFilterTester:lineString1];
+    [SFWTestCase finiteFilterTester:lineString2];
+    [SFWTestCase finiteFilterTester:lineString3];
+    [SFWTestCase finiteFilterTester:lineString4];
+    [SFWTestCase finiteFilterTester:polygon1];
+    [SFWTestCase finiteFilterTester:polygon2];
+    [SFWTestCase finiteFilterTester:polygon3];
+    [SFWTestCase finiteFilterTester:polygon4];
+    
 }
 
 -(void) geometryTester: (SFGeometry *) geometry{
@@ -402,11 +494,87 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 }
 
 +(void) finiteFilterTester: (SFGeometry *) geometry{
-    // TODO
+
+    NSData *data = [SFWGeometryTestUtils writeDataWithGeometry:geometry];
+    
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] init]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithZ:YES]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithZ:NO andM:YES]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithZ:YES andM:YES]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithType:SF_FF_FINITE_AND_NAN]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithType:SF_FF_FINITE_AND_NAN andZ:YES]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithType:SF_FF_FINITE_AND_NAN andZ:NO andM:YES]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithType:SF_FF_FINITE_AND_NAN andZ:YES andM:YES]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithType:SF_FF_FINITE_AND_INFINITE]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithType:SF_FF_FINITE_AND_INFINITE andZ:YES]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithType:SF_FF_FINITE_AND_INFINITE andZ:NO andM:YES]];
+    [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithType:SF_FF_FINITE_AND_INFINITE andZ:YES andM:YES]];
+    
 }
 
 +(void) finiteFilterTester: (NSData *) data andFilter: (SFPointFiniteFilter *) filter{
-    // TODO
+    
+    SFGeometry *geometry = [SFWGeometryReader readGeometryWithData:data andFilter:filter];
+    
+    if(geometry != nil){
+        
+        NSMutableArray<SFPoint *> *points = [NSMutableArray array];
+        
+        switch(geometry.geometryType){
+            case SF_POINT:
+                [points addObject:(SFPoint *)geometry];
+                break;
+            case SF_LINESTRING:
+                [points addObjectsFromArray:((SFLineString *) geometry).points];
+                break;
+            case SF_POLYGON:
+                [points addObjectsFromArray:[((SFPolygon *) geometry) ringAtIndex:0].points];
+                break;
+            default:
+                [SFWTestUtils fail:[NSString stringWithFormat:@"Unexpected test case: %u", geometry.geometryType]];
+        }
+        
+        for(SFPoint *point in points){
+            
+            switch (filter.type) {
+                case SF_FF_FINITE:
+                    [SFWTestUtils assertTrue:isfinite([point.x doubleValue])];
+                    [SFWTestUtils assertTrue:isfinite([point.y doubleValue])];
+                    if(filter.filterZ && point.hasZ){
+                        [SFWTestUtils assertTrue:isfinite([point.z doubleValue])];
+                    }
+                    if(filter.filterM && point.hasM){
+                        [SFWTestUtils assertTrue:isfinite([point.m doubleValue])];
+                    }
+                    break;
+                case SF_FF_FINITE_AND_NAN:
+                    [SFWTestUtils assertTrue:isfinite([point.x doubleValue]) || isnan([point.x doubleValue])];
+                    [SFWTestUtils assertTrue:isfinite([point.y doubleValue]) || isnan([point.y doubleValue])];
+                    if(filter.filterZ && point.hasZ){
+                        [SFWTestUtils assertTrue:isfinite([point.z doubleValue]) || isnan([point.z doubleValue])];
+                    }
+                    if(filter.filterM && point.hasM){
+                        [SFWTestUtils assertTrue:isfinite([point.m doubleValue]) || isnan([point.m doubleValue])];
+                    }
+                    break;
+                case SF_FF_FINITE_AND_INFINITE:
+                    [SFWTestUtils assertTrue:isfinite([point.x doubleValue]) || isinf([point.x doubleValue])];
+                    [SFWTestUtils assertTrue:isfinite([point.y doubleValue]) || isinf([point.y doubleValue])];
+                    if(filter.filterZ && point.hasZ){
+                        [SFWTestUtils assertTrue:isfinite([point.z doubleValue]) || isinf([point.z doubleValue])];
+                    }
+                    if(filter.filterM && point.hasM){
+                        [SFWTestUtils assertTrue:isfinite([point.m doubleValue]) || isinf([point.m doubleValue])];
+                    }
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+        
+    }
+    
 }
 
 @end

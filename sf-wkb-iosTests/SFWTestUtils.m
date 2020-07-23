@@ -83,6 +83,10 @@
     }
 }
 
++(void)fail:(NSString *) message{
+    [NSException raise:@"Test Failure" format:@"%@", message];
+}
+
 +(NSDecimalNumber *) roundDouble: (double) value{
     return [self roundDouble:value withScale:1];
 }
