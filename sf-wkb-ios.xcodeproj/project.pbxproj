@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041F18DB24C9CDC6001311E4 /* SFWReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18DA24C9CDC6001311E4 /* SFWReadmeTest.m */; };
 		042FC6571B963FE500549A4B /* sf_wkb_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* sf_wkb_ios.framework */; };
 		042FC6CB1B96421E00549A4B /* SFWGeometryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6951B96421E00549A4B /* SFWGeometryReader.h */; };
 		042FC6CC1B96421E00549A4B /* SFWGeometryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6961B96421E00549A4B /* SFWGeometryReader.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041F18D924C9CDC6001311E4 /* SFWReadmeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFWReadmeTest.h; sourceTree = "<group>"; };
+		041F18DA24C9CDC6001311E4 /* SFWReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFWReadmeTest.m; sourceTree = "<group>"; };
 		042FC64B1B963FE500549A4B /* sf_wkb_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sf_wkb_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		042FC64F1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042FC6561B963FE500549A4B /* sf_wkb_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sf_wkb_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				042FC65B1B963FE500549A4B /* Supporting Files */,
+				041F18D924C9CDC6001311E4 /* SFWReadmeTest.h */,
+				041F18DA24C9CDC6001311E4 /* SFWReadmeTest.m */,
 				04AB919A1BF29ECD00894999 /* SFWTestCase.m */,
 				04AB919C1BF29F9A00894999 /* SFWTestUtils.h */,
 				04AB919D1BF29F9A00894999 /* SFWTestUtils.m */,
@@ -340,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041F18DB24C9CDC6001311E4 /* SFWReadmeTest.m in Sources */,
 				04AB919E1BF29F9A00894999 /* SFWTestUtils.m in Sources */,
 				04AB919B1BF29ECD00894999 /* SFWTestCase.m in Sources */,
 				04AB91A11BF2A05200894999 /* SFWGeometryTestUtils.m in Sources */,
