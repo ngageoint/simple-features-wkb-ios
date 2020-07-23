@@ -12,6 +12,7 @@
 #import "SFPoint.h"
 #import "SFWGeometryReader.h"
 #import "SFWGeometryWriter.h"
+#import "SFWGeometryTestUtils.h"
 
 @implementation SFWReadmeTest
 
@@ -39,8 +40,8 @@ static NSData *TEST_DATA;
 /**
  * Test read
  *
- * @param bytes
- *            bytes
+ * @param data
+ *            data
  * @return geometry
  */
 -(SFGeometry *) readTester: (NSData *) data{
@@ -58,9 +59,9 @@ static NSData *TEST_DATA;
  */
 -(void) testWrite{
     
-    SFGeometry *geometry = [self readTester:TEST_DATA];
-    
-    [SFWTestUtils assertEqualWithValue:TEST_GEOMETRY andValue2:geometry];
+    NSData *data = [self writeTester:TEST_GEOMETRY];
+
+    [SFWGeometryTestUtils compareDataWithExpected:TEST_DATA andActual:data];
     
 }
 

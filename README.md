@@ -1,6 +1,6 @@
 # Simple Features WKB iOS
 
-#### Simple Features Well Known Binary Lib ####
+#### Simple Features Well-Known Binary Lib ####
 
 The Simple Features Libraries were developed at the [National Geospatial-Intelligence Agency (NGA)](http://www.nga.mil/) in collaboration with [BIT Systems](http://www.bit-sys.com/). The government has "unlimited rights" and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the [MIT license](http://choosealicense.com/licenses/mit/).
 
@@ -21,11 +21,9 @@ View the latest [Appledoc](http://ngageoint.github.io/simple-features-wkb-ios/do
 
 ```objectivec
 
-//NSData *bytes = ...    
+// NSData *data = ...
 
-SFByteReader *reader = [[SFByteReader alloc] initWithData:bytes];
-[reader setByteOrder:CFByteOrderBigEndian];
-SFGeometry *geometry = [SFWGeometryReader readGeometryWithReader:reader];
+SFGeometry *geometry = [SFWGeometryReader readGeometryWithData:data];
 enum SFGeometryType geometryType = geometry.geometryType;
 
 ```
@@ -34,13 +32,9 @@ enum SFGeometryType geometryType = geometry.geometryType;
 
 ```objectivec
 
-//SFGeometry *geometry = ...
+// SFGeometry *geometry = ...
 
-SFByteWriter *writer = [[SFByteWriter alloc] init];
-[writer setByteOrder:CFByteOrderBigEndian];
-[SFWGeometryWriter writeGeometry:geometry withWriter:writer];
-NSData *bytes = [writer getData];
-[writer close];
+NSData *data = [SFWGeometryWriter writeGeometry:geometry];
 
 ```
 
@@ -90,10 +84,8 @@ To use from Swift, import the sf-wkb-ios bridging header from the Swift project'
 
 // var data: Data = ...
 
-let reader: SFByteReader = SFByteReader(data: data);
-reader.byteOrder = Int(CFByteOrderBigEndian.rawValue);
-let geometry: SFGeometry = SFWGeometryReader.readGeometry(with:reader);
-let geometryType: SFGeometryType = geometry.geometryType;
+let geometry: SFGeometry = SFWGeometryReader.readGeometry(with: data)
+let geometryType: SFGeometryType = geometry.geometryType
 
 ```
 
@@ -101,13 +93,9 @@ let geometryType: SFGeometryType = geometry.geometryType;
 
 ```swift
 
-//let geometry: SFGeometry = ...
+// let geometry: SFGeometry = ...
 
-let writer: SFByteWriter = SFByteWriter();
-writer.byteOrder = Int(CFByteOrderBigEndian.rawValue);
-SFWGeometryWriter.write(geometry, with: writer);
-let data: Data = writer.getData();
-writer.close();
+let data: Data = SFWGeometryWriter.write(geometry)
 
 ```
 
