@@ -224,7 +224,7 @@ static NSString *WKB25D = @"0x80000000";
     int numRings = [[reader readInt] intValue];
     
     for(int i = 0; i < numRings; i++){
-        SFLineString *ring = [SFWGeometryReader readLineStringWithReader:reader andHasZ:hasZ andHasM:hasM];
+        SFLineString *ring = [SFWGeometryReader readLineStringWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
         if([self filter:filter geometry:ring inType:SF_POLYGON]){
             [polygon addRing:ring];
         }
