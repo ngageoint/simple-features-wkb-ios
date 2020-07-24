@@ -11,7 +11,7 @@ import XCTest
 /**
 * README example tests
 */
-class TIFFSwiftReadmeTest: XCTestCase{
+class SFWSwiftReadmeTest: XCTestCase{
     
     static var TEST_GEOMETRY : SFGeometry = SFPoint(xValue: 1.0, andYValue: 1.0)
     static var TEST_BYTES: [Int8] = [0, 0, 0, 0, 1, 63, -16, 0, 0, 0, 0, 0, 0, 63, -16, 0, 0, 0, 0, 0, 0]
@@ -22,9 +22,9 @@ class TIFFSwiftReadmeTest: XCTestCase{
      */
     func testRead(){
         
-        let geometry: SFGeometry = readTester(TIFFSwiftReadmeTest.TEST_DATA)
+        let geometry: SFGeometry = readTester(SFWSwiftReadmeTest.TEST_DATA)
         
-        SFWTestUtils.assertEqual(withValue: TIFFSwiftReadmeTest.TEST_GEOMETRY, andValue2: geometry)
+        SFWTestUtils.assertEqual(withValue: SFWSwiftReadmeTest.TEST_GEOMETRY, andValue2: geometry)
         
     }
     
@@ -50,9 +50,9 @@ class TIFFSwiftReadmeTest: XCTestCase{
      */
     func testWrite(){
         
-        let data: Data = writeTester(TIFFSwiftReadmeTest.TEST_GEOMETRY)
+        let data: Data = writeTester(SFWSwiftReadmeTest.TEST_GEOMETRY)
         
-        SFWGeometryTestUtils.compareData(withExpected: TIFFSwiftReadmeTest.TEST_DATA, andActual: data)
+        SFWGeometryTestUtils.compareData(withExpected: SFWSwiftReadmeTest.TEST_DATA, andActual: data)
         
     }
     
