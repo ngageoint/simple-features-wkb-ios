@@ -22,7 +22,6 @@
 #import "SFTIN.h"
 #import "SFTriangle.h"
 
-
 @interface SFWGeometryTestUtils : NSObject
 
 +(void) compareEnvelopesWithExpected: (SFGeometryEnvelope *) expected andActual: (SFGeometryEnvelope *) actual;
