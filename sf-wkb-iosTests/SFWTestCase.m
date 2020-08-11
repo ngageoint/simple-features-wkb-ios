@@ -497,6 +497,9 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 
     NSData *data = [SFWGeometryTestUtils writeDataWithGeometry:geometry];
     
+    SFGeometry *geometry2 = [SFWGeometryReader readGeometryWithData:data];
+    [SFWGeometryTestUtils compareGeometriesWithExpected:geometry andActual:geometry2];
+    
     [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] init]];
     [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithZ:YES]];
     [self finiteFilterTester:data andFilter:[[SFPointFiniteFilter alloc] initWithZ:NO andM:YES]];
