@@ -4,9 +4,13 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.4 (TBD)
+## 3.0.0 (TBD)
 
-* TBD
+* sf-ios 3.0.0
+* Class prefixes changed from SFW to SFWB, to better coincide with SFWT (Well-Known Text) library
+* Geometry reader/writer shortcut support directly between bytes and geometries
+* Geometry Filter support
+* Geometry Code retrieval method by geometry type, has z, and has m
 
 ## [2.0.3](https://github.com/ngageoint/simple-features-wkb-ios/releases/tag/2.0.3) (10-14-2019)
 
