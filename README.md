@@ -23,7 +23,7 @@ View the latest [Appledoc](http://ngageoint.github.io/simple-features-wkb-ios/do
 
 // NSData *data = ...
 
-SFGeometry *geometry = [SFWGeometryReader readGeometryWithData:data];
+SFGeometry *geometry = [SFWBGeometryReader readGeometryWithData:data];
 enum SFGeometryType geometryType = geometry.geometryType;
 
 ```
@@ -34,7 +34,7 @@ enum SFGeometryType geometryType = geometry.geometryType;
 
 // SFGeometry *geometry = ...
 
-NSData *data = [SFWGeometryWriter writeGeometry:geometry];
+NSData *data = [SFWBGeometryWriter writeGeometry:geometry];
 
 ```
 
@@ -84,7 +84,7 @@ To use from Swift, import the sf-wkb-ios bridging header from the Swift project'
 
 // var data: Data = ...
 
-let geometry: SFGeometry = SFWGeometryReader.readGeometry(with: data)
+let geometry: SFGeometry = SFWBGeometryReader.readGeometry(with: data)
 let geometryType: SFGeometryType = geometry.geometryType
 
 ```
@@ -95,7 +95,7 @@ let geometryType: SFGeometryType = geometry.geometryType
 
 // let geometry: SFGeometry = ...
 
-let data: Data = SFWGeometryWriter.write(geometry)
+let data: Data = SFWBGeometryWriter.write(geometry)
 
 ```
 
