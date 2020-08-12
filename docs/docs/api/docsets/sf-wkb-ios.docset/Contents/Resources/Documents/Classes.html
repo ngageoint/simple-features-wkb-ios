@@ -8,14 +8,22 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Section/Classes" class="dashAnchor"></a>
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p><a href="index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -143,16 +151,16 @@
                 <a href="Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+                <a href="Classes/SFWBGeometryCodes.html">SFWBGeometryCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+                <a href="Classes/SFWBGeometryReader.html">SFWBGeometryReader</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+                <a href="Classes/SFWBGeometryTypeInfo.html">SFWBGeometryTypeInfo</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+                <a href="Classes/SFWBGeometryWriter.html">SFWBGeometryWriter</a>
               </li>
             </ul>
           </li>
@@ -229,6 +237,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -272,15 +288,11 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFCircularString.h#L14-L43">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFCircularString.h#L14-L43">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -312,15 +324,11 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFCompoundCurve.h#L15-L90">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFCompoundCurve.h#L15-L90">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -356,15 +364,11 @@ curve is called a ring.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFCurve.h#L19-L60">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFCurve.h#L19-L60">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -397,15 +401,11 @@ Each ring is defined by a Curve instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFCurvePolygon.h#L16-L126">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFCurvePolygon.h#L16-L126">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -437,15 +437,11 @@ Each ring is defined by a Curve instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometry.h#L18-L99">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFGeometry.h#L18-L99">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -477,15 +473,11 @@ Each ring is defined by a Curve instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryCollection.h#L20-L204">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFGeometryCollection.h#L20-L204">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -517,15 +509,11 @@ Each ring is defined by a Curve instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h#L14-L203">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h#L14-L203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -577,15 +565,11 @@ Each ring is defined by a Curve instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L59-L79">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L59-L79">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -617,15 +601,11 @@ Each ring is defined by a Curve instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFLine.h#L14-L43">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFLine.h#L14-L43">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -657,15 +637,11 @@ Each ring is defined by a Curve instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFLineString.h#L15-L91">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFLineString.h#L15-L91">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -697,15 +673,11 @@ Each ring is defined by a Curve instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFLinearRing.h#L14-L43">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFLinearRing.h#L14-L43">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -738,15 +710,11 @@ must be of type Curve.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFMultiCurve.h#L16-L82">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFMultiCurve.h#L16-L82">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -779,15 +747,11 @@ type LineString.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFMultiLineString.h#L16-L100">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFMultiLineString.h#L16-L100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -820,15 +784,11 @@ must be of type Point.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFMultiPoint.h#L16-L100">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFMultiPoint.h#L16-L100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -861,15 +821,11 @@ be of type Polygon.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFMultiPolygon.h#L16-L100">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFMultiPolygon.h#L16-L100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -902,15 +858,11 @@ must be of type Surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFMultiSurface.h#L16-L74">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L16-L74">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -943,15 +895,11 @@ optionally also have a Z and/or an M value.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPoint.h#L15-L185">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPoint.h#L15-L185">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -984,15 +932,11 @@ closed LineString.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolygon.h#L16-L107">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolygon.h#L16-L107">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1024,15 +968,11 @@ closed LineString.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L15-L148">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L15-L148">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1065,15 +1005,11 @@ is a geometry that has an area.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFSurface.h#L15-L28">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFSurface.h#L15-L28">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1106,15 +1042,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFTIN.h#L15-L54">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFTIN.h#L15-L54">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1146,15 +1078,11 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFTriangle.h#L14-L53">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFTriangle.h#L14-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1187,15 +1115,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/extended/SFExtendedGeometryCollection.h#L15-L32">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/extended/SFExtendedGeometryCollection.h#L15-L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1227,15 +1151,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/SFByteReader.h#L14-L70">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L14-L70">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1267,15 +1187,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/SFByteWriter.h#L14-L85">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteWriter.h#L14-L85">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1307,15 +1223,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/SFGeometryEnvelopeBuilder.h#L16-L35">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFGeometryEnvelopeBuilder.h#L16-L35">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1347,15 +1259,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/SFGeometryPrinter.h#L15-L26">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFGeometryPrinter.h#L15-L26">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1389,15 +1297,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L21-L443">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L21-L443">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1432,15 +1336,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/centroid/SFCentroidCurve.h#L18-L52">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidCurve.h#L18-L52">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1475,15 +1375,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/centroid/SFCentroidPoint.h#L18-L51">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidPoint.h#L18-L51">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1518,15 +1414,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L18-L52">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L18-L52">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1558,15 +1450,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFEvent.h#L16-L71">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFEvent.h#L16-L71">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1598,15 +1486,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFEventQueue.h#L16-L43">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFEventQueue.h#L16-L43">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1639,15 +1523,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFEventTypes.h#L19-L21">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFEventTypes.h#L19-L21">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1679,15 +1559,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFSegment.h#L15-L73">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFSegment.h#L15-L73">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1730,15 +1606,11 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L28-L75">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L28-L75">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1770,21 +1642,17 @@ support</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFSweepLine.h#L18-L77">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFSweepLine.h#L18-L77">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryCodes"></a>
-                    <a name="//apple_ref/objc/Class/SFWGeometryCodes" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryCodes">SFWGeometryCodes</a>
+                    <a name="/c:objc(cs)SFWBGeometryCodes"></a>
+                    <a name="//apple_ref/objc/Class/SFWBGeometryCodes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryCodes">SFWBGeometryCodes</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1795,37 +1663,33 @@ support</p>
                         <p>Geometry Code utilities to convert between geometry attributes and geometry
 codes</p>
 
-                        <a href="Classes/SFWGeometryCodes.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/SFWBGeometryCodes.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWGeometryCodes</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWBGeometryCodes</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWGeometryCodes</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWBGeometryCodes</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryCodes.h#L16-L73">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L16-L86">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryReader"></a>
-                    <a name="//apple_ref/objc/Class/SFWGeometryReader" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryReader">SFWGeometryReader</a>
+                    <a name="/c:objc(cs)SFWBGeometryReader"></a>
+                    <a name="//apple_ref/objc/Class/SFWBGeometryReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryReader">SFWBGeometryReader</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1835,37 +1699,33 @@ codes</p>
                       <div class="abstract">
                         <p>Well Known Binary Geometry Reader</p>
 
-                        <a href="Classes/SFWGeometryReader.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/SFWBGeometryReader.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWGeometryReader</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWBGeometryReader</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWGeometryReader</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWBGeometryReader</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryReader.h#L30-L203">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryReader.h#L31-L421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryTypeInfo"></a>
-                    <a name="//apple_ref/objc/Class/SFWGeometryTypeInfo" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryTypeInfo">SFWGeometryTypeInfo</a>
+                    <a name="/c:objc(cs)SFWBGeometryTypeInfo"></a>
+                    <a name="//apple_ref/objc/Class/SFWBGeometryTypeInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryTypeInfo">SFWBGeometryTypeInfo</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1875,37 +1735,33 @@ codes</p>
                       <div class="abstract">
                         <p>Geometry type info</p>
 
-                        <a href="Classes/SFWGeometryTypeInfo.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/SFWBGeometryTypeInfo.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWGeometryTypeInfo</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWBGeometryTypeInfo</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWGeometryTypeInfo</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWBGeometryTypeInfo</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryTypeInfo.h#L15-L59">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryTypeInfo.h#L15-L59">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter"></a>
-                    <a name="//apple_ref/objc/Class/SFWGeometryWriter" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter">SFWGeometryWriter</a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter"></a>
+                    <a name="//apple_ref/objc/Class/SFWBGeometryWriter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter">SFWBGeometryWriter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1915,23 +1771,23 @@ codes</p>
                       <div class="abstract">
                         <p>Well Known Binary Geometry Writer</p>
 
-                        <a href="Classes/SFWGeometryWriter.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/SFWBGeometryWriter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWGeometryWriter</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWBGeometryWriter</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWGeometryWriter</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWBGeometryWriter</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L29-L143">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L29-L160">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1941,8 +1797,8 @@ codes</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

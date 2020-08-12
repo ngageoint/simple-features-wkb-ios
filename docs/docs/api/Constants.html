@@ -8,14 +8,22 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Section/Constants" class="dashAnchor"></a>
     <a title="Constants  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p><a href="index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -143,16 +151,16 @@
                 <a href="Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+                <a href="Classes/SFWBGeometryCodes.html">SFWBGeometryCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+                <a href="Classes/SFWBGeometryReader.html">SFWBGeometryReader</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+                <a href="Classes/SFWBGeometryTypeInfo.html">SFWBGeometryTypeInfo</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+                <a href="Classes/SFWBGeometryWriter.html">SFWBGeometryWriter</a>
               </li>
             </ul>
           </li>
@@ -229,6 +237,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -270,9 +286,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L39">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -304,9 +317,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_POINT_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -340,9 +350,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -374,9 +381,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_POLYGON_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -410,9 +414,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -444,9 +445,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_MULTILINESTRING_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -480,9 +478,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -514,9 +509,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_GEOMETRYCOLLECTION_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -550,9 +542,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -584,9 +573,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_COMPOUNDCURVE_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -620,9 +606,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -654,9 +637,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_MULTICURVE_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -690,9 +670,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -724,9 +701,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_CURVE_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -760,9 +734,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -794,9 +765,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_POLYHEDRALSURFACE_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -830,9 +798,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -864,9 +829,6 @@
                           <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SF_TRIANGLE_NAME</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -900,9 +862,6 @@
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFGeometryTypes.h#L">Show on GitHub</a>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -911,8 +870,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

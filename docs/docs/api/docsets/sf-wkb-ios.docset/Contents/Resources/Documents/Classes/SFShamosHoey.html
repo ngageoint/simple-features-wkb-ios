@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFShamosHoey" class="dashAnchor"></a>
     <a title="SFShamosHoey Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p><a href="../index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -143,16 +151,16 @@
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+                <a href="../Classes/SFWBGeometryCodes.html">SFWBGeometryCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+                <a href="../Classes/SFWBGeometryReader.html">SFWBGeometryReader</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+                <a href="../Classes/SFWBGeometryTypeInfo.html">SFWBGeometryTypeInfo</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+                <a href="../Classes/SFWBGeometryWriter.html">SFWBGeometryWriter</a>
               </li>
             </ul>
           </li>
@@ -229,6 +237,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -237,7 +253,13 @@
             <h1>SFShamosHoey</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFShamosHoey</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFShamosHoey</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -254,6 +276,9 @@
  liable for any real or imagined damage resulting from its use. Users of this
  code must verify correctness for their application.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L28-L75">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -263,7 +288,7 @@
                     <code>
                     <a name="/c:objc(cs)SFShamosHoey(cm)simplePolygon:"></a>
                     <a name="//apple_ref/objc/Method/+simplePolygon:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygon:">+simplePolygon:</a>
+                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygon:">+simplePolygon:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -311,7 +336,7 @@
                         <p>true if simple, false if intersects</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L37">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L37">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -321,7 +346,7 @@
                     <code>
                     <a name="/c:objc(cs)SFShamosHoey(cm)simplePolygonPoints:"></a>
                     <a name="//apple_ref/objc/Method/+simplePolygonPoints:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygonPoints:">+simplePolygonPoints:</a>
+                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygonPoints:">+simplePolygonPoints:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -369,7 +394,7 @@
                         <p>true if simple, false if intersects</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L46">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L46">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -379,7 +404,7 @@
                     <code>
                     <a name="/c:objc(cs)SFShamosHoey(cm)simplePolygonRingPoints:"></a>
                     <a name="//apple_ref/objc/Method/+simplePolygonRingPoints:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygonRingPoints:">+simplePolygonRingPoints:</a>
+                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygonRingPoints:">+simplePolygonRingPoints:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -427,7 +452,7 @@
                         <p>true if simple, false if intersects</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L55">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L55">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -437,7 +462,7 @@
                     <code>
                     <a name="/c:objc(cs)SFShamosHoey(cm)simplePolygonRing:"></a>
                     <a name="//apple_ref/objc/Method/+simplePolygonRing:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygonRing:">+simplePolygonRing:</a>
+                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygonRing:">+simplePolygonRing:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -485,7 +510,7 @@
                         <p>true if simple, false if intersects</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L64">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L64">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -495,7 +520,7 @@
                     <code>
                     <a name="/c:objc(cs)SFShamosHoey(cm)simplePolygonRings:"></a>
                     <a name="//apple_ref/objc/Method/+simplePolygonRings:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygonRings:">+simplePolygonRings:</a>
+                    <a class="token" href="#/c:objc(cs)SFShamosHoey(cm)simplePolygonRings:">+simplePolygonRings:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -543,7 +568,7 @@
                         <p>true if simple, false if intersects</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L73">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/sweep/SFShamosHoey.h#L73">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -553,8 +578,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

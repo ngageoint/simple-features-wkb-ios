@@ -8,13 +8,21 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a title="sf-wkb-ios  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p><a href="index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -142,16 +150,16 @@
                 <a href="Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+                <a href="Classes/SFWBGeometryCodes.html">SFWBGeometryCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+                <a href="Classes/SFWBGeometryReader.html">SFWBGeometryReader</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+                <a href="Classes/SFWBGeometryTypeInfo.html">SFWBGeometryTypeInfo</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+                <a href="Classes/SFWBGeometryWriter.html">SFWBGeometryWriter</a>
               </li>
             </ul>
           </li>
@@ -228,6 +236,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -235,14 +251,14 @@
           <section class="section">
             
             <h1 id='simple-features-wkb-ios' class='heading'>Simple Features WKB iOS</h1>
-<h4 id='simple-features-well-known-binary-lib' class='heading'>Simple Features Well Known Binary Lib</h4>
+<h4 id='simple-features-well-known-binary-lib' class='heading'>Simple Features Well-Known Binary Lib</h4>
 
-<p>The Simple Features Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has <q>unlimited rights</q> and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
+<p>The Simple Features Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has &ldquo;unlimited rights&rdquo; and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
 <h3 id='pull-requests' class='heading'>Pull Requests</h3>
 
 <p>If you&rsquo;d like to contribute to this project, please make a pull request. We&rsquo;ll review the pull request and discuss the changes. All pull request contributions to this project will be released under the MIT license.</p>
 
-<p>Software source code previously released under an open source license and then modified by NGA staff is considered a <q>joint work</q> (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
+<p>Software source code previously released under an open source license and then modified by NGA staff is considered a &ldquo;joint work&rdquo; (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
 <h3 id='about' class='heading'>About</h3>
 
 <p><a href="http://ngageoint.github.io/simple-features-wkb-ios/">Simple Features WKB</a> is an iOS Objective-C library for writing and reading <a href="https://github.com/ngageoint/simple-features-ios">Simple Feature</a> Geometries to and from Well-Known Binary.</p>
@@ -251,26 +267,22 @@
 <p>View the latest <a href="http://ngageoint.github.io/simple-features-wkb-ios/docs/api/">Appledoc</a></p>
 <h4 id='read' class='heading'>Read</h4>
 <pre class="highlight objective_c"><code>
-<span class="c1">//NSData *bytes = ...    </span>
+<span class="c1">// NSData *data = ...</span>
 
-<span class="n">SFByteReader</span> <span class="o">*</span><span class="n">reader</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SFByteReader</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithData</span><span class="p">:</span><span class="n">bytes</span><span class="p">];</span>
-<span class="p">[</span><span class="n">reader</span> <span class="nf">setByteOrder</span><span class="p">:</span><span class="n">CFByteOrderBigEndian</span><span class="p">];</span>
-<span class="n">SFGeometry</span> <span class="o">*</span><span class="n">geometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFWGeometryReader</span> <span class="nf">readGeometryWithReader</span><span class="p">:</span><span class="n">reader</span><span class="p">];</span>
+<span class="n">SFGeometry</span> <span class="o">*</span><span class="n">geometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFWBGeometryReader</span> <span class="nf">readGeometryWithData</span><span class="p">:</span><span class="n">data</span><span class="p">];</span>
 <span class="k">enum</span> <span class="n">SFGeometryType</span> <span class="n">geometryType</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">.</span><span class="n">geometryType</span><span class="p">;</span>
 
 </code></pre>
 <h4 id='write' class='heading'>Write</h4>
 <pre class="highlight objective_c"><code>
-<span class="c1">//SFGeometry *geometry = ...</span>
+<span class="c1">// SFGeometry *geometry = ...</span>
 
-<span class="n">SFByteWriter</span> <span class="o">*</span><span class="n">writer</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SFByteWriter</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
-<span class="p">[</span><span class="n">writer</span> <span class="nf">setByteOrder</span><span class="p">:</span><span class="n">CFByteOrderBigEndian</span><span class="p">];</span>
-<span class="p">[</span><span class="n">SFWGeometryWriter</span> <span class="nf">writeGeometry</span><span class="p">:</span><span class="n">geometry</span> <span class="nf">withWriter</span><span class="p">:</span><span class="n">writer</span><span class="p">];</span>
-<span class="n">NSData</span> <span class="o">*</span><span class="n">bytes</span> <span class="o">=</span> <span class="p">[</span><span class="n">writer</span> <span class="nf">getData</span><span class="p">];</span>
-<span class="p">[</span><span class="n">writer</span> <span class="nf">close</span><span class="p">];</span>
+<span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFWBGeometryWriter</span> <span class="nf">writeGeometry</span><span class="p">:</span><span class="n">geometry</span><span class="p">];</span>
 
 </code></pre>
 <h3 id='build' class='heading'>Build</h3>
+
+<p><a href="https://github.com/ngageoint/simple-features-wkb-ios/actions?query=workflow%3A%22Build+%26+Test%22"><img src="https://github.com/ngageoint/simple-features-wkb-ios/workflows/Build%20&%20Test/badge.svg" alt="Build &amp; Test"></a></p>
 
 <p>Build this repository using Xcode and/or CocoaPods:</p>
 <pre class="highlight plaintext"><code>pod repo update
@@ -289,12 +301,12 @@ pod install
 <p>Include this repository by specifying it in a Podfile using a supported option.</p>
 
 <p>Pull from <a href="https://cocoapods.org/pods/sf-wkb-ios">CocoaPods</a>:</p>
-<pre class="highlight plaintext"><code>pod 'sf-wkb-ios', '~&gt; 2.0.3'
+<pre class="highlight plaintext"><code>pod 'sf-wkb-ios', '~&gt; 3.0.0'
 </code></pre>
 
 <p>Pull from GitHub:</p>
 <pre class="highlight plaintext"><code>pod 'sf-wkb-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-wkb-ios.git', :branch =&gt; 'master'
-pod 'sf-wkb-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-wkb-ios.git', :tag =&gt; '2.0.3'
+pod 'sf-wkb-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-wkb-ios.git', :tag =&gt; '3.0.0'
 </code></pre>
 
 <p>Include as local project:</p>
@@ -309,21 +321,15 @@ pod 'sf-wkb-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-wkb-i
 <pre class="highlight swift"><code>
 <span class="c1">// var data: Data = ...</span>
 
-<span class="k">let</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt">SFByteReader</span> <span class="o">=</span> <span class="kt">SFByteReader</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">);</span>
-<span class="n">reader</span><span class="o">.</span><span class="n">byteOrder</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">(</span><span class="kt">CFByteOrderBigEndian</span><span class="o">.</span><span class="n">rawValue</span><span class="p">);</span>
-<span class="k">let</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt">SFGeometry</span> <span class="o">=</span> <span class="kt">SFWGeometryReader</span><span class="o">.</span><span class="nf">readGeometry</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span><span class="n">reader</span><span class="p">);</span>
-<span class="k">let</span> <span class="nv">geometryType</span><span class="p">:</span> <span class="kt">SFGeometryType</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">geometryType</span><span class="p">;</span>
+<span class="k">let</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt">SFGeometry</span> <span class="o">=</span> <span class="kt">SFWBGeometryReader</span><span class="o">.</span><span class="nf">readGeometry</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">geometryType</span><span class="p">:</span> <span class="kt">SFGeometryType</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">geometryType</span>
 
 </code></pre>
 <h4 id='write' class='heading'>Write</h4>
 <pre class="highlight swift"><code>
-<span class="c1">//let geometry: SFGeometry = ...</span>
+<span class="c1">// let geometry: SFGeometry = ...</span>
 
-<span class="k">let</span> <span class="nv">writer</span><span class="p">:</span> <span class="kt">SFByteWriter</span> <span class="o">=</span> <span class="kt">SFByteWriter</span><span class="p">();</span>
-<span class="n">writer</span><span class="o">.</span><span class="n">byteOrder</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">(</span><span class="kt">CFByteOrderBigEndian</span><span class="o">.</span><span class="n">rawValue</span><span class="p">);</span>
-<span class="kt">SFWGeometryWriter</span><span class="o">.</span><span class="nf">write</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="nv">with</span><span class="p">:</span> <span class="n">writer</span><span class="p">);</span>
-<span class="k">let</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="nf">getData</span><span class="p">();</span>
-<span class="n">writer</span><span class="o">.</span><span class="nf">close</span><span class="p">();</span>
+<span class="k">let</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span> <span class="o">=</span> <span class="kt">SFWBGeometryWriter</span><span class="o">.</span><span class="nf">write</span><span class="p">(</span><span class="n">geometry</span><span class="p">)</span>
 
 </code></pre>
 <h3 id='remote-dependencies' class='heading'>Remote Dependencies</h3>
@@ -335,8 +341,8 @@ pod 'sf-wkb-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-wkb-i
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

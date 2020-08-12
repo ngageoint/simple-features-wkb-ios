@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SFWGeometryWriter Class Reference</title>
+    <title>SFWBGeometryWriter Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/SFWGeometryWriter" class="dashAnchor"></a>
-    <a title="SFWGeometryWriter Class Reference"></a>
+    <a name="//apple_ref/objc/Class/SFWBGeometryWriter" class="dashAnchor"></a>
+    <a title="SFWBGeometryWriter Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p><a href="../index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">sf-wkb-ios Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SFWGeometryWriter Class Reference
+        SFWBGeometryWriter Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -143,16 +151,16 @@
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+                <a href="../Classes/SFWBGeometryCodes.html">SFWBGeometryCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+                <a href="../Classes/SFWBGeometryReader.html">SFWBGeometryReader</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+                <a href="../Classes/SFWBGeometryTypeInfo.html">SFWBGeometryTypeInfo</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+                <a href="../Classes/SFWBGeometryWriter.html">SFWBGeometryWriter</a>
               </li>
             </ul>
           </li>
@@ -229,20 +237,37 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SFWGeometryWriter</h1>
+            <h1>SFWBGeometryWriter</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWGeometryWriter</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWBGeometryWriter</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWBGeometryWriter</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
             <p>Well Known Binary Geometry Writer</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L29-L160">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -250,9 +275,138 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeGeometry:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeGeometry:"></a>
+                    <a name="//apple_ref/objc/Method/+writeGeometry:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeGeometry:">+writeGeometry:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a geometry to well-known bytes</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">writeGeometry</span><span class="p">:(</span><span class="n"><a href="../Classes/SFGeometry.html">SFGeometry</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">geometry</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometry.html">SFGeometry</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>geometry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>geometry</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>well-known bytes</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L37">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeGeometry:inByteOrder:"></a>
+                    <a name="//apple_ref/objc/Method/+writeGeometry:inByteOrder:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeGeometry:inByteOrder:">+writeGeometry:<wbr>inByteOrder:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Write a geometry to well-known bytes</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">writeGeometry</span><span class="p">:(</span><span class="n"><a href="../Classes/SFGeometry.html">SFGeometry</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">geometry</span>
+              <span class="nf">inByteOrder</span><span class="p">:(</span><span class="n">CFByteOrder</span><span class="p">)</span><span class="nv">byteOrder</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="n">_</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometry.html">SFGeometry</a></span><span class="o">!</span><span class="p">,</span> <span class="n">inByteOrder</span> <span class="nv">byteOrder</span><span class="p">:</span> <span class="kt">CFByteOrder</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>geometry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>geometry</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>byteOrder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>byte order</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>well-known bytes</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L46">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeGeometry:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeGeometry:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeGeometry:withWriter:">+writeGeometry:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeGeometry:withWriter:">+writeGeometry:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -308,7 +462,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L37">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L54">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -316,9 +470,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writePoint:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writePoint:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writePoint:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writePoint:withWriter:">+writePoint:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writePoint:withWriter:">+writePoint:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -374,7 +528,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L45">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L62">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -382,9 +536,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeLineString:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeLineString:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeLineString:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeLineString:withWriter:">+writeLineString:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeLineString:withWriter:">+writeLineString:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -441,7 +595,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L53">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L70">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -449,9 +603,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writePolygon:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writePolygon:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writePolygon:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writePolygon:withWriter:">+writePolygon:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writePolygon:withWriter:">+writePolygon:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -507,7 +661,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L61">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L78">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -515,9 +669,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeMultiPoint:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeMultiPoint:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeMultiPoint:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeMultiPoint:withWriter:">+writeMultiPoint:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeMultiPoint:withWriter:">+writeMultiPoint:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -574,7 +728,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L69">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L86">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -582,9 +736,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeMultiLineString:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeMultiLineString:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeMultiLineString:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeMultiLineString:withWriter:">+writeMultiLineString:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeMultiLineString:withWriter:">+writeMultiLineString:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -641,7 +795,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L77">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L94">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -649,9 +803,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeMultiPolygon:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeMultiPolygon:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeMultiPolygon:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeMultiPolygon:withWriter:">+writeMultiPolygon:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeMultiPolygon:withWriter:">+writeMultiPolygon:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -708,7 +862,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L85">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L102">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -716,9 +870,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeGeometryCollection:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeGeometryCollection:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeGeometryCollection:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeGeometryCollection:withWriter:">+writeGeometryCollection:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeGeometryCollection:withWriter:">+writeGeometryCollection:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -775,7 +929,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L93">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -783,9 +937,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeCircularString:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeCircularString:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeCircularString:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeCircularString:withWriter:">+writeCircularString:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeCircularString:withWriter:">+writeCircularString:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -842,7 +996,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L101">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L118">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -850,9 +1004,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeCompoundCurve:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeCompoundCurve:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeCompoundCurve:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeCompoundCurve:withWriter:">+writeCompoundCurve:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeCompoundCurve:withWriter:">+writeCompoundCurve:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -909,7 +1063,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L109">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L126">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -917,9 +1071,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeCurvePolygon:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeCurvePolygon:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeCurvePolygon:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeCurvePolygon:withWriter:">+writeCurvePolygon:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeCurvePolygon:withWriter:">+writeCurvePolygon:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -976,7 +1130,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L117">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L134">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -984,9 +1138,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writePolyhedralSurface:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writePolyhedralSurface:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writePolyhedralSurface:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writePolyhedralSurface:withWriter:">+writePolyhedralSurface:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writePolyhedralSurface:withWriter:">+writePolyhedralSurface:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1043,7 +1197,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L125">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L142">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1051,9 +1205,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeTIN:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeTIN:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeTIN:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeTIN:withWriter:">+writeTIN:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeTIN:withWriter:">+writeTIN:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1109,7 +1263,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L133">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L150">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1117,9 +1271,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryWriter(cm)writeTriangle:withWriter:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryWriter(cm)writeTriangle:withWriter:"></a>
                     <a name="//apple_ref/objc/Method/+writeTriangle:withWriter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryWriter(cm)writeTriangle:withWriter:">+writeTriangle:withWriter:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryWriter(cm)writeTriangle:withWriter:">+writeTriangle:<wbr>withWriter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1175,7 +1329,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryWriter.h#L141">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryWriter.h#L158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1185,8 +1339,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SFWGeometryCodes Class Reference</title>
+    <title>SFWBGeometryCodes Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/SFWGeometryCodes" class="dashAnchor"></a>
-    <a title="SFWGeometryCodes Class Reference"></a>
+    <a name="//apple_ref/objc/Class/SFWBGeometryCodes" class="dashAnchor"></a>
+    <a title="SFWBGeometryCodes Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p><a href="../index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">sf-wkb-ios Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SFWGeometryCodes Class Reference
+        SFWBGeometryCodes Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -143,16 +151,16 @@
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+                <a href="../Classes/SFWBGeometryCodes.html">SFWBGeometryCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+                <a href="../Classes/SFWBGeometryReader.html">SFWBGeometryReader</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+                <a href="../Classes/SFWBGeometryTypeInfo.html">SFWBGeometryTypeInfo</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+                <a href="../Classes/SFWBGeometryWriter.html">SFWBGeometryWriter</a>
               </li>
             </ul>
           </li>
@@ -229,21 +237,38 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SFWGeometryCodes</h1>
+            <h1>SFWBGeometryCodes</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWGeometryCodes</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFWBGeometryCodes</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFWBGeometryCodes</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
             <p>Geometry Code utilities to convert between geometry attributes and geometry
 codes</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L16-L86">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -251,9 +276,9 @@ codes</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryCodes(cm)codeFromGeometry:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryCodes(cm)codeFromGeometry:"></a>
                     <a name="//apple_ref/objc/Method/+codeFromGeometry:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryCodes(cm)codeFromGeometry:">+codeFromGeometry:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryCodes(cm)codeFromGeometry:">+codeFromGeometry:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -301,7 +326,7 @@ codes</p>
                         <p>geometry code</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryCodes.h#L25">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L25">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -309,9 +334,9 @@ codes</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryCodes(cm)codeFromGeometryType:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryCodes(cm)codeFromGeometryType:"></a>
                     <a name="//apple_ref/objc/Method/+codeFromGeometryType:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryCodes(cm)codeFromGeometryType:">+codeFromGeometryType:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryCodes(cm)codeFromGeometryType:">+codeFromGeometryType:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -359,7 +384,7 @@ codes</p>
                         <p>geometry code</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryCodes.h#L34">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L34">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -367,9 +392,93 @@ codes</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryCodes(cm)geometryTypeFromCode:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryCodes(cm)codeFromGeometryType:andHasZ:andHasM:"></a>
+                    <a name="//apple_ref/objc/Method/+codeFromGeometryType:andHasZ:andHasM:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryCodes(cm)codeFromGeometryType:andHasZ:andHasM:">+codeFromGeometryType:<wbr>andHasZ:<wbr>andHasM:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the geometry code from the geometry type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nf">codeFromGeometryType</span><span class="p">:(</span><span class="k">enum</span> <span class="n"><a href="../Enums/SFGeometryType.html">SFGeometryType</a></span><span class="p">)</span><span class="nv">geometryType</span>
+                    <span class="nf">andHasZ</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">hasZ</span>
+                    <span class="nf">andHasM</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">hasM</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">code</span><span class="p">(</span><span class="n">from</span> <span class="nv">geometryType</span><span class="p">:</span> <span class="kt"><a href="../Enums/SFGeometryType.html">SFGeometryType</a></span><span class="p">,</span> <span class="n">andHasZ</span> <span class="nv">hasZ</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">andHasM</span> <span class="nv">hasM</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>geometryType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>geometry type</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hasZ</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>has z</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hasM</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mas m</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>geometry code</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L47">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFWBGeometryCodes(cm)geometryTypeFromCode:"></a>
                     <a name="//apple_ref/objc/Method/+geometryTypeFromCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryCodes(cm)geometryTypeFromCode:">+geometryTypeFromCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryCodes(cm)geometryTypeFromCode:">+geometryTypeFromCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -417,7 +526,7 @@ codes</p>
                         <p>geometry type</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryCodes.h#L43">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L56">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -425,9 +534,9 @@ codes</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryCodes(cm)hasZFromCode:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryCodes(cm)hasZFromCode:"></a>
                     <a name="//apple_ref/objc/Method/+hasZFromCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryCodes(cm)hasZFromCode:">+hasZFromCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryCodes(cm)hasZFromCode:">+hasZFromCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -475,7 +584,7 @@ codes</p>
                         <p>true is has Z</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryCodes.h#L52">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L65">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -483,9 +592,9 @@ codes</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryCodes(cm)hasMFromCode:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryCodes(cm)hasMFromCode:"></a>
                     <a name="//apple_ref/objc/Method/+hasMFromCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryCodes(cm)hasMFromCode:">+hasMFromCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryCodes(cm)hasMFromCode:">+hasMFromCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -533,7 +642,7 @@ codes</p>
                         <p>true is has M</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryCodes.h#L61">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L74">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -541,9 +650,9 @@ codes</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFWGeometryCodes(cm)geometryModeFromCode:"></a>
+                    <a name="/c:objc(cs)SFWBGeometryCodes(cm)geometryModeFromCode:"></a>
                     <a name="//apple_ref/objc/Method/+geometryModeFromCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFWGeometryCodes(cm)geometryModeFromCode:">+geometryModeFromCode:</a>
+                    <a class="token" href="#/c:objc(cs)SFWBGeometryCodes(cm)geometryModeFromCode:">+geometryModeFromCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -592,7 +701,7 @@ codes</p>
                         <p>geometry mode</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/sf-wkb-ios/SFWGeometryCodes.h#L71">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/sf-wkb-ios/SFWBGeometryCodes.h#L84">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -602,8 +711,8 @@ codes</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFPolyhedralSurface" class="dashAnchor"></a>
     <a title="SFPolyhedralSurface Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p><a href="../index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -143,16 +151,16 @@
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+                <a href="../Classes/SFWBGeometryCodes.html">SFWBGeometryCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+                <a href="../Classes/SFWBGeometryReader.html">SFWBGeometryReader</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+                <a href="../Classes/SFWBGeometryTypeInfo.html">SFWBGeometryTypeInfo</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+                <a href="../Classes/SFWBGeometryWriter.html">SFWBGeometryWriter</a>
               </li>
             </ul>
           </li>
@@ -229,6 +237,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -237,12 +253,21 @@
             <h1>SFPolyhedralSurface</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFPolyhedralSurface</span> <span class="p">:</span> <span class="nc"><a href="../Classes/SFSurface.html">SFSurface</a></span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFPolyhedralSurface</span> <span class="p">:</span> <span class="kt"><a href="../Classes/SFSurface.html">SFSurface</a></span></code></pre>
 
                 </div>
               </div>
             <p>Contiguous collection of polygons which share common boundary segments.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L15-L148">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -267,7 +292,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/SFPolygon.html">SFPolygon</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">polygons</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/SFPolygon.html">SFPolygon</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">polygons</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -277,7 +302,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L20">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L20">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -316,7 +341,7 @@
                         <p>new polyhedral surface</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L27">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L27">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -326,7 +351,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)initWithHasZ:andHasM:"></a>
                     <a name="//apple_ref/objc/Method/-initWithHasZ:andHasM:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)initWithHasZ:andHasM:">-initWithHasZ:andHasM:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)initWithHasZ:andHasM:">-initWithHasZ:<wbr>andHasM:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -386,7 +411,7 @@
                         <p>new polyhedral surface</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L37">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L37">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -396,7 +421,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)initWithPolygons:"></a>
                     <a name="//apple_ref/objc/Method/-initWithPolygons:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)initWithPolygons:">-initWithPolygons:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)initWithPolygons:">-initWithPolygons:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -444,7 +469,7 @@
                         <p>new polyhedral surface</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L47">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L47">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -454,7 +479,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)initWithPolygon:"></a>
                     <a name="//apple_ref/objc/Method/-initWithPolygon:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)initWithPolygon:">-initWithPolygon:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)initWithPolygon:">-initWithPolygon:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -502,7 +527,7 @@
                         <p>new polyhedral surface</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L57">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L57">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -512,7 +537,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)initWithType:andHasZ:andHasM:"></a>
                     <a name="//apple_ref/objc/Method/-initWithType:andHasZ:andHasM:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)initWithType:andHasZ:andHasM:">-initWithType:andHasZ:andHasM:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)initWithType:andHasZ:andHasM:">-initWithType:<wbr>andHasZ:<wbr>andHasM:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -586,7 +611,7 @@
                         <p>new polyhedral surface</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L68">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L68">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -625,7 +650,7 @@
                         <p>patches</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L75">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L75">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -635,7 +660,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)setPatches:"></a>
                     <a name="//apple_ref/objc/Method/-setPatches:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)setPatches:">-setPatches:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)setPatches:">-setPatches:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -679,7 +704,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L83">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L83">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -689,7 +714,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)addPolygon:"></a>
                     <a name="//apple_ref/objc/Method/-addPolygon:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)addPolygon:">-addPolygon:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)addPolygon:">-addPolygon:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -733,7 +758,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L90">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L90">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -743,7 +768,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)addPatch:"></a>
                     <a name="//apple_ref/objc/Method/-addPatch:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)addPatch:">-addPatch:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)addPatch:">-addPatch:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -787,7 +812,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L98">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L98">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -797,7 +822,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)addPolygons:"></a>
                     <a name="//apple_ref/objc/Method/-addPolygons:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)addPolygons:">-addPolygons:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)addPolygons:">-addPolygons:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -841,7 +866,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L106">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L106">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -851,7 +876,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)addPatches:"></a>
                     <a name="//apple_ref/objc/Method/-addPatches:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)addPatches:">-addPatches:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)addPatches:">-addPatches:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -895,7 +920,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L114">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L114">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -934,7 +959,7 @@
                         <p>polygon count</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L121">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L121">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -973,7 +998,7 @@
                         <p>patch count</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L128">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L128">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -983,7 +1008,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)polygonAtIndex:"></a>
                     <a name="//apple_ref/objc/Method/-polygonAtIndex:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)polygonAtIndex:">-polygonAtIndex:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)polygonAtIndex:">-polygonAtIndex:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1031,7 +1056,7 @@
                         <p>polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L137">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L137">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1041,7 +1066,7 @@
                     <code>
                     <a name="/c:objc(cs)SFPolyhedralSurface(im)patchAtIndex:"></a>
                     <a name="//apple_ref/objc/Method/-patchAtIndex:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)patchAtIndex:">-patchAtIndex:</a>
+                    <a class="token" href="#/c:objc(cs)SFPolyhedralSurface(im)patchAtIndex:">-patchAtIndex:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1089,7 +1114,7 @@
                         <p>polygon patch</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L146">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/SFPolyhedralSurface.h#L146">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1099,8 +1124,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

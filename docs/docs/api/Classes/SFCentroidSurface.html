@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFCentroidSurface" class="dashAnchor"></a>
     <a title="SFCentroidSurface Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-wkb-ios Docs</a> (88% documented)</p>
+        <p><a href="../index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -143,16 +151,16 @@
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryCodes.html">SFWGeometryCodes</a>
+                <a href="../Classes/SFWBGeometryCodes.html">SFWBGeometryCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryReader.html">SFWGeometryReader</a>
+                <a href="../Classes/SFWBGeometryReader.html">SFWBGeometryReader</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryTypeInfo.html">SFWGeometryTypeInfo</a>
+                <a href="../Classes/SFWBGeometryTypeInfo.html">SFWBGeometryTypeInfo</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SFWGeometryWriter.html">SFWGeometryWriter</a>
+                <a href="../Classes/SFWBGeometryWriter.html">SFWBGeometryWriter</a>
               </li>
             </ul>
           </li>
@@ -229,6 +237,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SFGeometryFilter.html">SFGeometryFilter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -237,7 +253,13 @@
             <h1>SFCentroidSurface</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFCentroidSurface</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFCentroidSurface</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -246,6 +268,9 @@
 
 <p>@author osbornb</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L18-L52">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -284,7 +309,7 @@
                         <p>new instance</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L25">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L25">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -294,7 +319,7 @@
                     <code>
                     <a name="/c:objc(cs)SFCentroidSurface(im)initWithGeometry:"></a>
                     <a name="//apple_ref/objc/Method/-initWithGeometry:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFCentroidSurface(im)initWithGeometry:">-initWithGeometry:</a>
+                    <a class="token" href="#/c:objc(cs)SFCentroidSurface(im)initWithGeometry:">-initWithGeometry:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -342,7 +367,7 @@
                         <p>new instance</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L34">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L34">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -352,7 +377,7 @@
                     <code>
                     <a name="/c:objc(cs)SFCentroidSurface(im)addGeometry:"></a>
                     <a name="//apple_ref/objc/Method/-addGeometry:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFCentroidSurface(im)addGeometry:">-addGeometry:</a>
+                    <a class="token" href="#/c:objc(cs)SFCentroidSurface(im)addGeometry:">-addGeometry:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -397,7 +422,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L43">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L43">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -436,7 +461,7 @@
                         <p>centroid point</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/2.0.3/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L50">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L50">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -446,8 +471,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
