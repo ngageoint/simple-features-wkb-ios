@@ -1,5 +1,5 @@
 //
-//  SFWGeometryCodes.h
+//  SFWBGeometryCodes.h
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 5/3/18.
@@ -13,7 +13,7 @@
  * Geometry Code utilities to convert between geometry attributes and geometry
  * codes
  */
-@interface SFWGeometryCodes : NSObject
+@interface SFWBGeometryCodes : NSObject
 
 /**
  * Get the geometry code from the geometry

@@ -1,14 +1,14 @@
 //
-//  SFWGeometryTypeInfo.m
+//  SFWBGeometryTypeInfo.m
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 5/3/18.
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "SFWGeometryTypeInfo.h"
+#import "SFWBGeometryTypeInfo.h"
 
-@interface SFWGeometryTypeInfo()
+@interface SFWBGeometryTypeInfo()
 
 /**
  * Geometry type code
@@ -32,7 +32,7 @@
 
 @end
 
-@implementation SFWGeometryTypeInfo
+@implementation SFWBGeometryTypeInfo
 
 -(instancetype) initWithCode: (int) geometryTypeCode andType: (enum SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     self = [super init];

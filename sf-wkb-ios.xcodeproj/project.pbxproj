@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		041F18DB24C9CDC6001311E4 /* SFWReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18DA24C9CDC6001311E4 /* SFWReadmeTest.m */; };
-		041F18DE24C9E333001311E4 /* SFWSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18DD24C9E333001311E4 /* SFWSwiftReadmeTest.swift */; };
+		041F18DB24C9CDC6001311E4 /* SFWBReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18DA24C9CDC6001311E4 /* SFWBReadmeTest.m */; };
+		041F18DE24C9E333001311E4 /* SFWBSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18DD24C9E333001311E4 /* SFWBSwiftReadmeTest.swift */; };
 		042FC6571B963FE500549A4B /* sf_wkb_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* sf_wkb_ios.framework */; };
-		042FC6CB1B96421E00549A4B /* SFWGeometryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6951B96421E00549A4B /* SFWGeometryReader.h */; };
-		042FC6CC1B96421E00549A4B /* SFWGeometryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6961B96421E00549A4B /* SFWGeometryReader.m */; };
-		042FC6CD1B96421E00549A4B /* SFWGeometryWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6971B96421E00549A4B /* SFWGeometryWriter.h */; };
-		042FC6CE1B96421E00549A4B /* SFWGeometryWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6981B96421E00549A4B /* SFWGeometryWriter.m */; };
+		042FC6CB1B96421E00549A4B /* SFWBGeometryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6951B96421E00549A4B /* SFWBGeometryReader.h */; };
+		042FC6CC1B96421E00549A4B /* SFWBGeometryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6961B96421E00549A4B /* SFWBGeometryReader.m */; };
+		042FC6CD1B96421E00549A4B /* SFWBGeometryWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6971B96421E00549A4B /* SFWBGeometryWriter.h */; };
+		042FC6CE1B96421E00549A4B /* SFWBGeometryWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6981B96421E00549A4B /* SFWBGeometryWriter.m */; };
 		042FC6D31B96421E00549A4B /* sf-wkb-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* sf-wkb-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* sf_wkb_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* sf_wkb_ios.h */; };
 		0472B51B1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h */; };
-		04AB919B1BF29ECD00894999 /* SFWTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919A1BF29ECD00894999 /* SFWTestCase.m */; };
-		04AB919E1BF29F9A00894999 /* SFWTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919D1BF29F9A00894999 /* SFWTestUtils.m */; };
-		04AB91A11BF2A05200894999 /* SFWGeometryTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB91A01BF2A05200894999 /* SFWGeometryTestUtils.m */; };
-		04F45635209BBE6500FC299E /* SFWGeometryCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45633209BBE6500FC299E /* SFWGeometryCodes.h */; };
-		04F45636209BBE6500FC299E /* SFWGeometryCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45634209BBE6500FC299E /* SFWGeometryCodes.m */; };
-		04F45639209BBE9200FC299E /* SFWGeometryTypeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45637209BBE9100FC299E /* SFWGeometryTypeInfo.h */; };
-		04F4563A209BBE9200FC299E /* SFWGeometryTypeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45638209BBE9200FC299E /* SFWGeometryTypeInfo.m */; };
+		04AB919B1BF29ECD00894999 /* SFWBTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919A1BF29ECD00894999 /* SFWBTestCase.m */; };
+		04AB919E1BF29F9A00894999 /* SFWBTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919D1BF29F9A00894999 /* SFWBTestUtils.m */; };
+		04AB91A11BF2A05200894999 /* SFWBGeometryTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB91A01BF2A05200894999 /* SFWBGeometryTestUtils.m */; };
+		04F45635209BBE6500FC299E /* SFWBGeometryCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45633209BBE6500FC299E /* SFWBGeometryCodes.h */; };
+		04F45636209BBE6500FC299E /* SFWBGeometryCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45634209BBE6500FC299E /* SFWBGeometryCodes.m */; };
+		04F45639209BBE9200FC299E /* SFWBGeometryTypeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45637209BBE9100FC299E /* SFWBGeometryTypeInfo.h */; };
+		04F4563A209BBE9200FC299E /* SFWBGeometryTypeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45638209BBE9200FC299E /* SFWBGeometryTypeInfo.m */; };
 		B4B9C5C590F6D09B45DC2BDB /* libPods-sf-wkb-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A70C9172FC5893F17C0FB6 /* libPods-sf-wkb-ios.a */; };
 		B5D94958E350F092F31540ED /* libPods-sf-wkb-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-sf-wkb-iosTests.a */; };
 /* End PBXBuildFile section */
@@ -39,30 +39,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		041F18D924C9CDC6001311E4 /* SFWReadmeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFWReadmeTest.h; sourceTree = "<group>"; };
-		041F18DA24C9CDC6001311E4 /* SFWReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFWReadmeTest.m; sourceTree = "<group>"; };
+		041F18D924C9CDC6001311E4 /* SFWBReadmeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFWBReadmeTest.h; sourceTree = "<group>"; };
+		041F18DA24C9CDC6001311E4 /* SFWBReadmeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFWBReadmeTest.m; sourceTree = "<group>"; };
 		041F18DC24C9E333001311E4 /* sf-wkb-iosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sf-wkb-iosTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		041F18DD24C9E333001311E4 /* SFWSwiftReadmeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWSwiftReadmeTest.swift; sourceTree = "<group>"; };
+		041F18DD24C9E333001311E4 /* SFWBSwiftReadmeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBSwiftReadmeTest.swift; sourceTree = "<group>"; };
 		042FC64B1B963FE500549A4B /* sf_wkb_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sf_wkb_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		042FC64F1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042FC6561B963FE500549A4B /* sf_wkb_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sf_wkb_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		042FC65C1B963FE500549A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		042FC6951B96421E00549A4B /* SFWGeometryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWGeometryReader.h; sourceTree = "<group>"; };
-		042FC6961B96421E00549A4B /* SFWGeometryReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWGeometryReader.m; sourceTree = "<group>"; };
-		042FC6971B96421E00549A4B /* SFWGeometryWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWGeometryWriter.h; sourceTree = "<group>"; };
-		042FC6981B96421E00549A4B /* SFWGeometryWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWGeometryWriter.m; sourceTree = "<group>"; };
+		042FC6951B96421E00549A4B /* SFWBGeometryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWBGeometryReader.h; sourceTree = "<group>"; };
+		042FC6961B96421E00549A4B /* SFWBGeometryReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWBGeometryReader.m; sourceTree = "<group>"; };
+		042FC6971B96421E00549A4B /* SFWBGeometryWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWBGeometryWriter.h; sourceTree = "<group>"; };
+		042FC6981B96421E00549A4B /* SFWBGeometryWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWBGeometryWriter.m; sourceTree = "<group>"; };
 		042FC69E1B96421E00549A4B /* sf-wkb-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sf-wkb-ios-Prefix.pch"; sourceTree = "<group>"; };
 		042FC6D41B96453E00549A4B /* sf_wkb_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sf_wkb_ios.h; sourceTree = "<group>"; };
 		0472B51A1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sf-wkb-ios-Bridging-Header.h"; sourceTree = "<group>"; };
-		04AB919A1BF29ECD00894999 /* SFWTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWTestCase.m; sourceTree = "<group>"; };
-		04AB919C1BF29F9A00894999 /* SFWTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWTestUtils.h; sourceTree = "<group>"; };
-		04AB919D1BF29F9A00894999 /* SFWTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWTestUtils.m; sourceTree = "<group>"; };
-		04AB919F1BF2A05200894999 /* SFWGeometryTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWGeometryTestUtils.h; sourceTree = "<group>"; };
-		04AB91A01BF2A05200894999 /* SFWGeometryTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWGeometryTestUtils.m; sourceTree = "<group>"; };
-		04F45633209BBE6500FC299E /* SFWGeometryCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFWGeometryCodes.h; sourceTree = "<group>"; };
-		04F45634209BBE6500FC299E /* SFWGeometryCodes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFWGeometryCodes.m; sourceTree = "<group>"; };
-		04F45637209BBE9100FC299E /* SFWGeometryTypeInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFWGeometryTypeInfo.h; sourceTree = "<group>"; };
-		04F45638209BBE9200FC299E /* SFWGeometryTypeInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFWGeometryTypeInfo.m; sourceTree = "<group>"; };
+		04AB919A1BF29ECD00894999 /* SFWBTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWBTestCase.m; sourceTree = "<group>"; };
+		04AB919C1BF29F9A00894999 /* SFWBTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWBTestUtils.h; sourceTree = "<group>"; };
+		04AB919D1BF29F9A00894999 /* SFWBTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWBTestUtils.m; sourceTree = "<group>"; };
+		04AB919F1BF2A05200894999 /* SFWBGeometryTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWBGeometryTestUtils.h; sourceTree = "<group>"; };
+		04AB91A01BF2A05200894999 /* SFWBGeometryTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWBGeometryTestUtils.m; sourceTree = "<group>"; };
+		04F45633209BBE6500FC299E /* SFWBGeometryCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFWBGeometryCodes.h; sourceTree = "<group>"; };
+		04F45634209BBE6500FC299E /* SFWBGeometryCodes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFWBGeometryCodes.m; sourceTree = "<group>"; };
+		04F45637209BBE9100FC299E /* SFWBGeometryTypeInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFWBGeometryTypeInfo.h; sourceTree = "<group>"; };
+		04F45638209BBE9200FC299E /* SFWBGeometryTypeInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFWBGeometryTypeInfo.m; sourceTree = "<group>"; };
 		192D9E5452A64EB6A7955A5A /* Pods-sf-wkb-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-wkb-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-sf-wkb-ios/Pods-sf-wkb-ios.release.xcconfig"; sourceTree = "<group>"; };
 		457018C9103A514A78925D9E /* Pods-sf-wkb-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-wkb-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sf-wkb-ios/Pods-sf-wkb-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		499642A447440D35F38311C9 /* libPods-sf-wkb-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-wkb-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,14 +116,14 @@
 			isa = PBXGroup;
 			children = (
 				042FC6D41B96453E00549A4B /* sf_wkb_ios.h */,
-				04F45633209BBE6500FC299E /* SFWGeometryCodes.h */,
-				04F45634209BBE6500FC299E /* SFWGeometryCodes.m */,
-				042FC6951B96421E00549A4B /* SFWGeometryReader.h */,
-				042FC6961B96421E00549A4B /* SFWGeometryReader.m */,
-				04F45637209BBE9100FC299E /* SFWGeometryTypeInfo.h */,
-				04F45638209BBE9200FC299E /* SFWGeometryTypeInfo.m */,
-				042FC6971B96421E00549A4B /* SFWGeometryWriter.h */,
-				042FC6981B96421E00549A4B /* SFWGeometryWriter.m */,
+				04F45633209BBE6500FC299E /* SFWBGeometryCodes.h */,
+				04F45634209BBE6500FC299E /* SFWBGeometryCodes.m */,
+				042FC6951B96421E00549A4B /* SFWBGeometryReader.h */,
+				042FC6961B96421E00549A4B /* SFWBGeometryReader.m */,
+				04F45637209BBE9100FC299E /* SFWBGeometryTypeInfo.h */,
+				04F45638209BBE9200FC299E /* SFWBGeometryTypeInfo.m */,
+				042FC6971B96421E00549A4B /* SFWBGeometryWriter.h */,
+				042FC6981B96421E00549A4B /* SFWBGeometryWriter.m */,
 				042FC69E1B96421E00549A4B /* sf-wkb-ios-Prefix.pch */,
 				042FC64E1B963FE500549A4B /* Supporting Files */,
 				0472B51A1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h */,
@@ -143,15 +143,15 @@
 			isa = PBXGroup;
 			children = (
 				042FC65B1B963FE500549A4B /* Supporting Files */,
-				041F18D924C9CDC6001311E4 /* SFWReadmeTest.h */,
-				041F18DA24C9CDC6001311E4 /* SFWReadmeTest.m */,
-				041F18DD24C9E333001311E4 /* SFWSwiftReadmeTest.swift */,
+				041F18D924C9CDC6001311E4 /* SFWBReadmeTest.h */,
+				041F18DA24C9CDC6001311E4 /* SFWBReadmeTest.m */,
+				041F18DD24C9E333001311E4 /* SFWBSwiftReadmeTest.swift */,
 				041F18DC24C9E333001311E4 /* sf-wkb-iosTests-Bridging-Header.h */,
-				04AB919A1BF29ECD00894999 /* SFWTestCase.m */,
-				04AB919C1BF29F9A00894999 /* SFWTestUtils.h */,
-				04AB919D1BF29F9A00894999 /* SFWTestUtils.m */,
-				04AB919F1BF2A05200894999 /* SFWGeometryTestUtils.h */,
-				04AB91A01BF2A05200894999 /* SFWGeometryTestUtils.m */,
+				04AB919A1BF29ECD00894999 /* SFWBTestCase.m */,
+				04AB919C1BF29F9A00894999 /* SFWBTestUtils.h */,
+				04AB919D1BF29F9A00894999 /* SFWBTestUtils.m */,
+				04AB919F1BF2A05200894999 /* SFWBGeometryTestUtils.h */,
+				04AB91A01BF2A05200894999 /* SFWBGeometryTestUtils.m */,
 			);
 			path = "sf-wkb-iosTests";
 			sourceTree = "<group>";
@@ -192,12 +192,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0472B51B1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h in Headers */,
-				042FC6CB1B96421E00549A4B /* SFWGeometryReader.h in Headers */,
-				04F45639209BBE9200FC299E /* SFWGeometryTypeInfo.h in Headers */,
+				042FC6CB1B96421E00549A4B /* SFWBGeometryReader.h in Headers */,
+				04F45639209BBE9200FC299E /* SFWBGeometryTypeInfo.h in Headers */,
 				042FC6D51B96453E00549A4B /* sf_wkb_ios.h in Headers */,
 				042FC6D31B96421E00549A4B /* sf-wkb-ios-Prefix.pch in Headers */,
-				04F45635209BBE6500FC299E /* SFWGeometryCodes.h in Headers */,
-				042FC6CD1B96421E00549A4B /* SFWGeometryWriter.h in Headers */,
+				04F45635209BBE6500FC299E /* SFWBGeometryCodes.h in Headers */,
+				042FC6CD1B96421E00549A4B /* SFWBGeometryWriter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,10 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				042FC6CE1B96421E00549A4B /* SFWGeometryWriter.m in Sources */,
-				042FC6CC1B96421E00549A4B /* SFWGeometryReader.m in Sources */,
-				04F4563A209BBE9200FC299E /* SFWGeometryTypeInfo.m in Sources */,
-				04F45636209BBE6500FC299E /* SFWGeometryCodes.m in Sources */,
+				042FC6CE1B96421E00549A4B /* SFWBGeometryWriter.m in Sources */,
+				042FC6CC1B96421E00549A4B /* SFWBGeometryReader.m in Sources */,
+				04F4563A209BBE9200FC299E /* SFWBGeometryTypeInfo.m in Sources */,
+				04F45636209BBE6500FC299E /* SFWBGeometryCodes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,11 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041F18DE24C9E333001311E4 /* SFWSwiftReadmeTest.swift in Sources */,
-				041F18DB24C9CDC6001311E4 /* SFWReadmeTest.m in Sources */,
-				04AB919E1BF29F9A00894999 /* SFWTestUtils.m in Sources */,
-				04AB919B1BF29ECD00894999 /* SFWTestCase.m in Sources */,
-				04AB91A11BF2A05200894999 /* SFWGeometryTestUtils.m in Sources */,
+				041F18DE24C9E333001311E4 /* SFWBSwiftReadmeTest.swift in Sources */,
+				041F18DB24C9CDC6001311E4 /* SFWBReadmeTest.m in Sources */,
+				04AB919E1BF29F9A00894999 /* SFWBTestUtils.m in Sources */,
+				04AB919B1BF29ECD00894999 /* SFWBTestCase.m in Sources */,
+				04AB91A11BF2A05200894999 /* SFWBGeometryTestUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

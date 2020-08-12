@@ -1,5 +1,5 @@
 //
-//  SFWGeometryWriter.h
+//  SFWBGeometryWriter.h
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 6/1/15.
@@ -26,7 +26,7 @@
 /**
  *  Well Known Binary Geometry Writer
  */
-@interface SFWGeometryWriter : NSObject
+@interface SFWBGeometryWriter : NSObject
 
 /**
  *  Write a geometry to well-known bytes

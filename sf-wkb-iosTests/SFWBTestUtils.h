@@ -1,5 +1,5 @@
 //
-//  SFWTestUtils.h
+//  SFWBTestUtils.h
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 11/10/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SFWTestUtils : NSObject
+@interface SFWBTestUtils : NSObject
 
 +(void)assertNil:(id) value;
 

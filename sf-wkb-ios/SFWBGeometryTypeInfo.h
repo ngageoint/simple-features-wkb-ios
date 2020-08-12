@@ -1,5 +1,5 @@
 //
-//  SFWGeometryTypeInfo.h
+//  SFWBGeometryTypeInfo.h
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 5/3/18.
@@ -12,7 +12,7 @@
 /**
  * Geometry type info
  */
-@interface SFWGeometryTypeInfo : NSObject
+@interface SFWBGeometryTypeInfo : NSObject
 
 /**
  * Initializer

@@ -1,5 +1,5 @@
 //
-//  SFWSwiftReadmeTest.swift
+//  SFWBSwiftReadmeTest.swift
 //  sf-wkb-iosTests
 //
 //  Created by Brian Osborn on 7/23/20.
@@ -11,7 +11,7 @@ import XCTest
 /**
 * README example tests
 */
-class SFWSwiftReadmeTest: XCTestCase{
+class SFWBSwiftReadmeTest: XCTestCase{
     
     static var TEST_GEOMETRY : SFGeometry = SFPoint(xValue: 1.0, andYValue: 1.0)
     static var TEST_BYTES: [Int8] = [0, 0, 0, 0, 1, 63, -16, 0, 0, 0, 0, 0, 0, 63, -16, 0, 0, 0, 0, 0, 0]
@@ -22,9 +22,9 @@ class SFWSwiftReadmeTest: XCTestCase{
      */
     func testRead(){
         
-        let geometry: SFGeometry = readTester(SFWSwiftReadmeTest.TEST_DATA)
+        let geometry: SFGeometry = readTester(SFWBSwiftReadmeTest.TEST_DATA)
         
-        SFWTestUtils.assertEqual(withValue: SFWSwiftReadmeTest.TEST_GEOMETRY, andValue2: geometry)
+        SFWBTestUtils.assertEqual(withValue: SFWBSwiftReadmeTest.TEST_GEOMETRY, andValue2: geometry)
         
     }
     
@@ -39,7 +39,7 @@ class SFWSwiftReadmeTest: XCTestCase{
     
         // var data: Data = ...
         
-        let geometry: SFGeometry = SFWGeometryReader.readGeometry(with: data)
+        let geometry: SFGeometry = SFWBGeometryReader.readGeometry(with: data)
         let geometryType: SFGeometryType = geometry.geometryType
         
         return geometry
@@ -50,9 +50,9 @@ class SFWSwiftReadmeTest: XCTestCase{
      */
     func testWrite(){
         
-        let data: Data = writeTester(SFWSwiftReadmeTest.TEST_GEOMETRY)
+        let data: Data = writeTester(SFWBSwiftReadmeTest.TEST_GEOMETRY)
         
-        SFWGeometryTestUtils.compareData(withExpected: SFWSwiftReadmeTest.TEST_DATA, andActual: data)
+        SFWBGeometryTestUtils.compareData(withExpected: SFWBSwiftReadmeTest.TEST_DATA, andActual: data)
         
     }
     
@@ -67,7 +67,7 @@ class SFWSwiftReadmeTest: XCTestCase{
         
         // let geometry: SFGeometry = ...
         
-        let data: Data = SFWGeometryWriter.write(geometry)
+        let data: Data = SFWBGeometryWriter.write(geometry)
         
         return data
     }

@@ -7,5 +7,5 @@
 //
 
 #import "sf-wkb-ios-Bridging-Header.h"
-#import "SFWTestUtils.h"
-#import "SFWGeometryTestUtils.h"
+#import "SFWBTestUtils.h"
+#import "SFWBGeometryTestUtils.h"

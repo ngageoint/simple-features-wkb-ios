@@ -1,5 +1,5 @@
 //
-//  SFWReadmeTest.h
+//  SFWBReadmeTest.h
 //  sf-wkb-iosTests
 //
 //  Created by Brian Osborn on 7/23/20.
@@ -11,6 +11,6 @@
 /**
  * README example tests
  */
-@interface SFWReadmeTest : XCTestCase
+@interface SFWBReadmeTest : XCTestCase
 
 @end

@@ -1,15 +1,15 @@
 //
-//  SFWGeometryWriter.m
+//  SFWBGeometryWriter.m
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 6/1/15.
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFWGeometryWriter.h"
-#import "SFWGeometryCodes.h"
+#import "SFWBGeometryWriter.h"
+#import "SFWBGeometryCodes.h"
 
-@implementation SFWGeometryWriter
+@implementation SFWBGeometryWriter
 
 +(NSData *) writeGeometry: (SFGeometry *) geometry{
     return [self writeGeometry:geometry inByteOrder:DEFAULT_WRITE_BYTE_ORDER];
@@ -42,7 +42,7 @@
     [writer writeByte:byteOrder];
     
     // Write the geometry type integer
-    [self writeInt:[SFWGeometryCodes codeFromGeometry:geometry] withWriter:writer];
+    [self writeInt:[SFWBGeometryCodes codeFromGeometry:geometry] withWriter:writer];
     
     enum SFGeometryType geometryType = geometry.geometryType;
     

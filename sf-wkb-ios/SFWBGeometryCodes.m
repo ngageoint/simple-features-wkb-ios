@@ -1,14 +1,14 @@
 //
-//  SFWGeometryCodes.m
+//  SFWBGeometryCodes.m
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 5/3/18.
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "SFWGeometryCodes.h"
+#import "SFWBGeometryCodes.h"
 
-@implementation SFWGeometryCodes
+@implementation SFWBGeometryCodes
 
 +(int) codeFromGeometry: (SFGeometry *) geometry{
     return [self codeFromGeometryType:geometry.geometryType andHasZ:geometry.hasZ andHasM:geometry.hasM];

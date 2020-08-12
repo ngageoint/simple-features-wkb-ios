@@ -1,20 +1,20 @@
 //
-//  SFWReadmeTest.m
+//  SFWBReadmeTest.m
 //  sf-wkb-iosTests
 //
 //  Created by Brian Osborn on 7/23/20.
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "SFWTestUtils.h"
-#import "SFWReadmeTest.h"
+#import "SFWBTestUtils.h"
+#import "SFWBReadmeTest.h"
 #import "SFGeometry.h"
 #import "SFPoint.h"
-#import "SFWGeometryReader.h"
-#import "SFWGeometryWriter.h"
-#import "SFWGeometryTestUtils.h"
+#import "SFWBGeometryReader.h"
+#import "SFWBGeometryWriter.h"
+#import "SFWBGeometryTestUtils.h"
 
-@implementation SFWReadmeTest
+@implementation SFWBReadmeTest
 
 static SFGeometry *TEST_GEOMETRY;
 static NSData *TEST_DATA;
@@ -33,7 +33,7 @@ static NSData *TEST_DATA;
     
     SFGeometry *geometry = [self readTester:TEST_DATA];
     
-    [SFWTestUtils assertEqualWithValue:TEST_GEOMETRY andValue2:geometry];
+    [SFWBTestUtils assertEqualWithValue:TEST_GEOMETRY andValue2:geometry];
     
 }
 
@@ -48,7 +48,7 @@ static NSData *TEST_DATA;
     
     // NSData *data = ...
     
-    SFGeometry *geometry = [SFWGeometryReader readGeometryWithData:data];
+    SFGeometry *geometry = [SFWBGeometryReader readGeometryWithData:data];
     enum SFGeometryType geometryType = geometry.geometryType;
     
     return geometry;
@@ -61,7 +61,7 @@ static NSData *TEST_DATA;
     
     NSData *data = [self writeTester:TEST_GEOMETRY];
 
-    [SFWGeometryTestUtils compareDataWithExpected:TEST_DATA andActual:data];
+    [SFWBGeometryTestUtils compareDataWithExpected:TEST_DATA andActual:data];
     
 }
 
@@ -76,7 +76,7 @@ static NSData *TEST_DATA;
     
     // SFGeometry *geometry = ...
     
-    NSData *data = [SFWGeometryWriter writeGeometry:geometry];
+    NSData *data = [SFWBGeometryWriter writeGeometry:geometry];
     
     return data;
 }

@@ -1,5 +1,5 @@
 //
-//  SFWGeometryTestUtils.h
+//  SFWBGeometryTestUtils.h
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 11/10/15.
@@ -22,7 +22,7 @@
 #import "SFTIN.h"
 #import "SFTriangle.h"
 
-@interface SFWGeometryTestUtils : NSObject
+@interface SFWBGeometryTestUtils : NSObject
 
 +(void) compareEnvelopesWithExpected: (SFGeometryEnvelope *) expected andActual: (SFGeometryEnvelope *) actual;
 

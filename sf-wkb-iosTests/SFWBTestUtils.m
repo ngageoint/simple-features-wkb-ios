@@ -1,16 +1,16 @@
 //
-//  SFWTestUtils.m
+//  SFWBTestUtils.m
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 11/10/15.
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "SFWTestUtils.h"
+#import "SFWBTestUtils.h"
 
 #define ARC4RANDOM_MAX      0x100000000
 
-@implementation SFWTestUtils
+@implementation SFWBTestUtils
 
 +(void)assertNil:(id) value{
     if(value != nil){

@@ -1,5 +1,5 @@
 //
-//  SFWGeometryReader.h
+//  SFWBGeometryReader.h
 //  sf-wkb-ios
 //
 //  Created by Brian Osborn on 6/1/15.
@@ -22,13 +22,13 @@
 #import "SFPolyhedralSurface.h"
 #import "SFTIN.h"
 #import "SFTriangle.h"
-#import "SFWGeometryTypeInfo.h"
+#import "SFWBGeometryTypeInfo.h"
 #import "SFGeometryFilter.h"
 
 /**
  *  Well Known Binary Geometry Reader
  */
-@interface SFWGeometryReader : NSObject
+@interface SFWBGeometryReader : NSObject
 
 /**
  *  Read a geometry from data
@@ -129,7 +129,7 @@
  *            byte reader
  * @return geometry type info
  */
-+(SFWGeometryTypeInfo *) readGeometryTypeWithReader: (SFByteReader *) reader;
++(SFWBGeometryTypeInfo *) readGeometryTypeWithReader: (SFByteReader *) reader;
 
 /**
  *  Read a point
