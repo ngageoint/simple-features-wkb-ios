@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 3.0.0 (TBD)
+## [3.0.0](https://github.com/ngageoint/simple-features-wkb-ios/releases/tag/3.0.0) (08-14-2020)
 
 * sf-ios 3.0.0
 * Class prefixes changed from SFW to SFWB, to better coincide with SFWT (Well-Known Text) library
