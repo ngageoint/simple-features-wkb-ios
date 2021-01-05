@@ -9,6 +9,15 @@
 #import "SFWBGeometryWriter.h"
 #import "SFWBGeometryCodes.h"
 
+@interface SFWBGeometryWriter()
+
+/**
+ * Byte Writer
+ */
+@property (nonatomic, strong) SFByteWriter *writer;
+
+@end
+
 @implementation SFWBGeometryWriter
 
 +(NSData *) writeGeometry: (SFGeometry *) geometry{
@@ -17,9 +26,9 @@
 
 +(NSData *) writeGeometry: (SFGeometry *) geometry inByteOrder: (CFByteOrder) byteOrder{
     NSData *data = nil;
-    SFByteWriter *writer = [[SFByteWriter alloc] initWithByteOrder:byteOrder];
+    SFWBGeometryWriter *writer = [[SFWBGeometryWriter alloc] initWithByteOrder:byteOrder];
     @try {
-        [self writeGeometry:geometry withWriter:writer];
+        [writer write:geometry];
         data = [writer data];
     } @finally {
         [writer close];
@@ -27,22 +36,50 @@
     return data;
 }
 
-+(void) writeGeometry: (SFGeometry *) geometry withWriter: (SFByteWriter *) writer{
+-(instancetype) init{
+    return [self initWithByteOrder:DEFAULT_WRITE_BYTE_ORDER];
+}
+
+-(instancetype) initWithByteOrder: (CFByteOrder) byteOrder{
+    return [self initWithWriter:[[SFByteWriter alloc] initWithByteOrder:byteOrder]];
+}
+
+-(instancetype) initWithWriter: (SFByteWriter *) writer{
+    self = [super init];
+    if(self != nil){
+        _writer = writer;
+    }
+    return self;
+}
+
+-(SFByteWriter *) byteWriter{
+    return _writer;
+}
+
+-(NSData *) data{
+    return [_writer data];
+}
+
+-(void) close{
+    [_writer close];
+}
+
+-(void) write: (SFGeometry *) geometry{
 
     // Write the single byte order byte
     uint8_t byteOrderInt = -1;
-    if(writer.byteOrder == CFByteOrderBigEndian){
+    if(_writer.byteOrder == CFByteOrderBigEndian){
         byteOrderInt = 0;
-    }else if(writer.byteOrder == CFByteOrderLittleEndian){
+    }else if(_writer.byteOrder == CFByteOrderLittleEndian){
         byteOrderInt = 1;
     }else{
-        [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order: %ld", writer.byteOrder];
+        [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order: %ld", _writer.byteOrder];
     }
-    NSNumber * byteOrder = [NSNumber numberWithInt:byteOrderInt];
-    [writer writeByte:byteOrder];
+    NSNumber *byteOrder = [NSNumber numberWithInt:byteOrderInt];
+    [_writer writeByte:byteOrder];
     
     // Write the geometry type integer
-    [self writeInt:[SFWBGeometryCodes codeFromGeometry:geometry] withWriter:writer];
+    [self writeInt:[SFWBGeometryCodes codeFromGeometry:geometry]];
     
     enum SFGeometryType geometryType = geometry.geometryType;
     
@@ -51,49 +88,49 @@
         case SF_GEOMETRY:
             [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_POINT:
-            [self writePoint:(SFPoint *)geometry withWriter:writer];
+            [self writePoint:(SFPoint *)geometry];
             break;
         case SF_LINESTRING:
-            [self writeLineString:(SFLineString *)geometry withWriter:writer];
+            [self writeLineString:(SFLineString *)geometry];
             break;
         case SF_POLYGON:
-            [self writePolygon:(SFPolygon *)geometry withWriter:writer];
+            [self writePolygon:(SFPolygon *)geometry];
             break;
         case SF_MULTIPOINT:
-            [self writeMultiPoint:(SFMultiPoint *)geometry withWriter:writer];
+            [self writeMultiPoint:(SFMultiPoint *)geometry];
             break;
         case SF_MULTILINESTRING:
-            [self writeMultiLineString:(SFMultiLineString *)geometry withWriter:writer];
+            [self writeMultiLineString:(SFMultiLineString *)geometry];
             break;
         case SF_MULTIPOLYGON:
-            [self writeMultiPolygon:(SFMultiPolygon *)geometry withWriter:writer];
+            [self writeMultiPolygon:(SFMultiPolygon *)geometry];
             break;
         case SF_GEOMETRYCOLLECTION:
         case SF_MULTICURVE:
         case SF_MULTISURFACE:
-            [self writeGeometryCollection:(SFGeometryCollection *)geometry withWriter:writer];
+            [self writeGeometryCollection:(SFGeometryCollection *)geometry];
             break;
         case SF_CIRCULARSTRING:
-            [self writeCircularString:(SFCircularString *)geometry withWriter:writer];
+            [self writeCircularString:(SFCircularString *)geometry];
             break;
         case SF_COMPOUNDCURVE:
-            [self writeCompoundCurve:(SFCompoundCurve *)geometry withWriter:writer];
+            [self writeCompoundCurve:(SFCompoundCurve *)geometry];
             break;
         case SF_CURVEPOLYGON:
-            [self writeCurvePolygon:(SFCurvePolygon *)geometry withWriter:writer];
+            [self writeCurvePolygon:(SFCurvePolygon *)geometry];
             break;
         case SF_CURVE:
             [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_SURFACE:
             [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_POLYHEDRALSURFACE:
-            [self writePolyhedralSurface:(SFPolyhedralSurface *)geometry withWriter:writer];
+            [self writePolyhedralSurface:(SFPolyhedralSurface *)geometry];
             break;
         case SF_TIN:
-            [self writeTIN:(SFTIN *)geometry withWriter:writer];
+            [self writeTIN:(SFTIN *)geometry];
             break;
         case SF_TRIANGLE:
-            [self writeTriangle:(SFTriangle *)geometry withWriter:writer];
+            [self writeTriangle:(SFTriangle *)geometry];
             break;
         default:
             [NSException raise:@"Geometry Not Supported" format:@"Geometry Type not supported: %d", geometryType];
@@ -101,126 +138,200 @@
     
 }
 
-+(void) writePoint: (SFPoint *) point withWriter: (SFByteWriter *) writer{
+-(void) writePoint: (SFPoint *) point{
     
-    [writer writeDouble:point.x];
-    [writer writeDouble:point.y];
+    [_writer writeDouble:point.x];
+    [_writer writeDouble:point.y];
     
     if(point.hasZ){
-        [writer writeDouble:point.z];
+        [_writer writeDouble:point.z];
     }
     
     if(point.hasM){
-        [writer writeDouble:point.m];
+        [_writer writeDouble:point.m];
     }
+}
+
+-(void) writeLineString: (SFLineString *) lineString{
+    
+    [self writeInt:[lineString numPoints]];
+    
+    for(SFPoint *point in lineString.points){
+        [self writePoint:point];
+    }
+}
+
+-(void) writePolygon: (SFPolygon *) polygon{
+
+    [self writeInt:[polygon numRings]];
+    
+    for(SFLineString *lineString in polygon.rings){
+        [self writeLineString:lineString];
+    }
+}
+
+-(void) writeMultiPoint: (SFMultiPoint *) multiPoint{
+
+    [self writeInt:[multiPoint numPoints]];
+    
+    for(SFPoint *point in [multiPoint points]){
+        [self write:point];
+    }
+}
+
+-(void) writeMultiLineString: (SFMultiLineString *) multiLineString{
+    
+    [self writeInt:[multiLineString numLineStrings]];
+    
+    for(SFLineString *lineString in [multiLineString lineStrings]){
+        [self write:lineString];
+    }
+}
+
+-(void) writeMultiPolygon: (SFMultiPolygon *) multiPolygon{
+    
+    [self writeInt:[multiPolygon numPolygons]];
+    
+    for(SFPolygon *polygon in [multiPolygon polygons]){
+        [self write:polygon];
+    }
+}
+
+-(void) writeGeometryCollection: (SFGeometryCollection *) geometryCollection{
+    
+    [self writeInt:[geometryCollection numGeometries]];
+    
+    for(SFGeometry *geometry in geometryCollection.geometries){
+        [self write:geometry];
+    }
+}
+
+-(void) writeCircularString: (SFCircularString *) circularString{
+    
+    [self writeInt:[circularString numPoints]];
+    
+    for(SFPoint *point in circularString.points){
+        [self writePoint:point];
+    }
+}
+
+-(void) writeCompoundCurve: (SFCompoundCurve *) compoundCurve{
+    
+    [self writeInt:[compoundCurve numLineStrings]];
+    
+    for(SFLineString *lineString in compoundCurve.lineStrings){
+        [self write:lineString];
+    }
+}
+
+-(void) writeCurvePolygon: (SFCurvePolygon *) curvePolygon{
+    
+    [self writeInt:[curvePolygon numRings]];
+    
+    for(SFCurve *ring in curvePolygon.rings){
+        [self write:ring];
+    }
+}
+
+-(void) writePolyhedralSurface: (SFPolyhedralSurface *) polyhedralSurface{
+    
+    [self writeInt:[polyhedralSurface numPolygons]];
+    
+    for(SFPolygon *polygon in polyhedralSurface.polygons){
+        [self write:polygon];
+    }
+}
+
+-(void) writeTIN: (SFTIN *) tin{
+    
+    [self writeInt:[tin numPolygons]];
+    
+    for(SFPolygon *polygon in tin.polygons){
+        [self write:polygon];
+    }
+}
+
+-(void) writeTriangle: (SFTriangle *) triangle{
+    
+    [self writeInt:[triangle numRings]];
+    
+    for(SFLineString *ring in triangle.rings){
+        [self writeLineString:ring];
+    }
+}
+
+-(void) writeInt: (int) count{
+    [SFWBGeometryWriter writeInt:count withWriter:_writer];
+}
+
++(void) writeGeometry: (SFGeometry *) geometry withWriter: (SFByteWriter *) writer{
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter write:geometry];
+}
+
++(void) writePoint: (SFPoint *) point withWriter: (SFByteWriter *) writer{
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writePoint:point];
 }
 
 +(void) writeLineString: (SFLineString *) lineString withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[lineString numPoints] withWriter:writer];
-    
-    for(SFPoint * point in lineString.points){
-        [self writePoint:point withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeLineString:lineString];
 }
 
 +(void) writePolygon: (SFPolygon *) polygon withWriter: (SFByteWriter *) writer{
-
-    [self writeInt:[polygon numRings] withWriter:writer];
-    
-    for(SFLineString * lineString in polygon.rings){
-        [self writeLineString:lineString withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writePolygon:polygon];
 }
 
 +(void) writeMultiPoint: (SFMultiPoint *) multiPoint withWriter: (SFByteWriter *) writer{
-
-    [self writeInt:[multiPoint numPoints] withWriter:writer];
-    
-    for(SFPoint * point in [multiPoint points]){
-        [self writeGeometry:point withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeMultiPoint:multiPoint];
 }
 
 +(void) writeMultiLineString: (SFMultiLineString *) multiLineString withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[multiLineString numLineStrings] withWriter:writer];
-    
-    for(SFLineString * lineString in [multiLineString lineStrings]){
-        [self writeGeometry:lineString withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeMultiLineString:multiLineString];
 }
 
 +(void) writeMultiPolygon: (SFMultiPolygon *) multiPolygon withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[multiPolygon numPolygons] withWriter:writer];
-    
-    for(SFPolygon * polygon in [multiPolygon polygons]){
-        [self writeGeometry:polygon withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeMultiPolygon:multiPolygon];
 }
 
 +(void) writeGeometryCollection: (SFGeometryCollection *) geometryCollection withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[geometryCollection numGeometries] withWriter:writer];
-    
-    for(SFGeometry * geometry in geometryCollection.geometries){
-        [self writeGeometry:geometry withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeGeometryCollection:geometryCollection];
 }
 
 +(void) writeCircularString: (SFCircularString *) circularString withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[circularString numPoints] withWriter:writer];
-    
-    for(SFPoint * point in circularString.points){
-        [self writePoint:point withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeCircularString:circularString];
 }
 
 +(void) writeCompoundCurve: (SFCompoundCurve *) compoundCurve withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[compoundCurve numLineStrings] withWriter:writer];
-    
-    for(SFLineString * lineString in compoundCurve.lineStrings){
-        [self writeGeometry:lineString withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeCompoundCurve:compoundCurve];
 }
 
 +(void) writeCurvePolygon: (SFCurvePolygon *) curvePolygon withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[curvePolygon numRings] withWriter:writer];
-    
-    for(SFCurve * ring in curvePolygon.rings){
-        [self writeGeometry:ring withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeCurvePolygon:curvePolygon];
 }
 
 +(void) writePolyhedralSurface: (SFPolyhedralSurface *) polyhedralSurface withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[polyhedralSurface numPolygons] withWriter:writer];
-    
-    for(SFPolygon * polygon in polyhedralSurface.polygons){
-        [self writeGeometry:polygon withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writePolyhedralSurface:polyhedralSurface];
 }
 
 +(void) writeTIN: (SFTIN *) tin withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[tin numPolygons] withWriter:writer];
-    
-    for(SFPolygon * polygon in tin.polygons){
-        [self writeGeometry:polygon withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeTIN:tin];
 }
 
 +(void) writeTriangle: (SFTriangle *) triangle withWriter: (SFByteWriter *) writer{
-    
-    [self writeInt:[triangle numRings] withWriter:writer];
-    
-    for(SFLineString * ring in triangle.rings){
-        [self writeLineString:ring withWriter:writer];
-    }
+    SFWBGeometryWriter *geometryWriter = [[SFWBGeometryWriter alloc] initWithWriter:writer];
+    [geometryWriter writeTriangle:triangle];
 }
 
 +(void) writeInt: (int) count withWriter: (SFByteWriter *) writer{
