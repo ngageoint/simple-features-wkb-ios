@@ -9,6 +9,15 @@
 #import "SFWBGeometryReader.h"
 #import "SFWBGeometryCodes.h"
 
+@interface SFWBGeometryReader()
+
+/**
+ * Byte Reader
+ */
+@property (nonatomic, strong) SFByteReader *reader;
+
+@end
+
 @implementation SFWBGeometryReader
 
 /**
@@ -29,32 +38,48 @@ static NSString *WKB25D = @"0x80000000";
 }
 
 +(SFGeometry *) readGeometryWithData: (NSData *) data andFilter: (NSObject<SFGeometryFilter> *) filter andExpectedType: (Class) expectedType{
-    SFByteReader *reader = [[SFByteReader alloc] initWithData:data];
-    return [self readGeometryWithReader:reader andFilter:filter andExpectedType:expectedType];
+    SFWBGeometryReader *reader = [[SFWBGeometryReader alloc] initWithData:data];
+    return [reader readWithFilter:filter andExpectedType:expectedType];
 }
 
-+(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader{
-    return [self readGeometryWithReader:reader andExpectedType:nil];
+-(instancetype) initWithData: (NSData *) data{
+    return [self initWithReader:[[SFByteReader alloc] initWithData:data]];
 }
 
-+(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter{
-    return [self readGeometryWithReader:reader andFilter:filter andExpectedType:nil];
+-(instancetype) initWithReader: (SFByteReader *) reader{
+    self = [super init];
+    if(self != nil){
+        _reader = reader;
+    }
+    return self;
 }
 
-+(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andExpectedType: (Class) expectedType{
-    return [self readGeometryWithReader:reader andFilter:nil andExpectedType:expectedType];
+-(SFByteReader *) byteReader{
+    return _reader;
 }
 
-+(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andExpectedType: (Class) expectedType{
-    return [self readGeometryWithReader:reader andFilter:filter inType:SF_NONE andExpectedType:expectedType];
+-(SFGeometry *) read{
+    return [self readWithFilter:nil andExpectedType:nil];
 }
 
-+(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter inType: (enum SFGeometryType) containingType andExpectedType: (Class) expectedType{
+-(SFGeometry *) readWithFilter: (NSObject<SFGeometryFilter> *) filter{
+    return [self readWithFilter:filter andExpectedType:nil];
+}
+
+-(SFGeometry *) readWithExpectedType: (Class) expectedType{
+    return [self readWithFilter:nil andExpectedType:expectedType];
+}
+
+-(SFGeometry *) readWithFilter: (NSObject<SFGeometryFilter> *) filter andExpectedType: (Class) expectedType{
+    return [self readWithFilter:filter inType:SF_NONE andExpectedType:expectedType];
+}
+
+-(SFGeometry *) readWithFilter: (NSObject<SFGeometryFilter> *) filter inType: (enum SFGeometryType) containingType andExpectedType: (Class) expectedType{
     
-    CFByteOrder originalByteOrder = [reader byteOrder];
+    CFByteOrder originalByteOrder = [_reader byteOrder];
     
     // Read the byte order and geometry type
-    SFWBGeometryTypeInfo *geometryTypeInfo = [self readGeometryTypeWithReader:reader];
+    SFWBGeometryTypeInfo *geometryTypeInfo = [self readGeometryType];
     
     enum SFGeometryType geometryType = [geometryTypeInfo geometryType];
     BOOL hasZ = [geometryTypeInfo hasZ];
@@ -67,55 +92,55 @@ static NSString *WKB25D = @"0x80000000";
         case SF_GEOMETRY:
             [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_POINT:
-            geometry = [self readPointWithReader:reader andHasZ:hasZ andHasM:hasM];
+            geometry = [self readPointWithHasZ:hasZ andHasM:hasM];
             break;
         case SF_LINESTRING:
-            geometry = [self readLineStringWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readLineStringWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_POLYGON:
-            geometry = [self readPolygonWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readPolygonWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_MULTIPOINT:
-            geometry = [self readMultiPointWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readMultiPointWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_MULTILINESTRING:
-            geometry = [self readMultiLineStringWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readMultiLineStringWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_MULTIPOLYGON:
-            geometry = [self readMultiPolygonWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readMultiPolygonWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_GEOMETRYCOLLECTION:
         case SF_MULTICURVE:
         case SF_MULTISURFACE:
-            geometry = [self readGeometryCollectionWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readGeometryCollectionWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_CIRCULARSTRING:
-            geometry = [self readCircularStringWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readCircularStringWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_COMPOUNDCURVE:
-            geometry = [self readCompoundCurveWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readCompoundCurveWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_CURVEPOLYGON:
-            geometry = [self readCurvePolygonWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readCurvePolygonWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_CURVE:
             [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_SURFACE:
             [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
         case SF_POLYHEDRALSURFACE:
-            geometry = [self readPolyhedralSurfaceWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readPolyhedralSurfaceWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_TIN:
-            geometry = [self readTINWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readTINWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         case SF_TRIANGLE:
-            geometry = [self readTriangleWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
+            geometry = [self readTriangleWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         default:
             [NSException raise:@"Geometry Not Supported" format:@"Geometry Type not supported: %d", geometryType];
     }
     
-    if(![self filter:filter geometry:geometry inType:containingType]){
+    if(![SFWBGeometryReader filter:filter geometry:geometry inType:containingType]){
         geometry = nil;
     }
     
@@ -125,15 +150,15 @@ static NSString *WKB25D = @"0x80000000";
     }
     
     // Restore the byte order
-    [reader setByteOrder:originalByteOrder];
+    [_reader setByteOrder:originalByteOrder];
     
     return geometry;
 }
 
-+(SFWBGeometryTypeInfo *) readGeometryTypeWithReader: (SFByteReader *) reader{
+-(SFWBGeometryTypeInfo *) readGeometryType{
     
     // Read the single byte order byte
-    NSNumber *byteOrderValue = [reader readByte];
+    NSNumber *byteOrderValue = [_reader readByte];
     int byteOrderIntValue = [byteOrderValue intValue];
     CFByteOrder byteOrder = CFByteOrderUnknown;
     if(byteOrderIntValue == 0){
@@ -143,10 +168,10 @@ static NSString *WKB25D = @"0x80000000";
     }else{
         [NSException raise:@"Unexpected Byte Order" format:@"Unexpected byte order value: %@", byteOrderValue];
     }
-    [reader setByteOrder:byteOrder];
+    [_reader setByteOrder:byteOrder];
     
     // Read the geometry type integer
-    int geometryTypeCode = [[reader readInt] intValue];
+    int geometryTypeCode = [[_reader readInt] intValue];
     
     // Check for 2.5D geometry types
     BOOL hasZ = NO;
@@ -173,39 +198,39 @@ static NSString *WKB25D = @"0x80000000";
     return geometryInfo;
 }
 
-+(SFPoint *) readPointWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFPoint *) readPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    NSDecimalNumber *x = [reader readDouble];
-    NSDecimalNumber *y = [reader readDouble];
+    NSDecimalNumber *x = [_reader readDouble];
+    NSDecimalNumber *y = [_reader readDouble];
     
     SFPoint *point = [[SFPoint alloc] initWithHasZ:hasZ andHasM:hasM andX:x andY:y];
     
     if(hasZ){
-        NSDecimalNumber *z = [reader readDouble];
+        NSDecimalNumber *z = [_reader readDouble];
         [point setZ:z];
     }
     
     if(hasM){
-        NSDecimalNumber *m = [reader readDouble];
+        NSDecimalNumber *m = [_reader readDouble];
         [point setM:m];
     }
     
     return point;
 }
 
-+(SFLineString *) readLineStringWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readLineStringWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFLineString *) readLineStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readLineStringWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFLineString *) readLineStringWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFLineString *) readLineStringWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFLineString *lineString = [[SFLineString alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numPoints = [[reader readInt] intValue];
+    int numPoints = [[_reader readInt] intValue];
     
     for(int i = 0; i < numPoints; i++){
-        SFPoint *point = [SFWBGeometryReader readPointWithReader:reader andHasZ:hasZ andHasM:hasM];
-        if([self filter:filter geometry:point inType:SF_LINESTRING]){
+        SFPoint *point = [self readPointWithHasZ:hasZ andHasM:hasM];
+        if([SFWBGeometryReader filter:filter geometry:point inType:SF_LINESTRING]){
             [lineString addPoint:point];
         }
     }
@@ -213,19 +238,19 @@ static NSString *WKB25D = @"0x80000000";
     return lineString;
 }
 
-+(SFPolygon *) readPolygonWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readPolygonWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFPolygon *) readPolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readPolygonWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFPolygon *) readPolygonWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFPolygon *) readPolygonWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
 
     SFPolygon *polygon = [[SFPolygon alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numRings = [[reader readInt] intValue];
+    int numRings = [[_reader readInt] intValue];
     
     for(int i = 0; i < numRings; i++){
-        SFLineString *ring = [SFWBGeometryReader readLineStringWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
-        if([self filter:filter geometry:ring inType:SF_POLYGON]){
+        SFLineString *ring = [self readLineStringWithFilter:filter andHasZ:hasZ andHasM:hasM];
+        if([SFWBGeometryReader filter:filter geometry:ring inType:SF_POLYGON]){
             [polygon addRing:ring];
         }
     }
@@ -233,18 +258,18 @@ static NSString *WKB25D = @"0x80000000";
     return polygon;
 }
 
-+(SFMultiPoint *) readMultiPointWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readMultiPointWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFMultiPoint *) readMultiPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readMultiPointWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFMultiPoint *) readMultiPointWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFMultiPoint *) readMultiPointWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFMultiPoint *multiPoint = [[SFMultiPoint alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numPoints = [[reader readInt] intValue];
+    int numPoints = [[_reader readInt] intValue];
     
     for(int i = 0; i < numPoints; i++){
-        SFPoint *point = (SFPoint *)[SFWBGeometryReader readGeometryWithReader:reader andFilter:filter inType:SF_MULTIPOINT andExpectedType:[SFPoint class]];
+        SFPoint *point = (SFPoint *)[self readWithFilter:filter inType:SF_MULTIPOINT andExpectedType:[SFPoint class]];
         if(point != nil){
             [multiPoint addPoint:point];
         }
@@ -253,18 +278,18 @@ static NSString *WKB25D = @"0x80000000";
     return multiPoint;
 }
 
-+(SFMultiLineString *) readMultiLineStringWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readMultiLineStringWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFMultiLineString *) readMultiLineStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readMultiLineStringWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFMultiLineString *) readMultiLineStringWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFMultiLineString *) readMultiLineStringWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFMultiLineString *multiLineString = [[SFMultiLineString alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numLineStrings = [[reader readInt] intValue];
+    int numLineStrings = [[_reader readInt] intValue];
     
     for(int i = 0; i < numLineStrings; i++){
-        SFLineString *lineString = (SFLineString *)[SFWBGeometryReader readGeometryWithReader:reader andFilter:filter inType:SF_MULTILINESTRING andExpectedType:[SFLineString class]];
+        SFLineString *lineString = (SFLineString *)[self readWithFilter:filter inType:SF_MULTILINESTRING andExpectedType:[SFLineString class]];
         if(lineString != nil){
             [multiLineString addLineString:lineString];
         }
@@ -273,18 +298,18 @@ static NSString *WKB25D = @"0x80000000";
     return multiLineString;
 }
 
-+(SFMultiPolygon *) readMultiPolygonWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readMultiPolygonWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFMultiPolygon *) readMultiPolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readMultiPolygonWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFMultiPolygon *) readMultiPolygonWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFMultiPolygon *) readMultiPolygonWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numPolygons = [[reader readInt] intValue];
+    int numPolygons = [[_reader readInt] intValue];
     
     for(int i = 0; i < numPolygons; i++){
-        SFPolygon *polygon = (SFPolygon *)[SFWBGeometryReader readGeometryWithReader:reader andFilter:filter inType:SF_MULTIPOLYGON andExpectedType:[SFPolygon class]];
+        SFPolygon *polygon = (SFPolygon *)[self readWithFilter:filter inType:SF_MULTIPOLYGON andExpectedType:[SFPolygon class]];
         if(polygon != nil){
             [multiPolygon addPolygon:polygon];
         }
@@ -293,18 +318,18 @@ static NSString *WKB25D = @"0x80000000";
     return multiPolygon;
 }
 
-+(SFGeometryCollection *) readGeometryCollectionWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readGeometryCollectionWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFGeometryCollection *) readGeometryCollectionWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readGeometryCollectionWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFGeometryCollection *) readGeometryCollectionWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFGeometryCollection *) readGeometryCollectionWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFGeometryCollection *geometryCollection = [[SFGeometryCollection alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numGeometries = [[reader readInt] intValue];
+    int numGeometries = [[_reader readInt] intValue];
     
     for(int i = 0; i < numGeometries; i++){
-        SFGeometry *geometry = [SFWBGeometryReader readGeometryWithReader:reader andFilter:filter inType:SF_GEOMETRYCOLLECTION andExpectedType:[SFGeometry class]];
+        SFGeometry *geometry = [self readWithFilter:filter inType:SF_GEOMETRYCOLLECTION andExpectedType:[SFGeometry class]];
         if(geometry != nil){
             [geometryCollection addGeometry:geometry];
         }
@@ -313,19 +338,19 @@ static NSString *WKB25D = @"0x80000000";
     return geometryCollection;
 }
 
-+(SFCircularString *) readCircularStringWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readCircularStringWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFCircularString *) readCircularStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readCircularStringWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFCircularString *) readCircularStringWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFCircularString *) readCircularStringWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFCircularString *circularString = [[SFCircularString alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numPoints = [[reader readInt] intValue];
+    int numPoints = [[_reader readInt] intValue];
     
     for(int i = 0; i < numPoints; i++){
-        SFPoint *point = [SFWBGeometryReader readPointWithReader:reader andHasZ:hasZ andHasM:hasM];
-        if([self filter:filter geometry:point inType:SF_CIRCULARSTRING]){
+        SFPoint *point = [self readPointWithHasZ:hasZ andHasM:hasM];
+        if([SFWBGeometryReader filter:filter geometry:point inType:SF_CIRCULARSTRING]){
             [circularString addPoint:point];
         }
     }
@@ -333,18 +358,18 @@ static NSString *WKB25D = @"0x80000000";
     return circularString;
 }
 
-+(SFCompoundCurve *) readCompoundCurveWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readCompoundCurveWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFCompoundCurve *) readCompoundCurveWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readCompoundCurveWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFCompoundCurve *) readCompoundCurveWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFCompoundCurve *) readCompoundCurveWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFCompoundCurve *compoundCurve = [[SFCompoundCurve alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numLineStrings = [[reader readInt] intValue];
+    int numLineStrings = [[_reader readInt] intValue];
     
     for(int i = 0; i < numLineStrings; i++){
-        SFLineString *lineString = (SFLineString *)[SFWBGeometryReader readGeometryWithReader:reader andFilter:filter inType:SF_COMPOUNDCURVE andExpectedType:[SFLineString class]];
+        SFLineString *lineString = (SFLineString *)[self readWithFilter:filter inType:SF_COMPOUNDCURVE andExpectedType:[SFLineString class]];
         if(lineString != nil){
             [compoundCurve addLineString:lineString];
         }
@@ -353,18 +378,18 @@ static NSString *WKB25D = @"0x80000000";
     return compoundCurve;
 }
 
-+(SFCurvePolygon *) readCurvePolygonWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readCurvePolygonWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFCurvePolygon *) readCurvePolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readCurvePolygonWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFCurvePolygon *) readCurvePolygonWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFCurvePolygon *) readCurvePolygonWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFCurvePolygon *curvePolygon = [[SFCurvePolygon alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numRings = [[reader readInt] intValue];
+    int numRings = [[_reader readInt] intValue];
     
     for(int i = 0; i < numRings; i++){
-        SFCurve *ring = (SFCurve *)[SFWBGeometryReader readGeometryWithReader:reader andFilter:filter inType:SF_CURVEPOLYGON andExpectedType:[SFCurve class]];
+        SFCurve *ring = (SFCurve *)[self readWithFilter:filter inType:SF_CURVEPOLYGON andExpectedType:[SFCurve class]];
         if(ring != nil){
             [curvePolygon addRing:ring];
         }
@@ -373,18 +398,18 @@ static NSString *WKB25D = @"0x80000000";
     return curvePolygon;
 }
 
-+(SFPolyhedralSurface *) readPolyhedralSurfaceWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readPolyhedralSurfaceWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFPolyhedralSurface *) readPolyhedralSurfaceWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readPolyhedralSurfaceWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFPolyhedralSurface *) readPolyhedralSurfaceWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFPolyhedralSurface *) readPolyhedralSurfaceWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFPolyhedralSurface *polyhedralSurface = [[SFPolyhedralSurface alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numPolygons = [[reader readInt] intValue];
+    int numPolygons = [[_reader readInt] intValue];
     
     for(int i = 0; i < numPolygons; i++){
-        SFPolygon *polygon = (SFPolygon *)[SFWBGeometryReader readGeometryWithReader:reader andFilter:filter inType:SF_POLYHEDRALSURFACE andExpectedType:[SFPolygon class]];
+        SFPolygon *polygon = (SFPolygon *)[self readWithFilter:filter inType:SF_POLYHEDRALSURFACE andExpectedType:[SFPolygon class]];
         if(polygon != nil){
             [polyhedralSurface addPolygon:polygon];
         }
@@ -393,18 +418,18 @@ static NSString *WKB25D = @"0x80000000";
     return polyhedralSurface;
 }
 
-+(SFTIN *) readTINWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readTINWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFTIN *) readTINWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readTINWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFTIN *) readTINWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFTIN *) readTINWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFTIN *tin = [[SFTIN alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numPolygons = [[reader readInt] intValue];
+    int numPolygons = [[_reader readInt] intValue];
     
     for(int i = 0; i < numPolygons; i++){
-        SFPolygon *polygon = (SFPolygon *)[SFWBGeometryReader readGeometryWithReader:reader andFilter:filter inType:SF_TIN andExpectedType:[SFPolygon class]];
+        SFPolygon *polygon = (SFPolygon *)[self readWithFilter:filter inType:SF_TIN andExpectedType:[SFPolygon class]];
         if(polygon != nil){
             [tin addPolygon:polygon];
         }
@@ -413,24 +438,175 @@ static NSString *WKB25D = @"0x80000000";
     return tin;
 }
 
-+(SFTriangle *) readTriangleWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
-    return [self readTriangleWithReader:reader andFilter:nil andHasZ:hasZ andHasM:hasM];
+-(SFTriangle *) readTriangleWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    return [self readTriangleWithFilter:nil andHasZ:hasZ andHasM:hasM];
 }
 
-+(SFTriangle *) readTriangleWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(SFTriangle *) readTriangleWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
     SFTriangle *triangle = [[SFTriangle alloc] initWithHasZ:hasZ andHasM:hasM];
     
-    int numRings = [[reader readInt] intValue];
+    int numRings = [[_reader readInt] intValue];
     
     for(int i = 0; i < numRings; i++){
-        SFLineString *ring = [SFWBGeometryReader readLineStringWithReader:reader andFilter:filter andHasZ:hasZ andHasM:hasM];
-        if([self filter:filter geometry:ring inType:SF_TRIANGLE]){
+        SFLineString *ring = [self readLineStringWithFilter:filter andHasZ:hasZ andHasM:hasM];
+        if([SFWBGeometryReader filter:filter geometry:ring inType:SF_TRIANGLE]){
             [triangle addRing:ring];
         }
     }
     
     return triangle;
+}
+
++(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader{
+    return [self readGeometryWithReader:reader andFilter:nil andExpectedType:nil];
+}
+
++(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter{
+    return [self readGeometryWithReader:reader andFilter:filter andExpectedType:nil];
+}
+
++(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andExpectedType: (Class) expectedType{
+    return [self readGeometryWithReader:reader andFilter:nil andExpectedType:expectedType];
+}
+
++(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andExpectedType: (Class) expectedType{
+    return [self readGeometryWithReader:reader andFilter:filter inType:SF_NONE andExpectedType:expectedType];
+}
+
++(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter inType: (enum SFGeometryType) containingType andExpectedType: (Class) expectedType{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readWithFilter:filter inType:containingType andExpectedType:expectedType];
+}
+
++(SFWBGeometryTypeInfo *) readGeometryTypeWithReader: (SFByteReader *) reader{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readGeometryType];
+}
+
++(SFPoint *) readPointWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readPointWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFLineString *) readLineStringWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readLineStringWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFLineString *) readLineStringWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readLineStringWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFPolygon *) readPolygonWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readPolygonWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFPolygon *) readPolygonWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readPolygonWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFMultiPoint *) readMultiPointWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readMultiPointWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFMultiPoint *) readMultiPointWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readMultiPointWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFMultiLineString *) readMultiLineStringWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readMultiLineStringWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFMultiLineString *) readMultiLineStringWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readMultiLineStringWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFMultiPolygon *) readMultiPolygonWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readMultiPolygonWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFMultiPolygon *) readMultiPolygonWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readMultiPolygonWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFGeometryCollection *) readGeometryCollectionWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readGeometryCollectionWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFGeometryCollection *) readGeometryCollectionWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readGeometryCollectionWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFCircularString *) readCircularStringWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readCircularStringWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFCircularString *) readCircularStringWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readCircularStringWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFCompoundCurve *) readCompoundCurveWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readCompoundCurveWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFCompoundCurve *) readCompoundCurveWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readCompoundCurveWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFCurvePolygon *) readCurvePolygonWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readCurvePolygonWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFCurvePolygon *) readCurvePolygonWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readCurvePolygonWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFPolyhedralSurface *) readPolyhedralSurfaceWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readPolyhedralSurfaceWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFPolyhedralSurface *) readPolyhedralSurfaceWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readPolyhedralSurfaceWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFTIN *) readTINWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readTINWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFTIN *) readTINWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readTINWithFilter:filter andHasZ:hasZ andHasM:hasM];
+}
+
++(SFTriangle *) readTriangleWithReader: (SFByteReader *) reader andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readTriangleWithHasZ:hasZ andHasM:hasM];
+}
+
++(SFTriangle *) readTriangleWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+    SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
+    return [geometryReader readTriangleWithFilter:filter andHasZ:hasZ andHasM:hasM];
 }
 
 /**
