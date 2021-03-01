@@ -115,8 +115,7 @@
 /**
  *  Write a multi point
  *
- *  @param multiPoint multi poing
- *  @param writer     byte writer
+ *  @param multiPoint multi point
  */
 -(void) writeMultiPoint: (SFMultiPoint *) multiPoint;
 
@@ -218,7 +217,7 @@
 /**
  *  Write a multi point
  *
- *  @param multiPoint multi poing
+ *  @param multiPoint multi point
  *  @param writer     byte writer
  */
 +(void) writeMultiPoint: (SFMultiPoint *) multiPoint withWriter: (SFByteWriter *) writer;

@@ -53,7 +53,7 @@ Open sf-wkb-ios.xcworkspace in Xcode or build from command line:
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'sf-wkb-ios.xcworkspace' -scheme sf-wkb-ios -destination 'platform=iOS Simulator,name=iPhone 8'
+    xcodebuild test -workspace 'sf-wkb-ios.xcworkspace' -scheme sf-wkb-ios -destination 'platform=iOS Simulator,name=iPhone 12'
 
 ### Include Library ###
 
@@ -61,12 +61,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/sf-wkb-ios):
 
-    pod 'sf-wkb-ios', '~> 3.0.0'
+    pod 'sf-wkb-ios', '~> 4.0.0'
 
 Pull from GitHub:
 
     pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :branch => 'master'
-    pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :tag => '3.0.0'
+    pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :tag => '4.0.0'
 
 Include as local project:
 

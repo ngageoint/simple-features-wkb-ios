@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'sf-wkb-ios'
-  s.version          = '3.0.1'
+  s.version          = '4.0.0'
   s.license          =  {:type => 'MIT', :file => 'LICENSE' }
   s.summary          = 'iOS SDK for Simple Features Well-Known Binary'
   s.homepage         = 'https://github.com/ngageoint/simple-features-wkb-ios'
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation'
 
-  s.dependency 'sf-ios', '~> 3.0.1'
+  s.dependency 'sf-ios', '~> 4.0.0'
 end

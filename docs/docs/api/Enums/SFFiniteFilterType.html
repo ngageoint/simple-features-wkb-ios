@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SFCentroidSurface Class Reference</title>
+    <title>SFFiniteFilterType Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/SFCentroidSurface" class="dashAnchor"></a>
-    <a title="SFCentroidSurface Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/SFFiniteFilterType" class="dashAnchor"></a>
+    <a title="SFFiniteFilterType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">sf-wkb-ios 4.0.0 Docs</a> (90% documented)</p>
@@ -30,7 +30,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">sf-wkb-ios Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SFCentroidSurface Class Reference
+        SFFiniteFilterType Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -268,26 +268,24 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SFCentroidSurface</h1>
+            <h1>SFFiniteFilterType</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFCentroidSurface</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SFFiniteFilterType</span> <span class="p">{}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFCentroidSurface</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">SFFiniteFilterType</span> <span class="p">:</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">RawRepresentable</span></code></pre>
 
                 </div>
               </div>
-            <p>Calculate the centroid from surface based geometries. Implementation based on
- the JTS (Java Topology Suite) CentroidArea.</p>
-
-<p>@author osbornb</p>
+            <p>Finite Filter Type, including finite values and optionally one of either
+infinite or NaN values</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L18-L52">Show on GitHub</a>
+                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/filter/SFFiniteFilterTypes.h#L15-L19">Show on GitHub</a>
               </div>
           </section>
           <section class="section task-group-section">
@@ -296,9 +294,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFCentroidSurface(im)init"></a>
-                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFCentroidSurface(im)init">-init</a>
+                    <a name="/c:@E@SFFiniteFilterType@SF_FF_FINITE"></a>
+                    <a name="//apple_ref/objc/Case/SF_FF_FINITE" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SFFiniteFilterType@SF_FF_FINITE">SF_FF_FINITE</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -306,28 +304,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">SF_FF_FINITE</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>new instance</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L25">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/filter/SFFiniteFilterTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -335,9 +324,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFCentroidSurface(im)initWithGeometry:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithGeometry:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFCentroidSurface(im)initWithGeometry:">-initWithGeometry:<wbr></a>
+                    <a name="/c:@E@SFFiniteFilterType@SF_FF_FINITE_AND_INFINITE"></a>
+                    <a name="//apple_ref/objc/Case/SF_FF_FINITE_AND_INFINITE" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SFFiniteFilterType@SF_FF_FINITE_AND_INFINITE">SF_FF_FINITE_AND_INFINITE</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -345,47 +334,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithGeometry</span><span class="p">:(</span><span class="n"><a href="../Classes/SFGeometry.html">SFGeometry</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">geometry</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">SF_FF_FINITE_AND_INFINITE</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">geometry</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometry.html">SFGeometry</a></span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>geometry</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>geometry to add</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>new instance</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L34">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/filter/SFFiniteFilterTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -393,9 +354,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFCentroidSurface(im)addGeometry:"></a>
-                    <a name="//apple_ref/objc/Method/-addGeometry:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFCentroidSurface(im)addGeometry:">-addGeometry:<wbr></a>
+                    <a name="/c:@E@SFFiniteFilterType@SF_FF_FINITE_AND_NAN"></a>
+                    <a name="//apple_ref/objc/Case/SF_FF_FINITE_AND_NAN" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SFFiniteFilterType@SF_FF_FINITE_AND_NAN">SF_FF_FINITE_AND_NAN</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -403,83 +364,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add a surface based dimension 2 geometry to the centroid total. Ignores
- dimension 0 and 1 geometries.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addGeometry</span><span class="p">:(</span><span class="n"><a href="../Classes/SFGeometry.html">SFGeometry</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">geometry</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">SF_FF_FINITE_AND_NAN</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometry.html">SFGeometry</a></span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>geometry</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>geometry</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L43">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)SFCentroidSurface(im)centroid"></a>
-                    <a name="//apple_ref/objc/Method/-centroid" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFCentroidSurface(im)centroid">-centroid</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Get the centroid point</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/SFPoint.html">SFPoint</a></span> <span class="o">*</span><span class="p">)</span><span class="n">centroid</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">centroid</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SFPoint.html">SFPoint</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>centroid point</p>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/centroid/SFCentroidSurface.h#L50">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/filter/SFFiniteFilterTypes.h#L">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

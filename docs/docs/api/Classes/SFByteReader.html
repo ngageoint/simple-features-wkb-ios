@@ -17,7 +17,7 @@
     <a title="SFByteReader Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-wkb-ios 3.0.0 Docs</a> (86% documented)</p>
+        <p><a href="../index.html">sf-wkb-ios 4.0.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right">
           <form role="search" action="../search.json">
@@ -79,6 +79,9 @@
                 <a href="../Classes/SFExtendedGeometryCollection.html">SFExtendedGeometryCollection</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SFFiniteFilterTypes">SFFiniteFilterTypes</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFGeometry.html">SFGeometry</a>
               </li>
               <li class="nav-group-task">
@@ -127,6 +130,9 @@
                 <a href="../Classes/SFPoint.html">SFPoint</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFPointFiniteFilter.html">SFPointFiniteFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFPolygon.html">SFPolygon</a>
               </li>
               <li class="nav-group-task">
@@ -148,6 +154,9 @@
                 <a href="../Classes/SFTIN.html">SFTIN</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SFTextReader.html">SFTextReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SFTriangle.html">SFTriangle</a>
               </li>
               <li class="nav-group-task">
@@ -167,6 +176,12 @@
           <li class="nav-group-name">
             <a href="../Constants.html">Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteReader.h@DEFAULT_READ_BYTE_ORDER">DEFAULT_READ_BYTE_ORDER</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SFByteWriter.h@DEFAULT_WRITE_BYTE_ORDER">DEFAULT_WRITE_BYTE_ORDER</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Constants.html#/c:@SF_CIRCULARSTRING_NAME">SF_CIRCULARSTRING_NAME</a>
               </li>
@@ -233,6 +248,9 @@
                 <a href="../Enums/SFEventType.html">SFEventType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/SFFiniteFilterType.html">SFFiniteFilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SFGeometryType.html">SFGeometryType</a>
               </li>
             </ul>
@@ -266,7 +284,7 @@
             <p>Read through byte data</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L14-L70">Show on GitHub</a>
+                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L19-L94">Show on GitHub</a>
               </div>
           </section>
           <section class="section task-group-section">
@@ -302,7 +320,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L19">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L24">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -337,7 +355,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L24">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L29">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -372,7 +390,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L29">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L34">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -430,7 +448,78 @@
                         <p>new byte reader</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L38">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L43">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFByteReader(im)initWithData:andByteOrder:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithData:andByteOrder:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFByteReader(im)initWithData:andByteOrder:">-initWithData:<wbr>andByteOrder:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">bytes</span>
+                <span class="nf">andByteOrder</span><span class="p">:(</span><span class="n">CFByteOrder</span><span class="p">)</span><span class="nv">byteOrder</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="n">data</span> <span class="nv">bytes</span><span class="p">:</span> <span class="kt">Data</span><span class="o">!</span><span class="p">,</span> <span class="n">andByteOrder</span> <span class="nv">byteOrder</span><span class="p">:</span> <span class="kt">CFByteOrder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bytes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>byte data</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>byteOrder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>byte order</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>new byte reader</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -485,10 +574,10 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>string values</p>
+                        <p>string value</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L47">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L62">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -527,7 +616,65 @@
                         <p>byte</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L54">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L69">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFByteReader(im)readData:"></a>
+                    <a name="//apple_ref/objc/Method/-readData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFByteReader(im)readData:">-readData:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Read Data with the provided number of bytes</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">readData</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">num</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">readData</span><span class="p">(</span><span class="n">_</span> <span class="nv">num</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>num</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>number of bytes to read</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>data value</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L78">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -566,7 +713,7 @@
                         <p>integer</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L61">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L85">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -605,7 +752,7 @@
                         <p>double</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/3.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L68">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFByteReader.h#L92">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -615,8 +762,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-12)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2021-03-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
