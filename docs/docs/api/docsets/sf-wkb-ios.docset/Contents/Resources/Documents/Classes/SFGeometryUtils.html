@@ -17,19 +17,19 @@
     <a title="SFGeometryUtils Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-wkb-ios 4.0.0 Docs</a> (90% documented)</p>
-        <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right">
+        <p><a href="../index.html">sf-wkb-ios 4.0.1 Docs</a> (90% documented)</p>
+        <p class="header-right"><a href="https://github.com/ngageoint/simple-features-wkb-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <div class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
           </form>
-        </p>
+        </div>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">sf-wkb-ios Reference</a>
-        <img id="carat" src="../img/carat.png" />
+        <img id="carat" src="../img/carat.png" alt=""/>
         SFGeometryUtils Class Reference
       </p>
     </div>
@@ -65,6 +65,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFCurvePolygon.html">SFCurvePolygon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SFDegreesCentroid.html">SFDegreesCentroid</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SFEvent.html">SFEvent</a>
@@ -283,10 +286,8 @@
               </div>
             <p>Utilities for Geometry objects</p>
 
-<p>@author osbornb</p>
-
               <div class="slightly-smaller">
-                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L21-L443">Show on GitHub</a>
+                <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L19-L462">Show on GitHub</a>
               </div>
           </section>
           <section class="section task-group-section">
@@ -346,7 +347,7 @@
                         <p>dimension (0, 1, or 2)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L31">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L29">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -416,7 +417,7 @@
                         <p>distance</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L42">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L40">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -477,7 +478,126 @@
                         <p>centroid point</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L54">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L52">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFGeometryUtils(cm)degreesCentroidOfGeometry:"></a>
+                    <a name="//apple_ref/objc/Method/+degreesCentroidOfGeometry:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGeometryUtils(cm)degreesCentroidOfGeometry:">+degreesCentroidOfGeometry:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the geographic centroid point of a 2 dimensional representation of
+ the degree unit Geometry. Only the x and y coordinate of the resulting
+ point are calculated and populated. The resulting SFPoint.z and
+ SFPoint.m values will always be nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/SFPoint.html">SFPoint</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">degreesCentroidOfGeometry</span><span class="p">:(</span><span class="n"><a href="../Classes/SFGeometry.html">SFGeometry</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">geometry</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">degreesCentroid</span><span class="p">(</span><span class="n">of</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometry.html">SFGeometry</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SFPoint.html">SFPoint</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>geometry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>geometry object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>centroid point</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L64">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFGeometryUtils(cm)centroidOfEnvelope:"></a>
+                    <a name="//apple_ref/objc/Method/+centroidOfEnvelope:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGeometryUtils(cm)centroidOfEnvelope:">+centroidOfEnvelope:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the envelope centroid point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/SFPoint.html">SFPoint</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">centroidOfEnvelope</span><span class="p">:(</span><span class="n"><a href="../Classes/SFGeometryEnvelope.html">SFGeometryEnvelope</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">envelope</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">centroid</span><span class="p">(</span><span class="n">of</span> <span class="nv">envelope</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometryEnvelope.html">SFGeometryEnvelope</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SFPoint.html">SFPoint</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>envelope</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>geometry envelope</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>centroid point</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L73">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -551,7 +671,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L72">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L91">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -624,7 +744,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L89">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L108">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -697,7 +817,7 @@
                         <p>simplified points</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L102">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L121">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -782,7 +902,7 @@
                         <p>distance in meters</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L116">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L135">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -852,7 +972,7 @@
                         <p>true if in the polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L127">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L146">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -936,7 +1056,7 @@
                         <p>true if in the polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L140">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1006,7 +1126,7 @@
                         <p>true if in the polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L151">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L170">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1090,7 +1210,7 @@
                         <p>true if in the polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L164">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L183">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1160,7 +1280,7 @@
                         <p>true if in the polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L175">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1244,7 +1364,7 @@
                         <p>true if in the polygon</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L188">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1314,7 +1434,7 @@
                         <p>true if on the polygon edge</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L199">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L218">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1398,7 +1518,7 @@
                         <p>true if on the polygon edge</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L212">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1468,7 +1588,7 @@
                         <p>true if on the polygon edge</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L223">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L242">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1552,7 +1672,7 @@
                         <p>true if on the polygon edge</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L236">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L255">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1622,7 +1742,7 @@
                         <p>true if on the polygon edge</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L247">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L266">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1706,7 +1826,7 @@
                         <p>true if on the polygon edge</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L260">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1765,7 +1885,7 @@
                         <p>true if the first and last points are the same</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L270">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1824,7 +1944,7 @@
                         <p>true if the first and last points are the same</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L280">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L299">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1883,7 +2003,7 @@
                         <p>true if the first and last points are the same</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L290">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L309">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1953,7 +2073,7 @@
                         <p>true if on the line</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L301">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2037,7 +2157,7 @@
                         <p>true if on the line</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L314">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2107,7 +2227,7 @@
                         <p>true if on the line</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L325">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2191,7 +2311,7 @@
                         <p>true if on the line</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L338">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2275,7 +2395,7 @@
                         <p>true if on the path</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L351">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2372,7 +2492,7 @@
                         <p>true if on the path</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L366">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2430,7 +2550,7 @@
                         <p>true if has z</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L375">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2488,7 +2608,7 @@
                         <p>true if has m</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L384">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2549,7 +2669,7 @@
                         <p>list of increasing parent types</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L395">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L414">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2608,7 +2728,7 @@
      type)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L405">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2667,7 +2787,7 @@
                         <p>child type hierarchy, null if no children</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L414">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L433">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2725,7 +2845,7 @@
                         <p>child geometry types, empty list if no child types</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L423">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L442">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2783,7 +2903,7 @@
                         <p>encoded dta</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L432">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2841,7 +2961,7 @@
                         <p>geometry</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.0/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L441">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-wkb-ios/tree/4.0.1/Pods/sf-ios/sf-ios/util/SFGeometryUtils.h#L460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2851,11 +2971,10 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2021-03-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2022 <a class="link" href="https://www.nga.mil" target="_blank" rel="external noopener">NGA</a>. All rights reserved. (Last updated: 2022-02-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
   </body>
-</div>
 </html>
