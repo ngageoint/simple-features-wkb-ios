@@ -297,8 +297,8 @@
 
 +(void) compareGeometryDataWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual andByteOrder: (CFByteOrder) byteOrder{
     
-    NSData * expectedData = [self writeDataWithGeometry:expected andByteOrder:byteOrder];
-    NSData * actualData = [self writeDataWithGeometry:actual andByteOrder:byteOrder];
+    NSData *expectedData = [self writeDataWithGeometry:expected andByteOrder:byteOrder];
+    NSData *actualData = [self writeDataWithGeometry:actual andByteOrder:byteOrder];
     
     [self compareDataWithExpected:expectedData andActual:actualData];
 }
@@ -309,8 +309,8 @@
 
 +(void) compareDataGeometriesWithExpected: (NSData *) expected andActual: (NSData *) actual andByteOrder: (CFByteOrder) byteOrder{
     
-    SFGeometry * expectedGeometry = [self readGeometryWithData:expected andByteOrder:byteOrder];
-    SFGeometry * actualGeometry = [self readGeometryWithData:actual andByteOrder:byteOrder];
+    SFGeometry *expectedGeometry = [self readGeometryWithData:expected andByteOrder:byteOrder];
+    SFGeometry *actualGeometry = [self readGeometryWithData:actual andByteOrder:byteOrder];
     
     [self compareGeometriesWithExpected:expectedGeometry andActual:actualGeometry];
 }
@@ -328,8 +328,8 @@
 }
 
 +(SFGeometry *) readGeometryWithData: (NSData *) data andByteOrder: (CFByteOrder) byteOrder{
-    SFByteReader * reader = [[SFByteReader alloc] initWithData:data andByteOrder:byteOrder];
-    SFGeometry * geometry = [SFWBGeometryReader readGeometryWithReader:reader];
+    SFByteReader *reader = [[SFByteReader alloc] initWithData:data andByteOrder:byteOrder];
+    SFGeometry *geometry = [SFWBGeometryReader readGeometryWithReader:reader];
     return geometry;
 }
 
@@ -425,20 +425,20 @@
     double x = [SFWBTestUtils randomDoubleLessThan:180.0] * ([SFWBTestUtils randomDouble] < .5 ? 1 : -1);
     double y = [SFWBTestUtils randomDoubleLessThan:90.0] * ([SFWBTestUtils randomDouble] < .5 ? 1 : -1);
     
-    NSDecimalNumber * xNumber = [SFWBTestUtils roundDouble:x];
-    NSDecimalNumber * yNumber = [SFWBTestUtils roundDouble:y];
+    NSDecimalNumber *xNumber = [SFWBTestUtils roundDouble:x];
+    NSDecimalNumber *yNumber = [SFWBTestUtils roundDouble:y];
     
-    SFPoint * point = [[SFPoint alloc] initWithHasZ:hasZ andHasM:hasM andX:xNumber andY:yNumber];
+    SFPoint *point = [SFPoint pointWithHasZ:hasZ andHasM:hasM andX:xNumber andY:yNumber];
     
     if(hasZ){
         double z = [SFWBTestUtils randomDoubleLessThan:1000.0];
-        NSDecimalNumber * zNumber = [SFWBTestUtils roundDouble:z];
+        NSDecimalNumber *zNumber = [SFWBTestUtils roundDouble:z];
         [point setZ:zNumber];
     }
     
     if(hasM){
         double m = [SFWBTestUtils randomDoubleLessThan:1000.0];
-        NSDecimalNumber * mNumber = [SFWBTestUtils roundDouble:m];
+        NSDecimalNumber *mNumber = [SFWBTestUtils roundDouble:m];
         [point setM:mNumber];
     }
     
@@ -451,7 +451,7 @@
 
 +(SFLineString *) createLineStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM andRing: (BOOL) ring{
     
-    SFLineString * lineString = [[SFLineString alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFLineString *lineString = [SFLineString lineStringWithHasZ:hasZ andHasM:hasM];
     
     int num = 2 + [SFWBTestUtils randomIntLessThan:9];
     
@@ -468,7 +468,7 @@
 
 +(SFPolygon *) createPolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFPolygon * polygon = [[SFPolygon alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFPolygon *polygon = [SFPolygon polygonWithHasZ:hasZ andHasM:hasM];
     
     int num = 1 + [SFWBTestUtils randomIntLessThan:5];
     
@@ -481,7 +481,7 @@
 
 +(SFMultiPoint *) createMultiPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFMultiPoint * multiPoint = [[SFMultiPoint alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFMultiPoint *multiPoint = [SFMultiPoint multiPointWithHasZ:hasZ andHasM:hasM];
     
     int num = 1 + [SFWBTestUtils randomIntLessThan:5];
     
@@ -494,7 +494,7 @@
 
 +(SFMultiLineString *) createMultiLineStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFMultiLineString * multiLineString = [[SFMultiLineString alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFMultiLineString *multiLineString = [SFMultiLineString multiLineStringWithHasZ:hasZ andHasM:hasM];
     
     int num = 1 + [SFWBTestUtils randomIntLessThan:5];
     
@@ -507,7 +507,7 @@
 
 +(SFMultiPolygon *) createMultiPolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFMultiPolygon * multiPolygon = [[SFMultiPolygon alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFMultiPolygon *multiPolygon = [SFMultiPolygon multiPolygonWithHasZ:hasZ andHasM:hasM];
     
     int num = 1 + [SFWBTestUtils randomIntLessThan:5];
     
@@ -520,13 +520,13 @@
 
 +(SFGeometryCollection *) createGeometryCollectionWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFGeometryCollection * geometryCollection = [[SFGeometryCollection alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFGeometryCollection *geometryCollection = [SFGeometryCollection geometryCollectionWithHasZ:hasZ andHasM:hasM];
     
     int num = 1 + [SFWBTestUtils randomIntLessThan:5];
     
     for(int i = 0; i < num; i++){
         
-        SFGeometry * geometry = nil;
+        SFGeometry *geometry = nil;
         int randomGeometry =[SFWBTestUtils randomIntLessThan:6];
         
         switch(randomGeometry){
@@ -562,7 +562,7 @@
 
 +(SFCompoundCurve *) createCompoundCurveWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM andRing: (BOOL) ring{
     
-    SFCompoundCurve *compoundCurve = [[SFCompoundCurve alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFCompoundCurve *compoundCurve = [SFCompoundCurve compoundCurveWithHasZ:hasZ andHasM:hasM];
     
     int num = 2 + [SFWBTestUtils randomIntLessThan:9];
     
@@ -579,7 +579,7 @@
 
 +(SFCurvePolygon *) createCurvePolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFCurvePolygon *curvePolygon = [[SFCurvePolygon alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFCurvePolygon *curvePolygon = [SFCurvePolygon curvePolygonWithHasZ:hasZ andHasM:hasM];
     
     int num = 1 + [SFWBTestUtils randomIntLessThan:5];
     
@@ -592,7 +592,7 @@
 
 +(SFGeometryCollection *) createMultiCurve{
     
-    SFGeometryCollection *multiCurve = [[SFGeometryCollection alloc] init];
+    SFGeometryCollection *multiCurve = [SFGeometryCollection geometryCollection];
     
     int num = 1 + [SFWBTestUtils randomIntLessThan:5];
     
@@ -609,7 +609,7 @@
 
 +(SFGeometryCollection *) createMultiSurface{
     
-    SFGeometryCollection *multiSurface = [[SFGeometryCollection alloc] init];
+    SFGeometryCollection *multiSurface = [SFGeometryCollection geometryCollection];
     
     int num = 1 + [SFWBTestUtils randomIntLessThan:5];
     

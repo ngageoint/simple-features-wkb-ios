@@ -20,7 +20,7 @@ static SFGeometry *TEST_GEOMETRY;
 static NSData *TEST_DATA;
 
 -(void) setUp{
-    TEST_GEOMETRY = [[SFPoint alloc] initWithXValue:1.0 andYValue:1.0];
+    TEST_GEOMETRY = [SFPoint pointWithXValue:1.0 andYValue:1.0];
     const char bytes[] = { 0, 0, 0, 0, 1, 63, -16, 0,
         0, 0, 0, 0, 0, 63, -16, 0, 0, 0, 0, 0, 0 };
     TEST_DATA = [[NSData alloc] initWithBytes:bytes length:sizeof(bytes)];

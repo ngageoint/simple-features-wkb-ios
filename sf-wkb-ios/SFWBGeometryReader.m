@@ -203,7 +203,7 @@ static NSString *WKB25D = @"0x80000000";
     NSDecimalNumber *x = [_reader readDouble];
     NSDecimalNumber *y = [_reader readDouble];
     
-    SFPoint *point = [[SFPoint alloc] initWithHasZ:hasZ andHasM:hasM andX:x andY:y];
+    SFPoint *point = [SFPoint pointWithHasZ:hasZ andHasM:hasM andX:x andY:y];
     
     if(hasZ){
         NSDecimalNumber *z = [_reader readDouble];
@@ -224,7 +224,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFLineString *) readLineStringWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFLineString *lineString = [[SFLineString alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFLineString *lineString = [SFLineString lineStringWithHasZ:hasZ andHasM:hasM];
     
     int numPoints = [[_reader readInt] intValue];
     
@@ -244,7 +244,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFPolygon *) readPolygonWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
 
-    SFPolygon *polygon = [[SFPolygon alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFPolygon *polygon = [SFPolygon polygonWithHasZ:hasZ andHasM:hasM];
     
     int numRings = [[_reader readInt] intValue];
     
@@ -264,7 +264,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFMultiPoint *) readMultiPointWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFMultiPoint *multiPoint = [[SFMultiPoint alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFMultiPoint *multiPoint = [SFMultiPoint multiPointWithHasZ:hasZ andHasM:hasM];
     
     int numPoints = [[_reader readInt] intValue];
     
@@ -284,7 +284,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFMultiLineString *) readMultiLineStringWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFMultiLineString *multiLineString = [[SFMultiLineString alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFMultiLineString *multiLineString = [SFMultiLineString multiLineStringWithHasZ:hasZ andHasM:hasM];
     
     int numLineStrings = [[_reader readInt] intValue];
     
@@ -304,7 +304,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFMultiPolygon *) readMultiPolygonWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFMultiPolygon *multiPolygon = [SFMultiPolygon multiPolygonWithHasZ:hasZ andHasM:hasM];
     
     int numPolygons = [[_reader readInt] intValue];
     
@@ -324,7 +324,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFGeometryCollection *) readGeometryCollectionWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFGeometryCollection *geometryCollection = [[SFGeometryCollection alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFGeometryCollection *geometryCollection = [SFGeometryCollection geometryCollectionWithHasZ:hasZ andHasM:hasM];
     
     int numGeometries = [[_reader readInt] intValue];
     
@@ -344,7 +344,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFCircularString *) readCircularStringWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFCircularString *circularString = [[SFCircularString alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFCircularString *circularString = [SFCircularString circularStringWithHasZ:hasZ andHasM:hasM];
     
     int numPoints = [[_reader readInt] intValue];
     
@@ -364,7 +364,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFCompoundCurve *) readCompoundCurveWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFCompoundCurve *compoundCurve = [[SFCompoundCurve alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFCompoundCurve *compoundCurve = [SFCompoundCurve compoundCurveWithHasZ:hasZ andHasM:hasM];
     
     int numLineStrings = [[_reader readInt] intValue];
     
@@ -384,7 +384,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFCurvePolygon *) readCurvePolygonWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFCurvePolygon *curvePolygon = [[SFCurvePolygon alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFCurvePolygon *curvePolygon = [SFCurvePolygon curvePolygonWithHasZ:hasZ andHasM:hasM];
     
     int numRings = [[_reader readInt] intValue];
     
@@ -404,7 +404,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFPolyhedralSurface *) readPolyhedralSurfaceWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFPolyhedralSurface *polyhedralSurface = [[SFPolyhedralSurface alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFPolyhedralSurface *polyhedralSurface = [SFPolyhedralSurface polyhedralSurfaceWithHasZ:hasZ andHasM:hasM];
     
     int numPolygons = [[_reader readInt] intValue];
     
@@ -424,7 +424,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFTIN *) readTINWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFTIN *tin = [[SFTIN alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFTIN *tin = [SFTIN tinWithHasZ:hasZ andHasM:hasM];
     
     int numPolygons = [[_reader readInt] intValue];
     
@@ -444,7 +444,7 @@ static NSString *WKB25D = @"0x80000000";
 
 -(SFTriangle *) readTriangleWithFilter: (NSObject<SFGeometryFilter> *) filter andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     
-    SFTriangle *triangle = [[SFTriangle alloc] initWithHasZ:hasZ andHasM:hasM];
+    SFTriangle *triangle = [SFTriangle triangleWithHasZ:hasZ andHasM:hasM];
     
     int numRings = [[_reader readInt] intValue];
     

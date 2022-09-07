@@ -2,42 +2,42 @@
   "warnings": [
     {
       "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 20,
+      "line": 24,
       "symbol": "SFGeometryEnvelope.maxX",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 26,
+      "line": 30,
       "symbol": "SFGeometryEnvelope.maxY",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 32,
+      "line": 36,
       "symbol": "SFGeometryEnvelope.minZ",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 33,
+      "line": 37,
       "symbol": "SFGeometryEnvelope.maxZ",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 39,
+      "line": 43,
       "symbol": "SFGeometryEnvelope.minM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/SFGeometryEnvelope.h",
-      "line": 40,
+      "line": 44,
       "symbol": "SFGeometryEnvelope.maxM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
@@ -305,6 +305,13 @@
       "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/SFGeometryTypes.h",
       "line": 59,
       "symbol": "SFGeometryTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/util/SFGeometryConstants.h",
+      "line": 81,
+      "symbol": "SFGeometryConstants",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },

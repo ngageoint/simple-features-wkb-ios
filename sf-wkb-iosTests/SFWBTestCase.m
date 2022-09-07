@@ -35,7 +35,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 -(void) testPoint {
     for (int i = 0; i < GEOMETRIES_PER_TEST; i++) {
         // Create and test a point
-        SFPoint * point = [SFWBGeometryTestUtils createPointWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
+        SFPoint *point = [SFWBGeometryTestUtils createPointWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
         [self geometryTester: point];
     }
 }
@@ -43,7 +43,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 -(void) testLineString {
     for (int i = 0; i < GEOMETRIES_PER_TEST; i++) {
         // Create and test a line string
-        SFLineString * lineString = [SFWBGeometryTestUtils createLineStringWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
+        SFLineString *lineString = [SFWBGeometryTestUtils createLineStringWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
         [self geometryTester: lineString];
     }
 }
@@ -51,7 +51,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 -(void) testPolygon {
     for (int i = 0; i < GEOMETRIES_PER_TEST; i++) {
         // Create and test a polygon
-        SFPolygon * polygon = [SFWBGeometryTestUtils createPolygonWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
+        SFPolygon *polygon = [SFWBGeometryTestUtils createPolygonWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
         [self geometryTester: polygon];
     }
 }
@@ -59,7 +59,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 -(void) testMultiPoint {
     for (int i = 0; i < GEOMETRIES_PER_TEST; i++) {
         // Create and test a multi point
-        SFMultiPoint * multiPoint = [SFWBGeometryTestUtils createMultiPointWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
+        SFMultiPoint *multiPoint = [SFWBGeometryTestUtils createMultiPointWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
         [self geometryTester: multiPoint];
     }
 }
@@ -67,7 +67,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 -(void) testMultiLineString {
     for (int i = 0; i < GEOMETRIES_PER_TEST; i++) {
         // Create and test a multi line string
-        SFMultiLineString * multiLineString = [SFWBGeometryTestUtils createMultiLineStringWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
+        SFMultiLineString *multiLineString = [SFWBGeometryTestUtils createMultiLineStringWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
         [self geometryTester: multiLineString];
     }
 }
@@ -119,7 +119,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     [SFWBTestUtils assertEqualDoubleWithValue:-76.52909336488278 andValue2:[point2.x doubleValue] andDelta:0.0000000000001];
     [SFWBTestUtils assertEqualDoubleWithValue:44.2390383216843 andValue2:[point2.y doubleValue] andDelta:0.0000000000001];
     
-    SFExtendedGeometryCollection *extendedMultiCurve = [[SFExtendedGeometryCollection alloc] initWithGeometryCollection:multiCurve];
+    SFExtendedGeometryCollection *extendedMultiCurve = [SFExtendedGeometryCollection extendedGeometryCollectionWithGeometryCollection:multiCurve];
     [SFWBTestUtils assertEqualIntWithValue:SF_MULTICURVE andValue2:extendedMultiCurve.geometryType];
     
     [self geometryTester:extendedMultiCurve withCompare:multiCurve andDoubleCompare:YES andDelta:0.0000000000001];
@@ -162,14 +162,14 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     [SFWBTestUtils assertEqualIntWithValue:3 andValue2:[lineString1 numPoints]];
     [SFWBTestUtils assertEqualIntWithValue:2 andValue2:[lineString2 numPoints]];
     
-    [SFWBTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:3451418.006 andYValue:5481808.951] andValue2:[lineString1 pointAtIndex:0]];
-    [SFWBTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:3451417.787 andYValue:5481809.927] andValue2:[lineString1 pointAtIndex:1]];
-    [SFWBTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:3451409.995 andYValue:5481806.744] andValue2:[lineString1 pointAtIndex:2]];
+    [SFWBTestUtils assertEqualWithValue:[SFPoint pointWithXValue:3451418.006 andYValue:5481808.951] andValue2:[lineString1 pointAtIndex:0]];
+    [SFWBTestUtils assertEqualWithValue:[SFPoint pointWithXValue:3451417.787 andYValue:5481809.927] andValue2:[lineString1 pointAtIndex:1]];
+    [SFWBTestUtils assertEqualWithValue:[SFPoint pointWithXValue:3451409.995 andYValue:5481806.744] andValue2:[lineString1 pointAtIndex:2]];
     
-    [SFWBTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:3451409.995 andYValue:5481806.744] andValue2:[lineString2 pointAtIndex:0]];
-    [SFWBTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:3451418.006 andYValue:5481808.951] andValue2:[lineString2 pointAtIndex:1]];
+    [SFWBTestUtils assertEqualWithValue:[SFPoint pointWithXValue:3451409.995 andYValue:5481806.744] andValue2:[lineString2 pointAtIndex:0]];
+    [SFWBTestUtils assertEqualWithValue:[SFPoint pointWithXValue:3451418.006 andYValue:5481808.951] andValue2:[lineString2 pointAtIndex:1]];
     
-    SFExtendedGeometryCollection *extendedMultiCurve = [[SFExtendedGeometryCollection alloc] initWithGeometryCollection:multiCurve];
+    SFExtendedGeometryCollection *extendedMultiCurve = [SFExtendedGeometryCollection extendedGeometryCollectionWithGeometryCollection:multiCurve];
     [SFWBTestUtils assertEqualIntWithValue:SF_MULTICURVE andValue2:extendedMultiCurve.geometryType];
     
     [self geometryTester:extendedMultiCurve withCompare:multiCurve];
@@ -188,7 +188,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     NSData *data = [SFWBGeometryTestUtils writeDataWithGeometry:multiCurve];
     
-    SFExtendedGeometryCollection *extendedMultiCurve = [[SFExtendedGeometryCollection alloc] initWithGeometryCollection:multiCurve];
+    SFExtendedGeometryCollection *extendedMultiCurve = [SFExtendedGeometryCollection extendedGeometryCollectionWithGeometryCollection:multiCurve];
     [SFWBTestUtils assertEqualIntWithValue:SF_MULTICURVE andValue2:extendedMultiCurve.geometryType];
     
     NSData *extendedData = [SFWBGeometryTestUtils writeDataWithGeometry:extendedMultiCurve];
@@ -229,7 +229,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     NSData *data = [SFWBGeometryTestUtils writeDataWithGeometry:multiSurface];
     
-    SFExtendedGeometryCollection *extendedMultiSurface = [[SFExtendedGeometryCollection alloc] initWithGeometryCollection:multiSurface];
+    SFExtendedGeometryCollection *extendedMultiSurface = [SFExtendedGeometryCollection extendedGeometryCollectionWithGeometryCollection:multiSurface];
     [SFWBTestUtils assertEqualIntWithValue:SF_MULTISURFACE andValue2:extendedMultiSurface.geometryType];
     
     NSData *extendedData = [SFWBGeometryTestUtils writeDataWithGeometry:extendedMultiSurface];
@@ -265,7 +265,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 -(void) testMultiPolygon {
     for (int i = 0; i < GEOMETRIES_PER_TEST; i++) {
         // Create and test a multi polygon
-        SFMultiPolygon * multiPolygon = [SFWBGeometryTestUtils createMultiPolygonWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
+        SFMultiPolygon *multiPolygon = [SFWBGeometryTestUtils createMultiPolygonWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
         [self geometryTester: multiPolygon];
     }
 }
@@ -273,7 +273,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 -(void) testGeometryCollection {
     for (int i = 0; i < GEOMETRIES_PER_TEST; i++) {
         // Create and test a geometry collection
-        SFGeometryCollection * geometryCollection = [SFWBGeometryTestUtils createGeometryCollectionWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
+        SFGeometryCollection *geometryCollection = [SFWBGeometryTestUtils createGeometryCollectionWithHasZ:[SFWBTestUtils coinFlip] andHasM:[SFWBTestUtils coinFlip]];
         [self geometryTester: geometryCollection];
     }
 }
@@ -336,7 +336,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 
     SFPoint *point = [SFWBGeometryTestUtils createPointWithHasZ:NO andHasM:NO];
 
-    SFPoint *nan = [[SFPoint alloc] initWithXValue:NAN andYValue:NAN];
+    SFPoint *nan = [SFPoint pointWithXValue:NAN andYValue:NAN];
     SFPoint *nanZ = [SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:NO];
     [nanZ setZValue:NAN];
     SFPoint *nanM = [SFWBGeometryTestUtils createPointWithHasZ:NO andHasM:YES];
@@ -345,7 +345,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     [nanZ setZValue:NAN];
     [nanM setMValue:NAN];
     
-    SFPoint *infinite = [[SFPoint alloc] initWithXValue:INFINITY andYValue:INFINITY];
+    SFPoint *infinite = [SFPoint pointWithXValue:INFINITY andYValue:INFINITY];
     SFPoint *infiniteZ = [SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:NO];
     [infiniteZ setZValue:INFINITY];
     SFPoint *infiniteM = [SFWBGeometryTestUtils createPointWithHasZ:NO andHasM:YES];
@@ -354,17 +354,17 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     [infiniteZM setZValue:INFINITY];
     [infiniteZM setMValue:INFINITY];
 
-    SFPoint *nanInfinite = [[SFPoint alloc] initWithXValue:NAN andYValue:INFINITY];
+    SFPoint *nanInfinite = [SFPoint pointWithXValue:NAN andYValue:INFINITY];
     SFPoint *nanInfiniteZM = [SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:YES];
     [nanInfiniteZM setZValue:NAN];
     [nanInfiniteZM setMValue:-INFINITY];
 
-    SFPoint *infiniteNan = [[SFPoint alloc] initWithXValue:INFINITY andYValue:NAN];
+    SFPoint *infiniteNan = [SFPoint pointWithXValue:INFINITY andYValue:NAN];
     SFPoint *infiniteNanZM = [SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:YES];
     [infiniteNanZM setZValue:-INFINITY];
     [infiniteNanZM setMValue:NAN];
 
-    SFLineString *lineString1 = [[SFLineString alloc] init];
+    SFLineString *lineString1 = [SFLineString lineString];
     [lineString1 addPoint:point];
     [lineString1 addPoint:nan];
     [lineString1 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:NO andHasM:NO]];
@@ -374,19 +374,19 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     [lineString1 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:NO andHasM:NO]];
     [lineString1 addPoint:infiniteNan];
 
-    SFLineString *lineString2 = [[SFLineString alloc] initWithHasZ:YES andHasM:NO];
+    SFLineString *lineString2 = [SFLineString lineStringWithHasZ:YES andHasM:NO];
     [lineString2 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:NO]];
     [lineString2 addPoint:nanZ];
     [lineString2 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:NO]];
     [lineString2 addPoint:infiniteZ];
 
-    SFLineString *lineString3 = [[SFLineString alloc] initWithHasZ:NO andHasM:YES];
+    SFLineString *lineString3 = [SFLineString lineStringWithHasZ:NO andHasM:YES];
     [lineString3 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:NO andHasM:YES]];
     [lineString3 addPoint:nanM];
     [lineString3 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:NO andHasM:YES]];
     [lineString3 addPoint:infiniteM];
 
-    SFLineString *lineString4 = [[SFLineString alloc] initWithHasZ:YES andHasM:YES];
+    SFLineString *lineString4 = [SFLineString lineStringWithHasZ:YES andHasM:YES];
     [lineString4 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:YES]];
     [lineString4 addPoint:nanZM];
     [lineString4 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:YES]];
@@ -396,10 +396,10 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     [lineString4 addPoint:[SFWBGeometryTestUtils createPointWithHasZ:YES andHasM:YES]];
     [lineString4 addPoint:infiniteNanZM];
 
-    SFPolygon *polygon1 = [[SFPolygon alloc] initWithRing:lineString1];
-    SFPolygon *polygon2 = [[SFPolygon alloc] initWithRing:lineString2];
-    SFPolygon *polygon3 = [[SFPolygon alloc] initWithRing:lineString3];
-    SFPolygon *polygon4 = [[SFPolygon alloc] initWithRing:lineString4];
+    SFPolygon *polygon1 = [SFPolygon polygonWithRing:lineString1];
+    SFPolygon *polygon2 = [SFPolygon polygonWithRing:lineString2];
+    SFPolygon *polygon3 = [SFPolygon polygonWithRing:lineString3];
+    SFPolygon *polygon4 = [SFPolygon polygonWithRing:lineString4];
 
     for(SFPoint *pnt in lineString1.points){
         [SFWBTestCase finiteFilterTester:pnt];
@@ -439,15 +439,15 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
 -(void) geometryTester: (SFGeometry *) geometry withCompare: (SFGeometry *) compareGeometry andDoubleCompare: (BOOL) doubleCompare andDelta: (double) delta{
     
     // Write the geometries to bytes
-    NSData * data1 = [SFWBGeometryTestUtils writeDataWithGeometry:geometry andByteOrder:CFByteOrderBigEndian];
-    NSData * data2 = [SFWBGeometryTestUtils writeDataWithGeometry:geometry andByteOrder:CFByteOrderLittleEndian];
+    NSData *data1 = [SFWBGeometryTestUtils writeDataWithGeometry:geometry andByteOrder:CFByteOrderBigEndian];
+    NSData *data2 = [SFWBGeometryTestUtils writeDataWithGeometry:geometry andByteOrder:CFByteOrderLittleEndian];
     
     [SFWBTestUtils assertFalse:[SFWBGeometryTestUtils equalDataWithExpected:data1 andActual:data2]];
     
     // Test that the bytes are read using their written byte order, not
     // the specified
-    SFGeometry * geometry1opposite = [SFWBGeometryTestUtils readGeometryWithData:data1 andByteOrder:CFByteOrderLittleEndian];
-    SFGeometry * geometry2opposite = [SFWBGeometryTestUtils readGeometryWithData:data2 andByteOrder:CFByteOrderBigEndian];
+    SFGeometry *geometry1opposite = [SFWBGeometryTestUtils readGeometryWithData:data1 andByteOrder:CFByteOrderLittleEndian];
+    SFGeometry *geometry2opposite = [SFWBGeometryTestUtils readGeometryWithData:data2 andByteOrder:CFByteOrderBigEndian];
     NSData *compareGeometryData = [SFWBGeometryTestUtils writeDataWithGeometry:compareGeometry];
     NSData *geometry1oppositeData = [SFWBGeometryTestUtils writeDataWithGeometry:geometry1opposite];
     NSData *geometry2oppositeData = [SFWBGeometryTestUtils writeDataWithGeometry:geometry2opposite];
@@ -459,8 +459,8 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
         [SFWBGeometryTestUtils compareDataWithExpected:compareGeometryData andActual:geometry2oppositeData];
     }
     
-    SFGeometry * geometry1 = [SFWBGeometryTestUtils readGeometryWithData:data1 andByteOrder:CFByteOrderBigEndian];
-    SFGeometry * geometry2 = [SFWBGeometryTestUtils readGeometryWithData:data2 andByteOrder:CFByteOrderLittleEndian];
+    SFGeometry *geometry1 = [SFWBGeometryTestUtils readGeometryWithData:data1 andByteOrder:CFByteOrderBigEndian];
+    SFGeometry *geometry2 = [SFWBGeometryTestUtils readGeometryWithData:data2 andByteOrder:CFByteOrderLittleEndian];
     
     [SFWBGeometryTestUtils compareGeometriesWithExpected:compareGeometry andActual:geometry1 andDelta:delta];
     [SFWBGeometryTestUtils compareGeometriesWithExpected:compareGeometry andActual:geometry2 andDelta:delta];
