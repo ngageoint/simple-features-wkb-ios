@@ -9,10 +9,8 @@
 #import <XCTest/XCTest.h>
 #import "SFWBTestUtils.h"
 #import "SFWBGeometryTestUtils.h"
-#import "SFGeometryEnvelopeBuilder.h"
 #import "SFWBGeometryCodes.h"
 #import "SFExtendedGeometryCollection.h"
-#import "SFByteReader.h"
 #import "SFPointFiniteFilter.h"
 #import "SFWBGeometryReader.h"
 

@@ -6,10 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "SFWBTestUtils.h"
 #import "SFWBReadmeTest.h"
-#import "SFGeometry.h"
-#import "SFPoint.h"
+#import "SFWBTestUtils.h"
 #import "SFWBGeometryReader.h"
 #import "SFWBGeometryWriter.h"
 #import "SFWBGeometryTestUtils.h"

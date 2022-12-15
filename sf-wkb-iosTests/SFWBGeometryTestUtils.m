@@ -10,7 +10,6 @@
 #import "SFWBTestUtils.h"
 #import "SFByteWriter.h"
 #import "SFWBGeometryWriter.h"
-#import "SFByteReader.h"
 #import "SFWBGeometryReader.h"
 #import "SFWBGeometryCodes.h"
 
