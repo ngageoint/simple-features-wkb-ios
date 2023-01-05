@@ -79,7 +79,7 @@
     [_writer writeByte:byteOrder];
     
     // Write the geometry type integer
-    [self writeInt:[SFWBGeometryCodes codeFromGeometry:geometry]];
+    [self writeInt:[SFWBGeometryCodes wkbCodeFromGeometry:geometry]];
     
     enum SFGeometryType geometryType = geometry.geometryType;
     
@@ -97,14 +97,8 @@
             [self writePolygon:(SFPolygon *)geometry];
             break;
         case SF_MULTIPOINT:
-            [self writeMultiPoint:(SFMultiPoint *)geometry];
-            break;
         case SF_MULTILINESTRING:
-            [self writeMultiLineString:(SFMultiLineString *)geometry];
-            break;
         case SF_MULTIPOLYGON:
-            [self writeMultiPolygon:(SFMultiPolygon *)geometry];
-            break;
         case SF_GEOMETRYCOLLECTION:
         case SF_MULTICURVE:
         case SF_MULTISURFACE:

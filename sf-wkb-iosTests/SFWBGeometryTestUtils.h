@@ -117,11 +117,17 @@
 
 +(SFLineString *) createLineStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM andRing: (BOOL) ring;
 
++(SFCircularString *) createCircularStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
+
++(SFCircularString *) createCircularStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM andClosed: (BOOL) closed;
+
 +(SFPolygon *) createPolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 +(SFMultiPoint *) createMultiPointWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 +(SFMultiLineString *) createMultiLineStringWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
+
++(SFMultiLineString *) createMultiLineStringOfCircularStringsWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 +(SFMultiPolygon *) createMultiPolygonWithHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 

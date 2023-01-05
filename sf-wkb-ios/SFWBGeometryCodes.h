@@ -46,6 +46,24 @@
 +(int) codeFromGeometryType: (enum SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 /**
+ * Get the well-known binary writable geometry code from the geometry
+ *
+ * @param geometry
+ *            geometry
+ * @return geometry code
+ */
++(int) wkbCodeFromGeometry: (SFGeometry *) geometry;
+
+/**
+ * Get the well-known binary writable geometry type from the geometry
+ *
+ * @param geometry
+ *            geometry
+ * @return geometry type
+ */
++(enum SFGeometryType) wkbGeometryTypeFromGeometry: (SFGeometry *) geometry;
+
+/**
  * Get the Geometry Type from the code
  *
  * @param code

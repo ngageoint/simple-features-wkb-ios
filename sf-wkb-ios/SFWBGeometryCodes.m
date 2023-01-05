@@ -7,6 +7,9 @@
 //
 
 #import "SFWBGeometryCodes.h"
+#import "SFLineString.h"
+#import "SFCircularString.h"
+#import "SFMultiLineString.h"
 
 @implementation SFWBGeometryCodes
 
@@ -89,6 +92,29 @@
     }
     
     return code;
+}
+
++(int) wkbCodeFromGeometry: (SFGeometry *) geometry{
+    return [self codeFromGeometryType:[self wkbGeometryTypeFromGeometry:geometry] andHasZ:geometry.hasZ andHasM:geometry.hasM];
+}
+
++(enum SFGeometryType) wkbGeometryTypeFromGeometry: (SFGeometry *) geometry{
+    enum SFGeometryType type = geometry.geometryType;
+    if(![geometry isEmpty]){
+        switch (type){
+            case SF_MULTILINESTRING:
+                {
+                    SFLineString *lineString = [((SFMultiLineString *) geometry) lineStringAtIndex:0];
+                    if([lineString isKindOfClass:[SFCircularString class]]){
+                        type = SF_MULTICURVE;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    return type;
 }
 
 +(enum SFGeometryType) geometryTypeFromCode: (int) code{
