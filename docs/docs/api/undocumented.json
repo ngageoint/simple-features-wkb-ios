@@ -310,7 +310,7 @@
     },
     {
       "file": "/Users/osbornb/git/simple-features-wkb-ios/Pods/sf-ios/sf-ios/util/SFGeometryConstants.h",
-      "line": 81,
+      "line": 86,
       "symbol": "SFGeometryConstants",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
