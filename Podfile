@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '12.0'
+platform :ios, '15.0'
 
 target 'sf-wkb-ios' do
 #  pod 'sf-ios', '5.0.0'
