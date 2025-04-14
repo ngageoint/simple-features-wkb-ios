@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "SFGeometryTypes.h"
+#include <SimpleFeatures/SimpleFeatures.h>
 
 /**
  * Geometry type info
@@ -25,7 +25,7 @@
  * @param hasM
  *            has m
  */
--(instancetype) initWithCode: (int) geometryTypeCode andType: (enum SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
+-(instancetype) initWithCode: (int) geometryTypeCode andType: (SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 /**
  * Get the geometry type code
@@ -39,7 +39,7 @@
  *
  * @return geometry type
  */
--(enum SFGeometryType) geometryType;
+-(SFGeometryType) geometryType;
 
 /**
  * Has z values

@@ -6,13 +6,12 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+@import XCTest;
+@import SimpleFeatures;
+@import SimpleFeaturesWKB;
+
 #import "SFWBTestUtils.h"
 #import "SFWBGeometryTestUtils.h"
-#import "SFWBGeometryCodes.h"
-#import "SFExtendedGeometryCollection.h"
-#import "SFPointFiniteFilter.h"
-#import "SFWBGeometryReader.h"
 
 @interface SFWBTestCase : XCTestCase
 
@@ -115,7 +114,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     SFGeometry *geometry = [SFWBGeometryTestUtils readGeometryWithData:data];
     [SFWBTestUtils assertTrue:[geometry isKindOfClass:[SFGeometryCollection class]]];
-    [SFWBTestUtils assertEqualIntWithValue:geometry.geometryType andValue2:SF_GEOMETRYCOLLECTION];
+    XCTAssertEqual(geometry.geometryType, SF_GEOMETRYCOLLECTION);
     SFGeometryCollection *multiCurve = (SFGeometryCollection *) geometry;
     [SFWBTestUtils assertEqualIntWithValue:2 andValue2:[multiCurve numGeometries]];
     SFGeometry *geometry1 = [multiCurve geometryAtIndex:0];
@@ -134,8 +133,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     [SFWBTestUtils assertEqualDoubleWithValue:44.2390383216843 andValue2:[point2.y doubleValue] andDelta:0.0000000000001];
     
     SFExtendedGeometryCollection *extendedMultiCurve = [SFExtendedGeometryCollection extendedGeometryCollectionWithGeometryCollection:multiCurve];
-    [SFWBTestUtils assertEqualIntWithValue:SF_MULTICURVE andValue2:extendedMultiCurve.geometryType];
-    
+    XCTAssertEqual(SF_MULTICURVE, extendedMultiCurve.geometryType);
     [self geometryTester:extendedMultiCurve withCompare:multiCurve andDoubleCompare:YES andDelta:0.0000000000001];
     
     NSData *data2 = [SFWBGeometryTestUtils writeDataWithGeometry:extendedMultiCurve];
@@ -164,7 +162,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     SFGeometry *geometry = [SFWBGeometryTestUtils readGeometryWithData:data];
     [SFWBTestUtils assertTrue:[geometry isKindOfClass:[SFGeometryCollection class]]];
-    [SFWBTestUtils assertEqualIntWithValue:geometry.geometryType andValue2:SF_GEOMETRYCOLLECTION];
+    XCTAssertEqual(geometry.geometryType, SF_GEOMETRYCOLLECTION);
     SFGeometryCollection *multiCurve = (SFGeometryCollection *) geometry;
     [SFWBTestUtils assertEqualIntWithValue:1 andValue2:[multiCurve numGeometries]];
     SFGeometry *geometry1 = [multiCurve geometryAtIndex:0];
@@ -184,7 +182,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     [SFWBTestUtils assertEqualWithValue:[SFPoint pointWithXValue:3451418.006 andYValue:5481808.951] andValue2:[lineString2 pointAtIndex:1]];
     
     SFExtendedGeometryCollection *extendedMultiCurve = [SFExtendedGeometryCollection extendedGeometryCollectionWithGeometryCollection:multiCurve];
-    [SFWBTestUtils assertEqualIntWithValue:SF_MULTICURVE andValue2:extendedMultiCurve.geometryType];
+    XCTAssertEqual(SF_MULTICURVE, extendedMultiCurve.geometryType);
     
     [self geometryTester:extendedMultiCurve withCompare:multiCurve];
     
@@ -203,8 +201,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     NSData *data = [SFWBGeometryTestUtils writeDataWithGeometry:multiCurve];
     
     SFExtendedGeometryCollection *extendedMultiCurve = [SFExtendedGeometryCollection extendedGeometryCollectionWithGeometryCollection:multiCurve];
-    [SFWBTestUtils assertEqualIntWithValue:SF_MULTICURVE andValue2:extendedMultiCurve.geometryType];
-    
+    XCTAssertEqual(SF_MULTICURVE, extendedMultiCurve.geometryType);
     NSData *extendedData = [SFWBGeometryTestUtils writeDataWithGeometry:extendedMultiCurve];
     
     SFByteReader *byteReader = [[SFByteReader alloc] initWithData:[data subdataWithRange:NSMakeRange(1, 4)]];
@@ -220,9 +217,8 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     [SFWBTestUtils assertTrue:[geometry1 isKindOfClass:[SFGeometryCollection class]]];
     [SFWBTestUtils assertTrue:[geometry2 isKindOfClass:[SFGeometryCollection class]]];
-    [SFWBTestUtils assertEqualIntWithValue:SF_GEOMETRYCOLLECTION andValue2:geometry1.geometryType];
-    [SFWBTestUtils assertEqualIntWithValue:SF_GEOMETRYCOLLECTION andValue2:geometry2.geometryType];
-    
+    XCTAssertEqual(SF_GEOMETRYCOLLECTION, geometry1.geometryType);
+    XCTAssertEqual(SF_GEOMETRYCOLLECTION, geometry2.geometryType);
     [SFWBTestUtils assertEqualWithValue:multiCurve andValue2:geometry1];
     [SFWBTestUtils assertEqualWithValue:geometry1 andValue2:geometry2];
     
@@ -244,7 +240,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     NSData *data = [SFWBGeometryTestUtils writeDataWithGeometry:multiSurface];
     
     SFExtendedGeometryCollection *extendedMultiSurface = [SFExtendedGeometryCollection extendedGeometryCollectionWithGeometryCollection:multiSurface];
-    [SFWBTestUtils assertEqualIntWithValue:SF_MULTISURFACE andValue2:extendedMultiSurface.geometryType];
+    XCTAssertEqual(SF_MULTISURFACE, extendedMultiSurface.geometryType);
     
     NSData *extendedData = [SFWBGeometryTestUtils writeDataWithGeometry:extendedMultiSurface];
     
@@ -261,9 +257,8 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     [SFWBTestUtils assertTrue:[geometry1 isKindOfClass:[SFGeometryCollection class]]];
     [SFWBTestUtils assertTrue:[geometry2 isKindOfClass:[SFGeometryCollection class]]];
-    [SFWBTestUtils assertEqualIntWithValue:SF_GEOMETRYCOLLECTION andValue2:geometry1.geometryType];
-    [SFWBTestUtils assertEqualIntWithValue:SF_GEOMETRYCOLLECTION andValue2:geometry2.geometryType];
-    
+    XCTAssertEqual(SF_GEOMETRYCOLLECTION, geometry1.geometryType);
+    XCTAssertEqual(SF_GEOMETRYCOLLECTION, geometry2.geometryType);
     [SFWBTestUtils assertEqualWithValue:multiSurface andValue2:geometry1];
     [SFWBTestUtils assertEqualWithValue:geometry1 andValue2:geometry2];
     
@@ -308,7 +303,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
     
     SFGeometry *geometry = [SFWBGeometryTestUtils readGeometryWithData:data];
     [SFWBTestUtils assertTrue:[geometry isKindOfClass:[SFMultiPolygon class]]];
-    [SFWBTestUtils assertEqualIntWithValue:SF_MULTIPOLYGON andValue2:geometry.geometryType];
+    XCTAssertEqual(SF_MULTIPOLYGON, geometry.geometryType);
     SFMultiPolygon *multiPolygon = (SFMultiPolygon *) geometry;
     [SFWBTestUtils assertTrue:multiPolygon.hasZ];
     [SFWBTestUtils assertFalse:multiPolygon.hasM];
@@ -548,7 +543,7 @@ static NSUInteger GEOMETRIES_PER_TEST = 10;
                 [points addObjectsFromArray:[((SFPolygon *) geometry) ringAtIndex:0].points];
                 break;
             default:
-                [SFWBTestUtils fail:[NSString stringWithFormat:@"Unexpected test case: %u", geometry.geometryType]];
+                [SFWBTestUtils fail:[NSString stringWithFormat:@"Unexpected test case: %ld", geometry.geometryType]];
         }
         
         for(SFPoint *point in points){

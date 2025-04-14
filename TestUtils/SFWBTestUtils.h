@@ -6,7 +6,7 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface SFWBTestUtils : NSObject
 

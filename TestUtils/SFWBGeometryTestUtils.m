@@ -6,12 +6,12 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
+@import XCTest;
+@import SimpleFeatures;
+@import SimpleFeaturesWKB;
+
 #import "SFWBGeometryTestUtils.h"
 #import "SFWBTestUtils.h"
-#import "SFByteWriter.h"
-#import "SFWBGeometryWriter.h"
-#import "SFWBGeometryReader.h"
-#import "SFWBGeometryCodes.h"
 
 @implementation SFWBGeometryTestUtils
 
@@ -64,7 +64,7 @@
     }else{
         [SFWBTestUtils assertNotNil:actual];
         
-        enum SFGeometryType geometryType = expected.geometryType;
+        SFGeometryType geometryType = expected.geometryType;
         switch(geometryType){
             case SF_GEOMETRY:
                 [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
@@ -120,7 +120,7 @@
                 [self compareTriangleWithExpected:(SFTriangle *)expected andActual:(SFTriangle *)actual andDelta:delta];
                 break;
             default:
-                [NSException raise:@"Geometry Type Not Supported" format:@"Geometry Type not supported: %d", geometryType];
+                [NSException raise:@"Geometry Type Not Supported" format:@"Geometry Type not supported: %ld", geometryType];
         }
     }
     
@@ -128,7 +128,8 @@
 }
 
 +(void) compareBaseGeometryAttributesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual{
-    [SFWBTestUtils assertEqualIntWithValue:expected.geometryType andValue2:actual.geometryType];
+    XCTAssertEqual(expected.geometryType, actual.geometryType);
+
     [SFWBTestUtils assertEqualBoolWithValue:expected.hasZ andValue2:actual.hasZ];
     [SFWBTestUtils assertEqualBoolWithValue:expected.hasM andValue2:actual.hasM];
     [SFWBTestUtils assertEqualIntWithValue:[SFWBGeometryCodes codeFromGeometry:expected] andValue2:[SFWBGeometryCodes codeFromGeometry:actual]];

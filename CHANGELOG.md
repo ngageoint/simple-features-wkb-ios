@@ -4,9 +4,11 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 4.1.5 (TBD)
+## 5.0.0 (6-4-2025) 
 
-* TBD
+* Adds Swift Package support and removes Cocoapods support (since it's deprecated). 
+* Integrates sf-ios 5.0.0 (SimpleFeatures) breaking code chanegs for NS_ENUM.  
+* Updates existing enums to NS_ENUM for Swift for Objective-C interoperability. 
 
 ## [4.1.4](https://github.com/ngageoint/simple-features-wkb-ios/releases/tag/4.1.4) (04-08-2024)
 

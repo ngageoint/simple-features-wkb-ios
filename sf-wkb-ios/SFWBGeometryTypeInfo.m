@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "SFWBGeometryTypeInfo.h"
+#import <SimpleFeaturesWKB/SFWBGeometryTypeInfo.h>
 
 @interface SFWBGeometryTypeInfo()
 
@@ -18,7 +18,7 @@
 /**
  * Geometry type
  */
-@property (nonatomic) enum SFGeometryType geometryType;
+@property (nonatomic) SFGeometryType geometryType;
 
 /**
  * Has Z values flag
@@ -34,7 +34,7 @@
 
 @implementation SFWBGeometryTypeInfo
 
--(instancetype) initWithCode: (int) geometryTypeCode andType: (enum SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
+-(instancetype) initWithCode: (int) geometryTypeCode andType: (SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     self = [super init];
     if(self != nil){
         self.geometryTypeCode = geometryTypeCode;
@@ -49,7 +49,7 @@
     return _geometryTypeCode;
 }
 
--(enum SFGeometryType) geometryType{
+-(SFGeometryType) geometryType{
     return _geometryType;
 }
 

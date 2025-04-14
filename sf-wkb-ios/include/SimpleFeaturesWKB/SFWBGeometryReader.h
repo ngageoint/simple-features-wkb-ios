@@ -6,16 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFByteReader.h"
-#import "SFMultiPoint.h"
-#import "SFMultiLineString.h"
-#import "SFMultiPolygon.h"
-#import "SFCircularString.h"
-#import "SFCompoundCurve.h"
-#import "SFTIN.h"
-#import "SFTriangle.h"
-#import "SFWBGeometryTypeInfo.h"
-#import "SFGeometryFilter.h"
+#import <Foundation/Foundation.h>
+#import <SimpleFeatures/SimpleFeatures.h>
+#import <SimpleFeaturesWKB/SFWBGeometryTypeInfo.h>
 
 /**
  *  Well Known Binary Geometry Reader
@@ -127,7 +120,7 @@
  *
  *  @return geometry
  */
--(SFGeometry *) readWithFilter: (NSObject<SFGeometryFilter> *) filter inType: (enum SFGeometryType) containingType andExpectedType: (Class) expectedType;
+-(SFGeometry *) readWithFilter: (NSObject<SFGeometryFilter> *) filter inType: (SFGeometryType) containingType andExpectedType: (Class) expectedType;
 
 /**
  * Read the geometry type info
@@ -448,7 +441,7 @@
  *
  *  @return geometry
  */
-+(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter inType: (enum SFGeometryType) containingType andExpectedType: (Class) expectedType;
++(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter inType: (SFGeometryType) containingType andExpectedType: (Class) expectedType;
 
 /**
  * Read the geometry type info

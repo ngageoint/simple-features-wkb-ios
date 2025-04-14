@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFWBGeometryWriter.h"
-#import "SFWBGeometryCodes.h"
+#import <SimpleFeaturesWKB/SFWBGeometryWriter.h>
+#import <SimpleFeaturesWKB/SFWBGeometryCodes.h>
 
 @interface SFWBGeometryWriter()
 
@@ -81,7 +81,7 @@
     // Write the geometry type integer
     [self writeInt:[SFWBGeometryCodes wkbCodeFromGeometry:geometry]];
     
-    enum SFGeometryType geometryType = geometry.geometryType;
+    SFGeometryType geometryType = geometry.geometryType;
     
     switch (geometryType) {
             
@@ -127,7 +127,7 @@
             [self writeTriangle:(SFTriangle *)geometry];
             break;
         default:
-            [NSException raise:@"Geometry Not Supported" format:@"Geometry Type not supported: %d", geometryType];
+            [NSException raise:@"Geometry Not Supported" format:@"Geometry Type not supported: %ld", geometryType];
     }
     
 }
