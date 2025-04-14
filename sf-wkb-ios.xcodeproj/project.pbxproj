@@ -10,23 +10,21 @@
 		041F18DB24C9CDC6001311E4 /* SFWBReadmeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F18DA24C9CDC6001311E4 /* SFWBReadmeTest.m */; };
 		041F18DE24C9E333001311E4 /* SFWBSwiftReadmeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F18DD24C9E333001311E4 /* SFWBSwiftReadmeTest.swift */; };
 		042FC6571B963FE500549A4B /* sf_wkb_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FC64B1B963FE500549A4B /* sf_wkb_ios.framework */; };
-		042FC6CB1B96421E00549A4B /* SFWBGeometryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6951B96421E00549A4B /* SFWBGeometryReader.h */; };
+		042FC6CB1B96421E00549A4B /* SFWBGeometryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6951B96421E00549A4B /* SFWBGeometryReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		042FC6CC1B96421E00549A4B /* SFWBGeometryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6961B96421E00549A4B /* SFWBGeometryReader.m */; };
-		042FC6CD1B96421E00549A4B /* SFWBGeometryWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6971B96421E00549A4B /* SFWBGeometryWriter.h */; };
+		042FC6CD1B96421E00549A4B /* SFWBGeometryWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6971B96421E00549A4B /* SFWBGeometryWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		042FC6CE1B96421E00549A4B /* SFWBGeometryWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 042FC6981B96421E00549A4B /* SFWBGeometryWriter.m */; };
 		042FC6D31B96421E00549A4B /* sf-wkb-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* sf-wkb-ios-Prefix.pch */; };
-		042FC6D51B96453E00549A4B /* sf_wkb_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* sf_wkb_ios.h */; };
-		0472B51B1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h */; };
-		0493A59A2AE934DF000B75E6 /* sf_wkb_ios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493A5992AE934DF000B75E6 /* sf_wkb_ios.swift */; };
+		042FC6D51B96453E00549A4B /* sf_wkb_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* sf_wkb_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04AB919B1BF29ECD00894999 /* SFWBTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919A1BF29ECD00894999 /* SFWBTestCase.m */; };
 		04AB919E1BF29F9A00894999 /* SFWBTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB919D1BF29F9A00894999 /* SFWBTestUtils.m */; };
 		04AB91A11BF2A05200894999 /* SFWBGeometryTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB91A01BF2A05200894999 /* SFWBGeometryTestUtils.m */; };
-		04F45635209BBE6500FC299E /* SFWBGeometryCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45633209BBE6500FC299E /* SFWBGeometryCodes.h */; };
+		04F45635209BBE6500FC299E /* SFWBGeometryCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45633209BBE6500FC299E /* SFWBGeometryCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04F45636209BBE6500FC299E /* SFWBGeometryCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45634209BBE6500FC299E /* SFWBGeometryCodes.m */; };
-		04F45639209BBE9200FC299E /* SFWBGeometryTypeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45637209BBE9100FC299E /* SFWBGeometryTypeInfo.h */; };
+		04F45639209BBE9200FC299E /* SFWBGeometryTypeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F45637209BBE9100FC299E /* SFWBGeometryTypeInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04F4563A209BBE9200FC299E /* SFWBGeometryTypeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F45638209BBE9200FC299E /* SFWBGeometryTypeInfo.m */; };
-		B4B9C5C590F6D09B45DC2BDB /* libPods-sf-wkb-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A70C9172FC5893F17C0FB6 /* libPods-sf-wkb-ios.a */; };
-		B5D94958E350F092F31540ED /* libPods-sf-wkb-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-sf-wkb-iosTests.a */; };
+		1418C9E2CE4F17DBD13AE339 /* libPods-sf-wkb-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F738D68771162FB6855AD96F /* libPods-sf-wkb-ios.a */; };
+		E01C823ECF81F50E008ED586 /* libPods-sf-wkb-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 214A3B08A38054FDBA470AD6 /* libPods-sf-wkb-iosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +52,6 @@
 		042FC6981B96421E00549A4B /* SFWBGeometryWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWBGeometryWriter.m; sourceTree = "<group>"; };
 		042FC69E1B96421E00549A4B /* sf-wkb-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sf-wkb-ios-Prefix.pch"; sourceTree = "<group>"; };
 		042FC6D41B96453E00549A4B /* sf_wkb_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sf_wkb_ios.h; sourceTree = "<group>"; };
-		0472B51A1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sf-wkb-ios-Bridging-Header.h"; sourceTree = "<group>"; };
-		0493A5992AE934DF000B75E6 /* sf_wkb_ios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sf_wkb_ios.swift; sourceTree = "<group>"; };
 		04AB919A1BF29ECD00894999 /* SFWBTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWBTestCase.m; sourceTree = "<group>"; };
 		04AB919C1BF29F9A00894999 /* SFWBTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWBTestUtils.h; sourceTree = "<group>"; };
 		04AB919D1BF29F9A00894999 /* SFWBTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWBTestUtils.m; sourceTree = "<group>"; };
@@ -66,11 +62,11 @@
 		04F45637209BBE9100FC299E /* SFWBGeometryTypeInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFWBGeometryTypeInfo.h; sourceTree = "<group>"; };
 		04F45638209BBE9200FC299E /* SFWBGeometryTypeInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFWBGeometryTypeInfo.m; sourceTree = "<group>"; };
 		192D9E5452A64EB6A7955A5A /* Pods-sf-wkb-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-wkb-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-sf-wkb-ios/Pods-sf-wkb-ios.release.xcconfig"; sourceTree = "<group>"; };
+		214A3B08A38054FDBA470AD6 /* libPods-sf-wkb-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-wkb-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		457018C9103A514A78925D9E /* Pods-sf-wkb-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-wkb-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sf-wkb-ios/Pods-sf-wkb-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		499642A447440D35F38311C9 /* libPods-sf-wkb-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-wkb-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6179C77188B4A0E8D4DEDBEB /* Pods-sf-wkb-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-wkb-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sf-wkb-iosTests/Pods-sf-wkb-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B17E59AE80997CC09DD740D6 /* Pods-sf-wkb-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-wkb-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-sf-wkb-iosTests/Pods-sf-wkb-iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		F9A70C9172FC5893F17C0FB6 /* libPods-sf-wkb-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-wkb-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F738D68771162FB6855AD96F /* libPods-sf-wkb-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-wkb-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4B9C5C590F6D09B45DC2BDB /* libPods-sf-wkb-ios.a in Frameworks */,
+				1418C9E2CE4F17DBD13AE339 /* libPods-sf-wkb-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				042FC6571B963FE500549A4B /* sf_wkb_ios.framework in Frameworks */,
-				B5D94958E350F092F31540ED /* libPods-sf-wkb-iosTests.a in Frameworks */,
+				E01C823ECF81F50E008ED586 /* libPods-sf-wkb-iosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				042FC6D41B96453E00549A4B /* sf_wkb_ios.h */,
-				0493A5992AE934DF000B75E6 /* sf_wkb_ios.swift */,
 				04F45633209BBE6500FC299E /* SFWBGeometryCodes.h */,
 				04F45634209BBE6500FC299E /* SFWBGeometryCodes.m */,
 				042FC6951B96421E00549A4B /* SFWBGeometryReader.h */,
@@ -129,7 +124,6 @@
 				042FC6981B96421E00549A4B /* SFWBGeometryWriter.m */,
 				042FC69E1B96421E00549A4B /* sf-wkb-ios-Prefix.pch */,
 				042FC64E1B963FE500549A4B /* Supporting Files */,
-				0472B51A1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h */,
 			);
 			path = "sf-wkb-ios";
 			sourceTree = "<group>";
@@ -170,8 +164,8 @@
 		63206AE083C9F99B2058A9EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				499642A447440D35F38311C9 /* libPods-sf-wkb-iosTests.a */,
-				F9A70C9172FC5893F17C0FB6 /* libPods-sf-wkb-ios.a */,
+				F738D68771162FB6855AD96F /* libPods-sf-wkb-ios.a */,
+				214A3B08A38054FDBA470AD6 /* libPods-sf-wkb-iosTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,13 +188,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0472B51B1C03590500496B87 /* sf-wkb-ios-Bridging-Header.h in Headers */,
 				042FC6CB1B96421E00549A4B /* SFWBGeometryReader.h in Headers */,
 				04F45639209BBE9200FC299E /* SFWBGeometryTypeInfo.h in Headers */,
 				042FC6D51B96453E00549A4B /* sf_wkb_ios.h in Headers */,
-				042FC6D31B96421E00549A4B /* sf-wkb-ios-Prefix.pch in Headers */,
 				04F45635209BBE6500FC299E /* SFWBGeometryCodes.h in Headers */,
 				042FC6CD1B96421E00549A4B /* SFWBGeometryWriter.h in Headers */,
+				042FC6D31B96421E00549A4B /* sf-wkb-ios-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +245,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1620;
 				ORGANIZATIONNAME = NGA;
 				TargetAttributes = {
 					042FC64A1B963FE500549A4B = {
@@ -345,7 +338,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0493A59A2AE934DF000B75E6 /* sf_wkb_ios.swift in Sources */,
 				042FC6CE1B96421E00549A4B /* SFWBGeometryWriter.m in Sources */,
 				042FC6CC1B96421E00549A4B /* SFWBGeometryReader.m in Sources */,
 				04F4563A209BBE9200FC299E /* SFWBGeometryTypeInfo.m in Sources */,
@@ -551,7 +543,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6179C77188B4A0E8D4DEDBEB /* Pods-sf-wkb-iosTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -578,7 +569,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B17E59AE80997CC09DD740D6 /* Pods-sf-wkb-iosTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

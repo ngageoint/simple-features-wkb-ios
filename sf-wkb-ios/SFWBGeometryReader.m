@@ -74,14 +74,14 @@ static NSString *WKB25D = @"0x80000000";
     return [self readWithFilter:filter inType:SF_NONE andExpectedType:expectedType];
 }
 
--(SFGeometry *) readWithFilter: (NSObject<SFGeometryFilter> *) filter inType: (enum SFGeometryType) containingType andExpectedType: (Class) expectedType{
+-(SFGeometry *) readWithFilter: (NSObject<SFGeometryFilter> *) filter inType: (SFGeometryType) containingType andExpectedType: (Class) expectedType{
     
     CFByteOrder originalByteOrder = [_reader byteOrder];
     
     // Read the byte order and geometry type
     SFWBGeometryTypeInfo *geometryTypeInfo = [self readGeometryType];
     
-    enum SFGeometryType geometryType = [geometryTypeInfo geometryType];
+    SFGeometryType geometryType = [geometryTypeInfo geometryType];
     BOOL hasZ = [geometryTypeInfo hasZ];
     BOOL hasM = [geometryTypeInfo hasM];
     
@@ -137,7 +137,7 @@ static NSString *WKB25D = @"0x80000000";
             geometry = [self readTriangleWithFilter:filter andHasZ:hasZ andHasM:hasM];
             break;
         default:
-            [NSException raise:@"Geometry Not Supported" format:@"Geometry Type not supported: %d", geometryType];
+            [NSException raise:@"Geometry Not Supported" format:@"Geometry Type not supported: %ld", geometryType];
     }
     
     if(![SFWBGeometryReader filter:filter geometry:geometry inType:containingType]){
@@ -184,7 +184,7 @@ static NSString *WKB25D = @"0x80000000";
     }
     
     // Determine the geometry type
-    enum SFGeometryType geometryType = [SFWBGeometryCodes geometryTypeFromCode:geometryTypeCode];
+    SFGeometryType geometryType = [SFWBGeometryCodes geometryTypeFromCode:geometryTypeCode];
     
     // Determine if the geometry has a z (3d) or m (linear referencing
     // system) value
@@ -474,7 +474,7 @@ static NSString *WKB25D = @"0x80000000";
     return [self readGeometryWithReader:reader andFilter:filter inType:SF_NONE andExpectedType:expectedType];
 }
 
-+(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter inType: (enum SFGeometryType) containingType andExpectedType: (Class) expectedType{
++(SFGeometry *) readGeometryWithReader: (SFByteReader *) reader andFilter: (NSObject<SFGeometryFilter> *) filter inType: (SFGeometryType) containingType andExpectedType: (Class) expectedType{
     SFWBGeometryReader *geometryReader = [[SFWBGeometryReader alloc] initWithReader:reader];
     return [geometryReader readWithFilter:filter inType:containingType andExpectedType:expectedType];
 }
@@ -620,7 +620,7 @@ static NSString *WKB25D = @"0x80000000";
  *            geometry or null
  * @return true if passes filter
  */
-+(BOOL) filter: (NSObject<SFGeometryFilter> *) filter geometry: (SFGeometry *) geometry inType: (enum SFGeometryType) containingType{
++(BOOL) filter: (NSObject<SFGeometryFilter> *) filter geometry: (SFGeometry *) geometry inType: (SFGeometryType) containingType{
     return filter == nil || geometry == nil || [filter filterGeometry:geometry inType:containingType];
 }
 

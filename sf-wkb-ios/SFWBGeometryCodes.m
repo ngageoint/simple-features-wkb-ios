@@ -7,9 +7,6 @@
 //
 
 #import "SFWBGeometryCodes.h"
-#import "SFLineString.h"
-#import "SFCircularString.h"
-#import "SFMultiLineString.h"
 
 @implementation SFWBGeometryCodes
 
@@ -17,7 +14,7 @@
     return [self codeFromGeometryType:geometry.geometryType andHasZ:geometry.hasZ andHasM:geometry.hasM];
 }
 
-+(int) codeFromGeometryType: (enum SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
++(int) codeFromGeometryType: (SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM{
     int code = [self codeFromGeometryType:geometryType];
     if (hasZ) {
         code += 1000;
@@ -28,7 +25,7 @@
     return code;
 }
 
-+(int) codeFromGeometryType: (enum SFGeometryType) geometryType{
++(int) codeFromGeometryType: (SFGeometryType) geometryType{
     
     int code;
     
@@ -88,7 +85,7 @@
             code = 17;
             break;
         default:
-            [NSException raise:@"Unsupported Geometry Type" format:@"Unsupported Geometry Type for code retrieval: %u", geometryType];
+            [NSException raise:@"Unsupported Geometry Type" format:@"Unsupported Geometry Type for code retrieval: %ld", geometryType];
     }
     
     return code;
@@ -98,8 +95,8 @@
     return [self codeFromGeometryType:[self wkbGeometryTypeFromGeometry:geometry] andHasZ:geometry.hasZ andHasM:geometry.hasM];
 }
 
-+(enum SFGeometryType) wkbGeometryTypeFromGeometry: (SFGeometry *) geometry{
-    enum SFGeometryType type = geometry.geometryType;
++(SFGeometryType) wkbGeometryTypeFromGeometry: (SFGeometry *) geometry{
+    SFGeometryType type = geometry.geometryType;
     if(![geometry isEmpty]){
         switch (type){
             case SF_MULTILINESTRING:
@@ -117,12 +114,12 @@
     return type;
 }
 
-+(enum SFGeometryType) geometryTypeFromCode: (int) code{
++(SFGeometryType) geometryTypeFromCode: (int) code{
     
     // Look at the last 2 digits to find the geometry type code
     int geometryTypeCode = code % 1000;
     
-    enum SFGeometryType geometryType;
+    SFGeometryType geometryType;
     
     switch (geometryTypeCode) {
         case 0:

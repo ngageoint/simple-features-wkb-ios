@@ -5,11 +5,12 @@
 //  Created by Brian Osborn on 7/23/20.
 //  Copyright © 2020 NGA. All rights reserved.
 //
+@import Foundation;
+@import sf_ios;
+@import sf_wkb_ios;
 
 #import "SFWBReadmeTest.h"
 #import "SFWBTestUtils.h"
-#import "SFWBGeometryReader.h"
-#import "SFWBGeometryWriter.h"
 #import "SFWBGeometryTestUtils.h"
 
 @implementation SFWBReadmeTest
@@ -47,7 +48,7 @@ static NSData *TEST_DATA;
     // NSData *data = ...
     
     SFGeometry *geometry = [SFWBGeometryReader readGeometryWithData:data];
-    enum SFGeometryType geometryType = geometry.geometryType;
+//    SFGeometryType geometryType = geometry.geometryType;
     
     return geometry;
 }

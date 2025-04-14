@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import sf_wkb_ios
 
 /**
 * README example tests
@@ -40,7 +41,7 @@ class SFWBSwiftReadmeTest: XCTestCase{
         // var data: Data = ...
         
         let geometry: SFGeometry = SFWBGeometryReader.readGeometry(with: data)
-        let geometryType: SFGeometryType = geometry.geometryType
+//        let geometryType: SFGeometryType = geometry.geometryType
         
         return geometry
     }

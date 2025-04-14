@@ -6,14 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "SFByteWriter.h"
-#import "SFMultiPoint.h"
-#import "SFMultiLineString.h"
-#import "SFMultiPolygon.h"
-#import "SFCircularString.h"
-#import "SFCompoundCurve.h"
-#import "SFTIN.h"
-#import "SFTriangle.h"
+@import sf_ios;
 
 /**
  *  Well Known Binary Geometry Writer

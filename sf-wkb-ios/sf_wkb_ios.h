@@ -9,5 +9,9 @@
 #ifndef sf_wkb_ios_sf_wkb_ios_h
 #define sf_wkb_ios_sf_wkb_ios_h
 
+#import "SFWBGeometryCodes.h"
+#import "SFWBGeometryReader.h"
+#import "SFWBGeometryTypeInfo.h"
+#import "SFWBGeometryWriter.h"
 
 #endif
