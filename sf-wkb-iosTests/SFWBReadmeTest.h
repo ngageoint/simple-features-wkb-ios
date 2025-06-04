@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 /**
  * README example tests

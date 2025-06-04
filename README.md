@@ -24,7 +24,7 @@ View the latest [Appledoc](http://ngageoint.github.io/simple-features-wkb-ios/do
 // NSData *data = ...
 
 SFGeometry *geometry = [SFWBGeometryReader readGeometryWithData:data];
-enum SFGeometryType geometryType = geometry.geometryType;
+SFGeometryType geometryType = geometry.geometryType;
 
 ```
 
@@ -40,44 +40,49 @@ NSData *data = [SFWBGeometryWriter writeGeometry:geometry];
 
 ### Build ###
 
-[![Build & Test](https://github.com/ngageoint/simple-features-wkb-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/simple-features-wkb-ios/actions/workflows/build-test.yml)
+[![Build](https://github.com/ngageoint/simple-features-wkb-ios/actions/workflows/build.yml/badge.svg)](https://github.com/ngageoint/simple-features-wkb-ios/actions/workflows/build.yml)
 
-Build this repository using Xcode and/or CocoaPods:
+Build this repository using SPM:
 
-    pod repo update
-    pod install
+    swift build
 
-Open sf-wkb-ios.xcworkspace in Xcode or build from command line:
+Open the Swift Package in Xcode:
 
-    xcodebuild -workspace 'sf-wkb-ios.xcworkspace' -scheme sf-wkb-ios build
+    open Package.swift
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'sf-wkb-ios.xcworkspace' -scheme sf-wkb-ios -destination 'platform=iOS Simulator,name=iPhone 15'
+    swift test
 
 ### Include Library ###
 
-Include this repository by specifying it in a Podfile using a supported option.
+Add a package dependency version:
 
-Pull from [CocoaPods](https://cocoapods.org/pods/sf-wkb-ios):
+    .package(url: "https://github.com/ngageoint/simple-features-wkb-ios", from: "5.0.0"),
 
-    pod 'sf-wkb-ios', '~> 4.1.4'
+    # Or specific branch:
 
-Pull from GitHub:
+    .package(url: "https://github.com/ngageoint/simple-features-wkb-ios", branch: "release/5.0.0"),
+    
+    # Or as a local dependency:        
 
-    pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :branch => 'master'
-    pod 'sf-wkb-ios', :git => 'https://github.com/ngageoint/simple-features-wkb-ios.git', :tag => '4.1.4'
+    .package(name: "simple-features-wkb-ios", path: "../simple-features-wkb-ios"),
 
-Include as local project:
+Use it in a target:
 
-    pod 'sf-wkb-ios', :path => '../simple-features-wkb-ios'
+        .target(
+            name: "MyLibrary",
+            dependencies: [
+                .product(name: "SimpleFeaturesWKB", package: "simple-features-wkb-ios")
+            ]
+        )
 
 ### Swift ###
 
-To use from Swift, import the sf-wkb-ios bridging header from the Swift project's bridging header
+To use from Swift, import the framework:
 
-    #import "sf-wkb-ios-Bridging-Header.h"
-
+    import SimpleFeaturesWKB
+    
 #### Read ####
 
 ```swift

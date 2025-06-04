@@ -6,7 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "SFGeometry.h"
+#import <Foundation/Foundation.h>
+#import <SimpleFeatures/SimpleFeatures.h>
 
 /**
  * Geometry Code utilities to convert between geometry attributes and geometry
@@ -30,7 +31,7 @@
  *            geometry type
  * @return geometry code
  */
-+(int) codeFromGeometryType: (enum SFGeometryType) geometryType;
++(int) codeFromGeometryType: (SFGeometryType) geometryType;
 
 /**
  * Get the geometry code from the geometry type
@@ -43,7 +44,7 @@
  *            mas m
  * @return geometry code
  */
-+(int) codeFromGeometryType: (enum SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
++(int) codeFromGeometryType: (SFGeometryType) geometryType andHasZ: (BOOL) hasZ andHasM: (BOOL) hasM;
 
 /**
  * Get the well-known binary writable geometry code from the geometry
@@ -61,7 +62,7 @@
  *            geometry
  * @return geometry type
  */
-+(enum SFGeometryType) wkbGeometryTypeFromGeometry: (SFGeometry *) geometry;
++(SFGeometryType) wkbGeometryTypeFromGeometry: (SFGeometry *) geometry;
 
 /**
  * Get the Geometry Type from the code
@@ -70,7 +71,7 @@
  *            geometry type code
  * @return geometry type
  */
-+(enum SFGeometryType) geometryTypeFromCode: (int) code;
++(SFGeometryType) geometryTypeFromCode: (int) code;
 
 /**
  * Determine if the geometry code has a Z (3D) value
